@@ -1,0 +1,6 @@
+# Not published yet: search engines stay out until publication is approved.
+# At publication, replace with:
+#   User-agent: *
+#   Allow: /
+User-agent: *
+Disallow: /

@@ -45,6 +45,18 @@ for (const file of files(dir).filter((f) => f.endsWith(".html"))) {
   }
 }
 
+// Vocabulary (warning only; AD-010 principle 4): page text describes capabilities, not AI vendors or model families.
+const VOCAB = /\b(claude|anthropic|openai|chatgpt|gpt-?\d[\w.]*|gemini|copilot|azure\s+openai|llama|mistral|sonnet|opus|bedrock)\b/gi;
+let vocabWarnings = 0;
+for (const file of files(dir).filter((f) => f.endsWith(".html"))) {
+  const words = text(readFileSync(file, "utf8").replace(/<script\b[\s\S]*?<\/script>/gi, ""));
+  for (const m of words.matchAll(VOCAB)) {
+    vocabWarnings++;
+    console.warn(`warning: ${relative(dir, file)}: vendor or model name '${m[0]}' (AD-010 principle 4)`);
+  }
+}
+console.log(`Vocabulary check: ${vocabWarnings} warning(s) (warning only)`);
+
 if (report.length) {
   console.error(`Site check failed:\n  ${report.join("\n  ")}`);
   process.exit(1);

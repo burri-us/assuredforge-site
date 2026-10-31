@@ -33,3 +33,5 @@ The `pages` workflow runs only when started by hand (Actions → pages → Run w
 
 The site sets no cookies and loads nothing from other origins: no analytics, no third-party fonts or scripts, no forms.
 Changing that requires updating the privacy notice first.
+
+Content follows AD-010 (AssuredForge architecture directives): capability-first wording, no vendor or model names, and Persons decide while systems assist.

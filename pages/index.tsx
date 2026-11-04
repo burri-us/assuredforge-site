@@ -29,7 +29,7 @@ export default function Home() {
         </div>
         <div>
           <h2 className="text-xl font-semibold">Trace</h2>
-          <p className="mt-2 text-ink-muted">One connected record from requirement to deployment and back, including the work items and pull requests in your own tools.</p>
+          <p className="mt-2 text-ink-muted">One connected record from requirement to deployment and back. Optional connectors can link the work items and pull requests in your own tools.</p>
         </div>
         <div>
           <h2 className="text-xl font-semibold">Prove</h2>
@@ -37,10 +37,15 @@ export default function Home() {
         </div>
       </div>
 
-      <Section title="AI that accelerates, people who decide">
+      <Section title="People decide">
         <p>
-          AI in AssuredForge recommends, generates and validates. It never approves, accepts risk or authorizes a release.
-          Bring your own AI provider. Prompts are not retained by default, and customer data is never used for training.
+          AssuredForge is the system of governance. It remains fully usable without third-party connectors and without an
+          assistant. Connectors and assistants extend the platform but are not required for operation.
+        </p>
+        <p>
+          AI assistance is planned as a configurable extension: it may recommend and prepare, and it never approves, accepts
+          risk or authorizes a release. Its design keeps providers interchangeable, does not retain prompts by default and
+          never uses customer data for training.
         </p>
       </Section>
 

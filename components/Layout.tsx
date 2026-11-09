@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import type { ReactNode } from "react";
+import { LogoMark } from "./Logo";
 
 const NAV = [
   { href: "/platform/", label: "Platform" },
@@ -15,14 +16,19 @@ const NAV = [
 const headerButton =
   "min-h-11 items-center rounded-md border-2 border-accent px-4 text-sm font-semibold text-accent no-underline hover:bg-surface-alt";
 
-// Text wordmark until the Direction A mark lands (second pull request).
+// Direction A mark with the text wordmark; the link's accessible name is "AssuredForge".
 function Wordmark({ className = "" }: { className?: string }) {
   return (
-    <Link href="/" className={`tracking-tight text-ink no-underline ${className}`}>
-      Assured<span className="font-bold">Forge</span>
+    <Link href="/" className={`inline-flex items-center gap-2 tracking-tight text-ink no-underline ${className}`}>
+      <LogoMark className="h-[1.4em] w-[1.4em] shrink-0" />
+      <span>
+        Assured<span className="font-bold">Forge</span>
+      </span>
     </Link>
   );
 }
+
+const SITE = "https://assuredforge.com";
 
 export function Layout({ title, description, children }: { title: string; description: string; children: ReactNode }) {
   const { pathname } = useRouter();
@@ -32,6 +38,15 @@ export function Layout({ title, description, children }: { title: string; descri
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="AssuredForge" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={`${SITE}/og.png`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="AssuredForge: Build anywhere. Deploy anywhere. Govern everywhere." />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:bg-surface focus:p-2">
         Skip to content

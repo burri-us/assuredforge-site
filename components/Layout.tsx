@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import type { ReactNode } from "react";
 
 const NAV = [
@@ -11,7 +12,20 @@ const NAV = [
   { href: "/about/", label: "About" },
 ];
 
+const headerButton =
+  "min-h-11 items-center rounded-md border-2 border-accent px-4 text-sm font-semibold text-accent no-underline hover:bg-surface-alt";
+
+// Text wordmark until the Direction A mark lands (second pull request).
+function Wordmark({ className = "" }: { className?: string }) {
+  return (
+    <Link href="/" className={`tracking-tight text-ink no-underline ${className}`}>
+      Assured<span className="font-bold">Forge</span>
+    </Link>
+  );
+}
+
 export function Layout({ title, description, children }: { title: string; description: string; children: ReactNode }) {
+  const { pathname } = useRouter();
   return (
     <>
       <Head>
@@ -23,33 +37,59 @@ export function Layout({ title, description, children }: { title: string; descri
         Skip to content
       </a>
       <header className="border-b border-rule">
-        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-4 py-4">
-          <Link href="/" className="text-xl font-semibold tracking-tight text-ink no-underline">
-            AssuredForge
-          </Link>
-          <nav aria-label="Main">
-            <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
-              {NAV.map((n) => (
-                <li key={n.href}>
-                  <Link href={n.href} className="text-ink-muted hover:text-ink">{n.label}</Link>
-                </li>
-              ))}
+        <div className="mx-auto max-w-5xl px-4 py-3 lg:flex lg:items-center lg:gap-8">
+          <div className="flex min-h-11 items-center justify-between gap-4 lg:shrink-0">
+            <Wordmark className="text-xl" />
+            <Link href="/design-partners/" className={`${headerButton} hidden sm:inline-flex lg:hidden`}>
+              Become a design partner
+            </Link>
+          </div>
+          <nav aria-label="Main" className="mt-1 lg:mt-0 lg:flex-1">
+            <ul className="grid grid-cols-2 gap-x-4 text-[15px] sm:grid-cols-3 lg:flex lg:flex-wrap lg:justify-end lg:gap-x-5">
+              {NAV.map((n) => {
+                const current = pathname === n.href.replace(/\/$/, "");
+                return (
+                  <li key={n.href}>
+                    <Link
+                      href={n.href}
+                      aria-current={current ? "page" : undefined}
+                      className={`flex min-h-11 items-center border-b-2 no-underline ${
+                        current ? "border-gold font-medium text-ink" : "border-transparent text-ink-muted hover:text-ink"
+                      }`}
+                    >
+                      {n.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
+          <Link href="/design-partners/" className={`${headerButton} hidden lg:inline-flex lg:shrink-0`}>
+            Become a design partner
+          </Link>
         </div>
       </header>
       <main id="main" className="mx-auto max-w-5xl px-4 py-12">
         {children}
       </main>
       <footer className="border-t border-rule bg-surface-alt">
-        <div className="mx-auto flex max-w-5xl flex-wrap justify-between gap-4 px-4 py-6 text-sm text-ink-muted">
-          <p>© 2026 Tierra LLC</p>
-          <ul className="flex flex-wrap gap-x-5 gap-y-2">
-            <li><Link href="/privacy/">Privacy</Link></li>
-            <li><Link href="/terms/">Terms</Link></li>
-            <li><Link href="/security/">Security</Link></li>
-            <li><a href="mailto:info@assuredforge.com">info@assuredforge.com</a></li>
-          </ul>
+        <div className="mx-auto grid max-w-5xl gap-6 px-4 py-8 text-sm text-ink-muted md:grid-cols-2">
+          <div>
+            <Wordmark className="text-base" />
+            <p className="mt-1">© 2026 Tierra LLC · Michigan, USA</p>
+          </div>
+          <div className="space-y-2 md:text-right">
+            <ul className="flex flex-wrap gap-x-5 gap-y-1 md:justify-end">
+              <li>Contact: <a href="mailto:info@assuredforge.com">info@assuredforge.com</a></li>
+              <li>Support: <a href="mailto:support@assuredforge.com">support@assuredforge.com</a></li>
+              <li>Security: <a href="mailto:security@assuredforge.com">security@assuredforge.com</a></li>
+            </ul>
+            <ul className="flex flex-wrap gap-x-5 gap-y-1 md:justify-end">
+              <li><Link href="/privacy/" className="no-underline hover:underline">Privacy</Link></li>
+              <li><Link href="/terms/" className="no-underline hover:underline">Terms</Link></li>
+              <li><Link href="/security/" className="no-underline hover:underline">Security</Link></li>
+            </ul>
+          </div>
         </div>
       </footer>
     </>

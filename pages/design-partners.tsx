@@ -19,7 +19,7 @@ export default function DesignPartners() {
       </Section>
       <Section title="How to start">
         <p>
-          Email <a href="mailto:sales@assuredforge.com">sales@assuredforge.com</a> with a short description of your team and
+          Email <a href="mailto:info@assuredforge.com">info@assuredforge.com</a> with a short description of your team and
           what you deliver. We reply personally. Onboarding begins once our design partner program is ready.
         </p>
       </Section>

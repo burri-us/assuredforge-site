@@ -10,9 +10,9 @@ export default function About() {
       <Section title="Contact">
         <ul className="space-y-1">
           <li>General: <a href="mailto:info@assuredforge.com">info@assuredforge.com</a></li>
-          <li>Sales: <a href="mailto:sales@assuredforge.com">sales@assuredforge.com</a></li>
           <li>Support: <a href="mailto:support@assuredforge.com">support@assuredforge.com</a></li>
           <li>Security: <a href="mailto:security@assuredforge.com">security@assuredforge.com</a></li>
+          <li>Billing: <a href="mailto:billing@assuredforge.com">billing@assuredforge.com</a></li>
         </ul>
       </Section>
     </Layout>

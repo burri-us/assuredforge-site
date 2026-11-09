@@ -20,7 +20,7 @@ export default function Platform() {
         <p>AI assistance is planned as a configurable extension, not a requirement. Its design meters and attributes every model call, does not retain prompts by default and never uses customer data for training.</p>
       </Section>
       <Section title="Sign-in">
-        <p>Local accounts with two-step verification that an organisation can require for all its members. Sign-in with Microsoft Entra ID for an installation's own directory.</p>
+        <p>Local accounts with two-step verification that an organization can require for all its members. Sign-in with Microsoft Entra ID for an installation's own directory.</p>
       </Section>
       <Section title="Works with your tools, optionally">
         <p>AssuredForge is the system of governance and is fully functional without any external work-item system. Optional connectors for Jira, Confluence, Bitbucket and Azure DevOps are available; GitHub and GitLab are planned, and PTC Windchill is planned for manufacturing.</p>

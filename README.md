@@ -26,8 +26,15 @@ accessibility markup, or links to a page that doesn't exist.
 
 ## Deployment
 
-The `pages` workflow runs only when started by hand (Actions → pages → Run workflow), with the target `preview` or
-`custom-domain`. Nothing deploys on push.
+The `pages` workflow runs only when started by hand (Actions → pages → Run workflow). Nothing deploys on push.
+
+- **Target `custom-domain`** (the default) builds for assuredforge.com. Use it for every deployment.
+- **Index** stays unticked until publication is approved; while it is unticked every page carries `noindex`.
+- **Do not use target `preview`.** It builds for `<owner>.github.io/assuredforge-site`, but because the custom domain is
+  set, GitHub serves that build on assuredforge.com, where its styles, scripts and links fail. Review changes with a
+  local build (`npm run build`, then serve `out/`) instead.
+
+`main` is protected: changes arrive by pull request and need the `build` check to pass.
 
 ## Policy
 

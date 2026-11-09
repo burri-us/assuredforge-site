@@ -2,10 +2,10 @@ import { Layout, Section, Title } from "../components/Layout";
 
 export default function About() {
   return (
-    <Layout title="About | AssuredForge" description="AssuredForge is developed by Tierra LLC.">
+    <Layout title="About | AssuredForge" description="AssuredForge is developed by Tierra LLC, based in Michigan, USA.">
       <Title>About</Title>
       <Section title="Who we are">
-        <p>AssuredForge is developed by Tierra LLC.</p>
+        <p>AssuredForge is developed by Tierra LLC, based in Michigan, USA.</p>
       </Section>
       <Section title="Contact">
         <ul className="space-y-1">

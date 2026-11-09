@@ -1,15 +1,16 @@
 name: pages
 # Deploys only when started by hand (Actions → pages → Run workflow), never on push: every deployment is a deliberate,
-# approved step. "preview" builds for <owner>.github.io/assuredforge-site; "custom-domain" builds for the site's own
-# domain. Both keep search engines out unless "index" is ticked (publication).
+# approved step. "custom-domain" (the default) builds for assuredforge.com. "preview" builds for
+# <owner>.github.io/assuredforge-site and, while the custom domain is set, replaces the live site with a build whose
+# styles, scripts and links fail: don't use it. Both keep search engines out unless "index" is ticked (publication).
 on:
   workflow_dispatch:
     inputs:
       target:
         description: Where the build will be served
         type: choice
-        options: [preview, custom-domain]
-        default: preview
+        options: [custom-domain, preview]
+        default: custom-domain
       index:
         description: Let search engines index the site (publication only)
         type: boolean

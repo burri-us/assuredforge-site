@@ -5,13 +5,13 @@ export default function Home() {
   return (
     <Layout
       title="AssuredForge: Software Delivery Governance Platform"
-      description="Governed, AI-assisted software delivery with full traceability, for teams that answer to auditors."
+      description="Governed software delivery with full traceability, approvals and auditability."
     >
       <p className="text-sm font-semibold uppercase tracking-wide text-accent">Software Delivery Governance Platform</p>
       <h1 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">Build anywhere. Deploy anywhere. Govern everywhere.</h1>
       <p className="mt-6 max-w-3xl text-lg leading-relaxed text-ink-muted">
         AssuredForge makes every requirement, approval, release and deployment traceable and attributable to a named
-        person, whatever tools, clouds and AI providers you use.
+        person, with optional integrations for the tools you already use.
       </p>
       <p className="mt-8 flex flex-wrap gap-4">
         <a href="mailto:info@assuredforge.com" className="rounded bg-accent px-5 py-3 font-semibold text-accent-ink no-underline">
@@ -29,7 +29,7 @@ export default function Home() {
         </div>
         <div>
           <h2 className="text-xl font-semibold">Trace</h2>
-          <p className="mt-2 text-ink-muted">One connected record from requirement to deployment and back, including the work items and pull requests in your own tools.</p>
+          <p className="mt-2 text-ink-muted">One connected record from requirement to deployment and back. Optional connectors can link the work items and pull requests in your own tools.</p>
         </div>
         <div>
           <h2 className="text-xl font-semibold">Prove</h2>
@@ -37,10 +37,15 @@ export default function Home() {
         </div>
       </div>
 
-      <Section title="AI that accelerates, people who decide">
+      <Section title="People decide">
         <p>
-          AI in AssuredForge recommends, generates and validates. It never approves, accepts risk or authorizes a release.
-          Bring your own AI provider. Prompts are not retained by default, and customer data is never used for training.
+          AssuredForge is the system of governance. It remains fully usable without third-party connectors and without an
+          assistant. Connectors and assistants extend the platform but are not required for operation.
+        </p>
+        <p>
+          AI assistance is planned as a configurable extension: it may recommend and prepare, and it never approves, accepts
+          risk or authorizes a release. Its design keeps providers interchangeable, does not retain prompts by default and
+          never uses customer data for training.
         </p>
       </Section>
 

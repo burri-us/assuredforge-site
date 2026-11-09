@@ -10,7 +10,7 @@ export default function Manufacturing() {
         <ul className="list-disc space-y-2 pl-6">
           <li>Requirements to deployment traced in one record, connected to engineering context (Windchill integration planned with design partners).</li>
           <li>Approvals by named, accountable people, with evidence ready for audits.</li>
-          <li>AI assistance under governance: faster delivery without giving up accountability.</li>
+          <li>AI assistance under governance (planned): faster delivery without giving up accountability.</li>
         </ul>
       </Section>
       <Section title="One platform, Editions by industry">

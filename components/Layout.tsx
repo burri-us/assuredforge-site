@@ -97,7 +97,7 @@ export function Layout({ title, description, children }: { title: string; descri
             <ul className="flex flex-wrap gap-x-5 gap-y-1 md:justify-end">
               <li>Contact: <a href="mailto:info@assuredforge.com">info@assuredforge.com</a></li>
               <li>Support: <a href="mailto:support@assuredforge.com">support@assuredforge.com</a></li>
-              <li>Security: <a href="mailto:security@assuredforge.com">security@assuredforge.com</a></li>
+              <li>Security reports: <a href="mailto:security@assuredforge.com">security@assuredforge.com</a></li>
             </ul>
             <ul className="flex flex-wrap gap-x-5 gap-y-1 md:justify-end">
               <li><Link href="/privacy/" className="no-underline hover:underline">Privacy</Link></li>

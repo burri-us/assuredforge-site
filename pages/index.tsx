@@ -19,7 +19,7 @@ const PILLARS = [
   {
     title: "Trace",
     Icon: ThreadIcon,
-    text: "One connected record from requirement to deployment and back. Optional connectors can link the work items and pull requests in your own tools.",
+    text: "One connected record from requirement to Release, approval, push and recorded deployment, and back. Connectors to your own tools are optional.",
   },
   {
     title: "Prove",
@@ -53,7 +53,7 @@ export default function Home() {
         </p>
         <p className="mt-4 max-w-[65ch] text-lg leading-relaxed text-ink-muted">
           AssuredForge makes every requirement, approval, release and deployment traceable and attributable to a named
-          person, with optional integrations for the tools you already use.
+          person. It works on its own, without any other tool.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <a href="mailto:info@assuredforge.com" className={primary}>
@@ -89,13 +89,12 @@ export default function Home() {
 
       <Section title="People decide">
         <p className="max-w-[70ch]">
-          AssuredForge is the system of governance. It remains fully usable without third-party connectors and without an
-          assistant. Connectors and assistants extend the platform but are not required for operation.
+          AssuredForge is the system of governance. Only named people approve: automation never does. It is fully usable
+          without third-party connectors, which extend the platform but are not required for operation.
         </p>
         <p className="max-w-[70ch]">
-          AI assistance is planned as a configurable extension: it may recommend and prepare, and it never approves, accepts
-          risk or authorizes a release. Its design keeps providers interchangeable, does not retain prompts by default and
-          never uses customer data for training.
+          AI assistance is planned as an optional extension under the same governance: it may recommend and prepare, and
+          it never approves, accepts risk or authorizes a release. It is not part of the platform available today.
         </p>
       </Section>
 

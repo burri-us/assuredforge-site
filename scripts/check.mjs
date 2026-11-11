@@ -45,6 +45,48 @@ for (const file of files(dir).filter((f) => f.endsWith(".html"))) {
   }
 }
 
+// Search readiness: a meta description on every page; a canonical URL on every page but the error page, which is always
+// noindex; robots.txt and every page's robots meta agree with the publication switch (site.json "indexing" or
+// SITE_INDEX=1); sitemap.xml lists exactly the canonical pages.
+const site = JSON.parse(readFileSync(new URL("../site.json", import.meta.url), "utf8"));
+const indexing = site.indexing === true || process.env.SITE_INDEX === "1";
+const canonicals = new Set();
+for (const file of files(dir).filter((f) => f.endsWith(".html"))) {
+  const html = readFileSync(file, "utf8");
+  const at = (p) => report.push(`${relative(dir, file)}: ${p}`);
+  const error = /(^|[\\/])(404|500)(\.html|[\\/])/.test(relative(dir, file));
+  const robots = [...html.matchAll(/<meta\b[^>]*name="robots"[^>]*content="([^"]*)"/gi)].map((m) => m[1]);
+  const canonical = /<link\b[^>]*rel="canonical"[^>]*href="([^"]*)"/i.exec(html)?.[1];
+  if (!/<meta\b[^>]*name="description"[^>]*content="[^"]+"/i.test(html)) at("no meta description");
+  if (error) {
+    if (!robots.some((r) => /noindex/i.test(r))) at("error page without noindex");
+    if (canonical) at("error page with a canonical URL");
+    continue;
+  }
+  if (!canonical) at("no canonical URL");
+  else {
+    const path = relative(dir, file).split(/[\\/]/).slice(0, -1).join("/");   // about/index.html -> about
+    const want = `${site.origin}/${path ? `${path}/` : ""}`;
+    if (canonical !== want) at(`canonical ${canonical}, expected ${want}`);
+    canonicals.add(canonical);
+  }
+  const noindex = robots.some((r) => /noindex/i.test(r));
+  if (indexing && noindex) at("noindex although indexing is on");
+  if (!indexing && !noindex) at("no noindex although indexing is off");
+}
+const robotsTxt = existsSync(join(dir, "robots.txt")) ? readFileSync(join(dir, "robots.txt"), "utf8") : null;
+if (robotsTxt === null) report.push("robots.txt missing");
+else if (indexing ? !/^Allow: \/$/m.test(robotsTxt) || /^Disallow: \/$/m.test(robotsTxt) : !/^Disallow: \/$/m.test(robotsTxt)) {
+  report.push(`robots.txt does not match indexing ${indexing ? "on" : "off"}`);
+}
+const sitemap = existsSync(join(dir, "sitemap.xml")) ? readFileSync(join(dir, "sitemap.xml"), "utf8") : null;
+if (sitemap === null) report.push("sitemap.xml missing");
+else {
+  const locs = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]));
+  for (const c of canonicals) if (!locs.has(c)) report.push(`sitemap.xml misses ${c}`);
+  for (const l of locs) if (!canonicals.has(l)) report.push(`sitemap.xml lists ${l}, which is not a canonical page`);
+}
+
 // Vocabulary (warning only; AD-010 principle 4): page text describes capabilities, not AI vendors or model families.
 const VOCAB = /\b(claude|anthropic|openai|chatgpt|gpt-?\d[\w.]*|gemini|copilot|azure\s+openai|llama|mistral|sonnet|opus|bedrock)\b/gi;
 let vocabWarnings = 0;

@@ -10,9 +10,11 @@ export default function Security() {
       </Title>
       <Section title="In the platform">
         <ul className="list-disc space-y-2 pl-6">
-          <li>Signed approvals and a tamper-evident audit chain.</li>
+          <li>Signed approvals and a tamper-evident audit chain you can verify.</li>
           <li>Scoped, role-based authorization enforced by the platform.</li>
-          <li>Dependency and container image scanning.</li>
+          <li>Two-step verification that an organization can require for all its members.</li>
+          <li>Each Tenant&apos;s data is kept separate from every other Tenant&apos;s.</li>
+          <li>Dependency and container image scanning on every change to the platform.</li>
         </ul>
       </Section>
       <Section title="Reporting a vulnerability">
@@ -21,9 +23,13 @@ export default function Security() {
           acknowledge reports and keep you informed. Our{" "}
           <a href={`${basePath}/.well-known/security.txt`}>security.txt</a> has the details.
         </p>
+        <p>
+          This address is for vulnerability reports and security incidents only. For questions and support, write to{" "}
+          <a href="mailto:support@assuredforge.com">support@assuredforge.com</a>.
+        </p>
       </Section>
-      <Section title="Trust Center">
-        <p>A Trust Center with our privacy, subprocessor and data-handling commitments will follow.</p>
+      <Section title="Trust Center (planned)">
+        <p>A Trust Center with our privacy, subprocessor and data-handling commitments is planned.</p>
       </Section>
     </Layout>
   );

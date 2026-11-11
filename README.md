@@ -12,17 +12,26 @@ npm ci
 npm run build        # writes out/ and runs scripts/check.mjs on it
 ```
 
-`npm run build` fails if a page has an inline script or style, loads anything from another origin, misses basic
-accessibility markup, or links to a page that doesn't exist.
+`npm run build` writes `robots.txt` and `sitemap.xml` (`scripts/seo.mjs`) and fails if a page has an inline script or style, loads anything from another origin, misses basic
+accessibility markup, links to a page that doesn't exist, or misses the search-readiness markup (see below).
 
 ## Settings
 
 | Variable | Meaning | Default |
 |---|---|---|
 | `BASE_PATH` | Path prefix when served from `<owner>.github.io/assuredforge-site` | empty (custom domain) |
-| `SITE_INDEX` | `1` lets search engines index the site; anything else adds `noindex` | not set (noindex) |
+| `SITE_INDEX` | `1` lets search engines index the site for this build only (the pages workflow's "index" input) | not set |
 
-`public/robots.txt` disallows all crawling until publication.
+## Search engines and the publication switch
+
+`site.json` holds the site's origin and the publication switch `"indexing"`. While it is `false` (and `SITE_INDEX` is not
+`1`), every page carries `noindex, nofollow` and `robots.txt` disallows all crawling. Setting it to `true` is the one
+reviewed change that publishes the site to search engines; it needs the owner's approval (D1-11).
+
+`scripts/seo.mjs` writes `robots.txt` and `sitemap.xml` into `out/` on every build (the sitemap is written either way,
+for review). `scripts/check.mjs` fails the build unless every page has a meta description and a canonical URL, the 404
+page is always `noindex` with no canonical URL, `robots.txt` and every page's robots meta match the switch, and the
+sitemap lists exactly the canonical pages.
 
 ## Deployment
 

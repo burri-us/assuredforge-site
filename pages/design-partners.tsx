@@ -16,13 +16,24 @@ export default function DesignPartners() {
       <Title lead="AssuredForge is looking for a small founding cohort of manufacturing organizations as design partners. Work with us on real deliveries and help shape the platform around what you need.">
         Founding Design Partner Program
       </Title>
+      <p className="mt-4 font-medium text-ink">
+        Applications open now. First cohort begins once participating organizations have been selected.
+      </p>
       <Section title="What founding partners get">
         <ul className="list-disc space-y-2 pl-6">
           <li>No software license fee during the program.</li>
-          <li>Direct influence on the roadmap: your priority use cases shape what we build next.</li>
-          <li>Delivery support from the team building the platform.</li>
           <li>Early access to AssuredForge for Manufacturing.</li>
+          <li>Direct influence on the roadmap and on the Manufacturing Edition: your priority use cases shape what we build next.</li>
+          <li>Regular working sessions and priority support from the team building the platform.</li>
         </ul>
+      </Section>
+      <Section title="What we ask of partners">
+        <ul className="list-disc space-y-2 pl-6">
+          <li>Product feedback and participation in working sessions.</li>
+          <li>Validation of requirements against your real deliveries.</li>
+          <li>Participation in a pilot.</li>
+        </ul>
+        <p>The program runs for six months.</p>
       </Section>
       <Section title="Who we are looking for">
         <ul className="list-disc space-y-2 pl-6">

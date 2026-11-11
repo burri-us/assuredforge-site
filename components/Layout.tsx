@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import type { ReactNode } from "react";
 import { LogoMark } from "./Logo";
+import site from "../site.json";
 
 const NAV = [
   { href: "/platform/", label: "Platform" },
@@ -28,16 +29,31 @@ function Wordmark({ className = "" }: { className?: string }) {
   );
 }
 
-const SITE = "https://assuredforge.com";
+const SITE = site.origin;
 
-export function Layout({ title, description, children }: { title: string; description: string; children: ReactNode }) {
+// noindex: a page that must never be indexed, whatever the publication switch says (the 404 page). It also has no canonical URL.
+export function Layout({
+  title,
+  description,
+  noindex = false,
+  children,
+}: {
+  title: string;
+  description: string;
+  noindex?: boolean;
+  children: ReactNode;
+}) {
   const { pathname } = useRouter();
+  // trailingSlash export: every page is served at its path with a trailing slash.
+  const canonical = `${SITE}${pathname === "/" ? "/" : `${pathname}/`}`;
   return (
     <>
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+        {!noindex && <meta property="og:url" content={canonical} />}
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="AssuredForge" />
         <meta property="og:title" content={title} />
@@ -97,7 +113,7 @@ export function Layout({ title, description, children }: { title: string; descri
             <ul className="flex flex-wrap gap-x-5 gap-y-1 md:justify-end">
               <li>Contact: <a href="mailto:info@assuredforge.com">info@assuredforge.com</a></li>
               <li>Support: <a href="mailto:support@assuredforge.com">support@assuredforge.com</a></li>
-              <li>Security: <a href="mailto:security@assuredforge.com">security@assuredforge.com</a></li>
+              <li>Security reports: <a href="mailto:security@assuredforge.com">security@assuredforge.com</a></li>
             </ul>
             <ul className="flex flex-wrap gap-x-5 gap-y-1 md:justify-end">
               <li><Link href="/privacy/" className="no-underline hover:underline">Privacy</Link></li>

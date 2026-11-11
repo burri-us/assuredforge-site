@@ -1,4 +1,5 @@
 import { Head, Html, Main, NextScript } from "next/document";
+import site from "../site.json";
 
 // Same-origin only: no third-party scripts, styles, fonts, images or frames; no forms. GitHub Pages can't send response
 // headers, so the policy is a meta element (frame-ancestors can't be set this way).
@@ -15,8 +16,10 @@ const CSP = [
   "upgrade-insecure-requests",
 ].join("; ");
 
-// Search engines stay out until publication is approved: SITE_INDEX=1 at build time lifts it.
-const INDEX = process.env.SITE_INDEX === "1";
+// Search engines stay out until publication is approved. The publication switch is "indexing" in site.json (one reviewed
+// change); SITE_INDEX=1 at build time (the pages workflow's "index" input) also lifts it. scripts/seo.mjs applies the same
+// rule to robots.txt.
+const INDEX = site.indexing === true || process.env.SITE_INDEX === "1";
 
 // Icons are plain files, so next/link's base path handling doesn't apply.
 const BASE = process.env.BASE_PATH ?? "";

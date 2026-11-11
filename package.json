@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build --webpack && node scripts/check.mjs out",
+    "build": "next build --webpack && node scripts/seo.mjs out && node scripts/check.mjs out",
     "check": "node scripts/check.mjs out"
   },
   "devDependencies": {

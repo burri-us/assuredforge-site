@@ -1,4 +1,5 @@
 import { Layout, Section, Title } from "../components/Layout";
+import { AI } from "../components/AiWording";
 
 export default function Manufacturing() {
   return (
@@ -15,7 +16,7 @@ export default function Manufacturing() {
       <Section title="Planned with design partners">
         <ul className="list-disc space-y-2 pl-6">
           <li>Connection to engineering context through a PTC Windchill integration.</li>
-          <li>AI assistance under the same governance: it may recommend and prepare, and people decide.</li>
+          {!AI.available && <li>AI assistance under the same governance: it may recommend and prepare, and people decide.</li>}{/* WS-01 switch */}
         </ul>
       </Section>
       <Section title="One platform, Editions by industry">

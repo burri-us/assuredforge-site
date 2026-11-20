@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { Layout, Section, Title } from "../components/Layout";
+import { AI } from "../components/AiWording";
 
 // Current State only (DEC-262): what the released platform does today. Anything not released is marked "planned".
 export default function Platform() {
@@ -23,8 +25,10 @@ export default function Platform() {
       <Section title="Works with your tools, optionally">
         <p>AssuredForge is the system of governance and is fully functional without any external work-item system. Connectors for Jira, Confluence, Bitbucket and Azure DevOps are built and tested against their contracts; first use with live systems is planned with design partners. Every write a connector proposes is decided by a person. GitHub and GitLab connectors are planned, and PTC Windchill is planned for manufacturing.</p>
       </Section>
-      <Section title="AI assistance (planned)">
-        <p>AI assistance is planned as an optional extension under the same governance, not a requirement. It may recommend and prepare; it never approves, accepts risk or authorizes a release. It is not part of the platform available today.</p>
+      <Section title={AI.available ? "AI-assisted delivery" : "AI assistance (planned)"}>
+        {/* WS-01 switch: components/AiWording.tsx. CL-19 (hold) / CLAIM-UNVERIFIED (new wording). */}
+        <p>{AI.productLead}</p>
+        <p>Deeper pages: <Link href="/product/governance/">Governance and approvals</Link>, <Link href="/product/traceability/">Traceability</Link>, <Link href="/product/audit/">Audit and evidence</Link>, <Link href="/product/integrations/">Integrations</Link>, <Link href="/product/ai-assisted-delivery/">AI-assisted delivery</Link>.</p>
       </Section>
     </Layout>
   );

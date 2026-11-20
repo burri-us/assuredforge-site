@@ -6,12 +6,24 @@ import { LogoMark } from "./Logo";
 import site from "../site.json";
 
 const NAV = [
-  { href: "/platform/", label: "Platform" },
-  { href: "/manufacturing/", label: "Manufacturing" },
-  { href: "/deployment/", label: "Deployment" },
+  { href: "/platform/", label: "Product", also: ["/product"] },
+  { href: "/manufacturing/", label: "Solutions", also: ["/solutions"] },
+  { href: "/deployment/", label: "Editions" },
   { href: "/design-partners/", label: "Design partners" },
-  { href: "/security/", label: "Security" },
-  { href: "/about/", label: "About" },
+  { href: "/demo/", label: "Demo" },
+  { href: "/resources/", label: "Resources", also: ["/faq"] },
+  { href: "/trust/", label: "Trust", also: ["/security", "/privacy"] },
+  { href: "/about/", label: "About", also: ["/contact"] },
+];
+
+// Mega-footer: Product, Solutions, Resources, Trust, Company, Legal (website review Sec. 2 item 8).
+const FOOTER: { title: string; links: [string, string][] }[] = [
+  { title: "Product", links: [["Overview", "/platform/"], ["AI-assisted delivery", "/product/ai-assisted-delivery/"], ["Governance and approvals", "/product/governance/"], ["Traceability", "/product/traceability/"], ["Audit and evidence", "/product/audit/"], ["Integrations", "/product/integrations/"]] },
+  { title: "Solutions", links: [["Manufacturing", "/manufacturing/"], ["Regulated and quality-driven teams", "/solutions/regulated/"], ["Editions and deployment", "/deployment/"]] },
+  { title: "Resources", links: [["Resources hub", "/resources/"], ["Demo", "/demo/"], ["FAQ", "/faq/"], ["Design partners", "/design-partners/"]] },
+  { title: "Trust", links: [["Trust Center", "/trust/"], ["Security", "/security/"], ["Website privacy", "/privacy/"], ["Product privacy notice", "/trust/product-privacy/"], ["AI use policy", "/trust/ai-use-policy/"], ["Subprocessors and model providers", "/trust/subprocessors/"], ["Responsible disclosure", "/trust/disclosure/"], ["Accessibility", "/trust/accessibility/"]] },
+  { title: "Company", links: [["About", "/about/"], ["Contact", "/contact/"]] },
+  { title: "Legal", links: [["Website terms", "/terms/"], ["Evaluation licence", "/legal/evaluation-licence/"], ["Acceptable use", "/legal/acceptable-use/"], ["Design partner agreement", "/legal/design-partner-agreement/"]] },
 ];
 
 const headerButton =
@@ -68,7 +80,7 @@ export function Layout({
         Skip to content
       </a>
       <header className="border-b border-rule">
-        <div className="mx-auto max-w-5xl px-4 py-3 lg:flex lg:items-center lg:gap-8">
+        <div className="mx-auto max-w-6xl px-4 py-3 lg:flex lg:items-center lg:gap-8">
           <div className="flex min-h-11 items-center justify-between gap-4 lg:shrink-0">
             <Wordmark className="text-xl" />
             <Link href="/design-partners/" className={`${headerButton} hidden sm:inline-flex lg:hidden`}>
@@ -76,9 +88,10 @@ export function Layout({
             </Link>
           </div>
           <nav aria-label="Main" className="mt-1 lg:mt-0 lg:flex-1">
-            <ul className="grid grid-cols-2 gap-x-4 text-[15px] sm:grid-cols-3 lg:flex lg:flex-wrap lg:justify-end lg:gap-x-5">
+            <ul className="grid grid-cols-2 gap-x-4 text-[14px] sm:grid-cols-3 lg:flex lg:flex-wrap lg:justify-end lg:gap-x-4">
               {NAV.map((n) => {
-                const current = pathname === n.href.replace(/\/$/, "");
+                const root = n.href.replace(/\/$/, "");
+                const current = pathname === root || (n.also ?? []).some((p) => pathname === p || pathname.startsWith(`${p}/`));
                 return (
                   <li key={n.href}>
                     <Link
@@ -100,27 +113,36 @@ export function Layout({
           </Link>
         </div>
       </header>
-      <main id="main" className="mx-auto max-w-5xl px-4 py-12">
+      <main id="main" className="mx-auto max-w-6xl px-4 py-12">
         {children}
       </main>
       <footer className="border-t border-rule bg-surface-alt">
-        <div className="mx-auto grid max-w-5xl gap-6 px-4 py-8 text-sm text-ink-muted md:grid-cols-2">
+        <nav aria-label="Footer" className="mx-auto grid max-w-6xl gap-8 px-4 pt-8 text-sm sm:grid-cols-3 lg:grid-cols-6">
+          {FOOTER.map((col) => (
+            <div key={col.title}>
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-ink">{col.title}</h2>
+              <ul className="mt-2 space-y-1">
+                {col.links.map(([label, href]) => (
+                  <li key={href}>
+                    <Link href={href} className="text-ink-muted no-underline hover:underline">
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </nav>
+        <div className="mx-auto mt-8 grid max-w-6xl gap-6 border-t border-rule px-4 py-8 text-sm text-ink-muted md:grid-cols-2">
           <div>
             <Wordmark className="text-base" />
             <p className="mt-1">© 2026 Tierra LLC · Michigan, USA</p>
           </div>
-          <div className="space-y-2 md:text-right">
-            <ul className="flex flex-wrap gap-x-5 gap-y-1 md:justify-end">
-              <li>Contact: <a href="mailto:info@assuredforge.com">info@assuredforge.com</a></li>
-              <li>Support: <a href="mailto:support@assuredforge.com">support@assuredforge.com</a></li>
-              <li>Security reports: <a href="mailto:security@assuredforge.com">security@assuredforge.com</a></li>
-            </ul>
-            <ul className="flex flex-wrap gap-x-5 gap-y-1 md:justify-end">
-              <li><Link href="/privacy/" className="no-underline hover:underline">Privacy</Link></li>
-              <li><Link href="/terms/" className="no-underline hover:underline">Terms</Link></li>
-              <li><Link href="/security/" className="no-underline hover:underline">Security</Link></li>
-            </ul>
-          </div>
+          <ul className="flex flex-wrap gap-x-5 gap-y-1 md:justify-end">
+            <li>Contact: <a href="mailto:info@assuredforge.com">info@assuredforge.com</a></li>
+            <li>Support: <a href="mailto:support@assuredforge.com">support@assuredforge.com</a></li>
+            <li>Security reports: <a href="mailto:security@assuredforge.com">security@assuredforge.com</a></li>
+          </ul>
         </div>
       </footer>
     </>

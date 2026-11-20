@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { Layout, Section, Title } from "../components/Layout";
 
@@ -28,8 +29,18 @@ export default function Security() {
           <a href="mailto:support@assuredforge.com">support@assuredforge.com</a>.
         </p>
       </Section>
-      <Section title="Trust Center (planned)">
-        <p>A Trust Center with our privacy, subprocessor and data-handling commitments is planned.</p>
+      <Section title="Data flow of the desktop edition">
+        {/* CLAIM-UNVERIFIED: WS-06 statement; to be confirmed against the shipped kit after W8. */}
+        <p>
+          The desktop edition keeps your data on your own machine. If you turn on model execution, prompts go only to the model
+          provider you configure, under your own agreement with it. Tierra receives nothing unless you send a support bundle.
+        </p>
+      </Section>
+      <Section title="Trust Center">
+        <p>
+          Privacy, the AI use policy, subprocessors and responsible disclosure are in the <Link href="/trust/">Trust Center</Link>. The
+          legal texts there are drafts awaiting counsel review.
+        </p>
       </Section>
     </Layout>
   );

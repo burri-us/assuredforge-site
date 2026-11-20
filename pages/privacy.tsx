@@ -1,37 +1,23 @@
-import { Layout, Section, Title } from "../components/Layout";
+import Link from "next/link";
+import { LegalPage } from "../components/Blocks";
 
+// DRAFT — COUNSEL REVIEW. Updates the live website notice (WS-04). Bracketed items are facts the owner must supply.
 export default function Privacy() {
   return (
-    <Layout title="Privacy notice | AssuredForge" description="How the AssuredForge website handles personal data: no forms, no analytics, no cookies.">
-      <Title lead="This notice covers the website assuredforge.com. It does not cover the AssuredForge product, which has its own terms and privacy commitments.">
-        Privacy notice
-      </Title>
-      <p className="mt-4 text-sm text-ink-muted">Last updated: 2026-10-30</p>
-      <Section title="Who we are">
-        <p>Tierra LLC (&quot;we&quot;). Contact: <a href="mailto:info@assuredforge.com">info@assuredforge.com</a>.</p>
-      </Section>
-      <Section title="What we collect on this website">
-        <p>Nothing directly. The website has no forms, no accounts, no analytics and no cookies.</p>
-      </Section>
-      <Section title="Hosting">
-        <p>
-          The website is hosted by GitHub, Inc. (GitHub Pages). When you visit, GitHub processes technical data such as your
-          IP address and browser information to deliver the pages and keep the service secure, as described in the GitHub
-          Privacy Statement. We do not receive or use this data.
-        </p>
-      </Section>
-      <Section title="Email">
-        <p>If you email us, we use your message and address to reply, and keep the correspondence only as long as needed for that purpose.</p>
-      </Section>
-      <Section title="Cookies">
-        <p>This website sets no cookies and uses no local storage, tracking pixels or third-party scripts. No consent banner is shown because nothing requires consent. If that changes, this notice will change first.</p>
-      </Section>
-      <Section title="Your rights">
-        <p>Depending on where you live, you may have rights to access, correct or delete personal data we hold about you. Write to <a href="mailto:info@assuredforge.com">info@assuredforge.com</a>.</p>
-      </Section>
-      <Section title="Changes">
-        <p>We update this notice when the website changes, for example before adding any form or analytics.</p>
-      </Section>
-    </Layout>
+    <LegalPage
+      title="Privacy notice (website)"
+      description="How the AssuredForge website handles personal data: no forms, no analytics, no cookies."
+      intro="This notice covers the website assuredforge.com. The product has its own notice: see the product privacy notice."
+      sections={[
+        { h: "Who we are", body: <p>Tierra LLC (&quot;we&quot;), Michigan, USA. Contact: <a href="mailto:info@assuredforge.com">info@assuredforge.com</a>.</p> },
+        { h: "What we collect on this website", body: <p>Nothing directly. The website has no forms, no accounts, no analytics and no cookies.</p> },
+        { h: "Hosting", body: <p>The website is hosted by GitHub, Inc. (GitHub Pages). GitHub processes technical data such as your IP address and browser information to deliver the pages and keep the service secure, under the GitHub Privacy Statement. We do not receive or use this data.</p> },
+        { h: "Email", body: <p>If you email us, we use your message and address to reply. Email is provided by [EMAIL PROVIDER: owner to confirm the name]. We keep correspondence for [RETENTION PERIOD: owner and counsel to set] and then delete it, unless a law requires us to keep it.</p> },
+        { h: "Cookies", body: <p>This website sets no cookies and uses no local storage, tracking pixels or third-party scripts. No consent banner is shown because nothing requires consent. If that changes, this notice will change first.</p> },
+        { h: "Your rights and complaints", body: <p>Depending on where you live, you may have rights to access, correct, delete or object to our use of personal data we hold about you. Write to <a href="mailto:info@assuredforge.com">info@assuredforge.com</a>. You may also complain to your local data protection authority. [Counsel to confirm the rights text for the jurisdictions we serve.]</p> },
+        { h: "Changes", body: <p>We post changes on this page with a new effective date and, for a material change, tell design partners by email. We update this notice before adding any form or analytics.</p> },
+        { h: "Related", body: <p><Link href="/trust/product-privacy/">Product privacy notice</Link> · <Link href="/trust/subprocessors/">Subprocessors and model providers</Link></p> },
+      ]}
+    />
   );
 }

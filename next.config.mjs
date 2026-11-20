@@ -4,6 +4,8 @@
 /** @type {import('next').NextConfig} */
 export default {
   output: "export",
+  // scripts/check-switch.mjs builds into its own folders (NEXT_DIST_DIR) so it never touches out/, which a preview may be serving.
+  distDir: process.env.NEXT_DIST_DIR ?? ".next",
   basePath: process.env.BASE_PATH ?? "",
   trailingSlash: true,
   reactStrictMode: true,

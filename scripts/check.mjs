@@ -4,6 +4,10 @@
 //   Accessibility from the markup: document language, title, exactly one h1 with no skipped heading level, a main
 //   landmark, alt text on images and a name on buttons.
 //   Every internal link points to a page that exists.
+//   Placeholders and internal markers (WR-02): found in a page's visible text or attributes. Normal (preview) build: listed as
+//   warnings. Publish build (SITE_PUBLISH=1): each one fails the build. A publish build also refuses the AI-switch check variable
+//   (AF_SWITCH_CHECK_ON), which exists only for scripts/check-switch.mjs.
+//   Home page weight (HTML, CSS, JS, images, fonts; no video) must stay under 1.5 MB.
 // Usage: node scripts/check.mjs [dir]   (default: out)
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
@@ -85,6 +89,60 @@ else {
   const locs = new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]));
   for (const c of canonicals) if (!locs.has(c)) report.push(`sitemap.xml misses ${c}`);
   for (const l of locs) if (!canonicals.has(l)) report.push(`sitemap.xml lists ${l}, which is not a canonical page`);
+}
+
+// WR-02: placeholders and internal markers visible to a reader. Legal pages awaiting counsel (they carry the banner
+// "DRAFT — COUNSEL REVIEW") may show DRAFT and bracketed counsel items; nothing else may be visible on any page.
+const publish = process.env.SITE_PUBLISH === "1";
+if (publish && process.env.AF_SWITCH_CHECK_ON) report.push("publish build with AF_SWITCH_CHECK_ON set (it is for the switch check only)");
+const MARKERS = [
+  ["placeholder", /placeholder/i, false],
+  ["W8", /\bW8\b/, false],
+  ["CONFIRM", /CONFIRM/, false],
+  ["CLAIM-", /CLAIM-/, false],
+  ["TODO", /TODO/, false],
+  ["DRAFT", /DRAFT/, true],
+  ["[OWNER", /\[OWNER\b/, false],
+  ["[Owner/Counsel item", /\[(Owner|Counsel)\b[^\]]*\]/, true],
+];
+const markerWarnings = [];
+for (const file of files(dir).filter((f) => f.endsWith(".html"))) {
+  const html = readFileSync(file, "utf8");
+  const stripped = html.replace(/<script\b[\s\S]*?<\/script>/gi, "").replace(/<style\b[\s\S]*?<\/style>/gi, "").replace(/<!--[\s\S]*?-->/g, "");
+  const legal = /DRAFT — COUNSEL REVIEW/.test(stripped);
+  const visible = stripped.replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#x27;/g, "'");
+  const attrs = [...stripped.matchAll(/\s(?:aria-label|alt|title|content|value|placeholder)="([^"]*)"/gi)].map((m) => m[1]).join(" ");
+  const haystack = `${visible} ${attrs} ${/\splaceholder=/i.test(stripped) ? "placeholder" : ""}`;
+  for (const [name, re, legalOk] of MARKERS) {
+    if (legalOk && legal) continue;
+    const hit = re.exec(haystack);
+    if (hit) markerWarnings.push(`${relative(dir, file)}: ${name} ("${haystack.slice(Math.max(0, hit.index - 20), hit.index + 40).replace(/\s+/g, " ").trim()}")`);
+  }
+}
+const markerPages = new Set(markerWarnings.map((w) => w.split(":")[0]));
+if (publish) for (const w of markerWarnings) report.push(`publish: visible marker ${w}`);
+else {
+  for (const w of markerWarnings) console.warn(`warning: marker ${w}`);
+  console.log(`Marker check: ${markerWarnings.length} marker(s) on ${markerPages.size} page(s) (warnings; SITE_PUBLISH=1 makes them fail)`);
+}
+
+// Home page weight (owner media plan): the home page's HTML plus the CSS, JS, images and fonts it loads, no video, under 1.5 MB.
+{
+  const homeFile = join(dir, "index.html");
+  const html = readFileSync(homeFile, "utf8");
+  let bytes = statSync(homeFile).size;
+  const seen = new Set();
+  for (const m of html.matchAll(/<(link|script|img|source)\b[^>]*\s(?:href|src)="([^"]+)"/gi)) {
+    if (m[1].toLowerCase() === "link" && !/rel="(stylesheet|preload|modulepreload)"/i.test(m[0])) continue;
+    let ref = m[2].split(/[?#]/)[0];
+    if (/^(https?:)?\/\//i.test(ref)) continue;
+    if (base && ref.startsWith(base)) ref = ref.slice(base.length);
+    const f = join(dir, ref);
+    if (!seen.has(f) && existsSync(f) && statSync(f).isFile()) { seen.add(f); bytes += statSync(f).size; }
+  }
+  const LIMIT = 1_500_000;
+  console.log(`Home page weight: ${(bytes / 1024).toFixed(0)} KB (HTML, CSS, JS, images, fonts; limit ${LIMIT / 1000} KB)`);
+  if (bytes > LIMIT) report.push(`home page weighs ${bytes} bytes, over ${LIMIT}`);
 }
 
 // Vocabulary (warning only; AD-010 principle 4): page text describes capabilities, not AI vendors or model families.

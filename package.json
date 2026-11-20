@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build --webpack && node scripts/seo.mjs out && node scripts/check.mjs out",
-    "check": "node scripts/check.mjs out"
+    "check": "node scripts/check.mjs out",
+    "check:switch": "node scripts/check-switch.mjs"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",

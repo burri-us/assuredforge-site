@@ -19,18 +19,11 @@ export default function AiDelivery() {
         <>
           <Section title="What the pipeline does">
             {/* CLAIM-UNVERIFIED: this whole branch (agent runs, independent tests, model sources). Needs the owner's WS-01 decision. */}
-            <Bullets
-              items={[
-                "Agent runs plan, write and test changes for a Feature, inside the same gates as human work.",
-                "Independent tests check the result; the author of a change does not mark its own work as passed.",
-                "You choose the model source: your own API key, or a subscription or local model where configured.",
-                "You set a run budget and a monthly limit. An administrator turns model execution on or off in Setup as a signed decision.",
-                "A person reviews, and a named person approves, before anything is released.",
-              ]}
-            />
+            <Bullets items={AI.productPoints} />
+            {AI.modelPath && <p>{AI.modelPath}{/* CL-48 (proposed) */}</p>}
           </Section>
           <Section title="See it">
-            <ShotSlot title="An agent run with its independent test results" />
+            <ShotSlot title="An agent run with its test results" />
             <p><Link href="/demo/">Watch the 3-minute demo</Link></p>
           </Section>
         </>
@@ -41,13 +34,19 @@ export default function AiDelivery() {
         </Section>
       )}
 
-      <Section title="Your data and your model account">
-        {/* CLAIM-UNVERIFIED: no register entry; see the AI use policy draft. */}
-        <p>
-          Read the <Link href="/trust/ai-use-policy/">AI use policy</Link> (draft) and the{" "}
-          <Link href="/trust/subprocessors/">subprocessors and model providers</Link> page for where data goes.
-        </p>
-      </Section>
+      {AI.available ? (
+        <Section title="Your data and your model key">
+          {/* CLAIM-UNVERIFIED: no register entry (CL-47 proposed); see the AI use policy draft. */}
+          <p>
+            Read the <Link href="/trust/ai-use-policy/">AI use policy</Link> (draft) and the{" "}
+            <Link href="/trust/subprocessors/">subprocessors and model providers</Link> page for where data goes.
+          </p>
+        </Section>
+      ) : (
+        <Section title="The rules that will apply">
+          <p>The <Link href="/trust/ai-use-policy/">AI use policy</Link> (draft) states the rules for when AI assistance becomes available.</p>
+        </Section>
+      )}
     </Layout>
   );
 }

@@ -1,0 +1,37 @@
+// WR-03, option B (DEC-436 W11 decision 1, working assumption; the owner confirms later). Every sentence that says who an edition
+// is for comes from here, so a change of positioning is one edit. CLAIM-UNVERIFIED: audience statements are the owner's decision
+// (DEC-436), not a claims-register entry.
+export const POSITION = {
+  desktop: "The desktop edition is for individuals and small teams.",
+  hosted: "The hosted edition (planned) is for regulated organizations.",
+  desktopWho: "Students, aspiring professionals, freelance developers, content creators and small business owners.",
+  hostedWho: "Regulated and quality-driven organizations, manufacturing first. IT checklists, proxies, single sign-on and segregated approvers are planned for the hosted edition.",
+  // Design-partner tracks.
+  trackIndividual: {
+    title: "Individuals and small teams (desktop edition)",
+    eligibility: [
+      "You are 18 or older, and you set up and use the evaluation yourself or with your small team.",
+      "A Windows 11 Home or Pro PC that meets the system requirements.",
+      "You build software, or run something that depends on it, and want to know who approved what.",
+    ],
+    commitments: [
+      "Use the evaluation on your own PC for the six-month program.",
+      "Report problems and share feedback, in short working sessions.",
+      "Send a support bundle only when you choose to, so we can help with an issue.",
+    ],
+  },
+  trackOrganization: {
+    title: "Regulated organizations (hosted edition, planned)",
+    eligibility: [
+      "Organizations building internal software under quality or regulatory pressure; manufacturing first.",
+      "Jira, Azure DevOps or a similar tool for work items.",
+      "Windchill or Creo in your engineering landscape is a plus.",
+      "A sponsor who can give regular, structured feedback.",
+    ],
+    commitments: [
+      "Product feedback and participation in working sessions.",
+      "Validation of requirements against your real deliveries.",
+      "Participation in a pilot.",
+    ],
+  },
+};

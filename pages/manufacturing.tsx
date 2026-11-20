@@ -4,10 +4,11 @@ import { AI } from "../components/AiWording";
 export default function Manufacturing() {
   return (
     <Layout title="AssuredForge for Manufacturing" description="Governed software delivery for manufacturers building internal software under quality-system pressure.">
-      <Title lead="For manufacturers building internal software under quality-system pressure, where you must show what was delivered, who approved it and how it was validated.">
+      <Title lead="For manufacturers, the planned hosted edition is for regulated organizations. Manufacturers building internal software under quality-system pressure, where you must show what was delivered, who approved it and how it was validated.">
         AssuredForge for Manufacturing
       </Title>
       <Section title="What it gives you today">
+        {/* WR-03 option B (DEC-436): manufacturing is the first regulated sector for the planned hosted edition. */}
         <ul className="list-disc space-y-2 pl-6">
           <li>Requirements to deployment traced in one record: what was asked for, which code delivered it, how it was accepted and where it was deployed.</li>
           <li>Approvals by named, accountable people with signed decisions, and an audit chain you can verify and export.</li>

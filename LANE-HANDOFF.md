@@ -39,3 +39,19 @@ Build check passes (lang, one h1, no skipped heading, main, alt, link targets, n
 ## 7. Usage
 Sonnet 5.5; about 75k tokens by my estimate (about 110k allowing for the 45% undercount). Ended well under the ceiling.
 Note: `next build` printed a Next.js upgrade nudge (with a command to run); I ignored it as out of scope. It stops the first build and passes on retry. Next 16.4.1 is pinned by main.
+
+---
+
+# W11b lane handoff (website follow-up; DEC-436 W11 decisions; assessor review WR-01..WR-07)
+
+Model: Sonnet 5.5. Nothing pushed, deployed or published. `site.json` indexing stays `false`; `AI_DELIVERY_AVAILABLE` stays `false`.
+
+## Status of WR-01..WR-07
+- WR-01 done. All AI-dependent text is in `components/AiWording.tsx` (home proof strip, how it works, data section, FAQ, Editions, AI-assisted delivery, demo slot, Security data flow, product privacy, subprocessors, AI use policy). `npm run check:switch` builds both values into `.build-switch-off|on` and tests the rendered text; it passes for both.
+- WR-02 done. `scripts/check.mjs` lists visible markers as warnings (preview); `SITE_PUBLISH=1` makes them fail. Tested in both modes.
+- WR-03 done (option B working assumption). Wording in `components/Positioning.tsx`; design-partner page has two tracks; FAQ, Editions, regulated and manufacturing pages reframed.
+- WR-04 done (plain four steps, no-AI variant). WR-05 done (details/summary menu, CTA visible on narrow screens). WR-06: the 2 unreached pages are `/404/` and `/404.html` (the error page, intentionally unlinked). WR-07 done (`components/FlowDiagram.tsx`, inline SVG, theme tokens, title/desc, no-AI variant).
+- Media plan: browser frames, `VideoSlot` (native video, MP4/WebM, VTT, poster, no autoplay; placeholder until files exist), home page weight check (about 540 KB of 1500 KB).
+
+## Owner inputs still needed
+`[OWNER: email provider]` (privacy, subprocessors), `[OWNER: pricing wording]` (FAQ), confirm option B, counsel items on legal pages, screenshots and video after W8.

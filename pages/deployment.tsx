@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Layout, Section, Title } from "../components/Layout";
+import { AI } from "../components/AiWording";
+import { POSITION } from "../components/Positioning";
 import { Bullets, ShotSlot, Status } from "../components/Blocks";
 
 // DRAFT COPY. Desktop requirements come from DEC-430 (8) and DEC-432 (4), not from claims register 0.1 (CLAIM-UNVERIFIED
@@ -14,7 +16,9 @@ export default function Deployment() {
       <Section title="Desktop edition">
         {/* CLAIM-UNVERIFIED: availability for the design-partner evaluation (DEC-430). CL-35: one product, two editions, one shared test suite. */}
         <p><Status kind="partners" /> Available today for the design-partner evaluation. It runs on one workstation, from the same code as the cloud edition.</p>
-        <p>One Windows user per PC for this release. Your records stay on your machine.</p>
+        <p>{POSITION.desktop} {POSITION.hosted}{/* WR-03 option B (DEC-436), owner to confirm */}</p>
+        <p>One Windows user per PC for this release. Your records stay on your machine, under your control.</p>
+        {AI.modelPath && <p>{AI.modelPath}{/* CL-48 (proposed) */}</p>}
       </Section>
 
       <Section title="System requirements">
@@ -39,7 +43,7 @@ export default function Deployment() {
           <li>Download the kit from the single link we send you, and check its SHA-256 against the list in the Quick Start.</li>
           <li>Start the launcher. The Quick Start explains the Windows SmartScreen steps; the kit is not code-signed during the evaluation.</li>
           <li>Enter your licence and the one-time setup code, then sign in and complete two-step verification.</li>
-          <li>Create your Tenant and choose your model source.</li>
+          <li>{AI.installStep}</li>
         </ol>
         <ShotSlot title="The launcher and first sign-in" />
       </Section>

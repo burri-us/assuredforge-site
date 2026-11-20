@@ -81,14 +81,33 @@ export function Layout({
       </a>
       <header className="border-b border-rule">
         <div className="mx-auto max-w-6xl px-4 py-3 lg:flex lg:items-center lg:gap-8">
-          <div className="flex min-h-11 items-center justify-between gap-4 lg:shrink-0">
+          <div className="flex min-h-11 flex-wrap items-center justify-between gap-x-4 gap-y-2 lg:shrink-0">
             <Wordmark className="text-xl" />
-            <Link href="/design-partners/" className={`${headerButton} hidden sm:inline-flex lg:hidden`}>
-              Become a design partner
-            </Link>
+            <div className="flex items-center gap-2 lg:hidden">
+              {/* WR-05: the call to action stays visible on narrow screens; the menu is a details disclosure (no script). */}
+              <Link href="/design-partners/" className={`${headerButton} inline-flex`}>
+                Become a design partner
+              </Link>
+            </div>
           </div>
-          <nav aria-label="Main" className="mt-1 lg:mt-0 lg:flex-1">
-            <ul className="grid grid-cols-2 gap-x-4 text-[14px] sm:grid-cols-3 lg:flex lg:flex-wrap lg:justify-end lg:gap-x-4">
+          <details className="mt-2 lg:hidden">
+            <summary className="flex min-h-11 cursor-pointer items-center rounded-md border border-rule px-4 text-sm font-semibold text-ink">
+              Menu
+            </summary>
+            <nav aria-label="Main (menu)" className="mt-1">
+              <ul className="grid grid-cols-2 gap-x-4 text-[14px] sm:grid-cols-3">
+                {NAV.map((n) => (
+                  <li key={n.href}>
+                    <Link href={n.href} className="flex min-h-11 items-center text-ink no-underline hover:underline">
+                      {n.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </details>
+          <nav aria-label="Main" className="hidden lg:mt-0 lg:block lg:flex-1">
+            <ul className="lg:flex lg:flex-wrap lg:justify-end lg:gap-x-4 text-[14px]">
               {NAV.map((n) => {
                 const root = n.href.replace(/\/$/, "");
                 const current = pathname === root || (n.also ?? []).some((p) => pathname === p || pathname.startsWith(`${p}/`));

@@ -1,5 +1,6 @@
 import { Layout, Section, Title } from "../components/Layout";
-import { ShotSlot } from "../components/Blocks";
+import { ShotSlot, VideoSlot } from "../components/Blocks";
+import { AI } from "../components/AiWording";
 
 const SHOTS = [
   "Requirement and Feature with the Digital Thread",
@@ -7,7 +8,7 @@ const SHOTS = [
   "The signed approval",
   "The audit chain check",
   "The evidence export",
-  "Model source, run budget and monthly limit (Setup)",
+  ...(AI.demoShot ? [AI.demoShot] : []), // WR-01: only when AI is available
 ];
 
 // DRAFT. Slots only: the screenshots and the video are captured from the rehearsal kit after W8, in a demo Tenant with
@@ -17,14 +18,7 @@ export default function Demo() {
     <Layout title="Demo | AssuredForge" description="A three-minute walkthrough of governed delivery in AssuredForge, and how to book a walkthrough.">
       <Title lead="Three minutes: a requirement to a signed, recorded release.">Demo</Title>
       <Section title="3-minute video">
-        <div
-          role="img"
-          aria-label="Video placeholder: a self-hosted MP4 of about 3 minutes, to be recorded after the W8 rehearsal."
-          className="flex aspect-video w-full flex-col items-center justify-center rounded-md border-2 border-dashed border-rule bg-surface-alt p-4 text-center"
-        >
-          <span className="font-semibold text-ink">Video placeholder</span>
-          <span className="mt-1 text-sm text-ink-muted">Self-hosted MP4, about 3 minutes, with captions. Recorded after W8.</span>
-        </div>
+        <VideoSlot kind="walkthrough" title="Three-minute walkthrough: a requirement to a signed, recorded release" />
       </Section>
       <Section title="Screenshots">
         <div className="grid gap-6 md:grid-cols-2">

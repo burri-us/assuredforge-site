@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { Layout, Section } from "../components/Layout";
 import { AI } from "../components/AiWording";
-import { primary, secondary, ShotSlot } from "../components/Blocks";
+import { FlowDiagram } from "../components/FlowDiagram";
+import { POSITION } from "../components/Positioning";
+import { primary, secondary, VideoSlot } from "../components/Blocks";
 import { CheckIcon, GateIcon, ShieldCheckIcon, ThreadIcon } from "../components/Icons";
 
 // DRAFT COPY (W11, DEC-433). Every claim carries the claims-register (0.1) entry it rests on, or CLAIM-UNVERIFIED.
@@ -12,22 +14,17 @@ const PROOF = [
   "Every approval signed by a named person", // CL-05
   "Tamper-evident audit chain you can verify and export", // CL-06, CL-07
   "Desktop edition runs on your own PC", // CLAIM-UNVERIFIED (kit facts, DEC-430; no register entry)
-  "Bring your own AI model key", // CLAIM-UNVERIFIED (DEC-430 (6); no register entry)
+  AI.proof4, // WR-01: behind the AI switch. On: CLAIM-UNVERIFIED (CL-47 proposed). Off: CL-16.
 ];
 
+// WR-04: four plain steps. The first two follow the AI switch (components/AiWording.tsx).
 const STEPS = [
-  { t: "Requirement", d: "A requirement is recorded and linked to the work that answers it.", shot: "A Requirement with its linked Feature" }, // CL-03
+  { ...AI.how[0], shot: "A Feature with its linked Requirement and Deliveries" }, // CL-03; AI branch CLAIM-UNVERIFIED
+  { ...AI.how[1], shot: "A Release with its Deliveries and test results" }, // CL-36 (isolated integration)
+  { t: "You approve", d: "A named person with the required role approves, and the approval is signed and recorded.", shot: "The approval record with a signature" }, // CL-05
   {
-    t: AI.step2,
-    d: AI.available
-      ? "Work is prepared with AI assistance and checked by tests that run independently of the author."
-      : "Work is delivered and integrated in an isolated suite runner, with tests run on the integration.",
-    shot: "A Release with its Deliveries and test results",
-  }, // CL-36 (isolated integration); the AI branch is CLAIM-UNVERIFIED
-  { t: "Signed human approval", d: "A named person with the required role approves, and the approval is signed and recorded.", shot: "The approval record with a signature" }, // CL-05
-  {
-    t: "Release and evidence export",
-    d: "The push and the deployment are recorded against the approved Release, and the Tenant's records can be exported and verified offline.",
+    t: "You can prove it",
+    d: "The push and the deployment are recorded against the approved Release, and your records can be exported and verified offline.",
     shot: "The Release record and the evidence export",
   }, // CL-07, CL-11
 ];
@@ -61,7 +58,7 @@ export default function Home() {
             <a href="mailto:info@assuredforge.com">info@assuredforge.com</a> · We reply personally
           </p>
         </div>
-        <ShotSlot title="Release record with signed approvals" />
+        <FlowDiagram />
       </div>
 
       <ul className="grid grid-cols-1 gap-x-6 gap-y-4 border-y border-rule py-6 text-sm text-ink min-[420px]:grid-cols-2 md:grid-cols-4">
@@ -73,11 +70,11 @@ export default function Home() {
         ))}
       </ul>
 
-      <Section title="Auditors ask who approved what, and why">
+      <Section title="Who approved what, and why?">
         {/* CL-03, CL-05, CL-06. The AI sentence follows the WS-01 switch. */}
         <p className="max-w-[70ch]">
           {AI.available ? "AI makes that harder. " : ""}AssuredForge makes it provable: every requirement, approval, release and deployment is
-          traceable and attributable to a named person.
+          traceable and attributable to a named person, whether you are on your own or in a team.
         </p>
       </Section>
 
@@ -88,7 +85,7 @@ export default function Home() {
               <p className="text-sm font-semibold uppercase tracking-wide text-accent">Step {i + 1}</p>
               <h3 className="text-xl font-semibold text-ink">{s.t}</h3>
               <p className="mb-3 mt-1">{s.d}</p>
-              <ShotSlot title={s.shot} />
+              <VideoSlot kind="loop" title={s.shot} />
             </li>
           ))}
         </ol>
@@ -114,30 +111,29 @@ export default function Home() {
         <p className="max-w-[70ch]">{AI.homeBlock}</p>
       </Section>
 
-      <Section title="Your data, your model">
+      <Section title={AI.dataModel}>
         {/* CLAIM-UNVERIFIED: the whole block; desktop-kit facts (DEC-430, DEC-432) are not in claims register 0.1. */}
         <p className="max-w-[70ch]">
           The desktop edition runs on your own PC, so your records stay on your machine.{" "}
-          {AI.available ? "You choose the model provider and bring your own key, and you set run budgets and monthly limits. " : ""}
+          {AI.dataModelSentence}
           Tierra receives nothing unless you send a support bundle.
         </p>
         <p><Link href="/deployment/">Editions and system requirements</Link></p>
       </Section>
 
-      <Section title="Built for manufacturing and quality-driven teams">
-        {/* CL-02 */}
-        <p className="max-w-[70ch]">
-          Software delivery governance and audit-ready traceability for manufacturing and quality-driven organizations.
-        </p>
-        <p><Link href="/manufacturing/">AssuredForge for manufacturing</Link> · <Link href="/solutions/regulated/">Regulated and quality-driven teams</Link></p>
+      <Section title="Who it is for">
+        {/* WR-03, option B (DEC-436): wording lives in components/Positioning.tsx. CL-02 for the manufacturing sentence. */}
+        <p className="max-w-[70ch]">{POSITION.desktop} {POSITION.desktopWho}</p>
+        <p className="max-w-[70ch]">{POSITION.hosted} Software delivery governance and audit-ready traceability for manufacturing and quality-driven organizations.</p>
+        <p><Link href="/deployment/">Editions and deployment</Link> · <Link href="/manufacturing/">AssuredForge for manufacturing</Link> · <Link href="/solutions/regulated/">Regulated and quality-driven teams</Link></p>
       </Section>
 
       <section className="mt-12 rounded-md border-l-4 border-gold bg-surface-alt p-6 sm:p-8">
         <h2 className="text-2xl font-semibold">Working with our first design partners</h2>
         {/* CL-23, CL-27 */}
         <p className="mt-3 max-w-[65ch] text-ink-muted">
-          A small founding cohort of manufacturing organizations, six months, no software license fee during the program.
-          Applications open now.
+          A small founding cohort, six months, no software license fee during the program: individuals and small teams on the desktop
+          edition, and organizations for the planned hosted edition. Applications open now.
         </p>
         <p className="mt-5"><Link href="/design-partners/" className={secondary}>Learn about the program</Link></p>
       </section>

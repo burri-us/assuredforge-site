@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Layout, Section, Title } from "../components/Layout";
+import { AI } from "../components/AiWording";
 
 export default function Security() {
   const { basePath } = useRouter();   // a plain file, not a page, so next/link doesn't apply
@@ -32,8 +33,8 @@ export default function Security() {
       <Section title="Data flow of the desktop edition">
         {/* CLAIM-UNVERIFIED: WS-06 statement; to be confirmed against the shipped kit after W8. */}
         <p>
-          The desktop edition keeps your data on your own machine. If you turn on model execution, prompts go only to the model
-          provider you configure, under your own agreement with it. Tierra receives nothing unless you send a support bundle.
+          The desktop edition keeps your data on your own machine. {AI.securityFlow}{" "}
+          Tierra receives nothing unless you send a support bundle.
         </p>
       </Section>
       <Section title="Trust Center">

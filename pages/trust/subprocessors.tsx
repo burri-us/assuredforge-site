@@ -1,4 +1,5 @@
 import { LegalPage } from "../../components/Blocks";
+import { AI } from "../../components/AiWording";
 
 // DRAFT — COUNSEL REVIEW. Providers are described by capability (AD-010): no vendor or model names. The review (Sec. 5) names
 // two example providers; the owner decides whether to name them. CLAIM-UNVERIFIED (no register entry).
@@ -9,8 +10,8 @@ export default function Subprocessors() {
       description="Who may process data when you use the AssuredForge website and the desktop edition."
       intro="A subprocessor is a service that processes personal data on our behalf."
       sections={[
-        { h: "Desktop edition", body: <p>Tierra operates no subprocessors for the desktop edition: your records stay on your machine. Model providers are chosen by you, work under your own agreement with them, and are not Tierra&apos;s subprocessors. [Owner: decide whether to list example providers by name.]</p> },
-        { h: "This website", body: <ul className="list-disc space-y-1 pl-6"><li>GitHub, Inc. (GitHub Pages): hosts the website.</li><li>[EMAIL PROVIDER: owner to confirm]: handles email sent to our addresses.</li></ul> },
+        { h: "Desktop edition", body: <p>Tierra operates no subprocessors for the desktop edition: your records stay on your machine.{AI.available ? <> If you turn on model execution, the provider of the model key you enter works under your own agreement with it and is not Tierra&apos;s subprocessor. {AI.modelPath}{/* CL-48 (proposed): the only provider named, because it is the only verified path (DEC-436 W11 (4)) */}</> : null}</p> },
+        { h: "This website", body: <ul className="list-disc space-y-1 pl-6"><li>GitHub, Inc. (GitHub Pages): hosts the website.</li><li>[OWNER: email provider]: handles email sent to our addresses.</li></ul> },
         { h: "Changes", body: <p>We update this page when the list changes and tell design partners of a change before it takes effect. [Counsel to set the notice period.]</p> },
       ]}
     />

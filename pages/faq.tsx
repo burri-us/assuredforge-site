@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Layout, Title } from "../components/Layout";
 import { AI } from "../components/AiWording";
+import { POSITION } from "../components/Positioning";
 
 // DRAFT COPY. Native details/summary: no script. Each answer names its claim source in a comment.
 const QA: { q: string; a: ReactNode }[] = [
@@ -15,7 +16,7 @@ const QA: { q: string; a: ReactNode }[] = [
   },
   {
     q: "Where does my data live?",
-    a: <>On the desktop edition, on your own PC. Tierra receives nothing unless you send a support bundle.{/* CLAIM-UNVERIFIED (kit facts, DEC-430) */} See the <Link href="/trust/product-privacy/">product privacy notice</Link> (draft).</>,
+    a: <>On the desktop edition, on your own PC, under your control. Tierra receives nothing unless you send a support bundle; we delete a support bundle 90 days after the issue it was sent for is closed.{/* CLAIM-UNVERIFIED (kit facts, DEC-430; retention DEC-436 W11 (3)) */} See the <Link href="/trust/product-privacy/">product privacy notice</Link> (draft).</>,
   },
   {
     q: "What do I need to run the desktop edition?",
@@ -23,7 +24,12 @@ const QA: { q: string; a: ReactNode }[] = [
   },
   {
     q: "What does it cost?",
-    a: <>There is no software license fee during the six-month design-partner program.{/* CL-23 */} Pricing after the program is not set yet, and we will not guess here. Any model-provider charges are billed to your own account by that provider.{/* CLAIM-UNVERIFIED (own key, DEC-430 (6)) */}</>,
+    a: <>There is no software license fee during the six-month design-partner program.{/* CL-23 */} [OWNER: pricing wording]{/* DEC-436 W11 (5): the owner supplies the pricing wording */} {AI.faqCost}{/* AI switch; CLAIM-UNVERIFIED (own key, DEC-430 (6)) */}</>,
+  },
+  ...(AI.faqModels ? [{ q: AI.faqModels, a: <>{AI.modelPath}{/* CL-48 (proposed); CLAIM-UNVERIFIED until register 0.3 */} Model execution is off until an administrator turns it on in Setup.</> }] : []),
+  {
+    q: "Who is the desktop edition for?",
+    a: <>{POSITION.desktop} {POSITION.hosted}{/* WR-03 option B, DEC-436; the owner confirms */}</>,
   },
   {
     q: "Which tools does it connect to?",

@@ -24,7 +24,7 @@ const QA: { q: string; a: ReactNode }[] = [
   },
   {
     q: "What does it cost?",
-    a: <>There is no software license fee during the six-month design-partner program.{/* CL-23 */} [OWNER: pricing wording]{/* DEC-436 W11 (5): the owner supplies the pricing wording */} {AI.faqCost}{/* AI switch; CLAIM-UNVERIFIED (own key, DEC-430 (6)) */}</>,
+    a: <>Free during the programme. Founding partners get founding pricing, at least 30 days' notice before any fee, and never an automatic charge.{/* DEC-438: owner-approved pricing wording */} {AI.faqCost}{/* AI switch; CLAIM-UNVERIFIED (own key, DEC-430 (6)) */}</>,
   },
   ...(AI.faqModels ? [{ q: AI.faqModels, a: <>{AI.modelPath}{/* CL-48 (proposed); CLAIM-UNVERIFIED until register 0.3 */} Model execution is off until an administrator turns it on in Setup.</> }] : []),
   {

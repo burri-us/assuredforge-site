@@ -26,6 +26,7 @@ const textOf = (f) =>
 
 const BOTH = [/ChatGPT/i, /OpenAI/i, /people approve every gate/i, /every result independently tested/i, /choose the model source/i];
 const OFF_FORBIDDEN = [/model key/i, /model source/i, /model execution/i, /run budget/i, /monthly limit/i, /Anthropic/i, /API key/i, /bring your own/i, /agent runs?\b/i, /AI builds/i, /AI that never approves/i];
+const OLD_PHRASE = [/not part of the platform/i, /part of the platform available today/i]; // DEC-440: O-4 wording only
 const ON_FORBIDDEN = [/not part of the platform/i, /planned as an optional extension/i, /where only people approve/i, /AI assistance \(planned\)/i];
 
 const problems = [];
@@ -56,7 +57,7 @@ for (const mode of ["off", "on"]) {
   for (const f of pages) {
     const t = textOf(f);
     const name = relative(dir, f);
-    const forbidden = [...BOTH, ...(mode === "off" ? OFF_FORBIDDEN : ON_FORBIDDEN)];
+    const forbidden = [...BOTH, ...OLD_PHRASE, ...(mode === "off" ? OFF_FORBIDDEN : ON_FORBIDDEN)];
     for (const re of forbidden) {
       const m = re.exec(t);
       if (m) problems.push(`switch ${mode}: ${name} says "${t.slice(Math.max(0, m.index - 30), m.index + 50)}" (${re})`);
@@ -70,6 +71,10 @@ for (const mode of ["off", "on"]) {
   } else {
     if (!/own (AI )?model key/i.test(home)) problems.push("switch on: home does not say you use your own model key");
     if (!/your own Anthropic API key/i.test(faq)) problems.push("switch on: faq does not name the verified model path");
+    const k = /Which keys work\?(.{0,600})/i.exec(faq);
+    if (!k || !/Anthropic API key/i.test(k[1])) problems.push('switch on: the "Which keys work?" FAQ answer does not name the Anthropic API key (CL-48)');
+    const dep = join(dir, "deployment", "index.html");
+    if (!existsSync(dep) || !/Anthropic API key/i.test(textOf(dep))) problems.push("switch on: the Editions and deployment page does not name the Anthropic API key (CL-48)");
   }
   console.log(`switch ${mode}: ${n} pages checked`);
   rmSync(dir, { recursive: true, force: true });

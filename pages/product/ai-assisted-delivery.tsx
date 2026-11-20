@@ -31,7 +31,7 @@ export default function AiDelivery() {
       ) : (
         <Section title="Planned">
           {/* CL-19 (hold wording, DEC-439 O-4) */}
-          <p>AI-assisted planning and delivery is being validated for the desktop design-partner evaluation. It is not part of the platform available today.</p>
+          <p>AI-assisted planning and delivery is being validated for the desktop design-partner evaluation.</p>
         </Section>
       )}
 

@@ -8,9 +8,9 @@ export default function AiUsePolicy() {
     <LegalPage
       title="AI use policy"
       description="Where AI may be used in AssuredForge, what it never does, and your responsibilities."
-      intro={AI.available ? "This policy describes how AI is used with AssuredForge." : "AI assistance is planned and is not part of the platform available today. This policy states the rules that will apply."}
+      intro={AI.available ? "This policy describes how AI is used with AssuredForge." : "AI assistance is being validated for the desktop design-partner evaluation. This policy states the rules that apply to it."}
       sections={[
-        { h: "Where AI may be used", body: AI.available ? <p>Planning, writing code, writing and running tests, and analysis of delivery work, when model execution is turned on by an administrator.</p> : <p>When it becomes available: planning, writing code, writing and running tests, and analysis of delivery work, under the same governance.</p> },
+        { h: "Where AI may be used", body: AI.available ? <p>Planning, writing code, writing and running tests, and analysis of delivery work, when model execution is turned on by an administrator.</p> : <p>Once validated: planning, writing code, writing and running tests, and analysis of delivery work, under the same governance.</p> },
         { h: "What AI never does", body: <Bullets items={["AI never approves.", "AI never accepts risk.", "AI never authorizes a release.", "A named person decides all of these."]} /> },
         { h: "Human review duties", body: <p>A person must review AI output before relying on it. Model output may be wrong, incomplete or insecure. You remain responsible for what you release.</p> },
         ...(AI.available ? [

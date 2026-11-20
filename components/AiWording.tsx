@@ -3,7 +3,7 @@
 // ONE SWITCH. Every sentence on the site that says whether AI assistance is available today comes from this file (WR-01:
 // that includes the home proof strip, the FAQ, the Editions requirements, the demo slots, the privacy and policy drafts and
 // the Security data-flow paragraph). No page may state an AI fact of its own: it reads it from `AI`.
-//   false (default, HOLD)  the wording in force on main: AI assistance is planned and is not part of the platform today
+//   false (default, HOLD)  the wording in force on main: AI assistance is being validated for the desktop design-partner evaluation
 //                          (hold wording per DEC-439 O-4: "being validated for the desktop design-partner evaluation", CL-40R, CL-46). No page names a model key, a model source or a provider.
 //   true  (new wording)    the kit ships an AI delivery pipeline; the wording below describes it.
 // The owner approves or holds the new wording at publish time. The `true` branch rests on claims register 0.3 (CL-19, CL-40R, CL-46,
@@ -66,11 +66,11 @@ export const AI = ON
       heroLead:
         "AssuredForge governs software delivery under your rules: every requirement traced, every release approved and signed by a named person, every action in a tamper-evident audit chain.",
       homeBlock:
-        "AI-assisted planning and delivery is being validated for the desktop design-partner evaluation. It may recommend and prepare, and it never approves, accepts risk or authorizes a release. It is not part of the platform available today.", // CL-40R, CL-46 (Being validated)
+        "AI-assisted planning and delivery is being validated for the desktop design-partner evaluation. It may recommend and prepare, and it never approves, accepts risk or authorizes a release.", // CL-40R, CL-46 (Being validated)
       deliverTile: "AI-assisted planning and delivery is being validated for the desktop design-partner evaluation. It may recommend and prepare; people decide.", // CL-46
       deliverStatus: "Being validated",
       productLead:
-        "AI-assisted planning and delivery is being validated for the desktop design-partner evaluation. It may recommend and prepare, and it never approves, accepts risk or authorizes a release. It is not part of the platform available today.", // CL-40R, CL-46
+        "AI-assisted planning and delivery is being validated for the desktop design-partner evaluation. It may recommend and prepare, and it never approves, accepts risk or authorizes a release.", // CL-40R, CL-46
       proof4: "Works on its own, without third-party connectors", // CL-16
       dataModel: "Your data",
       dataModelSentence: "",

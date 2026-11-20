@@ -114,9 +114,9 @@ export default function Home() {
       <Section title={AI.dataModel}>
         {/* CL-53 (Being validated until W8), CL-47, CL-49. */}
         <p className="max-w-[70ch]">
-          The desktop edition runs on your own PC, so your records stay on your machine.{" "}
+          In the desktop edition your records stay on your own PC, under your control.{" "}
           {AI.dataModelSentence}
-          To get a licence you send Tierra your installation id. Tierra receives your prompts or project content only in a support bundle you choose to send. This is being validated.
+          AssuredForge connects only to the services you set up: {AI.available ? "the model provider of the key you entered and, if you add them, " : "if you add them, "}your own git remote, connectors and sign-in provider. Tierra receives your installation id when you ask for a licence, and prompts or project content only in a support bundle you choose to send. This is being validated.
         </p>
         <p><Link href="/deployment/">Editions and system requirements</Link></p>
       </Section>

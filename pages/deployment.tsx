@@ -16,7 +16,7 @@ export default function Deployment() {
         {/* CLAIM-UNVERIFIED: availability for the design-partner evaluation (DEC-430). CL-35: one product, two editions, one shared test suite. */}
         <p><Status kind="partners" /> Available today for the design-partner evaluation. It runs on one workstation, from the same code as the cloud edition.</p>
         <p>{POSITION.desktop} {POSITION.hosted}{/* CL-51 */}</p>
-        <p>One Windows user per PC for this release. Your records stay on your machine, under your control.</p>
+        <p>One Windows user per PC for this release. Your records stay on your own PC, under your control. AssuredForge connects only to the services you set up: {AI.available ? "the model provider of the key you entered and, if you add them, " : "if you add them, "}your own git remote, connectors and sign-in provider. Tierra receives your installation id when you ask for a licence, and prompts or project content only in a support bundle you choose to send.{/* CL-53 (DEC-446) */}</p>
         {AI.modelPath && <p>{AI.modelPath}{/* CL-48; DEC-439 O-5: Editions and deployment is a technical page, so the provider may be named here */}</p>}
       </Section>
 

@@ -30,6 +30,8 @@ export default function Deployment() {
           "8 GB RAM minimum; 16 GB recommended.",
           "30 GB free disk space.",
         ]} />
+        <p>Windows 10 is not supported: Microsoft no longer supports it, and Docker Desktop supports only Windows versions that Microsoft still supports. If your PC qualifies, the upgrade to Windows 11 is free (Settings &gt; Windows Update).{/* CL-54 (DEC-444) */}</p>
+        <p>Windows 11 now; a Mac version is planned.{/* CL-56 (DEC-444): planned, no date */}</p>
         <p>
           Docker Desktop has its own licence terms, which are yours to accept. Its free use covers organizations under 250 employees and USD 10 million in revenue; larger organizations need a paid Docker plan. Check Docker&apos;s current terms before you install.
         </p>

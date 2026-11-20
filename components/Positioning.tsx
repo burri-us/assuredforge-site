@@ -1,6 +1,7 @@
-// WR-03, option B (DEC-436 W11 decision 1, working assumption; the owner confirms later). Every sentence that says who an edition
-// is for comes from here, so a change of positioning is one edit. CLAIM-UNVERIFIED: audience statements are the owner's decision
-// (DEC-436), not a claims-register entry.
+// CL-51 (DEC-439 P-1, option B) and CL-52 (individual track). Every sentence that says who an edition
+// is for comes from here, so a change of positioning is one edit. The age line is under counsel review (DEC-439 P-2).
+import { AI } from "./AiWording";
+
 export const POSITION = {
   desktop: "The desktop edition is for individuals and small teams.",
   hosted: "The hosted edition (planned) is for regulated organizations.",
@@ -16,12 +17,13 @@ export const POSITION = {
     ],
     commitments: [
       "Use the evaluation on your own PC for the six-month program.",
+      ...(AI.ownKeyBilling ? [AI.ownKeyBilling] : []), // CL-52
       "Report problems and share feedback, in short working sessions.",
       "Send a support bundle only when you choose to, so we can help with an issue.",
     ],
   },
   trackOrganization: {
-    title: "Regulated organizations (hosted edition, planned)",
+    title: "Regulated organizations (hosted edition, planned): waitlist",
     eligibility: [
       "Organizations building internal software under quality or regulatory pressure; manufacturing first.",
       "Jira, Azure DevOps or a similar tool for work items.",
@@ -30,7 +32,7 @@ export const POSITION = {
     ],
     commitments: [
       "Product feedback and participation in working sessions.",
-      "Validation of requirements against your real deliveries.",
+      "Validation of requirements against deliveries of your own projects in the evaluation.",
       "Participation in a pilot.",
     ],
   },

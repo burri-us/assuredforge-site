@@ -6,15 +6,15 @@ import { POSITION } from "../components/Positioning";
 import { primary, secondary, VideoSlot } from "../components/Blocks";
 import { CheckIcon, GateIcon, ShieldCheckIcon, ThreadIcon } from "../components/Icons";
 
-// DRAFT COPY (W11, DEC-433). Every claim carries the claims-register (0.1) entry it rests on, or CLAIM-UNVERIFIED.
+// DRAFT COPY (W11, DEC-433). Every claim carries the claims-register (0.3) entry it rests on, or CLAIM-UNVERIFIED.
 // AI wording comes from components/AiWording.tsx (WS-01 switch; held by default).
 
 // Proof strip: facts only, no logos, counts or certifications.
 const PROOF = [
-  "Every approval signed by a named person", // CL-05
+  "Release approvals signed by named people", // CL-05
   "Tamper-evident audit chain you can verify and export", // CL-06, CL-07
-  "Desktop edition runs on your own PC", // CLAIM-UNVERIFIED (kit facts, DEC-430; no register entry)
-  AI.proof4, // WR-01: behind the AI switch. On: CLAIM-UNVERIFIED (CL-47 proposed). Off: CL-16.
+  "Desktop edition runs on your own PC", // CL-53 (Being validated)
+  AI.proof4, // WR-01: behind the AI switch. On: CL-47. Off: CL-16 (the off wording is DEC-439 O-4).
 ];
 
 // WR-04: four plain steps. The first two follow the AI switch (components/AiWording.tsx).
@@ -33,7 +33,7 @@ const TILES = [
   { title: "Govern", Icon: GateIcon, href: "/product/governance/", status: "Available today", text: "Gates, signed approvals by named people in scoped roles, and release governance enforced by the platform, not by convention." }, // CL-04, CL-05, CL-13
   { title: "Trace", Icon: ThreadIcon, href: "/product/traceability/", status: "Available today", text: "One connected record from requirement to Release, approval, push and recorded deployment, and back." }, // CL-03
   { title: "Prove", Icon: ShieldCheckIcon, href: "/product/audit/", status: "Available today", text: "Every governed action in a tamper-evident audit chain that you can verify and export." }, // CL-06, CL-07
-  { title: "Deliver with AI", Icon: CheckIcon, href: "/product/ai-assisted-delivery/", status: AI.deliverStatus, text: AI.deliverTile }, // CL-19 (hold) / CLAIM-UNVERIFIED (new wording)
+  { title: "Deliver with AI", Icon: CheckIcon, href: "/product/ai-assisted-delivery/", status: AI.deliverStatus, text: AI.deliverTile }, // CL-19, CL-40R, CL-49 (on) / DEC-439 O-4 (hold)
 ];
 
 export default function Home() {
@@ -112,17 +112,17 @@ export default function Home() {
       </Section>
 
       <Section title={AI.dataModel}>
-        {/* CLAIM-UNVERIFIED: the whole block; desktop-kit facts (DEC-430, DEC-432) are not in claims register 0.1. */}
+        {/* CL-53 (Being validated until W8), CL-47, CL-49. */}
         <p className="max-w-[70ch]">
           The desktop edition runs on your own PC, so your records stay on your machine.{" "}
           {AI.dataModelSentence}
-          Tierra receives nothing unless you send a support bundle.
+          To get a licence you send Tierra your installation id. Tierra receives your prompts or project content only in a support bundle you choose to send. This is being validated.
         </p>
         <p><Link href="/deployment/">Editions and system requirements</Link></p>
       </Section>
 
       <Section title="Who it is for">
-        {/* WR-03, option B (DEC-436): wording lives in components/Positioning.tsx. CL-02 for the manufacturing sentence. */}
+        {/* CL-51 (DEC-439 P-1, option B); CL-02 with both audiences named (O-1). Wording in components/Positioning.tsx. */}
         <p className="max-w-[70ch]">{POSITION.desktop} {POSITION.desktopWho}</p>
         <p className="max-w-[70ch]">{POSITION.hosted} Software delivery governance and audit-ready traceability for manufacturing and quality-driven organizations.</p>
         <p><Link href="/deployment/">Editions and deployment</Link> · <Link href="/manufacturing/">AssuredForge for manufacturing</Link> · <Link href="/solutions/regulated/">Regulated and quality-driven teams</Link></p>
@@ -130,7 +130,7 @@ export default function Home() {
 
       <section className="mt-12 rounded-md border-l-4 border-gold bg-surface-alt p-6 sm:p-8">
         <h2 className="text-2xl font-semibold">Working with our first design partners</h2>
-        {/* CL-23, CL-27 */}
+        {/* CL-23, CL-27 (both audiences, DEC-439 O-1) */}
         <p className="mt-3 max-w-[65ch] text-ink-muted">
           A small founding cohort, six months, no software license fee during the program: individuals and small teams on the desktop
           edition, and organizations for the planned hosted edition. Applications open now.

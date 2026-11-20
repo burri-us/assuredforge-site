@@ -1,6 +1,6 @@
 import { LegalPage, Bullets } from "../../components/Blocks";
 
-// DRAFT — COUNSEL REVIEW. Summary only; full text is by agreement. Content: CL-23, CL-24, CL-25, CL-26, CL-22.
+// DRAFT — COUNSEL REVIEW. Summary only; full text is by agreement. Content: CL-23, CL-24, CL-25, CL-26, CL-22 (OWNER P-7 pending: the CL-22 desktop exit sentence is not yet in register 0.3 (S-52); both audiences named, DEC-439 O-1).
 export default function DesignPartnerAgreement() {
   return (
     <LegalPage
@@ -8,7 +8,7 @@ export default function DesignPartnerAgreement() {
       description="A summary of what the Founding Design Partner Program agreement covers. The full text is by agreement."
       intro="This is a summary only. The full text is provided to selected organizations and signed before onboarding."
       sections={[
-        { h: "The program", body: <p>A small founding cohort of manufacturing organizations, six months, no software license fee during the program.</p> },
+        { h: "The program", body: <p>A small founding cohort of individuals, small teams and organizations, six months, no software license fee during the program.</p> },
         { h: "What partners give", body: <Bullets items={["Product feedback.", "Working sessions.", "Requirements validation.", "Pilot participation."]} /> },
         { h: "What partners get", body: <Bullets items={["Early access.", "Priority support from one operator, with no round-the-clock commitment.", "Direct roadmap influence.", "Regular working sessions."]} /> },
         { h: "Data and exit", body: <p>The program starts with synthetic or test data; production data needs separate written authorization. On exit, your data is exported to you, then deleted. [Counsel to finalize the contract wording.]</p> },

@@ -26,7 +26,7 @@ export default function Platform() {
         <p>AssuredForge is the system of governance and is fully functional without any external work-item system. Connectors for Jira, Confluence, Bitbucket and Azure DevOps are built and tested against their contracts; first use with live systems is planned with design partners. Every write a connector proposes is decided by a person. GitHub and GitLab connectors are planned, and PTC Windchill is planned for manufacturing.</p>
       </Section>
       <Section title={AI.available ? "AI-assisted delivery" : "AI assistance (planned)"}>
-        {/* WS-01 switch: components/AiWording.tsx. CL-19 (hold) / CLAIM-UNVERIFIED (new wording). */}
+        {/* WS-01 switch: components/AiWording.tsx. CL-19, CL-40R, CL-46 (on) / hold wording DEC-439 O-4. */}
         <p>{AI.productLead}</p>
         <p>Deeper pages: <Link href="/product/governance/">Governance and approvals</Link>, <Link href="/product/traceability/">Traceability</Link>, <Link href="/product/audit/">Audit and evidence</Link>, <Link href="/product/integrations/">Integrations</Link>, <Link href="/product/ai-assisted-delivery/">AI-assisted delivery</Link>.</p>
       </Section>

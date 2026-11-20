@@ -14,7 +14,7 @@ export default function Regulated() {
       </Section>
       <Section title="Quality and compliance">
         {/* CL-05, CL-06, CL-07 */}
-        <Bullets items={["Signed approvals by named people in scoped roles.", "A tamper-evident audit chain you can verify, and a Tenant export verified offline."]} />
+        <Bullets items={["Release approvals signed by named people in scoped roles.", "A tamper-evident audit chain you can verify, and a Tenant export verified offline."]} />
       </Section>
       <p className="mt-6 text-sm text-ink-muted">No certification (for example SOC 2 or ISO 27001) is claimed.</p>
       <p className="mt-4"><Link href="/manufacturing/">Manufacturing</Link> · <Link href="/design-partners/">Design partners</Link></p>

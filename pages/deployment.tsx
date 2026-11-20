@@ -4,8 +4,7 @@ import { AI } from "../components/AiWording";
 import { POSITION } from "../components/Positioning";
 import { Bullets, ShotSlot, Status } from "../components/Blocks";
 
-// DRAFT COPY. Desktop requirements come from DEC-430 (8) and DEC-432 (4), not from claims register 0.1 (CLAIM-UNVERIFIED
-// until a register entry exists). Edition status for cloud and customer-hosted: CL-20, CL-35.
+// DRAFT COPY. Desktop requirements come from DEC-430 (8) and DEC-432 (4), claims register CL-54 (DEC-439 P-4; RAM from W8). Edition status: CL-20 (desktop-only evaluation, DEC-439 P-6), CL-35.
 export default function Deployment() {
   return (
     <Layout title="Editions and deployment | AssuredForge" description="The desktop edition is available to design partners for evaluation; system requirements and the install path in outline. Cloud and customer-hosted editions.">
@@ -16,16 +15,16 @@ export default function Deployment() {
       <Section title="Desktop edition">
         {/* CLAIM-UNVERIFIED: availability for the design-partner evaluation (DEC-430). CL-35: one product, two editions, one shared test suite. */}
         <p><Status kind="partners" /> Available today for the design-partner evaluation. It runs on one workstation, from the same code as the cloud edition.</p>
-        <p>{POSITION.desktop} {POSITION.hosted}{/* WR-03 option B (DEC-436), owner to confirm */}</p>
+        <p>{POSITION.desktop} {POSITION.hosted}{/* CL-51 */}</p>
         <p>One Windows user per PC for this release. Your records stay on your machine, under your control.</p>
-        {AI.modelPath && <p>{AI.modelPath}{/* CL-48 (proposed) */}</p>}
+        {AI.modelPath && <p>{AI.modelPath}{/* CL-48; DEC-439 O-5: Editions and deployment is a technical page, so the provider may be named here */}</p>}
       </Section>
 
       <Section title="System requirements">
-        {/* CLAIM-UNVERIFIED: DEC-430 (8), DEC-432 (4). */}
+        {/* CL-54 (RAM stays a W8 marker, S-24). */}
         <Bullets items={[
           "Windows 11 Home or Pro, 64-bit.",
-          "Virtualisation turned on in the firmware (BIOS or UEFI).",
+          "Virtualization turned on in the firmware (BIOS or UEFI).",
           "WSL2 (Windows Subsystem for Linux 2).",
           "Docker Desktop, in a supported version.",
           "8 GB RAM minimum; 16 GB recommended.",
@@ -51,7 +50,7 @@ export default function Deployment() {
       <Section title="Where else AssuredForge runs">
         <ul className="list-disc space-y-2 pl-6">
           {/* CL-20 */}
-          <li><strong className="text-ink">Cloud edition</strong> on Microsoft Azure <Status kind="today" /> It runs AssuredForge&apos;s own internal pilot today; a hosted environment for design partners is planned in a US region.</li>
+          <li><strong className="text-ink">Cloud edition</strong> on Microsoft Azure <Status kind="today" /> It runs AssuredForge&apos;s own internal pilot today. A hosted edition is planned; the design-partner evaluation is desktop only.</li>
           <li><strong className="text-ink">Customer-hosted</strong> in your own cloud or data center, from the same images <Status kind="planned" /></li>
         </ul>
         <p>Dedicated single-tenant hosting and air-gapped operation are future directions.</p>

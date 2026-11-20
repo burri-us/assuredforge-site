@@ -12,24 +12,24 @@ const QA: { q: string; a: ReactNode }[] = [
   },
   {
     q: "Is AI part of AssuredForge today?",
-    a: <>{AI.homeBlock}{/* CL-19 (hold) / CLAIM-UNVERIFIED (new wording), WS-01 switch */}</>,
+    a: <>{AI.homeBlock}{/* CL-19, CL-40R, CL-46 (on) / hold wording DEC-439 O-4 */}</>,
   },
   {
     q: "Where does my data live?",
-    a: <>On the desktop edition, on your own PC, under your control. Tierra receives nothing unless you send a support bundle; we delete a support bundle 90 days after the issue it was sent for is closed.{/* CLAIM-UNVERIFIED (kit facts, DEC-430; retention DEC-436 W11 (3)) */} See the <Link href="/trust/product-privacy/">product privacy notice</Link> (draft).</>,
+    a: <>On the desktop edition, on your own PC, under your control. To get a licence you send Tierra your installation id. Tierra receives your prompts or project content only in a support bundle you choose to send, and we delete a support bundle 90 days after the issue it was sent for is closed. This is being validated.{/* CL-53 (Being validated until W8 and its network check) */} See the <Link href="/trust/product-privacy/">product privacy notice</Link> (draft).</>,
   },
   {
     q: "What do I need to run the desktop edition?",
-    a: <>Windows 11 Home or Pro (64-bit), virtualisation, WSL2, Docker Desktop, 8 GB RAM minimum (16 GB recommended) and 30 GB free disk.{/* CLAIM-UNVERIFIED, DEC-430 (8), DEC-432 (4) */} Details on <Link href="/deployment/">Editions and deployment</Link>.</>,
+    a: <>Windows 11 Home or Pro (64-bit), virtualization, WSL2, Docker Desktop, 8 GB RAM minimum (16 GB recommended) and 30 GB free disk.{/* CL-54 (RAM: W8 marker, S-24) */} Details on <Link href="/deployment/">Editions and deployment</Link>.</>,
   },
   {
     q: "What does it cost?",
-    a: <>Free during the programme. Founding partners get founding pricing, at least 30 days' notice before any fee, and never an automatic charge.{/* DEC-438: owner-approved pricing wording */} {AI.faqCost}{/* AI switch; CLAIM-UNVERIFIED (own key, DEC-430 (6)) */}</>,
+    a: <>Free during the programme. Founding partners get founding pricing, at least 30 days' notice before any fee, and never an automatic charge.{/* DEC-438: owner-approved pricing wording */} {AI.faqCost}{/* AI switch; CL-55 */}</>,
   },
-  ...(AI.faqModels ? [{ q: AI.faqModels, a: <>{AI.modelPath}{/* CL-48 (proposed); CLAIM-UNVERIFIED until register 0.3 */} Model execution is off until an administrator turns it on in Setup.</> }] : []),
+  ...(AI.faqModels ? [{ q: AI.faqModels, a: <>{AI.modelPath}{/* CL-48 (FAQ is a permitted page) */} Model execution is off until an administrator turns it on in Setup.</> }] : []),
   {
     q: "Who is the desktop edition for?",
-    a: <>{POSITION.desktop} {POSITION.hosted}{/* WR-03 option B, DEC-436; the owner confirms */}</>,
+    a: <>{POSITION.desktop} {POSITION.hosted}{/* CL-51 (DEC-439 P-1) */}</>,
   },
   {
     q: "Which tools does it connect to?",

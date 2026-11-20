@@ -12,7 +12,7 @@ export default function Governance() {
       </Section>
       <Section title="Signed approvals">
         <Bullets items={[
-          "Approvals are signed statements by named people holding the required role, within its scope.", // CL-05
+          "Release approvals are signed by named people holding the required role, within its scope.", // CL-05
           "Roles are scoped to a Tenant, Workspace or Portfolio and enforced by the platform; a revoked role is refused at once.", // CL-13
           "Escalations, such as a merge conflict at integration, are decided by a person with a signed decision.", // CL-10
           "Two-step verification for every account; a Tenant can require it for all members.", // CL-12

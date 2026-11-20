@@ -4,14 +4,13 @@
 // that includes the home proof strip, the FAQ, the Editions requirements, the demo slots, the privacy and policy drafts and
 // the Security data-flow paragraph). No page may state an AI fact of its own: it reads it from `AI`.
 //   false (default, HOLD)  the wording in force on main: AI assistance is planned and is not part of the platform today
-//                          (claims register 0.1, CL-19; DEC-257 AI-OD-4). No page names a model key, a model source or a provider.
+//                          (hold wording per DEC-439 O-4: "being validated for the desktop design-partner evaluation", CL-40R, CL-46). No page names a model key, a model source or a provider.
 //   true  (new wording)    the kit ships an AI delivery pipeline; the wording below describes it.
-// The owner approves or holds the new wording at publish time (it conflicts with claims register 0.1 CL-19 until the
-// register conflict with DEC-348/349 is resolved; register 0.2 is blocked, DEC-427 Amendment 2). Change only this constant.
+// The owner approves or holds the new wording at publish time. The `true` branch rests on claims register 0.3 (CL-19, CL-40R, CL-46,
+// CL-47, CL-49, CL-50; all Being validated until the W8 rehearsal). Change only this constant.
 // Wording rules from the claims-conflict brief (2026-11-21): "You use your own model key" (never "You choose the model source");
 // no "every result independently tested" (CL-36 covers integration only); no "people approve every gate" (a must-not row): say
-// "the approvals the governance requires". The `true` branch is CLAIM-UNVERIFIED until register 0.3 lands (CL-19, CL-40R, CL-46,
-// CL-47, CL-48, CL-49 are the proposed entries).
+// "the approvals the governance requires". Naming scope (CL-48): Anthropic only on technical pages, quick start and FAQ.
 //
 // Both values are exercised by `npm run check:switch` (scripts/check-switch.mjs), which builds the site once per value. The
 // environment variable below exists only for that check; a publish build (SITE_PUBLISH=1) refuses it.
@@ -26,51 +25,52 @@ export const AI = ON
       heroLead:
         "AssuredForge runs AI-assisted delivery under your rules: every requirement traced, the approvals the governance requires given by named people, and every action in an audit chain you can prove.",
       homeBlock:
-        "AI assistance runs inside the platform's governance: it prepares work, runs agent runs and recommends. People set the governance and give the approvals it requires; AI never approves, accepts risk or authorizes a release.",
+        "AI-assisted planning and delivery runs under human governance: people set the governance, give the approvals it requires and handle every exception, and AI never approves, accepts risk or authorizes a release.", // CL-40R
       deliverTile:
-        "Agents prepare changes under the same gates as human work. You use your own model key, set run budgets and monthly limits, and an administrator turns model execution on.",
-      deliverStatus: "Available to design partners",
+        "AI-assisted planning and delivery runs on your own PC with your own model key. Every run has a run budget and a monthly limit, with defaults you change in Setup. Model execution stays off until an administrator turns it on.", // CL-19, CL-49
+      deliverStatus: "Available to design partners (being validated)", // CL-46
       productLead:
-        "AI-assisted delivery runs inside AssuredForge's gates. Agent runs plan, write and test changes; people give the approvals the governance requires.",
-      proof4: "Use your own AI model key", // CLAIM-UNVERIFIED (CL-47 proposed; DEC-430 (6))
+        "AI-assisted planning and delivery runs under human governance: people set the governance, give the approvals it requires and handle every exception, and AI never approves, accepts risk or authorizes a release.", // CL-40R
+      proof4: "Use your own AI model key", // CL-47 (Being validated)
       dataModel: "Your data, your model key",
-      dataModelSentence: "You use your own model key and set run budgets and monthly limits. ",
-      // CL-48 (proposed): technical pages, FAQ and quick start only.
+      dataModelSentence: "You use your own model key. Every run has a run budget and a monthly limit, with defaults you change in Setup. ", // CL-47, CL-49
+      // CL-48: technical pages, FAQ and quick start only.
       modelPath: "The evaluation kit works with your own Anthropic API key. Other model sources appear in Setup only once they are supported for your installed version.",
       // WR-04: how it works, in plain words.
       how: [
-        { t: "AI builds", d: "AI-assisted delivery prepares the work for a Feature, inside the same gates as human work." },
-        { t: "Independent tests check", d: "Tests run on the integration in an isolated suite runner, apart from whoever wrote the change." }, // CL-36 (integration only)
+        { t: "AI builds", d: "AI-assisted planning and delivery prepares the work for a Feature, under human governance." }, // CL-40R
+        { t: "Independent tests check", d: "Each AI-built delivery is checked by an independent test suite written from the requirements, which stays fixed across reworks." }, // CL-50
       ],
       flow: ["Requirement", "AI builds", "Independent tests", "Your approval", "Release and proof"],
       flowAlt: "Five steps in order: a requirement is recorded, AI builds the work, independent tests check it, you approve it, and it is released with the proof recorded.",
       demoShot: "Model key, run budget and monthly limit (Setup)",
       installStep: "Create your Tenant, then enter your own model key in Setup. Model execution stays off until an administrator turns it on.",
       securityFlow:
-        "If you turn on model execution, prompts go only to the model provider you configure, under your own agreement with it. Tierra does not receive them.",
-      faqModels: "Which AI models does it work with?",
-      faqCost: "Any model-provider charges are billed to your own account by that provider.",
+        "You bring your own model source and credentials. Prompts and project content for a run go to the provider you chose, under your own agreement with that provider; Tierra does not receive them unless you send us a support bundle that includes them.", // CL-47 (final, DEC-438 (1))
+      faqModels: "Which keys work?", // DEC-437; CL-48
+      faqCost: "Model usage is billed to you by your own provider; Tierra does not resell, bill or mark up model usage.", // CL-55
+      ownKeyBilling: "You use your own model key; your provider bills you for its usage.", // CL-52 (DEC-439)
       productPoints: [
-        "Agent runs plan, write and test changes for a Feature, inside the same gates as human work.",
-        "Tests run on the integration in an isolated suite runner, apart from whoever wrote the change.",
-        "You use your own model key.",
-        "You set a run budget and a monthly limit. An administrator turns model execution on or off in Setup as a signed decision.",
-        "A person reviews, and a named person gives the approvals the governance requires, before anything is released.",
+        "AI-assisted planning and delivery runs on your own PC with your own model source and credentials.", // CL-19
+        "Each AI-built delivery is checked by an independent test suite written from the requirements, which stays fixed across reworks.", // CL-50
+        "You use your own model key.", // CL-47
+        "Every run has a run budget and a monthly limit, with defaults you change in Setup. Model execution stays off until an administrator turns it on in Setup as a signed, recorded decision.", // CL-49, CL-19
+        "A named person gives the approvals the governance requires before anything is released.", // CL-40R
       ],
       available: true,
     }
   : {
-      // ---- HOLD WORDING (matches the live site and claims register 0.1) ----
+      // ---- HOLD WORDING (DEC-439 O-4; CL-40R, CL-46) ----
       tag: "Software Delivery Governance Platform",
       heroTitle: "Governed software delivery, where only people approve.",
       heroLead:
         "AssuredForge governs software delivery under your rules: every requirement traced, every release approved and signed by a named person, every action in a tamper-evident audit chain.",
       homeBlock:
-        "AI assistance is planned as an optional extension under the same governance: it may recommend and prepare, and it never approves, accepts risk or authorizes a release. It is not part of the platform available today.",
-      deliverTile: "AI assistance is planned as an optional extension under the same governance. It may recommend and prepare; people decide.",
-      deliverStatus: "Planned",
+        "AI-assisted planning and delivery is being validated for the desktop design-partner evaluation. It may recommend and prepare, and it never approves, accepts risk or authorizes a release. It is not part of the platform available today.", // CL-40R, CL-46 (Being validated)
+      deliverTile: "AI-assisted planning and delivery is being validated for the desktop design-partner evaluation. It may recommend and prepare; people decide.", // CL-46
+      deliverStatus: "Being validated",
       productLead:
-        "AI assistance is planned as an optional extension under the same governance: it may recommend and prepare, and it never approves, accepts risk or authorizes a release. It is not part of the platform available today.",
+        "AI-assisted planning and delivery is being validated for the desktop design-partner evaluation. It may recommend and prepare, and it never approves, accepts risk or authorizes a release. It is not part of the platform available today.", // CL-40R, CL-46
       proof4: "Works on its own, without third-party connectors", // CL-16
       dataModel: "Your data",
       dataModelSentence: "",
@@ -86,6 +86,7 @@ export const AI = ON
       securityFlow: "",
       faqModels: null as string | null,
       faqCost: "",
+      ownKeyBilling: "",
       productPoints: [] as string[],
       available: false,
     };

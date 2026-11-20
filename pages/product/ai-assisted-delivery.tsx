@@ -18,9 +18,10 @@ export default function AiDelivery() {
       {AI.available ? (
         <>
           <Section title="What the pipeline does">
-            {/* CLAIM-UNVERIFIED: this whole branch (agent runs, independent tests, model sources). Needs the owner's WS-01 decision. */}
+            {/* CL-19, CL-40R, CL-47, CL-49, CL-50 (Being validated). The switch itself needs the owner's WS-01 decision. */}
             <Bullets items={AI.productPoints} />
-            {AI.modelPath && <p>{AI.modelPath}{/* CL-48 (proposed) */}</p>}
+            {/* Naming scope (CL-48): no provider named on this narrative page. */}
+            <p>Which model keys work is answered in the <Link href="/faq/">FAQ</Link>.</p>
           </Section>
           <Section title="See it">
             <ShotSlot title="An agent run with its test results" />
@@ -29,14 +30,14 @@ export default function AiDelivery() {
         </>
       ) : (
         <Section title="Planned">
-          {/* CL-19 */}
-          <p>AI assistance is planned as an optional extension under the same governance. It is not part of the platform available today.</p>
+          {/* CL-19 (hold wording, DEC-439 O-4) */}
+          <p>AI-assisted planning and delivery is being validated for the desktop design-partner evaluation. It is not part of the platform available today.</p>
         </Section>
       )}
 
       {AI.available ? (
         <Section title="Your data and your model key">
-          {/* CLAIM-UNVERIFIED: no register entry (CL-47 proposed); see the AI use policy draft. */}
+          {/* CL-47; see the AI use policy draft. */}
           <p>
             Read the <Link href="/trust/ai-use-policy/">AI use policy</Link> (draft) and the{" "}
             <Link href="/trust/subprocessors/">subprocessors and model providers</Link> page for where data goes.

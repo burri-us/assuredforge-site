@@ -104,7 +104,7 @@ export function Layout({
             </div>
           </div>
           <details className="mt-2 lg:hidden">
-            <summary className="flex min-h-11 cursor-pointer items-center rounded-md border border-rule px-4 text-body font-semibold text-ink">
+            <summary className="flex min-h-11 cursor-pointer items-center rounded-md border border-accent px-4 text-body font-semibold text-ink">
               Menu
             </summary>
             <nav aria-label="Main (menu)" className="mt-1">

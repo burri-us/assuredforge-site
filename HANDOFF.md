@@ -36,3 +36,41 @@ Not live; not pushed, not published.
   - menu-open-{light|dark}-390.png
   - Script: ds-previews\site-v2\af-round2.cjs
 - Ports 4174 and 4175 are stopped and free.
+
+## Round 3: interim legal pages (owner decision DEC-462, OI-607)
+Not pushed, not published. The assessor reviews the wording before any publish.
+
+Commits:
+- 0546313 Legal pages: interim wording in place of every counsel marker. The interim label replaces the "DRAFT — COUNSEL REVIEW" banner (components/Blocks.tsx InterimBanner). The date line reads "Effective 21 November 2026 (interim version)." The Trust Center and Security now say "interim" instead of "drafts awaiting counsel review".
+- eed55cd scripts/check.mjs:
+  - The interim label is the recognised legal-page state.
+  - Every one of the nine legal pages must show it, in every build.
+  - No page is exempt from markers any more: DRAFT, "COUNSEL REVIEW" and any "[Counsel ...]" or "[Owner ...]" item fail a publish build anywhere.
+  - Negative test: a legal page without the label fails, and a "[Counsel ...]" item fails.
+- 9050df1 COUNSEL-LIST.md: the LEG list is kept, plus every clause filled, with its page, exact wording, previous text, and the points counsel should confirm.
+
+Pages: /terms/, /privacy/, /legal/evaluation-licence/, /legal/acceptable-use/, /legal/design-partner-agreement/, /trust/ai-use-policy/, /trust/subprocessors/, /trust/product-privacy/, /trust/accessibility/. All nine carry the label. Seven of them had markers to fill; product-privacy and accessibility only changed label and date.
+
+Clauses filled (full text in COUNSEL-LIST.md):
+- Evaluation licence: confidentiality (mutual), feedback licence (to improve the product), warranty disclaimer (as is), limit of liability (greater of amounts paid, none, and USD 100), termination (either party, written notice; exit per CL-22D), and Michigan law and courts with a consumer carve-out.
+- Design partner agreement: details by the signed agreement, confidentiality, ending participation, a pointer to the licence for warranty, liability and law; the pricing bracket removed ("Pricing after the program is not set.").
+- Acceptable use: notice and a reasonable time to fix, except for serious breaches.
+- Terms: liability cap (USD 100) and Michigan law and courts.
+- Privacy: rights answered within one month.
+- Subprocessors: 30 days' notice.
+- AI use policy: the unregistered training sentence is replaced by CL-47.
+
+No new product claims: product statements on these pages come from CL-22D, CL-23, CL-26, CL-47 and CL-53.
+
+Builds:
+- `npm run build` passes (32 pages; 16 marker warnings on 7 pages, none on a legal page).
+- `SITE_PUBLISH=1`: 0 markers on the nine legal pages. It still fails, as expected, on markers outside this decision:
+  - W8 placeholders on home, demo, deployment, product/audit, product/governance and product/traceability (OI-608).
+  - solutions/individuals: "[RAM: CONFIRM AT W8]" (CL-54) and "[counsel review: age line]" (CL-52, claims-register text).
+
+Screenshots (true 390 px phone and 1440, light and dark; label present, 0 markers, scrollWidth 390 or 1440), in C:\dev\AssuredForge\ds-previews\site-v2\assuredforge\:
+- legal-licence-{light|dark}-{1440|390}.png
+- legal-agreement-{light|dark}-{1440|390}.png
+- Script: ds-previews\site-v2\af-legal.cjs
+
+Ports 4174 and 4175 are stopped and free.

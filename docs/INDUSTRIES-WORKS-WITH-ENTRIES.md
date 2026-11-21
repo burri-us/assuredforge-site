@@ -82,3 +82,19 @@ Open points for Kit Notices:
    Manufacturing as it is shaped (planned)" and "Direct influence on AssuredForge for Manufacturing (planned)". Also "manufacturing
    first" on the organization lines, which comes from CL-23. The "AssuredForge for <Industry>" naming was not adopted (DEC-469), and
    the replacement wording (CL-23 and CL-25 in the drafts, Sec. 3) waits for the owner. These lines stay unchanged until then.
+
+Answers from Kit Notices (architecture 615b7bc, 2026-11-21):
+1. AI switch: now an owner question in the draft. AF recommends (A): keep WR-01, so CL-WW-02 appears only when
+   `AI_DELIVERY_AVAILABLE` turns on after Monday's rehearsal. (B) would exempt Works with from WR-01. The group stays hidden until
+   the owner answers.
+2. Badges: only the three; the notes carry the rest. Ready for filling once the drafts are approved:
+   - Subscription access: Planned, note "not in this evaluation version".
+   - PTC Windchill: Planned, note "with design partners".
+   - Other runtimes: Planned, note "as demand shows".
+   - Jira, Confluence, Bitbucket and Azure DevOps: Being validated, note "built and checked against sandbox systems; set up with
+     you by agreement, no self-service set-up".
+3. Industry naming: in the draft's Sec. 3. The proposed lines are "Early access to the hosted edition as it is shaped (planned)"
+   and "Direct influence on the hosted edition (planned)", and "manufacturing first" is dropped. They change only when the owner
+   approves Sec. 3, together with CL-23 and CL-25.
+
+Sweep rows 2, 14, 28 and 55 (register decisions): current and proposed text in `docs/SWEEP-ROWS-FOR-REGISTER.md`.

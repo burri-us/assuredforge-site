@@ -26,8 +26,8 @@ Updated: Saturday 2026-11-21.
   - "Gate" is replaced on the two interim legal pages (noted in COUNSEL-LIST.md).
   - "Customer-hosted … Planned" is removed from the deployment page.
   - CL-30 is now verbatim and CL-35 as revised.
-  - Still waiting for a register decision: sweep rows 2, 14, 28 and 55.
-- **Industries and Works with: claim drafts** (architecture bff6eb9) wait for the owner. The markers stay; the page structure now matches the drafts (`docs/INDUSTRIES-WORKS-WITH-ENTRIES.md` §4, three open points for Kit Notices).
+  - Still waiting for a register decision: sweep rows 2, 14, 28 and 55. The current and proposed text for each is in `docs/SWEEP-ROWS-FOR-REGISTER.md`, for Kit Notices' next owner package.
+- **Industries and Works with: claim drafts** (architecture bff6eb9) wait for the owner. The markers stay; the page structure now matches the drafts (`docs/INDUSTRIES-WORKS-WITH-ENTRIES.md` §4). Kit Notices answered (615b7bc): three badges only, with notes for the rest. The model-source group stays hidden until the owner answers the AI-switch question. The industry-naming lines change only with Sec. 3 of the drafts.
 - **OI-619 (High, live):** the live Manufacturing page claims a Windchill integration. c21a653 removes it at the next deploy, and deploys need the owner (Kit Notices has told the owner).
 - **Still blocks a publish (OI-608):** the W8 media placeholders on 6 pages, and the RAM marker until W8 measures it.
 - **Items 4-5 (report only), held until the W8 dry run has ended, as the owner sequenced them:**

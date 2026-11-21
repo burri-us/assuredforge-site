@@ -156,6 +156,7 @@ export function Layout({
           <div>
             <Wordmark className="text-base" />
             <p className="mt-1">© 2026 Tierra LLC · Michigan, USA</p>
+            <p className="mt-1">AssuredForge is a product of <a href="https://tierra-llc.com">Tierra LLC</a>.</p>
           </div>
           <ul className="flex flex-wrap gap-x-5 gap-y-1 md:justify-end">
             <li>Contact: <a href="mailto:info@assuredforge.com">info@assuredforge.com</a></li>

@@ -10,5 +10,5 @@ Updated: Saturday 2026-11-21.
 - **Still blocks a publish (OI-608):** the W8 media placeholders on 6 pages, and the RAM marker until W8 measures it.
 - **Items 4-5 (report only), held until the W8 dry run has ended, as the owner sequenced them:**
   - 4. Accessibility and performance check of both sites. Done so far: the automated WCAG 2.2 AA scan of every page (187 runs, light and dark, 1440 and 390 px, a 320 px reflow check); raw results are in `C:\dev\AssuredForge\ds-previews\a11y\out\axe.json`. Still to do: the keyboard-only walk, page weight and load timing (timings taken during the dry run would not be reliable), then the ranked findings list.
-  - 5. Plain-language sweep, outside the legal pages: in progress, report-only, to `docs/PLAIN-LANGUAGE-SWEEP.md`.
+  - 5. Plain-language sweep, outside the legal pages: done, report only, `docs/PLAIN-LANGUAGE-SWEEP.md` (57 findings on 20 pages plus the header and footer; 13 items need an owner or register-owner decision). Nothing changed on the site.
 - **Paused** until the owner says the W8 dry run has ended (stop time Saturday 23:30). Ports 4174 and 4175 are free.

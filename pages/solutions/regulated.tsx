@@ -19,7 +19,7 @@ export default function Regulated() {
         <Bullets items={["Release approvals signed by named people holding the required role.", "A tamper-evident audit chain you can verify, and an export of your organization's records verified offline."]} />
       </Section>
       <p className="mt-6 text-sm text-muted">No certification (for example SOC 2 or ISO 27001) is claimed.</p>
-      <p className="mt-4"><Link href="/manufacturing/">Manufacturing (planned)</Link> · <Link href="/design-partners/">Design partners</Link></p>
+      <p className="mt-4"><Link href="/industries/">Industries</Link> · <Link href="/design-partners/">Design partners</Link></p>
     </Layout>
   );
 }

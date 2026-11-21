@@ -67,6 +67,16 @@ for (const file of files(dir).filter((f) => f.endsWith(".html"))) {
     if (canonical) at("error page with a canonical URL");
     continue;
   }
+  // A moved page (components/Layout.tsx "forward"): noindex, no canonical URL, and its target page exists.
+  const refresh = /<meta\b[^>]*http-equiv="refresh"[^>]*content="0; url=([^"#]*)/i.exec(html)?.[1];
+  if (refresh !== undefined) {
+    if (!robots.some((r) => /noindex/i.test(r))) at("forwarding page without noindex");
+    if (canonical) at("forwarding page with a canonical URL");
+    let path = refresh;
+    if (base && path.startsWith(base)) path = path.slice(base.length) || "/";
+    if (!existsSync(join(dir, path, "index.html"))) at(`forwards to a missing page ${refresh}`);
+    continue;
+  }
   if (!canonical) at("no canonical URL");
   else {
     const path = relative(dir, file).split(/[\\/]/).slice(0, -1).join("/");   // about/index.html -> about
@@ -128,6 +138,21 @@ for (const file of files(dir).filter((f) => f.endsWith(".html"))) {
   }
 }
 for (const p of LEGAL_PAGES) if (!existsSync(join(dir, p))) report.push(`legal page missing: ${p}`);
+// No compliance claims on /industries/ and /works-with/ (owner decision 2026-11-21): no regulation, standard or certification
+// is named there, and nothing is called compliant or certified. Text there comes only from approved register entries.
+{
+  const COMPLIANCE = /\b(complian\w*|certif\w*|accredit\w*|HIPAA|HITECH|GxP|GMP|21 CFR|Part 11|FDA|SOC ?[12]|ISO ?\d{4,5}|IEC ?\d{4,5}|PCI(?:[ -]DSS)?|SOX|Sarbanes|GLBA|DORA|FFIEC|NAIC|FedRAMP|StateRAMP|FISMA|NIST|CMMC|ITAR|FERPA|COPPA|GDPR|CCPA|IATF|AS9100|validated for)\b/i;
+  // Negative test: a planted compliance claim must be caught, plain product wording must not.
+  for (const t of ["HIPAA compliant hosting", "SOC 2 certified", "Validated for GxP use"]) if (!COMPLIANCE.test(t)) report.push(`compliance check: planted "${t}" was not caught`);
+  if (COMPLIANCE.test("Approvals by named people, recorded in a tamper-evident audit chain")) report.push("compliance check: plain wording was caught");
+  for (const p of ["industries", "works-with"]) {
+    const f = join(dir, p, "index.html");
+    if (!existsSync(f)) { report.push(`${p}/index.html: missing (owner decision 2026-11-21)`); continue; }
+    const words = readFileSync(f, "utf8").replace(/<script\b[\s\S]*?<\/script>/gi, "").replace(/<[^>]+>/g, " ");
+    const hit = COMPLIANCE.exec(words);
+    if (hit) report.push(`${p}: compliance term "${hit[0]}" (no compliance claims on this page)`);
+  }
+}
 // RAM (CL-54, S-24): once components/Measured.tsx holds the W8 figures, the individuals page, the FAQ and Editions and
 // deployment must state the same minimum and recommended RAM. While the marker shows, the marker check above applies.
 {

@@ -293,3 +293,7 @@ Decisions on §6: the assessor, and the owner for item 9. The findings table's w
 
 Rows applied from §3 (with their source wording): 3, 4, 5, 6, 7, 8 (Audit), 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 29, 33, 35, 42, 43, 45, 46, 47, 49, 50, 51, 52, 54, 56, 57, and row 1 (Responsible disclosure lead). Also the design-partner eligibility line now reads "You must be at least 18", as on /solutions/individuals/.
 Not applied, waiting for the glossary (item 7) or a register decision (item 6): rows 2, 8 on pages other than Audit, 14, 28 (section hidden instead), 30, 31, 32 (reworded for item 9 only), 34, 36, 37, 38, 39 (renamed only), 40, 41, 44, 48, 53, 55.
+
+**Later change (owner decision 2026-11-21):** the Manufacturing page is removed; /manufacturing/ forwards to /industries/.
+Rows 29 and 30 and the Manufacturing mentions in rows 4, 8 and the Delivery row of the term table refer to the removed
+page. The Industries page takes its text only from approved register entries (`docs/INDUSTRIES-WORKS-WITH-ENTRIES.md`).

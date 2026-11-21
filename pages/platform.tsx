@@ -31,7 +31,7 @@ export default function Platform() {
         {/* WS-01 switch: components/AiWording.tsx. CL-19, CL-40R, CL-46 (on) / hold wording DEC-439 O-4. CL-46 state: Being validated. */}
         <p><Status kind="validated" /></p>
         <p>{AI.productLead}</p>
-        <p>Deeper pages: <Link href="/product/governance/">Governance and approvals</Link>, <Link href="/product/traceability/">Traceability</Link>, <Link href="/product/audit/">Audit and evidence</Link>, <Link href="/product/integrations/">Integrations</Link>, <Link href="/product/ai-assisted-delivery/">AI-assisted delivery</Link>.</p>
+        <p>Deeper pages: <Link href="/product/governance/">Governance and approvals</Link>, <Link href="/product/traceability/">Traceability</Link>, <Link href="/product/audit/">Audit and evidence</Link>, <Link href="/product/integrations/">Integrations</Link>, <Link href="/works-with/">Works with</Link>, <Link href="/product/ai-assisted-delivery/">AI-assisted delivery</Link>.</p>
       </Section>
     </Layout>
   );

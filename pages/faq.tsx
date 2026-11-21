@@ -41,7 +41,7 @@ const QA: { q: string; a: ReactNode }[] = [
   },
   {
     q: "Which tools does it connect to?",
-    a: <>It works on its own. Optional connectors for Jira, Confluence, Bitbucket and Azure DevOps exist; GitHub, GitLab and PTC Windchill are planned.{/* CL-16, CL-17 */} See <Link href="/product/integrations/">Integrations</Link>.</>,
+    a: <>It works on its own. Optional connectors for Jira, Confluence, Bitbucket and Azure DevOps exist; GitHub, GitLab and PTC Windchill are planned.{/* CL-16, CL-17 */} See <Link href="/product/integrations/">Integrations</Link> and <Link href="/works-with/">Works with</Link>.</>,
   },
   {
     q: "Is it certified?",

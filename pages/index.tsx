@@ -125,7 +125,7 @@ export default function Home() {
         {/* CL-51 (DEC-439 P-1, option B); CL-02 with both audiences named (O-1). Wording in components/Positioning.tsx. */}
         <p className="max-w-[70ch]">{POSITION.desktop} {POSITION.desktopWho}</p>
         <p className="max-w-[70ch]">{POSITION.hosted}</p>
-        <p><Link href="/solutions/individuals/">Individuals and small teams</Link> · <Link href="/deployment/">Editions and deployment</Link> · <Link href="/manufacturing/">Manufacturing (planned)</Link> · <Link href="/solutions/regulated/">Regulated and quality-driven teams (planned)</Link></p>
+        <p><Link href="/solutions/individuals/">Individuals and small teams</Link> · <Link href="/deployment/">Editions and deployment</Link> · <Link href="/industries/">Industries</Link> · <Link href="/solutions/regulated/">Regulated and quality-driven teams (planned)</Link></p>
       </Section>
 
       <section className="mt-12 card border-l-4 border-l-gold sm:p-8">

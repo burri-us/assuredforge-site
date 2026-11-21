@@ -48,3 +48,25 @@ and `out\axe.json`; scripts `scan.cjs`, `rescan.cjs`, `kbd.cjs`, `kbd2.cjs`, `kb
 - Re-test with the menu open, tabbing through the 16 stops after it, on all 31 content pages at 390 and 320 px, light and dark (124 runs): no focused element covered or off screen, no axe violation, no sideways scroll.
 - The live site (main 38082b2) has no collapsible phone menu, so it does not have this problem. A keyboard walk of its 9 pages and its 404 page at 390 and 320 px, light and dark (40 runs), found nothing covered, off screen or without a focus style.
 - Side effect: between 640 and 1023 px, the call to action and Menu sit on a second row under the wordmark instead of beside it.
+
+## F-3 done: no client script (owner, item 1; 2026-11-21)
+
+Every page now exports `config = { unstable_runtimeJS: false }`, so no page loads script. None of them has an interactive
+feature: the phone menu and the FAQ answers are native `<details>` disclosures, the AI switch is applied at build time, and links
+are plain anchors. Same harness as above (390 px, Slow 4G, CPU ×4, cache off, compressed transfer):
+
+| | Before (f0ae0b7) | After |
+|---|---|---|
+| Weight per page | 231 to 329 KB (Home 237 KB) | 96 to 119 KB (Home 99 KB) |
+| Requests per page | 18 to 46 | 7 to 8 |
+| Script per page | 127 to 175 KB | none |
+| Largest content paint | 0.86 to 1.96 s | 0.72 to 1.21 s |
+| Site check's Home weight (on disk) | 551 KB | 53 KB |
+
+Checks after the change:
+- Site check passes (34 pages); AI switch check passes for both values.
+- Menu-open keyboard and axe re-test: 124 runs, clean.
+- The FAQ disclosures open, the forwarding pages forward, and no page logs an error.
+
+The build still writes the Next.js script files to `out/_next/static/chunks`. No page references them; they stay within the
+served-file allow-list. Raw results: `ds-previews\a11y\out\perf-before-nojs.json` and `perf-after-nojs.json`.

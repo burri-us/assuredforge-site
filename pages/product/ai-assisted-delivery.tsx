@@ -51,3 +51,6 @@ export default function AiDelivery() {
     </Layout>
   );
 }
+
+// No client script: the page has no interactive features (page weight, A11Y-PERF-FINDINGS F-3).
+export const config = { unstable_runtimeJS: false };

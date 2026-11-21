@@ -102,32 +102,33 @@ export function Layout({
       </a>
       <TierraBar />
       <header className="border-b border-rule">
-        <div className="mx-auto max-w-6xl px-4 py-3 sm:px-8 lg:flex lg:items-center lg:gap-8">
+        <div className="relative mx-auto max-w-6xl px-4 py-3 sm:px-8 lg:flex lg:items-center lg:gap-8">
           <div className="flex min-h-11 flex-wrap items-center justify-between gap-x-4 gap-y-2 lg:shrink-0">
             <Wordmark className="text-heading-2" />
+            {/* WR-05: on narrow screens the call to action and the Menu share one row; the menu is a details disclosure (no script)
+                whose list opens as a panel below the header row, across the content width. */}
             <div className="flex items-center gap-2 lg:hidden">
-              {/* WR-05: the call to action stays visible on narrow screens; the menu is a details disclosure (no script). */}
               <Link href="/design-partners/" className={`${headerButton} inline-flex`}>
                 Become a design partner
               </Link>
+              <details>
+                <summary className="flex min-h-11 cursor-pointer items-center rounded-md border border-accent px-4 text-body font-semibold text-ink">
+                  Menu
+                </summary>
+                <nav aria-label="Main (menu)" className="menu-panel">
+                  <ul className="grid grid-cols-2 gap-x-4 text-body-sm sm:grid-cols-3">
+                    {NAV.map((n) => (
+                      <li key={n.href}>
+                        <Link href={n.href} className="flex min-h-11 items-center text-ink no-underline hover:underline">
+                          {n.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </details>
             </div>
           </div>
-          <details className="mt-2 lg:hidden">
-            <summary className="flex min-h-11 cursor-pointer items-center rounded-md border border-accent px-4 text-body font-semibold text-ink">
-              Menu
-            </summary>
-            <nav aria-label="Main (menu)" className="mt-1">
-              <ul className="grid grid-cols-2 gap-x-4 text-body-sm sm:grid-cols-3">
-                {NAV.map((n) => (
-                  <li key={n.href}>
-                    <Link href={n.href} className="flex min-h-11 items-center text-ink no-underline hover:underline">
-                      {n.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </details>
           <nav aria-label="Main" className="hidden lg:mt-0 lg:block lg:flex-1">
             <ul className="lg:flex lg:flex-wrap lg:justify-end lg:gap-x-4 text-body-sm">
               {NAV.map((n) => {

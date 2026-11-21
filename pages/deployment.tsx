@@ -52,7 +52,7 @@ export default function Deployment() {
       <Section title="Where else AssuredForge runs">
         <ul className="list-disc space-y-2 pl-6">
           {/* CL-20 */}
-          <li><strong className="text-ink">Hosted edition (planned, on Microsoft Azure)</strong> <Status kind="planned" /> AssuredForge&apos;s own internal pilot runs on Microsoft Azure. A hosted edition is planned; the design-partner evaluation is desktop only.</li>{/* CL-20 verbatim; edition name: owner, sweep item 9 */}
+          <li><strong className="text-ink">Hosted edition (planned, on Microsoft Azure)</strong> <Status kind="planned" /> AssuredForge&apos;s own internal pilot runs on Microsoft Azure. A hosted edition is planned; the design-partner evaluation is desktop only. IT checklists, proxies (company network servers that internet traffic must pass through), single sign-on and segregated approvers (where the governance requires it, the person who prepared a change cannot approve it; a different person must) are planned for the hosted edition.</li>{/* CL-20 verbatim; edition name: owner, sweep item 9. Guardrails sentence: DEC-436 (no CL entry), restored unchanged from the folded Regulated page (assessor, 2026-11-21); glossary H explanations (DEC-469) */}
         </ul>
         <p>Dedicated single-tenant hosting (an installation run for one organization only) and air-gapped operation (running with no connection to the internet) are future directions, not offers.</p>
         <p>See <Link href="/trust/product-privacy/">where data goes</Link> and the <Link href="/faq/">FAQ</Link>.</p>

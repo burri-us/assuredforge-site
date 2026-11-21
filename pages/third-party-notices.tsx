@@ -11,7 +11,7 @@ export default function ThirdPartyNotices() {
       {notices.map((n) => (
         <Section key={n.family} title={n.family}>
           <p>Package {n.package} {n.version}. Licence: {n.license}.</p>
-          <pre className="overflow-x-auto whitespace-pre-wrap rounded-md border border-rule bg-surface-alt p-4 text-code text-ink">{n.text}</pre>
+          <pre className="whitespace-pre-wrap wrap-anywhere rounded-md border border-rule bg-surface-alt p-4 text-code text-ink">{n.text}</pre>
         </Section>
       ))}
     </Layout>

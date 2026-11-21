@@ -46,4 +46,5 @@ and `out\axe.json`; scripts `scan.cjs`, `rescan.cjs`, `kbd.cjs`, `kbd2.cjs`, `kb
 **F-1 fixed (OI-621, Fix Now under DEC-373), on w11-site-redesign:**
 - The open phone menu now sits in the page flow and pushes the page down; CSS only, no script.
 - Re-test with the menu open, tabbing through the 16 stops after it, on all 31 content pages at 390 and 320 px, light and dark (124 runs): no focused element covered or off screen, no axe violation, no sideways scroll.
+- The live site (main 38082b2) has no collapsible phone menu, so it does not have this problem. A keyboard walk of its 9 pages and its 404 page at 390 and 320 px, light and dark (40 runs), found nothing covered, off screen or without a focus style.
 - Side effect: between 640 and 1023 px, the call to action and Menu sit on a second row under the wordmark instead of beside it.

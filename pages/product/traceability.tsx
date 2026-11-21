@@ -8,7 +8,7 @@ export default function Traceability() {
       <p className="mt-4"><Status kind="today" /></p>
       <Section title="The Digital Thread">
         {/* CL-03 */}
-        <p>Visions, Requirements, Features, Releases, their Deliveries, UAT results, approvals, pushes and deployments are one connected record you can follow in either direction.</p>
+        <p>Visions, Requirements, Features, Releases, their Deliveries, user acceptance test (UAT) results, approvals, pushes and deployments are one connected record you can follow in either direction.</p>
       </Section>
       <Section title="Deployments are checked against what was approved">
         <Bullets items={[

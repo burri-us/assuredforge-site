@@ -8,10 +8,10 @@ export default function Platform() {
     <Layout title="Platform | AssuredForge" description="How AssuredForge governs software delivery today: signed approvals, a connected record from requirement to deployment, and a verifiable audit chain.">
       <Title>How AssuredForge governs delivery</Title>
       <Section title="Governance first">
-        <p>Every Release moves through recorded stages: Deliveries recorded, integrated with tests run, UAT result recorded, approved with a signed decision, pushed to the main line and deployment recorded. A step that its rules do not allow is refused, with the reason.</p>
+        <p>Every Release moves through recorded stages: Deliveries recorded, integrated with tests run, user acceptance test (UAT) result recorded, approved with a signed decision, pushed to the main line and deployment recorded. A step that its rules do not allow is refused, with the reason.</p>
       </Section>
       <Section title="Human accountability">
-        <p>Only people approve: automation never does. Only a named person holding the required role, within its scope, can approve, and each approval records the person, the role assignment that authorized it and the reason. Roles are granted for the whole Tenant, a Workspace or a Portfolio.</p>
+        <p>Only people approve: automation never does. Only a named person holding the required role, within its scope, can approve, and each approval records the person, the role assignment that authorized it and the reason. Roles are granted for the whole Tenant (your organization's account), a Workspace (a separate space inside it, for example for one client) or a Portfolio (a long-lived product line or initiative).</p>
       </Section>
       <Section title="Traceability and the Digital Thread">
         <p>Visions, Requirements, Features, Releases, their Deliveries (the commits that implement them), UAT results, approvals, pushes and deployments in one connected record.</p>

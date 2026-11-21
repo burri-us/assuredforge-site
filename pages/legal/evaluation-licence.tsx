@@ -15,7 +15,7 @@ export default function EvaluationLicence() {
         { h: "Feedback", body: <p>Feedback you give may be used by Tierra LLC to improve the product without obligation. [Counsel to set the rights wording.]</p> },
         { h: "Warranty disclaimer", body: <p>The kit is provided &quot;as is&quot; for evaluation, without warranties. [Counsel to finalize.]</p> },
         { h: "Limit of liability", body: <p>[Counsel to set the limit and carve-outs.]</p> },
-        { h: "Termination and data deletion", body: <p>Either party may end the evaluation. On exit your data is exported to you, then deleted. [Counsel to align with the design partner agreement.]</p> },
+        { h: "Termination and data deletion", body: <p>Either party may end the evaluation. On exit, the desktop edition leaves your records on your own PC; the export and deletion steps are in the design partner agreement summary. [Counsel to align with the design partner agreement.]</p> },
         { h: "Governing law", body: <p>The laws of the State of Michigan, USA. [Counsel to confirm venue.]</p> },
       ]}
     />

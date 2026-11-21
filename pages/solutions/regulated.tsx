@@ -9,6 +9,7 @@ export default function Regulated() {
       <p className="mb-3"><span className="inline-block rounded border border-rule px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-ink">Hosted edition (planned)</span></p>
       <Title lead="For teams that must show what was delivered, who approved it and how it was validated.">Regulated and quality-driven teams</Title>
       <p className="mt-4 max-w-3xl text-ink-muted">{POSITION.hosted} {POSITION.hostedWho}</p>
+      <p className="mt-2 max-w-3xl text-ink-muted">Regulated organizations can join the design-partner waitlist for the planned hosted edition. It is not a current offer.</p>
       <Section title="Engineering leads">
         {/* CL-08, CL-30 */}
         <Bullets items={["A governed release path from Feature to recorded Deployment.", "Each release passes the readiness suite on the desktop and Azure editions before it reaches the pilot."]} />

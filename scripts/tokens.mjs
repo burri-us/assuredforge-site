@@ -39,6 +39,9 @@ const text = styles.map((s) => [
   `  --text-${s.name}--font-weight: ${s.fontWeight};`,
   s.letterSpacing ? `  --text-${s.name}--letter-spacing: ${s.letterSpacing};` : "",
 ].filter(Boolean).join("\n")).join("\n");
+// Fixed per-theme values (do not switch with the theme), for marks drawn on a surface that is the same in both themes
+// (the Tierra bar): --<token>-light and --<token>-dark for every colour token.
+const fixed = t.color.tokens.map((c) => `  --${c.name}-light: ${val(c, "light")};\n  --${c.name}-dark: ${val(c, "dark")};`).join("\n");
 const space = t.spacing.tokens.map((s) => `  --${s.name}: ${s.value};`).join("\n");
 const radius = t.radius.tokens.map((s) => `  --${s.name}: ${s.value};`).join("\n");
 const size = t.size.tokens.map((s) => `  --${s.name}: ${s.value};`).join("\n");
@@ -47,7 +50,7 @@ const shadow = t.shadow.tokens.map((s) => `  --${s.name}: ${s.value};`).join("\n
 // Faces and weights the site uses (latin subset), from the pinned packages; weights follow tokens.json (400, 600, 700).
 const FACES = [
   ["Inter", "inter", "inter", [400, 600]],
-  ["Space Grotesk", "space-grotesk", "space-grotesk", [600, 700]],
+  ["Space Grotesk", "space-grotesk", "space-grotesk", [400, 600, 700]],
   ["JetBrains Mono", "jetbrains-mono", "jetbrains-mono", [400]],
 ];
 mkdirSync(new URL("styles/fonts/", root), { recursive: true });
@@ -76,6 +79,7 @@ ${shadow}
 }
 
 :root {
+${fixed}
 ${space}
 ${size}
 }

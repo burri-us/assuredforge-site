@@ -25,4 +25,6 @@ Measured at f7ded39 against `tokens.json` v1 and the brand book (README sections
 
 ## SITE-V2 (design system 1795242441-3bd7)
 
+Source: the records copy `assuredforge-architecture/design/tierra-design-system/` (tokens.json, assets/Logos/README.md and drawings), read-only.
+
 Closed: E-A (the header and footer mark is the v2 drawing, inline, ink and gold from tokens; no file needed) and E-B (the Tierra bar is `bar` with `bar-ink` and the reversed wordmark in both themes). The brand files that carried fixed colours are removed. Remaining: E-2 (favicon.ico, icon.svg, apple-touch-icon.png, og.png unchanged) and E-C (latin subset, weights 400/600/700 for Space Grotesk).

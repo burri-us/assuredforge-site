@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <Layout
       title="AssuredForge: Software Delivery Governance Platform"
-      description="Governed software delivery with full traceability, signed approvals and an audit chain, for manufacturing and quality-driven teams."
+      description="Governed software delivery with traceability, release approvals signed by named people and a tamper-evident audit chain. For individuals and small teams today; a hosted edition for regulated organizations is planned."
     >
       <div className="grid items-center gap-10 pb-12 sm:pt-8 lg:grid-cols-2">
         <div>
@@ -124,7 +124,7 @@ export default function Home() {
       <Section title="Who it is for">
         {/* CL-51 (DEC-439 P-1, option B); CL-02 with both audiences named (O-1). Wording in components/Positioning.tsx. */}
         <p className="max-w-[70ch]">{POSITION.desktop} {POSITION.desktopWho}</p>
-        <p className="max-w-[70ch]">{POSITION.hosted} Software delivery governance and audit-ready traceability for manufacturing and quality-driven organizations.</p>
+        <p className="max-w-[70ch]">{POSITION.hosted}</p>
         <p><Link href="/deployment/">Editions and deployment</Link> · <Link href="/manufacturing/">AssuredForge for manufacturing</Link> · <Link href="/solutions/regulated/">Regulated and quality-driven teams</Link></p>
       </Section>
 

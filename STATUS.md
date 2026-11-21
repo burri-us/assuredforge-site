@@ -54,4 +54,5 @@ Updated: Saturday 2026-11-21.
   - 5. Plain-language sweep: `docs/PLAIN-LANGUAGE-SWEEP.md`. Its decisions are applied (DEC-469, DEC-470).
 - **Schedule (owner, replaces the 23:30 stop):** work may continue until Monday 07:00, when the W8 dry run starts. No Docker use, no kit folders, no pushes outside agreed checkpoints. The new site (8e90724 onwards) stays unpushed until the dry run has ended.
 - **Deployment page:** the hosted-edition guardrails sentence is restored unchanged under "Hosted edition (planned)" (assessor; 0989652). The register has no row for it; Kit Notices proposes one.
+- **For the new site's release notes** (Kit Notices, 733f600): between 640 and 1023 px the header shows the call to action and Menu on a second row under the wordmark (from the OI-621 fix, accepted). OI-621 is "Awaiting Release".
 - Ports 4174 and 4175 are free.

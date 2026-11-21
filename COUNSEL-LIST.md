@@ -126,8 +126,8 @@ Changed on 2026-11-21 before any partner signed, so the deletion promise matches
   - **Was:** "`launcher uninstall --delete-data` removes every AssuredForge record, file and key on your PC after you type a
     confirmation."
   - **Now:** "`launcher uninstall --delete-data` removes AssuredForge's records, files and keys from your PC after you type a
-    confirmation. Backups you created are kept; you delete them yourself (Quick Start, "Leaving the program")."
+    confirmation. Backups you created are kept; you delete them yourself (following the exit steps Tierra sends you)."
 - **Site summary page /legal/design-partner-agreement/**, "Desktop edition exit": carries CL-22D, which takes the same sentence;
-  the page follows at the next Site window (not yet changed on this branch).
+  changed on this branch on 2026-11-21 (same sentence).
 - For counsel to confirm with P1-08.
 

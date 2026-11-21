@@ -35,6 +35,8 @@ On all nine LegalPage pages, the date line "Effective date: to be set when couns
 
 Every clause filled or changed, with its page and exact wording:
 
+- **/legal/evaluation-licence/, Scope** (assessor change, 21 November 2026; was: "... by the named licensee only, on the licensee's own machines.")
+  > A non-exclusive, non-transferable licence to install and use the kit for evaluation, by the named licensee only, on the licensee's own PC, one installation per licence (a replacement PC is covered through backup and restore).
 - **/legal/evaluation-licence/, Confidentiality** (was: "A mutual non-disclosure agreement is available where required. [Counsel to align this clause.]")
   > Each party keeps confidential the non-public information it receives from the other in the evaluation, uses it only for the evaluation, and shares it only with people who need it for that purpose and are bound to keep it confidential. This does not apply to information that is public, that the recipient already had or develops independently, or that it receives lawfully from someone else, or to disclosure the law requires. A separate mutual non-disclosure agreement is available where required; if one is signed, it governs confidentiality.
 - **/legal/evaluation-licence/, Feedback** (was: "Feedback you give may be used by Tierra LLC to improve the product without obligation. [Counsel to set the rights wording.]")

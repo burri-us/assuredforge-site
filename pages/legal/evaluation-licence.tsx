@@ -9,7 +9,7 @@ export default function EvaluationLicence() {
       description="Evaluation licence for the AssuredForge desktop kit given to design partners."
       intro="This licence covers the desktop kit given to design partners for evaluation. The signed agreement and the licence file for the named partner govern."
       sections={[
-        { h: "Scope", body: <p>A non-exclusive, non-transferable licence to install and use the kit for evaluation, by the named licensee only, on the licensee&apos;s own machines.</p> },
+        { h: "Scope", body: <p>A non-exclusive, non-transferable licence to install and use the kit for evaluation, by the named licensee only, on the licensee&apos;s own PC, one installation per licence (a replacement PC is covered through backup and restore).</p> },
         { h: "Term and fee", body: <p>Six months from the licence start. No software license fee during the program.</p> },
         { h: "Restrictions", body: <p>No redistribution, sublicensing or reverse engineering except where law allows. Evaluation use only; production use needs a separate written authorization.</p> },
         { h: "Confidentiality", body: <p>Each party keeps confidential the non-public information it receives from the other in the evaluation, uses it only for the evaluation, and shares it only with people who need it for that purpose and are bound to keep it confidential. This does not apply to information that is public, that the recipient already had or develops independently, or that it receives lawfully from someone else, or to disclosure the law requires. A separate mutual non-disclosure agreement is available where required; if one is signed, it governs confidentiality.</p> },

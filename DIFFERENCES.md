@@ -15,10 +15,14 @@ Measured at f7ded39 against `tokens.json` v1 and the brand book (README sections
 | 9 | Radius | `rounded-md` 6px on buttons (`Blocks.tsx:194`, `Layout.tsx:30,94`, `design-partners.tsx:7`), cards (`index.tsx:96,131`, `design-partners.tsx:40`), frame (`Blocks.tsx:211`); `rounded` 4px on status chips (`Blocks.tsx:202`, `manufacturing.tsx:8`, `regulated.tsx:9`) | buttons 8px (radius-md), cards 12px (radius-lg), badges 6px (radius-sm) | Token radii |
 | 10 | Cards | Surface-alt fill, no border, no shadow, 24px padding (`index.tsx:96,131`, `design-partners.tsx:40`, `Blocks.tsx:287`) | surface, 1px rule border, radius-lg, shadow-1, padding space-5 / space-4 | Card class |
 | 11 | Buttons | `Blocks.tsx:194-196`, `Layout.tsx:29-30`: primary hover turns ink; secondary 2px border; padding px-5 py-3 | 44px min, radius-md, label 15px 600, secondary 1px accent border | Button classes |
-| 12 | Tierra bar | None | 48px ink strip with the Tierra mark (README 4; TierraBar) | Added, linking to tierra-llc.com |
+| 12 | Tierra bar | None at f7ded39; SITE-A added a surface-alt strip with an img | 48px `bar` strip in both themes, `bar-ink` text, reversed Tierra wordmark (README 4, 5; TierraBar) | Done in SITE-V2: inline reversed wordmark on `bar` |
 | 13 | Wordmark | `Layout.tsx:33-42`: system face, "Assured" regular and "Forge" bold | mark plus "AssuredForge" in display 700 | One weight |
 | 14 | Endorsement | `Layout.tsx:159` sentence with a link on "Tierra LLC" | "A product of Tierra LLC" linked to tierra-llc.com | Link text |
 | 15 | Spacing | Tailwind steps used freely (`py-12`, `p-6`, `gap-8`); all on the 4px grid | space-* tokens | On grid; main padding space-12 |
 | 16 | Contrast | Light pairs listed in `globals.css:3-5` meet 4.5:1; dark gold is the only token pair not re-derived | 4.5:1 text, 3:1 graphics | Ratios in HANDOFF.md |
 | 17 | Third-party notices | None (no fonts shipped) | Licence text of each face in a notices page | `/third-party-notices/` |
-| 18 | Mark files | `public/brand/*.svg`, `public/icon.svg` carry fixed hex | Use the files as supplied (section 4) | Unchanged |
+| 18 | Mark files | `public/brand/*.svg` carried fixed hex | Websites draw the marks inline (README 4, v2) | Done in SITE-V2: `public/brand/` removed; `public/icon.svg` and the rasters stay (exception E-2) |
+
+## SITE-V2 (design system 1795242441-3bd7)
+
+Closed: E-A (the header and footer mark is the v2 drawing, inline, ink and gold from tokens; no file needed) and E-B (the Tierra bar is `bar` with `bar-ink` and the reversed wordmark in both themes). The brand files that carried fixed colours are removed. Remaining: E-2 (favicon.ico, icon.svg, apple-touch-icon.png, og.png unchanged) and E-C (latin subset, weights 400/600/700 for Space Grotesk).

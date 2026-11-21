@@ -10,6 +10,7 @@ export default function About() {
           AssuredForge is developed and operated by Tierra LLC, a Michigan-based software company focused on software
           delivery governance, traceability and audit-ready release management.
         </p>
+        <p>In plain words: software that records who approved each change, how it was checked and where it was deployed.</p>{/* CL-28 plain line (DEC-470 (9)) */}
       </Section>
       <Section title="Contact">
         <ul className="space-y-1">

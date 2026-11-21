@@ -53,7 +53,7 @@ export default function DesignPartners() {
               <ul className="mt-2 list-disc space-y-2 pl-6 text-muted">
                 {t.offers.map((e) => <li key={e}>{e}</li>)}
               </ul>
-              <p className="mt-4 text-muted">See how AssuredForge works <Link href="/industries/#manufacturing">for manufacturing (planned)</Link>.</p>
+              <p className="mt-4 text-muted">See <Link href="/industries/">Industries</Link>.</p>
             </>
           )}
         </section>

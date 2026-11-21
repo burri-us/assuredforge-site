@@ -39,8 +39,8 @@ const TILES = [
 export default function Home() {
   return (
     <Layout
-      title="AssuredForge: Software Delivery Governance Platform"
-      description="Governed software delivery with traceability, release approvals signed by named people and a tamper-evident audit chain. For individuals and small teams today; a hosted edition for regulated organizations is planned."
+      title="AssuredForge: Software delivery governance platform"
+      description="Governed software delivery with traceability, release approvals signed by named people and a tamper-evident audit chain. For individuals and small teams today; a hosted edition for organizations is planned."
     >
       <div className="grid items-center gap-10 pb-12 sm:pt-8 lg:grid-cols-2">
         <div>

@@ -61,7 +61,7 @@ export const AI = ON
     }
   : {
       // ---- HOLD WORDING (DEC-439 O-4; CL-40R, CL-46) ----
-      tag: "Software Delivery Governance Platform",
+      tag: "Software delivery governance platform",
       heroTitle: "Governed software delivery, where only people approve.",
       heroLead:
         "AssuredForge governs software delivery under your rules: every requirement traced, every release approved and signed by a named person, every action in a tamper-evident audit chain.",

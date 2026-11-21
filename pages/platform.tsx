@@ -21,7 +21,7 @@ export default function Platform() {
         <p>Every governed action (an action the platform records because its rules govern it, such as an approval, a sign-off or a decision) is written to a tamper-evident audit chain (a record of every governed action, whose entries cannot be updated or deleted by any role) that you can verify. A Tenant&apos;s records can be exported as a signed export that can be verified offline.</p>
       </Section>
       <Section title="Sign-in">
-        <p>Local accounts with two-step verification that an organization can require for all its members. Sign-in with Microsoft Entra ID for an installation&apos;s own directory.</p>
+        <p>Local accounts with two-step verification that an organization can require for all its members. Sign-in with Microsoft Entra ID runs in Tierra&apos;s own internal pilot (an installation&apos;s own directory) and is planned for the hosted edition; sign-in from partner directories is planned. The desktop evaluation uses local accounts with two-step verification.</p>{/* CL-15 as revised (DEC-470 (9)); CL-12, CL-14 */}
       </Section>
       <Section title="Works with your tools, optionally">
         {/* CL-16, CL-17, CL-18 verbatim (assessor, sweep item 8: one connector status from CL-17) */}

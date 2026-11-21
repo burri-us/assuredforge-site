@@ -4,9 +4,9 @@ import { AI } from "./AiWording";
 
 export const POSITION = {
   desktop: "The desktop edition is for individuals and small teams.",
-  hosted: "The hosted edition (planned) is for regulated organizations.",
+  hosted: "A hosted edition for organizations is planned.",
   desktopWho: "Students, aspiring professionals, freelance developers, content creators and small business owners.",
-  hostedWho: "Regulated and quality-driven organizations, manufacturing first. IT checklists, proxies (company network servers that internet traffic must pass through), single sign-on and segregated approvers (where the governance requires it, the person who prepared a change cannot approve it; a different person must) are planned for the hosted edition.",
+  hostedWho: "Regulated and quality-driven organizations. IT checklists, proxies (company network servers that internet traffic must pass through), single sign-on and segregated approvers (where the governance requires it, the person who prepared a change cannot approve it; a different person must) are planned for the hosted edition.",
   // Design-partner tracks.
   trackIndividual: {
     title: "Individuals and small teams (desktop edition)",
@@ -23,16 +23,16 @@ export const POSITION = {
     ],
   },
   trackOrganization: {
-    title: "Regulated organizations (hosted edition, planned): waitlist",
+    title: "Organizations (hosted edition, planned): waitlist",
     eligibility: [
-      "Organizations building internal software under quality or regulatory pressure; manufacturing first (hosted edition, planned).",
+      "Organizations building internal software under quality or regulatory pressure (hosted edition, planned).",
       "Jira, Azure DevOps or a similar tool for work items.",
       "Windchill or Creo in your engineering landscape is a plus.",
       "A sponsor who can give regular, structured feedback.",
     ],
     offers: [
-      "Early access to AssuredForge for Manufacturing as it is shaped (planned).",
-      "Direct influence on AssuredForge for Manufacturing (planned): your priority use cases shape what we build next.",
+      "Early access to the hosted edition as it is shaped (planned).",
+      "Direct influence on the hosted edition (planned).",
     ],
     commitments: [
       "Product feedback and participation in working sessions.",

@@ -98,3 +98,18 @@ Answers from Kit Notices (architecture 615b7bc, 2026-11-21):
    approves Sec. 3, together with CL-23 and CL-25.
 
 Sweep rows 2, 14, 28 and 55 (register decisions): current and proposed text in `docs/SWEEP-ROWS-FOR-REGISTER.md`.
+
+## 5. Filled (DEC-470, claims register 0.4)
+
+All CLAIM- markers are replaced with register text (`components/Registered.ts`, each with its CL number).
+- Industries: CL-02 as the lead and meta description, CL-IND-00 after the lead and under each industry, and CL-IND-01..08.
+- Works with:
+  - CL-WW-00 as the headline, and the badge definitions from DEC-470 (5).
+  - CL-WW-01: seven toolchains Being validated; other runtimes Planned, "As demand shows"; limits CL-54, CL-56.
+  - CL-WW-03, with CL-16 and the approved connector wording as the introduction.
+  - CL-WW-02 is filled but shown only while the AI switch is on. Its intro is "Chosen in Setup, with no default." (register
+    wording), because "choose the model source" is barred (DEC-430 (6)).
+  - The gateway row reads "Enterprise model gateway", without "(OpenAI-compatible endpoint)": the AI switch check bars "OpenAI"
+    in both switch states (DEC-436 W11 (4)).
+- Status line under each group: "Status as of 21 November 2026, for the desktop evaluation kit release-b1-c68012b." Update it with
+  each kit release or status change.

@@ -55,4 +55,13 @@ Updated: Saturday 2026-11-21.
 - **Schedule (owner, replaces the 23:30 stop):** work may continue until Monday 07:00, when the W8 dry run starts. No Docker use, no kit folders, no pushes outside agreed checkpoints. The new site (8e90724 onwards) stays unpushed until the dry run has ended.
 - **Deployment page:** the hosted-edition guardrails sentence is restored unchanged under "Hosted edition (planned)" (assessor; 0989652). The register has no row for it; Kit Notices proposes one.
 - **For the new site's release notes** (Kit Notices, 733f600): between 640 and 1023 px the header shows the call to action and Menu on a second row under the wordmark (from the OI-621 fix, accepted). OI-621 is "Awaiting Release".
+- **Owner items 1-4 (until Monday 07:00; no Docker, no kit folders, no push, no CI):**
+  - 1. Page weight: done (4fc68da). No client script on any page; pages 231-329 KB to 96-119 KB, 18-46 requests to 7-8. All checks pass.
+  - 2. Release package: `docs/RELEASE-PACKAGE.md`, with release notes, the go/no-go list, the deploy steps, the addresses to verify and rollback. New `scripts/live-check.mjs` (save, compare, diff; read-only). Found while writing it:
+    - G-3: the branch has indexing off, while live has it on. The release must set it back on, or the live site leaves search engines.
+    - G-4: no workflow sets `SITE_PUBLISH`, so the deploy must add it to refuse placeholders.
+    - The merge with main has one conflict, `pages/manufacturing.tsx`.
+  - 3. Works with "Supported": prepared behind `ANTHROPIC_SUPPORTED_SINCE` (4b65e8a, null, no visible change); trialled with AI on, not applied.
+  - 4. Partner materials drift: offered to Kit Notices (see below).
+- Design-partner agreement summary aligned to "organizations" (DEC-475 (a); 7bad68e; COUNSEL-LIST.md).
 - Ports 4174 and 4175 are free.

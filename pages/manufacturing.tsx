@@ -14,7 +14,6 @@ export default function Manufacturing() {
       </Section>
       <Section title="Planned with design partners">
         <ul className="list-disc space-y-2 pl-6">
-          <li>Connection to engineering context through a PTC Windchill integration.</li>
           <li>AI assistance under the same governance: it may recommend and prepare, and people decide.</li>
         </ul>
       </Section>

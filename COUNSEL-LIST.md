@@ -95,3 +95,13 @@ Every clause filled or changed, with its page and exact wording:
   > You must be at least 18, use a Windows 11 Home or Pro PC that meets the system requirements, and set up and use the evaluation yourself or with your small team.
 - For counsel to confirm with the rest of the interim text: the minimum age of 18, the same as the agreement's §2 (S-29, DEC-436).
 - For the register owner: CL-52 still carries "[counsel review: age line]" in the claims register; it needs the same wording.
+
+### "Gate" wording on two interim legal pages (assessor, DEC-469, 21 November 2026)
+The website does not use "gate" (glossary note, DEC-469). The assessor changed the wording; the meaning is unchanged.
+- /legal/acceptable-use/, "You may not":
+  - **Was:** "Use AI features to bypass an approval or gate (see the AI use policy)."
+  - **Now:** "Use AI features to bypass an approval the governance requires (see the AI use policy)."
+- /trust/ai-use-policy/, "Prohibited uses":
+  - **Was:** "Using AI output to bypass an approval or a gate."
+  - **Now:** "Using AI output to bypass an approval the governance requires."
+- For counsel to confirm with the rest of the interim text.

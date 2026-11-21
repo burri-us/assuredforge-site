@@ -297,3 +297,11 @@ Not applied, waiting for the glossary (item 7) or a register decision (item 6): 
 **Later change (owner decision 2026-11-21):** the Manufacturing page is removed; /manufacturing/ forwards to /industries/.
 Rows 29 and 30 and the Manufacturing mentions in rows 4, 8 and the Delivery row of the term table refer to the removed
 page. The Industries page takes its text only from approved register entries (`docs/INDUSTRIES-WORKS-WITH-ENTRIES.md`).
+
+**DEC-469 (2026-11-21): glossary section H approved, with edits.** Rows now applied with the glossary wording at first use on
+each page: 8 (Home, Platform, Security, Regulated; Portal on Audit and Resources), 31, 32 (CL-30 as revised, verbatim), 34
+(delivery lifecycle; CL-35 as revised), 36, 37, 38, 41, 44, 48, 53. Also git remote and installation id (Home, Editions and
+deployment, FAQ, Security), main line (Platform) and dependency and container image scanning (Security, Trust Center). Row 40:
+the "Customer-hosted" line is removed (DEC-469 item 3), and so is "from the same code as the planned hosted edition" on the
+desktop line, in line with the edited Container image entry. "Gate" on the two interim legal pages is replaced (assessor;
+COUNSEL-LIST.md). Still waiting for a register decision: rows 2, 14, 28 and 55.

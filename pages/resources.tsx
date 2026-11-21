@@ -10,7 +10,7 @@ export default function Resources() {
         <ul className="space-y-3">
           {/* Not published yet: the Quick Start and release notes ship with the kit (W5, W10). No links until they exist. */}
           <li><strong className="text-ink">Quick start</strong> <Status kind="partners" /> Delivered with the evaluation kit (the download we send you a single link to), with the install steps and the SHA-256 list.</li>
-          <li><strong className="text-ink">Documentation and Help</strong> <Status kind="today" /> {/* CL-31 */} Help is built into the Portal: task guides, role guides, troubleshooting, and &ldquo;Help for this page&rdquo;.</li>
+          <li><strong className="text-ink">Documentation and Help</strong> <Status kind="today" /> {/* CL-31 */} Help is built into the Portal (the AssuredForge web application you sign in to in your browser): task guides, role guides, troubleshooting, and &ldquo;Help for this page&rdquo;.</li>
           <li><strong className="text-ink">Release notes</strong> <Status kind="partners" /> Delivered with the kit.</li>
         </ul>
       </Section>

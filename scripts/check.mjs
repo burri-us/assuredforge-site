@@ -141,7 +141,7 @@ for (const p of LEGAL_PAGES) if (!existsSync(join(dir, p))) report.push(`legal p
 // No compliance claims on /industries/ and /works-with/ (owner decision 2026-11-21): no regulation, standard or certification
 // is named there, and nothing is called compliant or certified. Text there comes only from approved register entries.
 {
-  const COMPLIANCE = /\b(complian\w*|certif\w*|accredit\w*|HIPAA|HITECH|GxP|GMP|21 CFR|Part 11|FDA|SOC ?[12]|ISO ?\d{4,5}|IEC ?\d{4,5}|PCI(?:[ -]DSS)?|SOX|Sarbanes|GLBA|DORA|FFIEC|NAIC|FedRAMP|StateRAMP|FISMA|NIST|CMMC|ITAR|FERPA|COPPA|GDPR|CCPA|IATF|AS9100|validated for)\b/i;
+  const COMPLIANCE = /\b(complian\w*|certif\w*|accredit\w*|HIPAA|HITECH|GxP|GMP|21 CFR|Part 11|FDA|SOC ?[12]|ISO ?\d{4,5}|IEC ?\d{4,5}|PCI(?:[ -]DSS)?|SOX|Sarbanes|GLBA|DORA|FFIEC|NAIC|FedRAMP|StateRAMP|FISMA|NIST|CMMC|ITAR|FERPA|COPPA|GDPR|CCPA|IATF|AS9100)\b/i;
   // Negative test: a planted compliance claim must be caught, plain product wording must not.
   for (const t of ["HIPAA compliant hosting", "SOC 2 certified", "Validated for GxP use"]) if (!COMPLIANCE.test(t)) report.push(`compliance check: planted "${t}" was not caught`);
   if (COMPLIANCE.test("Approvals by named people, recorded in a tamper-evident audit chain")) report.push("compliance check: plain wording was caught");

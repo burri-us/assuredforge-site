@@ -6,7 +6,7 @@ export const POSITION = {
   desktop: "The desktop edition is for individuals and small teams.",
   hosted: "The hosted edition (planned) is for regulated organizations.",
   desktopWho: "Students, aspiring professionals, freelance developers, content creators and small business owners.",
-  hostedWho: "Regulated and quality-driven organizations, manufacturing first. IT checklists, proxies, single sign-on and segregated approvers are planned for the hosted edition.",
+  hostedWho: "Regulated and quality-driven organizations, manufacturing first. IT checklists, proxies (company network servers that internet traffic must pass through), single sign-on and segregated approvers (where the governance requires it, the person who prepared a change cannot approve it; a different person must) are planned for the hosted edition.",
   // Design-partner tracks.
   trackIndividual: {
     title: "Individuals and small teams (desktop edition)",
@@ -37,7 +37,7 @@ export const POSITION = {
     commitments: [
       "Product feedback and participation in working sessions.",
       "Validation of requirements against deliveries of your own projects in the evaluation.",
-      "Participation in a pilot.",
+      "Participation in a pilot: a period in which you use AssuredForge on real work of your own, with agreed goals and our support.",
     ],
   },
 };

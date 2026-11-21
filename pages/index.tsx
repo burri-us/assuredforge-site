@@ -12,7 +12,7 @@ import { CheckIcon, GateIcon, ShieldCheckIcon, ThreadIcon } from "../components/
 // Proof strip: facts only, no logos, counts or certifications.
 const PROOF = [
   "Release approvals signed by named people", // CL-05
-  "Tamper-evident audit chain you can verify and export", // CL-06, CL-07
+  "Tamper-evident audit chain you can verify and export", // CL-06, CL-07 (explained in the Prove tile)
   "Desktop edition runs on your own PC", // CL-53 (Being validated)
   AI.proof4, // WR-01: behind the AI switch. On: CL-47. Off: CL-16 (the off wording is DEC-439 O-4).
 ];
@@ -32,7 +32,7 @@ const STEPS = [
 const TILES = [
   { title: "Govern", Icon: GateIcon, href: "/product/governance/", status: "Available today", text: "The approvals the governance requires, signed by named people whose roles are granted for the whole Tenant (your organization's account), a Workspace or a Portfolio, and release governance enforced by the platform, not by convention." }, // CL-04, CL-05, CL-13; no "Gates" on the site (assessor, sweep item 1)
   { title: "Trace", Icon: ThreadIcon, href: "/product/traceability/", status: "Available today", text: "One connected record from requirement to Release, approval, push and recorded deployment, and back." }, // CL-03
-  { title: "Prove", Icon: ShieldCheckIcon, href: "/product/audit/", status: "Available today", text: "Every governed action in a tamper-evident audit chain that you can verify and export." }, // CL-06, CL-07
+  { title: "Prove", Icon: ShieldCheckIcon, href: "/product/audit/", status: "Available today", text: "Every governed action in a tamper-evident audit chain (a record whose entries cannot be updated or deleted by any role) that you can verify and export." }, // CL-06, CL-07
   { title: "Deliver with AI", Icon: CheckIcon, href: "/product/ai-assisted-delivery/", status: AI.deliverStatus, text: AI.deliverTile }, // CL-19, CL-40R, CL-49 (on) / DEC-439 O-4 (hold)
 ];
 
@@ -116,7 +116,7 @@ export default function Home() {
         <p className="max-w-[70ch]">
           In the desktop edition your records stay on your own PC, under your control.{" "}
           {AI.dataModelSentence}
-          AssuredForge connects only to the services you set up: {AI.available ? "the model provider of the key you entered and, if you add them, " : "if you add them, "}your own git remote, connectors (integrations to outside systems such as Jira or Azure DevOps) and sign-in provider. Tierra receives your installation id when you ask for a licence, and prompts or project content only in what you choose to send us: a support bundle (a short set of details you choose to send us when you ask for help), or feedback with files you attach. This is being validated.
+          AssuredForge connects only to the services you set up: {AI.available ? "the model provider of the key you entered and, if you add them, " : "if you add them, "}your own git remote (the online copy of your code repository that you choose to connect), connectors (integrations to outside systems such as Jira or Azure DevOps) and sign-in provider. Tierra receives your installation id (a code that identifies your AssuredForge installation; it does not contain your records) when you ask for a licence, and prompts or project content only in what you choose to send us: a support bundle (a short set of details you choose to send us when you ask for help), or feedback with files you attach. This is being validated.
         </p>
         <p><Link href="/deployment/">Editions and system requirements</Link></p>
       </Section>

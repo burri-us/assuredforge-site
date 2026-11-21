@@ -47,3 +47,12 @@ means, not what the product does beyond the claims register. Where a definition 
    test suite) on the desktop edition and on the installation that runs our own internal pilot, before it reaches that
    pilot." Please confirm or replace with register wording.
 2. **CL-20** is used verbatim on the deployment page under "Hosted edition (planned, on Microsoft Azure)".
+
+## 4. Outcome
+
+Approved with edits on 2026-11-21 (DEC-469). The definitions are now glossary section H (architecture 2ab3fa7) and are used on
+the site. The edits: Container image without "The same images run on a desktop PC and in the hosted edition"; Launcher "checks
+your PC, installs, starts, updates and stops AssuredForge"; SmartScreen "Until the kit is code-signed, Windows shows this
+warning; the Quick Start explains the steps"; Segregated approvers "Where the governance requires it, the person who prepared a
+change cannot approve it; a different person must." Not adopted: "AssuredForge for <Industry>" naming (general-purpose
+positioning, DEC-468 (12)). CL-30 and CL-35 are revised in the register (§3 item 1 settled).

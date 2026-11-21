@@ -12,11 +12,11 @@ export default function Regulated() {
       <p className="mt-2 max-w-3xl text-muted">Regulated organizations can join the design-partner waitlist for the planned hosted edition. It is not a current offer.</p>
       <Section title="Engineering leads">
         {/* CL-08, CL-30 */}
-        <Bullets items={["A governed release path from a Feature (an individual functional unit that is built, tested and delivered) to its recorded deployment.", "Each release passes the readiness suite (one shared test suite) on the desktop edition and on the installation that runs our own internal pilot, before it reaches that pilot."]} />{/* CL-30 reworded for the owner's two edition names (sweep item 9); register owner to align CL-30 */}
+        <Bullets items={["A governed release path from a Feature (an individual functional unit that is built, tested and delivered) to its recorded deployment.", "Each release passes the readiness suite (one shared test suite) on the desktop edition and on the installation that runs our own internal pilot, before it reaches that pilot."]} />{/* CL-30 verbatim (revised, DEC-469) */}
       </Section>
       <Section title="Quality and compliance">
         {/* CL-05, CL-06, CL-07 */}
-        <Bullets items={["Release approvals signed by named people holding the required role.", "A tamper-evident audit chain you can verify, and an export of your organization's records verified offline."]} />
+        <Bullets items={["Release approvals signed by named people holding the required role.", "A tamper-evident audit chain (a record of every governed action, whose entries cannot be updated or deleted by any role) you can verify, and an export of your organization's records verified offline."]} />
       </Section>
       <p className="mt-6 text-sm text-muted">No certification (for example SOC 2 or ISO 27001) is claimed.</p>
       <p className="mt-4"><Link href="/industries/">Industries</Link> · <Link href="/design-partners/">Design partners</Link></p>

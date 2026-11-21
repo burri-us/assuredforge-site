@@ -19,7 +19,7 @@ export default function AiUsePolicy() {
         { h: "Your prompts and project content", body: <p>Prompts and project content for a run go to the provider you chose, under your own agreement with that provider; Tierra does not receive them unless you send us a support bundle that includes them.</p> }, // CL-47 (replaces an unregistered training statement)
         { h: "Cost controls", body: <p>You can set a run budget and a monthly limit. An administrator turns model execution on or off as a signed decision.</p> },
         ] : []),
-        { h: "Prohibited uses", body: <Bullets items={[...(AI.available ? ["Submitting data you have no right to share with a model provider."] : []), "Using AI output to bypass an approval or a gate.", AI.available ? "Any use prohibited by the acceptable use policy or by the provider's terms." : "Any use prohibited by the acceptable use policy."]} /> },
+        { h: "Prohibited uses", body: <Bullets items={[...(AI.available ? ["Submitting data you have no right to share with a model provider."] : []), "Using AI output to bypass an approval the governance requires.", AI.available ? "Any use prohibited by the acceptable use policy or by the provider's terms." : "Any use prohibited by the acceptable use policy."]} /> },
       ]}
     />
   );

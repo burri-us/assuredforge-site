@@ -27,8 +27,8 @@ export default function Trust() {
         </ul>
       </Section>
       <Section title="Not claimed">
-        <p>No certification, no external penetration test, no uptime or support-hour commitment.</p>
-        <p><Status kind="today" /> {/* CL-39 */} Dependency and container image scanning, and a structured internal security review.</p>
+        <p>No certification, no external penetration test (a security test in which an outside company tries to break into a system), no uptime or support-hour commitment.</p>
+        <p><Status kind="today" /> {/* CL-39 */} Dependency and container image scanning (automatic checks of the third-party software AssuredForge is built with, and of its container images, for known security problems), and a structured internal security review.</p>
       </Section>
     </Layout>
   );

@@ -16,7 +16,7 @@ const QA: { q: string; a: ReactNode }[] = [
   },
   {
     q: "Where does my data live?",
-    a: <>In the desktop edition your records stay on your own PC, under your control. AssuredForge connects only to the services you set up: {AI.available ? "the model provider of the key you entered and, if you add them, " : "if you add them, "}your own git remote, connectors (integrations to outside systems such as Jira or Azure DevOps) and sign-in provider. Tierra receives your installation id when you ask for a licence, and prompts or project content only in what you choose to send us: a support bundle (a short set of details you choose to send us when you ask for help), or feedback with files you attach. We delete a support bundle 90 days after the issue it was sent for is closed. This is being validated.{/* CL-53 (Being validated until W8 and its network check) */} See the <Link href="/trust/product-privacy/">product privacy notice</Link> (interim).</>,
+    a: <>In the desktop edition your records stay on your own PC, under your control. AssuredForge connects only to the services you set up: {AI.available ? "the model provider of the key you entered and, if you add them, " : "if you add them, "}your own git remote (the online copy of your code repository that you choose to connect), connectors (integrations to outside systems such as Jira or Azure DevOps) and sign-in provider. Tierra receives your installation id (a code that identifies your AssuredForge installation; it does not contain your records) when you ask for a licence, and prompts or project content only in what you choose to send us: a support bundle (a short set of details you choose to send us when you ask for help), or feedback with files you attach. We delete a support bundle 90 days after the issue it was sent for is closed. This is being validated.{/* CL-53 (Being validated until W8 and its network check) */} See the <Link href="/trust/product-privacy/">product privacy notice</Link> (interim).</>,
   },
   {
     q: "What do I need to run the desktop edition?",
@@ -45,7 +45,7 @@ const QA: { q: string; a: ReactNode }[] = [
   },
   {
     q: "Is it certified?",
-    a: <>No certification (such as SOC 2 or ISO 27001) and no external penetration test is claimed. Security practice is described on the <Link href="/security/">Security</Link> page.{/* CL-39; register &quot;must not claim&quot; list */}</>,
+    a: <>No certification (such as SOC 2 or ISO 27001) and no external penetration test (a security test in which an outside company tries to break into a system) is claimed. Security practice is described on the <Link href="/security/">Security</Link> page.{/* CL-39; register &quot;must not claim&quot; list */}</>,
   },
   {
     q: "How do I become a design partner?",

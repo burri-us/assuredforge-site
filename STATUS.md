@@ -21,6 +21,14 @@ Updated: Saturday 2026-11-21.
   - Every text slot shows a `[CLAIM- entry pending: …]` marker until Kit Notices approves the entries; a publish build refuses them. The site check fails on compliance terms on both pages.
   - What is needed, the candidates in the register and 4 questions: `docs/INDUSTRIES-WORKS-WITH-ENTRIES.md`. Seven of the eight industries have no register basis.
   - Checks: build and site check pass (34 pages; 31 in the sitemap); the AI switch check passes for both values; the WCAG scan finds no new violation on either site (light and dark, 1440, 1024 and 390 px).
+- **DEC-469 applied** (owner and assessor, via Kit Notices):
+  - Glossary section H is now on the site: plain explanations at first use for audit chain, governed action, Portal, main line, git remote, installation id, delivery lifecycle, Docker Desktop, SHA-256, launcher and SmartScreen, single-tenant and air-gapped, proxies, segregated approvers, pilot, external penetration test, security.txt, and dependency and container image scanning.
+  - "Gate" is replaced on the two interim legal pages (noted in COUNSEL-LIST.md).
+  - "Customer-hosted … Planned" is removed from the deployment page.
+  - CL-30 is now verbatim and CL-35 as revised.
+  - Still waiting for a register decision: sweep rows 2, 14, 28 and 55.
+- **Industries and Works with: claim drafts** (architecture bff6eb9) wait for the owner. The markers stay; the page structure now matches the drafts (`docs/INDUSTRIES-WORKS-WITH-ENTRIES.md` §4, three open points for Kit Notices).
+- **OI-619 (High, live):** the live Manufacturing page claims a Windchill integration. c21a653 removes it at the next deploy, and deploys need the owner (Kit Notices has told the owner).
 - **Still blocks a publish (OI-608):** the W8 media placeholders on 6 pages, and the RAM marker until W8 measures it.
 - **Items 4-5 (report only), held until the W8 dry run has ended, as the owner sequenced them:**
   - 4. Accessibility and performance check of both sites. Done so far: the automated WCAG 2.2 AA scan of every page (187 runs, light and dark, 1440 and 390 px, a 320 px reflow check); raw results are in `C:\dev\AssuredForge\ds-previews\a11y\out\axe.json`. Still to do: the keyboard-only walk, page weight and load timing (timings taken during the dry run would not be reliable), then the ranked findings list.

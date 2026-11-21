@@ -30,6 +30,8 @@ export default function WorksWith() {
           ) : (
             <p className="mt-3 text-body-sm text-muted">{pending(`${g.id} items with their badges`)}</p>
           )}
+          <p className="mt-3 text-body-sm text-muted">{g.asOf ?? pending(`${g.id} status date and kit release`)}</p>
+          {g.limits && g.limits.length > 0 && <ul className="mt-3 list-disc space-y-1 pl-6 text-body-sm text-muted">{g.limits.map((l) => <li key={l}>{l}</li>)}</ul>}
         </section>
       ))}
       <p className="mt-10"><Link href="/platform/">Platform</Link> · <Link href="/product/integrations/">Integrations</Link> · <Link href="/faq/">FAQ</Link></p>

@@ -9,7 +9,7 @@ export default function Disclosure() {
       <Title lead="How to report a vulnerability. If you believe you found one, tell us before you tell others.">Responsible disclosure</Title>
       <Section title="How to report">
         <p>Email <a href="mailto:security@assuredforge.com">security@assuredforge.com</a> with the steps to reproduce. This address is for vulnerability reports and security incidents only; for support write to <a href="mailto:support@assuredforge.com">support@assuredforge.com</a>.</p>
-        <p>Details: <a href={`${basePath}/.well-known/security.txt`}>security.txt</a>.</p>
+        <p>Details: <a href={`${basePath}/.well-known/security.txt`}>security.txt</a> (a standard file on a website that tells security researchers how to report a vulnerability).</p>
       </Section>
       <Section title="What we ask">
         <ul className="list-disc space-y-1 pl-6">

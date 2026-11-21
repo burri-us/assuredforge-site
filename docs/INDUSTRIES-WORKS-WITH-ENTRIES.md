@@ -54,3 +54,31 @@ drew on are listed in §2 as candidates.
    show fewer industries until they exist? The owner's list stands until then.
 3. "Supported": its definition, and how it maps to register statuses.
 4. CL-48 on Works with: does the page count as a technical page, and may it name the model provider?
+
+## 4. Structure checked against the claim drafts (architecture bff6eb9, waiting for the owner)
+
+Kit Notices drafted the entries (`program/reviews/CLAIMS-DRAFT-INDUSTRIES-AND-WORKS-WITH-2026-11-21.md`). The markers stay until
+the owner approves them. The page structure now matches the drafts:
+- Industries:
+  - A slot for the shared line for organizations (CL-IND-00), shown after the lead and under each industry.
+  - No status badge per industry. The drafts give none, which answers question 1.
+  - Each industry has one summary (CL-IND-01..08); points stay optional.
+- Works with:
+  - The lead slot takes the headline (CL-WW-00).
+  - Each group has its introduction, items with badge and note, and a "Status as of <date>, for the desktop evaluation kit
+    <release>" line, plus optional limit lines (the languages limits).
+- The compliance check no longer matches "validated for", which the proposed CL-48 wording uses ("validated for your
+  installed version"). Named standards and "complian…", "certif…" and "accredit…" still fail the build.
+
+Open points for Kit Notices:
+1. **AI switch.** While `AI_DELIVERY_AVAILABLE` is off (today), the model-sources group is hidden: the AI switch check forbids
+   "model source", "Anthropic" and "API key" on every page (WR-01). The CL-WW-02 lead and table would show only once the switch is
+   on, unless the owner exempts this page from WR-01.
+2. **Statuses outside the three badges.** The drafts have "Not in this evaluation version" (subscription access), "Planned with
+   design partners", "Planned (as demand shows)" and "Built; checked against sandbox systems; set up with you by agreement" for
+   the connectors. The page can show a badge (Supported / Being validated / Planned) and put the rest in the row's note. Please
+   give each row one of the three badges, or say whether a fourth badge ("Not in this version") is wanted.
+3. **Industry naming still on the site.** Design partners (`components/Positioning.tsx`): "Early access to AssuredForge for
+   Manufacturing as it is shaped (planned)" and "Direct influence on AssuredForge for Manufacturing (planned)". Also "manufacturing
+   first" on the organization lines, which comes from CL-23. The "AssuredForge for <Industry>" naming was not adopted (DEC-469), and
+   the replacement wording (CL-23 and CL-25 in the drafts, Sec. 3) waits for the owner. These lines stay unchanged until then.

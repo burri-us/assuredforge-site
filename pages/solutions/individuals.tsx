@@ -12,7 +12,7 @@ export default function Individuals() {
     <Layout title="Individuals and small teams | AssuredForge" description="The desktop edition for individuals and small teams, available to design partners.">
       <Title lead={POSITION.desktop}>Individuals and small teams</Title>
       <p className="mt-4"><Status kind="partners" /> The desktop edition is available to design partners.{/* CL-51 */}</p>
-      <p className="mt-4 max-w-3xl text-ink-muted">{POSITION.hosted}{/* CL-51 */}</p>
+      <p className="mt-4 max-w-3xl text-muted">{POSITION.hosted}{/* CL-51 */}</p>
       <Section title="Who the program is for">
         {/* CL-52 (counsel marker on the age line) */}
         <p className="max-w-[70ch]">

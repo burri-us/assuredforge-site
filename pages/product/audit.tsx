@@ -14,7 +14,7 @@ export default function Audit() {
           "Tenant isolation is enforced by the database.", // CL-33
         ]} />
       </Section>
-      <p className="text-sm text-ink-muted">No certification or external audit is claimed.</p>
+      <p className="text-sm text-muted">No certification or external audit is claimed.</p>
       <ShotSlot title="The audit chain check and the export" />
     </Layout>
   );

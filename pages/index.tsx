@@ -48,13 +48,13 @@ export default function Home() {
             {AI.tag}
             <span aria-hidden="true" className="mt-2 block h-[3px] w-10 bg-gold" />
           </p>
-          <h1 className="mt-5 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl">{AI.heroTitle}</h1>
+          <h1 className="mt-5 sm:text-display-xl">{AI.heroTitle}</h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink">{AI.heroLead}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link href="/design-partners/" className={primary}>Become a design partner</Link>
             <Link href="/demo/" className={secondary}>Watch the demo</Link>
           </div>
-          <p className="mt-3 text-sm text-ink-muted">
+          <p className="mt-3 text-sm text-muted">
             <a href="mailto:info@assuredforge.com">info@assuredforge.com</a> · We reply personally
           </p>
         </div>
@@ -83,7 +83,7 @@ export default function Home() {
           {STEPS.map((s, i) => (
             <li key={s.t}>
               <p className="text-sm font-semibold uppercase tracking-wide text-accent">Step {i + 1}</p>
-              <h3 className="text-xl font-semibold text-ink">{s.t}</h3>
+              <h3 className="text-ink">{s.t}</h3>
               <p className="mb-3 mt-1">{s.d}</p>
               <VideoSlot kind="loop" title={s.shot} />
             </li>
@@ -93,11 +93,11 @@ export default function Home() {
 
       <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {TILES.map(({ title, Icon, text, href, status }) => (
-          <div key={title} className="rounded-md border-t-[3px] border-gold bg-surface-alt p-6">
+          <div key={title} className="card border-t-[3px] border-t-gold">
             <Icon className="h-8 w-8 text-accent" />
-            <h2 className="mt-4 text-xl font-semibold text-ink">{title}</h2>
+            <h2 className="mt-4 text-heading-3 text-ink">{title}</h2>
             <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-ink">{status}</p>
-            <p className="mt-2 text-ink-muted">{text}</p>
+            <p className="mt-2 text-muted">{text}</p>
             <p className="mt-3"><Link href={href}>Read more<span className="sr-only"> about {title}</span></Link></p>
           </div>
         ))}
@@ -128,10 +128,10 @@ export default function Home() {
         <p><Link href="/solutions/individuals/">Individuals and small teams</Link> · <Link href="/deployment/">Editions and deployment</Link> · <Link href="/manufacturing/">Manufacturing (planned)</Link> · <Link href="/solutions/regulated/">Regulated and quality-driven teams (planned)</Link></p>
       </Section>
 
-      <section className="mt-12 rounded-md border-l-4 border-gold bg-surface-alt p-6 sm:p-8">
-        <h2 className="text-2xl font-semibold">Working with our first design partners</h2>
+      <section className="mt-12 card border-l-4 border-l-gold sm:p-8">
+        <h2>Working with our first design partners</h2>
         {/* CL-23, CL-27 (both audiences, DEC-439 O-1) */}
-        <p className="mt-3 max-w-[65ch] text-ink-muted">
+        <p className="mt-3 max-w-[65ch] text-muted">
           A small founding cohort, six months, no software license fee during the program: individuals and small teams on the desktop
           edition, and organizations for the planned hosted edition. Applications open now.
         </p>

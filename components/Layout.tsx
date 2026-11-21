@@ -23,25 +23,37 @@ const FOOTER: { title: string; links: [string, string][] }[] = [
   { title: "Resources", links: [["Resources hub", "/resources/"], ["Demo", "/demo/"], ["FAQ", "/faq/"], ["Design partners", "/design-partners/"]] },
   { title: "Trust", links: [["Trust Center", "/trust/"], ["Security", "/security/"], ["Website privacy", "/privacy/"], ["Product privacy notice", "/trust/product-privacy/"], ["AI use policy", "/trust/ai-use-policy/"], ["Subprocessors and model providers", "/trust/subprocessors/"], ["Responsible disclosure", "/trust/disclosure/"], ["Accessibility", "/trust/accessibility/"]] },
   { title: "Company", links: [["About", "/about/"], ["Contact", "/contact/"]] },
-  { title: "Legal", links: [["Website terms", "/terms/"], ["Evaluation licence", "/legal/evaluation-licence/"], ["Acceptable use", "/legal/acceptable-use/"], ["Design partner agreement", "/legal/design-partner-agreement/"]] },
+  { title: "Legal", links: [["Website terms", "/terms/"], ["Evaluation licence", "/legal/evaluation-licence/"], ["Acceptable use", "/legal/acceptable-use/"], ["Design partner agreement", "/legal/design-partner-agreement/"], ["Third-party notices", "/third-party-notices/"]] },
 ];
 
 const headerButton =
-  "min-h-11 items-center rounded-md border-2 border-accent px-4 text-sm font-semibold text-accent no-underline hover:bg-surface-alt";
+  "btn btn-secondary";
 
 // Direction A mark with the text wordmark; the link's accessible name is "AssuredForge".
 function Wordmark({ className = "" }: { className?: string }) {
   return (
-    <Link href="/" className={`inline-flex items-center gap-2 tracking-tight text-ink no-underline ${className}`}>
+    <Link href="/" className={`inline-flex items-center gap-2 font-display font-bold text-ink no-underline ${className}`}>
       <LogoMark className="h-[1.4em] w-[1.4em] shrink-0" />
-      <span>
-        Assured<span className="font-bold">Forge</span>
-      </span>
+      <span>AssuredForge</span>
     </Link>
   );
 }
 
 const SITE = site.origin;
+
+// Tierra bar (design system TierraBar): the approved Tierra wordmark file, used as supplied, linking to the parent company.
+// It is the quiet surface-alt strip, not the ink one, because the approved file's ink is fixed and would vanish on ink.
+function TierraBar() {
+  return (
+    <div className="tierra-bar">
+      <div className="mx-auto flex min-h-12 max-w-6xl items-center px-4 sm:px-8">
+        <a href="https://tierra-llc.com/" className="inline-flex min-h-11 items-center">
+          <img src={`${process.env.BASE_PATH ?? ""}/brand/tierra-wordmark.svg`} alt="Tierra LLC" width={120} height={29} />
+        </a>
+      </div>
+    </div>
+  );
+}
 
 // noindex: a page that must never be indexed, whatever the publication switch says (the 404 page). It also has no canonical URL.
 export function Layout({
@@ -79,10 +91,11 @@ export function Layout({
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:bg-surface focus:p-2">
         Skip to content
       </a>
+      <TierraBar />
       <header className="border-b border-rule">
-        <div className="mx-auto max-w-6xl px-4 py-3 lg:flex lg:items-center lg:gap-8">
+        <div className="mx-auto max-w-6xl px-4 py-3 sm:px-8 lg:flex lg:items-center lg:gap-8">
           <div className="flex min-h-11 flex-wrap items-center justify-between gap-x-4 gap-y-2 lg:shrink-0">
-            <Wordmark className="text-xl" />
+            <Wordmark className="text-heading-2" />
             <div className="flex items-center gap-2 lg:hidden">
               {/* WR-05: the call to action stays visible on narrow screens; the menu is a details disclosure (no script). */}
               <Link href="/design-partners/" className={`${headerButton} inline-flex`}>
@@ -91,11 +104,11 @@ export function Layout({
             </div>
           </div>
           <details className="mt-2 lg:hidden">
-            <summary className="flex min-h-11 cursor-pointer items-center rounded-md border border-rule px-4 text-sm font-semibold text-ink">
+            <summary className="flex min-h-11 cursor-pointer items-center rounded-md border border-rule px-4 text-body font-semibold text-ink">
               Menu
             </summary>
             <nav aria-label="Main (menu)" className="mt-1">
-              <ul className="grid grid-cols-2 gap-x-4 text-[14px] sm:grid-cols-3">
+              <ul className="grid grid-cols-2 gap-x-4 text-body-sm sm:grid-cols-3">
                 {NAV.map((n) => (
                   <li key={n.href}>
                     <Link href={n.href} className="flex min-h-11 items-center text-ink no-underline hover:underline">
@@ -107,7 +120,7 @@ export function Layout({
             </nav>
           </details>
           <nav aria-label="Main" className="hidden lg:mt-0 lg:block lg:flex-1">
-            <ul className="lg:flex lg:flex-wrap lg:justify-end lg:gap-x-4 text-[14px]">
+            <ul className="lg:flex lg:flex-wrap lg:justify-end lg:gap-x-4 text-body-sm">
               {NAV.map((n) => {
                 const root = n.href.replace(/\/$/, "");
                 const current = pathname === root || (n.also ?? []).some((p) => pathname === p || pathname.startsWith(`${p}/`));
@@ -117,7 +130,7 @@ export function Layout({
                       href={n.href}
                       aria-current={current ? "page" : undefined}
                       className={`flex min-h-11 items-center border-b-2 no-underline ${
-                        current ? "border-gold font-medium text-ink" : "border-transparent text-ink-muted hover:text-ink"
+                        current ? "border-gold font-medium text-ink" : "border-transparent text-muted hover:text-ink"
                       }`}
                     >
                       {n.label}
@@ -132,18 +145,18 @@ export function Layout({
           </Link>
         </div>
       </header>
-      <main id="main" className="mx-auto max-w-6xl px-4 py-12">
+      <main id="main" className="mx-auto max-w-6xl px-4 py-12 sm:px-8">
         {children}
       </main>
       <footer className="border-t border-rule bg-surface-alt">
-        <nav aria-label="Footer" className="mx-auto grid max-w-6xl gap-8 px-4 pt-8 text-sm sm:grid-cols-3 lg:grid-cols-6">
+        <nav aria-label="Footer" className="mx-auto grid max-w-6xl gap-8 px-4 pt-8 text-body-sm sm:px-8 sm:grid-cols-3 lg:grid-cols-6">
           {FOOTER.map((col) => (
             <div key={col.title}>
-              <h2 className="text-sm font-semibold uppercase tracking-wide text-ink">{col.title}</h2>
+              <h2 className="text-label uppercase tracking-wide text-ink">{col.title}</h2>
               <ul className="mt-2 space-y-1">
                 {col.links.map(([label, href]) => (
                   <li key={href}>
-                    <Link href={href} className="text-ink-muted no-underline hover:underline">
+                    <Link href={href} className="text-muted no-underline hover:underline">
                       {label}
                     </Link>
                   </li>
@@ -152,11 +165,11 @@ export function Layout({
             </div>
           ))}
         </nav>
-        <div className="mx-auto mt-8 grid max-w-6xl gap-6 border-t border-rule px-4 py-8 text-sm text-ink-muted md:grid-cols-2">
+        <div className="mx-auto mt-8 grid max-w-6xl gap-6 border-t border-rule px-4 py-8 text-body-sm sm:px-8 text-muted md:grid-cols-2">
           <div>
-            <Wordmark className="text-base" />
+            <Wordmark className="text-heading-3" />
             <p className="mt-1">© 2026 Tierra LLC · Michigan, USA</p>
-            <p className="mt-1">AssuredForge is a product of <a href="https://tierra-llc.com">Tierra LLC</a>.</p>
+            <p className="mt-1"><a href="https://tierra-llc.com/">A product of Tierra LLC</a></p>
           </div>
           <ul className="flex flex-wrap gap-x-5 gap-y-1 md:justify-end">
             <li>Contact: <a href="mailto:info@assuredforge.com">info@assuredforge.com</a></li>
@@ -172,8 +185,8 @@ export function Layout({
 export function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="mt-10">
-      <h2 className="text-2xl font-semibold">{title}</h2>
-      <div className="mt-3 space-y-3 leading-relaxed text-ink-muted">{children}</div>
+      <h2>{title}</h2>
+      <div className="mt-3 space-y-3 leading-relaxed text-muted">{children}</div>
     </section>
   );
 }
@@ -181,8 +194,8 @@ export function Section({ title, children }: { title: string; children: ReactNod
 export function Title({ children, lead }: { children: ReactNode; lead?: ReactNode }) {
   return (
     <>
-      <h1 className="text-4xl font-bold tracking-tight">{children}</h1>
-      {lead && <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink-muted">{lead}</p>}
+      <h1>{children}</h1>
+      {lead && <p className="mt-4 max-w-3xl text-lg leading-relaxed text-muted">{lead}</p>}
     </>
   );
 }

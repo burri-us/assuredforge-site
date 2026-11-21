@@ -4,7 +4,7 @@ import { POSITION } from "../components/Positioning";
 
 // Same button look as the homepage's primary button.
 const primary =
-  "inline-flex min-h-11 items-center justify-center rounded-md bg-accent px-5 py-3 font-semibold text-accent-ink no-underline transition-colors hover:bg-ink";
+  "btn btn-primary";
 
 const MAILTO = "mailto:info@assuredforge.com?subject=Founding%20Design%20Partner%20Program";
 
@@ -37,23 +37,23 @@ export default function DesignPartners() {
       </Section>
       {/* CL-24 (commitments for the organization track); individual track: CL-52 */}
       {[POSITION.trackIndividual, POSITION.trackOrganization].map((t: typeof POSITION.trackOrganization | typeof POSITION.trackIndividual) => (
-        <section key={t.title} className="mt-8 rounded-md border-l-4 border-gold bg-surface-alt p-6">
-          <h2 className="text-2xl font-semibold">{t.title}</h2>
-          <h3 className="mt-4 text-lg font-semibold text-ink">Who we are looking for</h3>
-          <ul className="mt-2 list-disc space-y-2 pl-6 text-ink-muted">
+        <section key={t.title} className="mt-8 card border-l-4 border-l-gold">
+          <h2>{t.title}</h2>
+          <h3 className="mt-4 text-ink">Who we are looking for</h3>
+          <ul className="mt-2 list-disc space-y-2 pl-6 text-muted">
             {t.eligibility.map((e) => <li key={e}>{e}</li>)}
           </ul>
-          <h3 className="mt-4 text-lg font-semibold text-ink">What we ask of you</h3>
-          <ul className="mt-2 list-disc space-y-2 pl-6 text-ink-muted">
+          <h3 className="mt-4 text-ink">What we ask of you</h3>
+          <ul className="mt-2 list-disc space-y-2 pl-6 text-muted">
             {t.commitments.map((e) => <li key={e}>{e}</li>)}
           </ul>
           {"offers" in t && (
             <>
-              <h3 className="mt-4 text-lg font-semibold text-ink">Planned for waitlist partners</h3>
-              <ul className="mt-2 list-disc space-y-2 pl-6 text-ink-muted">
+              <h3 className="mt-4 text-ink">Planned for waitlist partners</h3>
+              <ul className="mt-2 list-disc space-y-2 pl-6 text-muted">
                 {t.offers.map((e) => <li key={e}>{e}</li>)}
               </ul>
-              <p className="mt-4 text-ink-muted">See how AssuredForge works <Link href="/manufacturing/">for manufacturing (planned)</Link>.</p>
+              <p className="mt-4 text-muted">See how AssuredForge works <Link href="/manufacturing/">for manufacturing (planned)</Link>.</p>
             </>
           )}
         </section>

@@ -2,16 +2,15 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Layout, Section, Title } from "./Layout";
 
-export const button =
-  "inline-flex min-h-11 items-center justify-center rounded-md px-5 py-3 font-semibold no-underline transition-colors";
-export const primary = `${button} bg-accent text-accent-ink hover:bg-ink`;
-export const secondary = `${button} border-2 border-accent text-accent hover:bg-surface-alt`;
+export const button = "btn";
+export const primary = "btn btn-primary";
+export const secondary = "btn btn-secondary";
 
 // Availability label: always text, never colour alone ("available today" or "planned", owner constraint).
 export function Status({ kind }: { kind: "today" | "planned" | "partners" }) {
   const label = kind === "today" ? "Available today" : kind === "partners" ? "Available to design partners" : "Planned";
   return (
-    <span className="inline-block rounded border border-rule px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-ink">
+    <span className="inline-block rounded-sm border border-rule px-2 py-0.5 text-label uppercase tracking-wide text-ink">
       {label}
     </span>
   );
@@ -42,8 +41,8 @@ export function ShotSlot({ title, note }: { title: string; note?: string }) {
         className="flex aspect-[16/10] w-full flex-col items-center justify-center bg-surface-alt p-4 text-center"
       >
         <span className="font-semibold text-ink">Screenshot placeholder</span>
-        <span className="mt-1 text-sm text-ink-muted">{title}</span>
-        <span className="mt-1 text-xs text-ink-muted">{note ?? "Demo Tenant, invented data. Captured after W8."}</span>
+        <span className="mt-1 text-sm text-muted">{title}</span>
+        <span className="mt-1 text-xs text-muted">{note ?? "Demo Tenant, invented data. Captured after W8."}</span>
       </div>
     </BrowserFrame>
   );
@@ -65,8 +64,8 @@ export function VideoSlot({ title, kind, media = null }: { title: string; kind: 
           className={`flex w-full flex-col items-center justify-center bg-surface-alt p-4 text-center ${kind === "walkthrough" ? "aspect-video" : "aspect-[16/10]"}`}
         >
           <span className="font-semibold text-ink">Video placeholder</span>
-          <span className="mt-1 text-sm text-ink-muted">{title}</span>
-          <span className="mt-1 text-xs text-ink-muted">
+          <span className="mt-1 text-sm text-muted">{title}</span>
+          <span className="mt-1 text-xs text-muted">
             {kind === "walkthrough" ? "Self-hosted, about 3 minutes, with captions. Recorded after W8." : "Short silent loop with a pause control. Recorded after W8."}
           </span>
         </div>
@@ -98,7 +97,7 @@ export function DraftBanner() {
   return (
     <div role="note" className="mb-8 rounded-md border-2 border-gold bg-surface-alt p-4">
       <p className="font-bold uppercase tracking-wide text-ink">DRAFT — COUNSEL REVIEW</p>
-      <p className="mt-1 text-sm text-ink-muted">
+      <p className="mt-1 text-sm text-muted">
         This text is a draft for review by counsel. It is not in force, is not legal advice and may change.
       </p>
     </div>
@@ -131,13 +130,13 @@ export function LegalPage({
     <Layout title={`${title} | AssuredForge`} description={description}>
       <DraftBanner />
       <Title lead={intro}>{title}</Title>
-      <p className="mt-4 text-sm text-ink-muted">Effective date: to be set when counsel approves. Draft of 2026-11-20.</p>
+      <p className="mt-4 text-sm text-muted">Effective date: to be set when counsel approves. Draft of 2026-11-20.</p>
       {sections.map((s) => (
         <Section key={s.h} title={s.h}>
           {s.body}
         </Section>
       ))}
-      <p className="mt-10 text-sm text-ink-muted">
+      <p className="mt-10 text-sm text-muted">
         Questions: <a href="mailto:info@assuredforge.com">info@assuredforge.com</a> · <Link href="/trust/">Trust Center</Link>
       </p>
     </Layout>

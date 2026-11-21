@@ -61,7 +61,7 @@ export default function Faq() {
         {QA.map(({ q, a }) => (
           <details key={q} className="py-3">
             <summary className="min-h-11 cursor-pointer py-2 font-semibold text-ink">{q}</summary>
-            <div className="max-w-[70ch] pb-2 text-ink-muted">{a}</div>
+            <div className="max-w-[70ch] pb-2 text-muted">{a}</div>
           </details>
         ))}
       </div>

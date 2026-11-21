@@ -103,7 +103,7 @@ const MARKERS = [
   ["TODO", /TODO/, false],
   ["DRAFT", /DRAFT/, true],
   ["[OWNER", /\[OWNER\b/, false],
-  ["[Owner/Counsel item", /\[(Owner|Counsel)\b[^\]]*\]/, true],
+  ["[Owner/Counsel item", /\[(Owner|Counsel)\b[^\]]*\]/i, true],   // case-insensitive: "[counsel review: ...]" counts too
 ];
 const markerWarnings = [];
 for (const file of files(dir).filter((f) => f.endsWith(".html"))) {

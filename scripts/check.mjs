@@ -127,6 +127,21 @@ for (const file of files(dir).filter((f) => f.endsWith(".html"))) {
   }
 }
 for (const p of LEGAL_PAGES) if (!existsSync(join(dir, p))) report.push(`legal page missing: ${p}`);
+// Served files (allow-list): the Pages workflow uploads only this folder, and only these kinds of file may be in it.
+// Internal files (COUNSEL-LIST.md, HANDOFF.md, DIFFERENCES.md, notes, scripts, design records) must never be served.
+const SERVED_ALLOW = [
+  /^([a-z0-9-]+\/)*index\.html$/, /^404\.html$/,
+  /^_next\/static\/[A-Za-z0-9_.~/-]+\.(js|css|woff2)$/,
+  /^(favicon\.ico|icon\.svg|apple-touch-icon\.png|og\.png|robots\.txt|sitemap\.xml|\.well-known\/security\.txt)$/,
+];
+const servedProblems = (list) => list.filter((f) => !SERVED_ALLOW.some((re) => re.test(f)));
+const servedFiles = files(dir).map((f) => relative(dir, f).split("\\").join("/"));
+for (const f of servedProblems(servedFiles)) report.push(`${f}: would be served but is not a site file (allow-list in scripts/check.mjs)`);
+// Negative test: planted internal files must be caught.
+for (const planted of ["COUNSEL-LIST.md", "HANDOFF.md", "LANE-HANDOFF.md", "DIFFERENCES.md", "legal/DIFFERENCES.html", "scripts/check.mjs", "notes.txt"]) {
+  if (servedProblems([planted]).length !== 1) report.push(`served-file check: planted ${planted} was not caught`);
+}
+
 const markerPages = new Set(markerWarnings.map((w) => w.split(":")[0]));
 if (publish) for (const w of markerWarnings) report.push(`publish: visible marker ${w}`);
 else {

@@ -58,9 +58,9 @@ Every clause filled or changed, with its page and exact wording:
   > Either party may end participation at any time by written notice; email is enough. On exit, the steps above for your edition apply.
 - **/legal/design-partner-agreement/, Warranty, liability and law** (new section)
   > The evaluation licence sets out the warranty disclaimer, the limit of liability, and Michigan law and courts. They apply to the program.
-- **/legal/design-partner-agreement/, After the program** (was: "Pricing after the program is not set. [Owner decision: pricing intent is not stated here.]"; only the bracket was removed)
-  > Pricing after the program is not set.
-  - For the owner and counsel: approved pricing wording exists (DEC-438, beside CL-55): "Free during the programme. Founding partners get founding pricing, at least 30 days' notice before any fee, and never an automatic charge." It is not used here because the page held pricing intent back. It is the owner's choice whether to add it.
+- **/legal/design-partner-agreement/, After the program** (assessor change 2, owner decision 2026-11-21; was: "Pricing after the program is not set.", and before that "[Owner decision: pricing intent is not stated here.]")
+  > Free during the programme. Founding partners get founding pricing, at least 30 days' notice before any fee, and never an automatic charge.
+  - Source: DEC-438 (beside CL-55 in the claims register). The same sentence is in the interim design-partner agreement, Sec. 1.3 (DESIGN-PARTNER-AGREEMENT-INTERIM.md).
 - **/legal/acceptable-use/, Enforcement** (was: "We may suspend access that breaks this policy. [Counsel to set notice and cure terms.]")
   > If use breaks this policy, we may suspend or end the access we provide: support, and new or renewed licences. Unless the breach is serious, we first tell you by email what is wrong and give you a reasonable time to fix it. We may act at once for unlawful use, a security threat or harm to others. In the desktop edition your records stay on your own PC, under your control.
 - **/terms/, Limit of liability** (was: "To the extent the law allows, Tierra LLC is not liable for loss arising from use of, or inability to use, this website. [Counsel to set the exact limit and the carve-outs the law requires.]")

@@ -18,7 +18,7 @@ export default function DesignPartnerAgreement() {
         { h: "Confidentiality", body: <p>Each party keeps the other&apos;s non-public information confidential, as set out in the evaluation licence. A mutual NDA is available where required.</p> },
         { h: "Ending participation", body: <p>Either party may end participation at any time by written notice; email is enough. On exit, the steps above for your edition apply.</p> },
         { h: "Warranty, liability and law", body: <p>The <Link href="/legal/evaluation-licence/">evaluation licence</Link> sets out the warranty disclaimer, the limit of liability, and Michigan law and courts. They apply to the program.</p> },
-        { h: "After the program", body: <p>Pricing after the program is not set.</p> },
+        { h: "After the program", body: <p>Free during the programme. Founding partners get founding pricing, at least 30 days&apos; notice before any fee, and never an automatic charge.</p> },
       ]}
     />
   );

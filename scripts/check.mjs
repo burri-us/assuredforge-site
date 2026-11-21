@@ -137,6 +137,11 @@ const SERVED_ALLOW = [
 const servedProblems = (list) => list.filter((f) => !SERVED_ALLOW.some((re) => re.test(f)));
 const servedFiles = files(dir).map((f) => relative(dir, f).split("\\").join("/"));
 for (const f of servedProblems(servedFiles)) report.push(`${f}: would be served but is not a site file (allow-list in scripts/check.mjs)`);
+// The third-party notices page (fonts under the OFL) must be served and linked from every page's footer.
+if (!servedFiles.includes("third-party-notices/index.html")) report.push("third-party-notices/index.html: missing (the fonts' licence notices)");
+for (const f of servedFiles.filter((f) => f.endsWith("index.html") || f === "404.html")) {
+  if (!/<footer\b[\s\S]*href="[^"]*\/third-party-notices\/"[\s\S]*<\/footer>/.test(readFileSync(join(dir, f), "utf8"))) report.push(`${f}: footer link to the third-party notices missing`);
+}
 // Negative test: planted internal files must be caught.
 for (const planted of ["COUNSEL-LIST.md", "HANDOFF.md", "LANE-HANDOFF.md", "DIFFERENCES.md", "legal/DIFFERENCES.html", "scripts/check.mjs", "notes.txt"]) {
   if (servedProblems([planted]).length !== 1) report.push(`served-file check: planted ${planted} was not caught`);

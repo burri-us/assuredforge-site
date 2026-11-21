@@ -160,8 +160,9 @@ for (const p of LEGAL_PAGES) if (!existsSync(join(dir, p))) report.push(`legal p
   const ind = text("solutions/individuals");
   if (!ind.includes("[RAM: CONFIRM AT W8]")) {
     const m = ind.match(/with (\d+) GB RAM minimum \((\d+) GB recommended\)/);
-    if (!m) report.push("solutions/individuals: RAM line neither the W8 marker nor the filled wording (components/Measured.tsx)");
-    else {
+    // Hidden (DEC-483 (12), OI-608): no RAM clause at all until the W8 figures exist.
+    if (!m && !/about 30 GB of free disk\s*\./.test(ind)) report.push("solutions/individuals: RAM line neither the W8 marker, the filled wording nor hidden (components/Measured.tsx)");
+    else if (m) {
       const [, min, rec] = m;
       if (!text("faq").includes(`${min} GB RAM minimum (${rec} GB recommended)`)) report.push(`faq: RAM differs from the W8 figure on /solutions/individuals/ (${min} GB minimum, ${rec} GB recommended)`);
       if (!text("deployment").includes(`${min} GB RAM minimum; ${rec} GB recommended`)) report.push(`deployment: RAM differs from the W8 figure on /solutions/individuals/ (${min} GB minimum, ${rec} GB recommended)`);

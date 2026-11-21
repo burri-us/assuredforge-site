@@ -1,6 +1,7 @@
 import { Layout, Section, Title } from "../components/Layout";
 import { ShotSlot, VideoSlot } from "../components/Blocks";
 import { AI } from "../components/AiWording";
+import { SHOW_PLACEHOLDERS } from "../components/Measured";
 
 const SHOTS = [
   "Requirement and Feature with the Digital Thread",
@@ -16,11 +17,13 @@ const SHOTS = [
 export default function Demo() {
   return (
     <Layout title="Demo | AssuredForge" description="A three-minute walkthrough of governed delivery in AssuredForge, and how to book a walkthrough.">
-      <Title lead="Three minutes: a requirement to a signed, recorded release.">Demo</Title>
-      <Section title="3-minute video">
-        <VideoSlot kind="walkthrough" title="Three-minute walkthrough: a requirement to a signed, recorded release" />
-      </Section>
-      <Section title="Screenshots">
+      <Title lead={SHOW_PLACEHOLDERS ? "Three minutes: a requirement to a signed, recorded release." : "A requirement to a signed, recorded release."}>Demo</Title>
+      {SHOW_PLACEHOLDERS && (
+        <Section title="3-minute video">
+          <VideoSlot kind="walkthrough" title="Three-minute walkthrough: a requirement to a signed, recorded release" />
+        </Section>
+      )}
+      <Section title={SHOW_PLACEHOLDERS ? "Screenshots" : "What the walkthrough shows"}>
         <p className="mb-4">The Digital Thread is one connected record from requirement to Release, approval, push and recorded deployment, and back.</p>
         <div className="grid gap-6 md:grid-cols-2">
           {SHOTS.map((s) => <ShotSlot key={s} title={s} />)}

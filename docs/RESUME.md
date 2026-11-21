@@ -130,3 +130,7 @@ Also useful: `docs/INDUSTRIES-WORKS-WITH-ENTRIES.md`, `docs/PLAIN-LANGUAGE-SWEEP
   uninstall --delete-data` removes AssuredForge's records, files and keys from your PC after you type a confirmation. Backups you
   created are kept; you delete them yourself (following the exit steps Tierra sends you)." Done 2026-11-21 evening on this branch. Recorded in COUNSEL-LIST.md.
 
+## Added by Kit Notices, 2026-11-21 night (DEC-483 (12), OI-608)
+- Placeholder blocks hidden: `SHOW_PLACEHOLDERS = false` in `components/Measured.tsx`. Screenshot and video slots without media
+  render nothing, the Demo page drops its empty video section, and the RAM clause on /solutions/individuals/ is left out. When the
+  W8 media and RAM figures exist: fill `RAM_W8` and each slot's `media`; set the switch back to true only for a preview.

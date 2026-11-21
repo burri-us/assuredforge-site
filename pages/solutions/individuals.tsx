@@ -3,7 +3,7 @@ import { Layout, Section, Title } from "../../components/Layout";
 import { Bullets, Status } from "../../components/Blocks";
 import { AI } from "../../components/AiWording";
 import { POSITION } from "../../components/Positioning";
-import { ramWording } from "../../components/Measured";
+import { ramClause } from "../../components/Measured";
 
 // Wording is quoted from the claims register: CL-51, CL-52, CL-54, CL-55.
 // CL-52 age line: "You must be at least 18", matching the interim design-partner agreement §2 (DEC-462); recorded in
@@ -24,7 +24,7 @@ export default function Individuals() {
       <Section title="System requirements">
         {/* CL-54 (RAM from the W8 measurement, components/Measured.tsx; DEC-447: 23H2) */}
         <p className="max-w-[70ch]">
-          The desktop edition runs on a Windows 11 version 23H2 or later (Home or Pro, 64-bit) PC with virtualization turned on (in the firmware, BIOS or UEFI), WSL 2 (Windows Subsystem for Linux 2), Docker Desktop and about 30 GB of free disk, with {ramWording()}. One Windows user per PC in this release. Windows 10 is not supported: it is out of Microsoft support, and Docker Desktop supports only Windows versions within Microsoft&apos;s servicing timeline. The free Windows 11 upgrade is named where the PC qualifies.
+          The desktop edition runs on a Windows 11 version 23H2 or later (Home or Pro, 64-bit) PC with virtualization turned on (in the firmware, BIOS or UEFI), WSL 2 (Windows Subsystem for Linux 2), Docker Desktop and about 30 GB of free disk{ramClause()}. One Windows user per PC in this release. Windows 10 is not supported: it is out of Microsoft support, and Docker Desktop supports only Windows versions within Microsoft&apos;s servicing timeline. The free Windows 11 upgrade is named where the PC qualifies.
         </p>
       </Section>
       {AI.available && (

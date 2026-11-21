@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Layout, Section, Title } from "./Layout";
+import { SHOW_PLACEHOLDERS } from "./Measured";
 
 export const button = "btn";
 export const primary = "btn btn-primary";
@@ -36,6 +37,7 @@ export function BrowserFrame({ children, label }: { children: ReactNode; label?:
 
 // A slot for a real screenshot, captured from a demo Tenant with invented data after the W8 rehearsal.
 export function ShotSlot({ title, note }: { title: string; note?: string }) {
+  if (!SHOW_PLACEHOLDERS) return null; // DEC-483 (12): hidden until the W8 screenshots exist
   return (
     <BrowserFrame>
       <div
@@ -59,6 +61,7 @@ export function ShotSlot({ title, note }: { title: string; note?: string }) {
 export type Media = { base: string; poster: string } | null;
 export function VideoSlot({ title, kind, media = null }: { title: string; kind: "walkthrough" | "loop"; media?: Media }) {
   if (!media) {
+    if (!SHOW_PLACEHOLDERS) return null; // DEC-483 (12): hidden until the W8 clips exist
     return (
       <BrowserFrame>
         <div

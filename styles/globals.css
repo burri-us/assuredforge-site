@@ -27,7 +27,14 @@
   .btn-secondary:hover { background: var(--color-accent-soft); }
   .card { background: var(--color-surface); border: 1px solid var(--color-rule); border-radius: var(--radius-lg); box-shadow: var(--shadow-1); padding: var(--space-4); }
   @media (min-width: 40rem) { .card { padding: var(--space-5); } }
-  .tierra-bar { background: var(--color-surface-alt); border-bottom: 1px solid var(--color-rule); }
+  /* Tierra bar: the same navy and ink in both themes (README section 5). Gold on the bar is a graphic only. */
+  .tierra-bar { background: var(--color-bar); color: var(--color-bar-ink); }
+  .tierra-bar-link { display: inline-flex; height: var(--target-min); align-items: center; color: var(--color-bar-ink); text-decoration-line: none; }
+  .tierra-bar-link:focus-visible { outline: 3px solid var(--color-bar-ink); outline-offset: 2px; }
+  .tierra-wordmark { display: block; height: 36px; width: 150px; }
+  .tw-ink { stroke: var(--color-bar-ink); }
+  .tw-gold { stroke: var(--gold-dark); }
+  .tw-text { fill: var(--color-bar-ink); font-family: var(--font-display); }
 }
 
 @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }

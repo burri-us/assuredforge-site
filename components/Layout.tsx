@@ -41,14 +41,23 @@ function Wordmark({ className = "" }: { className?: string }) {
 
 const SITE = site.origin;
 
-// Tierra bar (design system TierraBar): the approved Tierra wordmark file, used as supplied, linking to the parent company.
-// It is the quiet surface-alt strip, not the ink one, because the approved file's ink is fixed and would vanish on ink.
+// Tierra bar (design system TierraBar): `bar` background and `bar-ink` text in both themes (the bar does not follow the theme),
+// the reversed Tierra wordmark drawn inline (same drawing as tierra-wordmark-reversed.svg v2; colours from tokens, gold = the
+// gold token's dark value in both themes), linking to the parent company.
 function TierraBar() {
   return (
     <div className="tierra-bar">
-      <div className="mx-auto flex min-h-12 max-w-6xl items-center px-4 sm:px-8">
-        <a href="https://tierra-llc.com/" className="inline-flex min-h-11 items-center">
-          <img src={`${process.env.BASE_PATH ?? ""}/brand/tierra-wordmark.svg`} alt="Tierra LLC" width={120} height={29} />
+      <div className="mx-auto flex h-12 max-w-6xl items-center px-4 sm:px-8">
+        <a href="https://tierra-llc.com/" aria-label="Tierra LLC" className="tierra-bar-link">
+          <svg viewBox="0 0 150 36" width={150} height={36} aria-hidden={true} focusable={false} className="tierra-wordmark">
+            <g fill="none" strokeWidth={4} strokeLinecap="round">
+              <path className="tw-ink" d="M5 7h20M15 7v20" />
+              <path className="tw-gold" d="M8 31h14" />
+            </g>
+            <text x={34} y={25} fontSize={20} fontWeight={700} letterSpacing={0.2} className="tw-text">
+              Tierra <tspan fontWeight={400}>LLC</tspan>
+            </text>
+          </svg>
         </a>
       </div>
     </div>

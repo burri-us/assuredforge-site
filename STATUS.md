@@ -10,7 +10,11 @@ Updated: Saturday 2026-11-21.
 - **Plain-language decisions applied** (assessor; owner for edition names): the sweep's §6 decisions 1-13 and the findings table's wording, in 21 files. Build, site check and AI switch check pass. Record: `docs/PLAIN-LANGUAGE-SWEEP.md` §7. Glossary drafts for Kit Notices: `docs/GLOSSARY-PROPOSALS.md`. The marker check now also catches "(draft)".
   - For the assessor: "gate" remains in two interim legal pages (acceptable use, AI use policy); not changed.
   - For the owner: the deployment page keeps "Customer-hosted ... Planned" as a deployment option.
-  - For the register owner: CL-30 and CL-35 still name "Azure editions".
+  - Kit Notices (architecture, local commits; pushes stopped while the owner is away):
+    - Done: the Founding Design Partner Program glossary entry (fdb0a23) and the Edition entry with the owner's two names (DEC-467, 3b32362).
+    - Parked for the owner: CL-30 and CL-35. The Regulated-page sentence stays unchanged until the owner decides.
+    - Parked for the assessor: the 20 draft definitions. The site sentences stay unchanged until they are accepted.
+    - Noted for the assessor: "gate" on the two legal pages.
 - **Still blocks a publish (OI-608):** the W8 media placeholders on 6 pages, and the RAM marker until W8 measures it.
 - **Items 4-5 (report only), held until the W8 dry run has ended, as the owner sequenced them:**
   - 4. Accessibility and performance check of both sites. Done so far: the automated WCAG 2.2 AA scan of every page (187 runs, light and dark, 1440 and 390 px, a 320 px reflow check); raw results are in `C:\dev\AssuredForge\ds-previews\a11y\out\axe.json`. Still to do: the keyboard-only walk, page weight and load timing (timings taken during the dry run would not be reliable), then the ranked findings list.

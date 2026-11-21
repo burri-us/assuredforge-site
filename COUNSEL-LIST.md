@@ -131,3 +131,13 @@ Changed on 2026-11-21 before any partner signed, so the deletion promise matches
   changed on this branch on 2026-11-21 (same sentence).
 - For counsel to confirm with P1-08.
 
+### AI provider terms: questions carried from OI-389 (owner, DEC-483 (10), 21 November 2026)
+The provider terms gaps were re-checked against the partner-owned provider direction (architecture
+`program/reviews/OI-389-PROVIDER-TERMS-RECHECK-2026-11-21.md`). No new question; please make sure these existing ones cover:
+- **P1-11 (gap 2):** whether a model provider chosen and paid for by the partner is a subprocessor of Tierra when the software
+  sends the partner's content to it, and whether the site sentence "not Tierra's subprocessor" is safe.
+- **P1-12 (gaps 1 and 8):** whether the partner's responsibility for its own provider's terms, region and retention (agreement
+  Sec. 1.4 and 5.4) is enough, or whether longer clauses are needed.
+- **P3-05, optional (gap 3):** whether Tierra's own use of a commercial model service to build the product needs any
+  partner-facing disclosure.
+

@@ -62,6 +62,6 @@ Updated: Saturday 2026-11-21.
     - G-4: no workflow sets `SITE_PUBLISH`, so the deploy must add it to refuse placeholders.
     - The merge with main has one conflict, `pages/manufacturing.tsx`.
   - 3. Works with "Supported": prepared behind `ANTHROPIC_SUPPORTED_SINCE` (4b65e8a, null, no visible change); trialled with AI on, not applied.
-  - 4. Partner materials drift: checked read-only against the site's banned-phrase list and reported to Kit Notices, who owns the files. DEC-470 positioning is clean. 4 mismatches: M-1 CL-48 old sentence in the Technical deck; M-2 CL-53 without "feedback with files you attach" (Technical deck, Demo script); M-3 connectors "exist" against Works with "Being validated"; M-4 "approval-gate graphic" in the Executive deck. The re-check is offered.
+  - 4. Partner materials drift: checked read-only against the site's banned-phrase list and reported to Kit Notices, who owns the files. DEC-470 positioning is clean. 4 mismatches: M-1 CL-48 old sentence in the Technical deck; M-2 CL-53 without "feedback with files you attach" (Technical deck, Demo script); M-3 connectors "exist" against Works with "Being validated"; M-4 "approval-gate graphic" in the Executive deck. Kit Notices fixed all four (0903644); the re-check finds no remaining mismatch. Register note sent: CL-47 lacks CL-53's "feedback with files you attach" clause.
 - Design-partner agreement summary aligned to "organizations" (DEC-475 (a); 7bad68e; COUNSEL-LIST.md).
 - Ports 4174 and 4175 are free.

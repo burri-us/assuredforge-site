@@ -6,7 +6,6 @@ export const POSITION = {
   desktop: "The desktop edition is for individuals and small teams.",
   hosted: "A hosted edition for organizations is planned.",
   desktopWho: "Students, aspiring professionals, freelance developers, content creators and small business owners.",
-  hostedWho: "Regulated and quality-driven organizations. IT checklists, proxies (company network servers that internet traffic must pass through), single sign-on and segregated approvers (where the governance requires it, the person who prepared a change cannot approve it; a different person must) are planned for the hosted edition.",
   // Design-partner tracks.
   trackIndividual: {
     title: "Individuals and small teams (desktop edition)",

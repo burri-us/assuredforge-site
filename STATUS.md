@@ -34,7 +34,17 @@ Updated: Saturday 2026-11-21.
   - "Manufacturing" removed: CL-02, CL-23, CL-25 and CL-51 as revised.
   - Sweep rows: row 2 tagline in sentence case; row 14 CL-15 as revised; row 55 CL-28 plus the plain line; row 28 unchanged (CL-55 alone).
   - No CLAIM- markers left. The build, site check and AI switch check pass.
-- **OI-619 (High, live):** the fix is committed on `oi-619-windchill` (1dce162, worktree `C:\dev\AssuredForge\site-oi619`; build and site check pass). The fast-forward push to main was **refused by branch protection** (required status check "build"). It is not bypassed; the owner decides on the pull-request route.
+- **P-15 (DEC-472 (2), option A):**
+  - The Regulated and quality-driven teams page is folded into Industries: /solutions/regulated/ forwards to /industries/ (noindex, out of the sitemap). Its links in the footer and on Home are removed.
+  - CL-30 moved to Platform ("Governance first").
+  - The hosted-edition line naming IT checklists, proxies, single sign-on and segregated approvers was only on that page; it is no longer on the site.
+  - Build, site check (30 pages in the sitemap) and AI switch check pass.
+- **OI-619 (High): done and live** (owner approval for this one change):
+  - PR #8 merged as 38082b2 after its "build" check passed, with no admin override.
+  - One pages deploy with the custom-domain target (run 44919413386) succeeded.
+  - The live comparison with the saved copy shows only the Windchill list item gone; every other page, robots.txt, the sitemap and security.txt are unchanged.
+  - Actions: 3 jobs, about 75 s of runtime (CI build 32 s, pages build 34 s, deploy 9 s), 3 minutes as billed per job.
+  - Branch oi-619-windchill deleted (remote and local) and its worktree removed.
 - **Still blocks a publish (OI-608):** the W8 media placeholders on 6 pages, and the RAM marker until W8 measures it.
 - **Items 4-5 (report only), held until the W8 dry run has ended, as the owner sequenced them:**
   - 4. Accessibility and performance check of both sites. Done so far: the automated WCAG 2.2 AA scan of every page (187 runs, light and dark, 1440 and 390 px, a 320 px reflow check); raw results are in `C:\dev\AssuredForge\ds-previews\a11y\out\axe.json`. Still to do: the keyboard-only walk, page weight and load timing (timings taken during the dry run would not be reliable), then the ranked findings list.

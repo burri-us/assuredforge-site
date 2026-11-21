@@ -50,6 +50,16 @@ export const WORKS_WITH_PAGE: { description: string | null; lead: string | null;
 // Status line under each group (the approved page rule, DEC-470).
 const AS_OF = "Status as of 21 November 2026, for the desktop evaluation kit release-b1-c68012b.";
 
+// CL-WW-02 / DEC-470 (1): the Anthropic API source becomes "Supported" once the W8 model-path rehearsal passes on the current kit.
+// Prepared, not applied (owner item 3): the approved change sets the date the rehearsal passed, e.g. "23 November 2026", and
+// the model-source status line follows it. While null the row stays "Being validated". The model-source group shows only while
+// the AI switch is on (WR-01), so the rehearsal commit normally also turns on AI_DELIVERY_AVAILABLE (components/AiWording.tsx),
+// which is its own approval. Release notes: docs/RELEASE-PACKAGE.md section 4.
+export const ANTHROPIC_SUPPORTED_SINCE: string | null = null;
+const MODEL_AS_OF = ANTHROPIC_SUPPORTED_SINCE
+  ? `Status as of ${ANTHROPIC_SUPPORTED_SINCE}, for the desktop evaluation kit release-b1-c68012b.`
+  : AS_OF;
+
 export const WORKS_WITH: WorksWithGroup[] = [
   { // CL-WW-01
     id: "languages", title: "Languages and toolchains",
@@ -65,13 +75,15 @@ export const WORKS_WITH: WorksWithGroup[] = [
     id: "model-sources", title: "AI model sources", aiOnly: true,
     intro: "Chosen in Setup, with no default.", // CL-WW-02 wording; "choose the model source" is barred (DEC-430 (6), switch check)
     items: [
-      { name: "Anthropic API key", status: "validated", note: null, basis: "CL-WW-02, CL-48" },
+      ANTHROPIC_SUPPORTED_SINCE
+        ? { name: "Anthropic API key", status: "supported", note: `Supported since ${ANTHROPIC_SUPPORTED_SINCE}, after a recorded live run on the current kit.`, basis: "CL-WW-02, CL-48; W8 model-path rehearsal" }
+        : { name: "Anthropic API key", status: "validated", note: null, basis: "CL-WW-02, CL-48" },
       { name: "Enterprise model gateway", status: "validated", note: null, basis: "CL-WW-02" },
       { name: "Models on your own PC", status: "validated", note: "Governance only; no delivery claim.", basis: "CL-WW-02" },
       { name: "Other provider APIs", status: "planned", note: null, basis: "CL-WW-02" },
       { name: "Subscription access", status: "planned", note: "Not in this evaluation version.", basis: "CL-WW-02; DEC-470 (4)" },
     ],
-    asOf: AS_OF,
+    asOf: MODEL_AS_OF,
   },
   { // CL-WW-03, CL-16, CL-17
     id: "connectors", title: "Connectors",

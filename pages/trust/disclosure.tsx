@@ -6,7 +6,7 @@ export default function Disclosure() {
   const { basePath } = useRouter();
   return (
     <Layout title="Responsible disclosure | AssuredForge" description="How to report a vulnerability in AssuredForge.">
-      <Title lead="If you believe you found a vulnerability, tell us before you tell others.">Responsible disclosure</Title>
+      <Title lead="How to report a vulnerability. If you believe you found one, tell us before you tell others.">Responsible disclosure</Title>
       <Section title="How to report">
         <p>Email <a href="mailto:security@assuredforge.com">security@assuredforge.com</a> with the steps to reproduce. This address is for vulnerability reports and security incidents only; for support write to <a href="mailto:support@assuredforge.com">support@assuredforge.com</a>.</p>
         <p>Details: <a href={`${basePath}/.well-known/security.txt`}>security.txt</a>.</p>

@@ -18,13 +18,14 @@ export default function Manufacturing() {
       </Section>
       <Section title="Planned with design partners">
         <ul className="list-disc space-y-2 pl-6">
-          <li>Connection to engineering context through a PTC Windchill integration.</li>
+          <li>A PTC Windchill connector, planned with design partners.</li>{/* CL-17 */}
           {!AI.available && <li>AI assistance under the same governance: it may recommend and prepare, and people decide.</li>}{/* WS-01 switch */}
         </ul>
       </Section>
       <p className="mt-4 max-w-3xl text-muted">The hosted edition for manufacturers is planned. Manufacturers can join the design-partner waitlist; it is not a current offer. See <Link href="/design-partners/">Design partners</Link>.</p>
-      <Section title="One platform, Editions by industry">
-        <p>AssuredForge is one platform, with Editions for industries planned. Manufacturing comes first and is being shaped with design partners. Other industries follow once the manufacturing Edition is proven.</p>
+      <Section title="One platform, shaped by industry">
+        {/* Owner, sweep item 9: two edition names only (desktop, hosted); no industry "Editions" on marketing pages. */}
+        <p>AssuredForge is one platform, with versions for industries planned. Manufacturing comes first and is being shaped with design partners. Other industries follow once AssuredForge for Manufacturing is proven.</p>
       </Section>
     </Layout>
   );

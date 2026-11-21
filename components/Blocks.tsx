@@ -6,9 +6,10 @@ export const button = "btn";
 export const primary = "btn btn-primary";
 export const secondary = "btn btn-secondary";
 
-// Availability label: always text, never colour alone ("available today" or "planned", owner constraint).
-export function Status({ kind }: { kind: "today" | "planned" | "partners" }) {
-  const label = kind === "today" ? "Available today" : kind === "partners" ? "Available to design partners" : "Planned";
+// Availability label: always text, never colour alone ("available today", "being validated" or "planned", owner constraint).
+// "validated": every AI statement while CL-46 is Being validated (assessor decision on the plain-language sweep, item 2).
+export function Status({ kind }: { kind: "today" | "planned" | "partners" | "validated" }) {
+  const label = kind === "today" ? "Available today" : kind === "partners" ? "Available to design partners" : kind === "validated" ? "Being validated" : "Planned";
   return (
     <span className="inline-block rounded-sm border border-rule px-2 py-0.5 text-label uppercase tracking-wide text-ink">
       {label}

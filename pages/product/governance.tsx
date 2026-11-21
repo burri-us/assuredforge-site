@@ -3,12 +3,12 @@ import { Bullets, ShotSlot, Status } from "../../components/Blocks";
 
 export default function Governance() {
   return (
-    <Layout title="Governance and approvals | AssuredForge" description="Release stages, signed approvals by named people in scoped roles, and escalations decided by a person.">
-      <Title lead="Gates and approvals are enforced by the platform, not by convention.">Governance and approvals</Title>
+    <Layout title="Governance and approvals | AssuredForge" description="Release stages, signed approvals by named people holding the required role, and escalations decided by a person.">
+      <Title lead="The approvals the governance requires are enforced by the platform, not by convention.">Governance and approvals</Title>
       <p className="mt-4"><Status kind="today" /></p>
       <Section title="Recorded stages">
         {/* CL-08 */}
-        <p>A Release moves through Feature, Release, Delivery, Integration, UAT (user acceptance testing), Approval, Push and Deployment in the Portal. A step its rules do not allow is refused, with the reason.</p>
+        <p>A Release (a deployable package of one or more Features) moves through Feature, Release, Delivery (the commits that implement it), Integration (combining the delivered changes), UAT (user acceptance testing), Approval, Push and Deployment in the Portal. A step its rules do not allow is refused, with the reason.</p>
       </Section>
       <Section title="Signed approvals">
         <Bullets items={[

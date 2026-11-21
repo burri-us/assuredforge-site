@@ -9,7 +9,7 @@ const ITEMS: [string, string, string, boolean][] = [
   ["AI use policy", "/trust/ai-use-policy/", "Where AI may be used and what it never does.", true],
   ["Subprocessors and model providers", "/trust/subprocessors/", "Who may process data.", true],
   ["Responsible disclosure", "/trust/disclosure/", "How to report a vulnerability.", false],
-  ["Accessibility", "/trust/accessibility/", "Our WCAG 2.2 AA target.", true],
+  ["Accessibility", "/trust/accessibility/", "Our accessibility target: we aim for this website to meet WCAG 2.2 level AA.", true],
 ];
 
 export default function Trust() {
@@ -27,7 +27,8 @@ export default function Trust() {
         </ul>
       </Section>
       <Section title="Not claimed">
-        <p>No certification, no external penetration test, no uptime or support-hour commitment. <Status kind="today" /> {/* CL-39 */} Dependency and container image scanning, and a structured internal security review.</p>
+        <p>No certification, no external penetration test, no uptime or support-hour commitment.</p>
+        <p><Status kind="today" /> {/* CL-39 */} Dependency and container image scanning, and a structured internal security review.</p>
       </Section>
     </Layout>
   );

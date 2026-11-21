@@ -28,7 +28,7 @@ export const AI = ON
         "AI-assisted planning and delivery runs under human governance: people set the governance, give the approvals it requires and handle every exception, and AI never approves, accepts risk or authorizes a release.", // CL-40R
       deliverTile:
         "AI-assisted planning and delivery runs on your own PC with your own model key. Every run has a run budget and a monthly limit, with defaults you change in Setup. Model execution stays off until an administrator turns it on.", // CL-19, CL-49
-      deliverStatus: "Available to design partners (being validated)", // CL-46
+      deliverStatus: "Being validated", // CL-46 (one label for AI everywhere)
       productLead:
         "AI-assisted planning and delivery runs under human governance: people set the governance, give the approvals it requires and handle every exception, and AI never approves, accepts risk or authorizes a release.", // CL-40R
       proof4: "Use your own AI model key", // CL-47 (Being validated)
@@ -76,13 +76,13 @@ export const AI = ON
       dataModelSentence: "",
       modelPath: null as string | null,
       how: [
-        { t: "Work is delivered", d: "Work is delivered against a Feature, with each Delivery recorded." }, // CL-03
-        { t: "Independent checks run", d: "Tests run on the integration in an isolated suite runner, apart from whoever wrote the change." }, // CL-36
+        { t: "Work is delivered", d: "Work is delivered against a Feature (an individual functional unit that is built, tested and delivered), with each Delivery (the commits that implement it) recorded." }, // CL-03; explanations: glossary (Feature), site text (platform)
+        { t: "Independent checks run", d: "Tests run on the combined changes in an isolated suite runner (a disposable place used only for that test run), apart from whoever wrote the change." }, // CL-36; explanations: glossary (Suite Runner), site text (governance)
       ],
-      flow: ["Requirement", "Delivery", "Independent checks", "Your approval", "Release and proof"],
-      flowAlt: "Five steps in order: a requirement is recorded, the work is delivered, independent checks run on the integration, you approve it, and it is released with the proof recorded.",
+      flow: ["Requirement", "Work delivered", "Independent checks", "Your approval", "Release and proof"],
+      flowAlt: "Five steps in order: a requirement is recorded, the work is delivered, independent checks run on the combined changes, you approve it, and it is released with the proof recorded.",
       demoShot: null as string | null,
-      installStep: "Create your Tenant and sign in.",
+      installStep: "Create your Tenant (your organization's account) and sign in.",
       securityFlow: "",
       faqModels: null as string | null,
       faqCost: "",

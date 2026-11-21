@@ -24,13 +24,13 @@ const STEPS = [
   { t: "You approve", d: "A named person with the required role approves, and the approval is signed and recorded.", shot: "The approval record with a signature" }, // CL-05
   {
     t: "You can prove it",
-    d: "The push and the deployment are recorded against the approved Release, and your records can be exported and verified offline.",
+    d: "The push and the deployment are recorded against the approved Release (a deployable package of one or more Features), and your records can be exported and verified offline.",
     shot: "The Release record and the evidence export",
   }, // CL-07, CL-11
 ];
 
 const TILES = [
-  { title: "Govern", Icon: GateIcon, href: "/product/governance/", status: "Available today", text: "Gates, signed approvals by named people in scoped roles, and release governance enforced by the platform, not by convention." }, // CL-04, CL-05, CL-13
+  { title: "Govern", Icon: GateIcon, href: "/product/governance/", status: "Available today", text: "The approvals the governance requires, signed by named people whose roles are granted for the whole Tenant (your organization's account), a Workspace or a Portfolio, and release governance enforced by the platform, not by convention." }, // CL-04, CL-05, CL-13; no "Gates" on the site (assessor, sweep item 1)
   { title: "Trace", Icon: ThreadIcon, href: "/product/traceability/", status: "Available today", text: "One connected record from requirement to Release, approval, push and recorded deployment, and back." }, // CL-03
   { title: "Prove", Icon: ShieldCheckIcon, href: "/product/audit/", status: "Available today", text: "Every governed action in a tamper-evident audit chain that you can verify and export." }, // CL-06, CL-07
   { title: "Deliver with AI", Icon: CheckIcon, href: "/product/ai-assisted-delivery/", status: AI.deliverStatus, text: AI.deliverTile }, // CL-19, CL-40R, CL-49 (on) / DEC-439 O-4 (hold)
@@ -116,7 +116,7 @@ export default function Home() {
         <p className="max-w-[70ch]">
           In the desktop edition your records stay on your own PC, under your control.{" "}
           {AI.dataModelSentence}
-          AssuredForge connects only to the services you set up: {AI.available ? "the model provider of the key you entered and, if you add them, " : "if you add them, "}your own git remote, connectors and sign-in provider. Tierra receives your installation id when you ask for a licence, and prompts or project content only in a support bundle you choose to send. This is being validated.
+          AssuredForge connects only to the services you set up: {AI.available ? "the model provider of the key you entered and, if you add them, " : "if you add them, "}your own git remote, connectors (integrations to outside systems such as Jira or Azure DevOps) and sign-in provider. Tierra receives your installation id when you ask for a licence, and prompts or project content only in what you choose to send us: a support bundle (a short set of details you choose to send us when you ask for help), or feedback with files you attach. This is being validated.
         </p>
         <p><Link href="/deployment/">Editions and system requirements</Link></p>
       </Section>
@@ -132,7 +132,7 @@ export default function Home() {
         <h2>Working with our first design partners</h2>
         {/* CL-23, CL-27 (both audiences, DEC-439 O-1) */}
         <p className="mt-3 max-w-[65ch] text-muted">
-          A small founding cohort, six months, no software license fee during the program: individuals and small teams on the desktop
+          A small founding cohort (the first design partners admitted to the program), six months, no software license fee during the program: individuals and small teams on the desktop
           edition, and organizations for the planned hosted edition. Applications open now.
         </p>
         <p className="mt-5"><Link href="/design-partners/" className={secondary}>Learn about the program</Link></p>

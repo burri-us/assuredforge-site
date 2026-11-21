@@ -12,14 +12,14 @@ export default function DesignPartners() {
   return (
     <Layout
       title="Founding Design Partner Program | AssuredForge"
-      description="Join a small founding cohort, as an individual or small team on the desktop edition or as an organization for the planned hosted edition, shaping governed software delivery with AssuredForge."
+      description="Join a small founding cohort (the first design partners admitted to the program), as an individual or small team on the desktop edition or as an organization for the planned hosted edition, shaping governed software delivery with AssuredForge."
     >
-      <Title lead={`AssuredForge is looking for a small founding cohort of design partners. Work with us on deliveries of your own projects in the evaluation and help shape the platform around what you need. ${POSITION.desktop} ${POSITION.hosted}`}>
+      <Title lead={`AssuredForge is looking for design partners for a small founding cohort (the first design partners admitted to the program). Work with us on deliveries of your own projects in the evaluation and help shape the platform around what you need. ${POSITION.desktop} ${POSITION.hosted}`}>
         Founding Design Partner Program
       </Title>
       {/* CL-27 (both audiences named, DEC-439 O-1) */}
       <p className="mt-4 font-medium text-ink">
-        Applications open now. First cohort begins once participating organizations have been selected.
+        Applications open now. First cohort begins once participants have been selected.
       </p>
       <Section title="What founding partners get">
         {/* CL-23 (no license fee), CL-25 (early access, priority support, roadmap influence, working sessions). */}

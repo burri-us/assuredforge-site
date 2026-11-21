@@ -13,9 +13,9 @@ export default function Security() {
       <Section title="In the platform">
         <ul className="list-disc space-y-2 pl-6">
           <li>Signed approvals and a tamper-evident audit chain you can verify.</li>
-          <li>Scoped, role-based authorization enforced by the platform.</li>
+          <li>Roles are granted for the whole Tenant (your organization&apos;s account), a Workspace (a separate space inside it, for example for one client) or a Portfolio (a long-lived product line or initiative), and enforced by the platform; a revoked role is refused at once.</li>{/* CL-13 */}
           <li>Two-step verification that an organization can require for all its members.</li>
-          <li>Each Tenant&apos;s data is kept separate from every other Tenant&apos;s.</li>
+          <li>Each Tenant&apos;s (organization account&apos;s) data is kept separate from every other Tenant&apos;s.</li>
           <li>Dependency and container image scanning on every change to the platform.</li>
         </ul>
       </Section>
@@ -31,10 +31,10 @@ export default function Security() {
         </p>
       </Section>
       <Section title="Data flow of the desktop edition">
-        {/* CLAIM-UNVERIFIED: WS-06 statement; to be confirmed against the shipped kit after W8. */}
+        {/* CL-53 (Being validated until W8), replacing the earlier unverified statement (assessor, sweep item 4). */}
         <p>
-          The desktop edition keeps your data on your own machine. {AI.securityFlow}{" "}
-          Tierra receives nothing unless you send a support bundle.
+          In the desktop edition your records stay on your own PC, under your control. {AI.securityFlow}{" "}
+          Tierra receives your installation id when you ask for a licence, and prompts or project content only in what you choose to send us: a support bundle (a short set of details you choose to send us when you ask for help), or feedback with files you attach. This is being validated.
         </p>
       </Section>
       <Section title="Trust Center">

@@ -102,6 +102,7 @@ const MARKERS = [
   ["CLAIM-", /CLAIM-/],
   ["TODO", /TODO/],
   ["DRAFT", /DRAFT/],
+  ["(draft)", /\(draft\)/i],   // lower-case "(draft)" labels too: legal and policy texts are "interim" (DEC-462; sweep item 12)
   ["COUNSEL REVIEW", /COUNSEL REVIEW/i],
   ["[OWNER", /\[OWNER\b/],
   ["[Owner/Counsel item", /\[(Owner|Counsel)\b[^\]]*\]/i],   // case-insensitive: "[counsel review: ...]" counts too

@@ -21,6 +21,7 @@ export default function Demo() {
         <VideoSlot kind="walkthrough" title="Three-minute walkthrough: a requirement to a signed, recorded release" />
       </Section>
       <Section title="Screenshots">
+        <p className="mb-4">The Digital Thread is one connected record from requirement to Release, approval, push and recorded deployment, and back.</p>
         <div className="grid gap-6 md:grid-cols-2">
           {SHOTS.map((s) => <ShotSlot key={s} title={s} />)}
         </div>

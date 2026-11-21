@@ -8,7 +8,7 @@ export default function AiDelivery() {
   return (
     <Layout title="AI-assisted delivery | AssuredForge" description="How AI assistance fits inside AssuredForge's governance: AI prepares and recommends, independent checks test, and only named people approve.">
       <Title lead={AI.productLead}>AI-assisted delivery</Title>
-      <p className="mt-4"><Status kind={AI.available ? "partners" : "planned"} /></p>
+      <p className="mt-4"><Status kind="validated" />{/* CL-46: Being validated */}</p>
 
       <Section title="The rule that does not change">
         {/* CL-04: current, enforced. */}
@@ -29,23 +29,23 @@ export default function AiDelivery() {
           </Section>
         </>
       ) : (
-        <Section title="Planned">
-          {/* CL-19 (hold wording, DEC-439 O-4) */}
+        <Section title="Being validated">
+          {/* CL-19, CL-46 (hold wording, DEC-439 O-4) */}
           <p>AI-assisted planning and delivery is being validated for the desktop design-partner evaluation.</p>
         </Section>
       )}
 
       {AI.available ? (
         <Section title="Your data and your model key">
-          {/* CL-47; see the AI use policy draft. */}
+          {/* CL-47; see the AI use policy (interim). */}
           <p>
-            Read the <Link href="/trust/ai-use-policy/">AI use policy</Link> (draft) and the{" "}
+            Read the <Link href="/trust/ai-use-policy/">AI use policy</Link> (interim) and the{" "}
             <Link href="/trust/subprocessors/">subprocessors and model providers</Link> page for where data goes.
           </p>
         </Section>
       ) : (
         <Section title="The rules that will apply">
-          <p>The <Link href="/trust/ai-use-policy/">AI use policy</Link> (draft) states the rules for when AI assistance becomes available.</p>
+          <p>The <Link href="/trust/ai-use-policy/">AI use policy</Link> (interim) states the rules for when AI assistance becomes available.</p>
         </Section>
       )}
     </Layout>

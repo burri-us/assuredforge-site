@@ -270,3 +270,26 @@ Recommendation: keep the site's existing pattern (a short explanation in bracket
 13. **RAM figures.** The FAQ (`pages/faq.tsx:23`) and Editions and deployment (`pages/deployment.tsx:30`) state "8 GB RAM minimum; 16 GB recommended" while CL-54 and the Individuals page still carry "[RAM: CONFIRM AT W8]". `scripts/check.mjs` compares the three pages only after the marker is removed. Decision: hold the figures on the FAQ and Editions pages until W8, or confirm them in the register.
 
 Reviewed and acceptable as they are (technical pages, readers need the term, or already explained): "Virtualization turned on in the firmware (BIOS or UEFI)" and "WSL2 (Windows Subsystem for Linux 2)" on Editions and deployment; "user acceptance test (UAT)" where spelled out; the escalation and Tenant/Workspace/Portfolio explanations on Governance; "denial-of-service or social-engineering tests" and "bounty" on Responsible disclosure (security-researcher audience); "Jira, Azure DevOps or a similar tool for work items" and "Windchill or Creo in your engineering landscape" on the organization track (organization audience); Contact and 404 pages.
+
+## 7. Decisions and what was applied (2026-11-21)
+
+Decisions on §6: the assessor, and the owner for item 9. The findings table's wording was applied with these decisions; build and site check pass (32 pages), and the AI switch check passes for both values. Not pushed.
+
+| §6 item | Decision | Applied |
+|---|---|---|
+| 1 | "The approvals the governance requires"; no "Gates" | Home Govern tile, Governance lead. "gate" remains only in two interim legal pages (acceptable use, AI use policy): for the assessor, not changed here |
+| 2 | "Being validated" badge for AI everywhere (CL-46) | New `Status` kind `validated`; AI-assisted delivery page (badge and section), Platform AI section, home tile label in both switch states |
+| 3 | "Participants" (CL-27) | Design partners, FAQ |
+| 4 | CL-53 wording on Security | Security, "Data flow of the desktop edition" |
+| 5 | Updated CL-53 wording | Home, Editions and deployment, FAQ, Security |
+| 6 | Registered claim text verbatim, plain explanation alongside | Traceability (CL-36), Audit (CL-06, CL-33), Platform and Integrations (CL-16, CL-17, CL-18) |
+| 7 | Draft definitions for terms with no source wording, to Kit Notices | `docs/GLOSSARY-PROPOSALS.md`; those rows stay unchanged on the site until the glossary has them |
+| 8 | One connector status from CL-17; drop "tested against their contracts" | Platform, Integrations |
+| 9 | Two edition names: "Desktop edition", "Hosted edition (planned)"; "(planned, on Microsoft Azure)" only on the deployment page | Deployment (heading, meta, desktop line), Regulated (CL-30 sentence reworded; register owner to align CL-30, CL-35), Manufacturing and design-partner offers ("AssuredForge for Manufacturing", no industry "Editions"). The deployment page keeps its "Customer-hosted ... Planned" line as a technical deployment option; flagged for the owner |
+| 10 | Kit Notices updates the glossary | Founding Design Partner Program entry in `docs/GLOSSARY-PROPOSALS.md` §2 |
+| 11 | Individuals "Model usage" only with the AI switch on | Individuals: the section shows only with `AI.available`; the pricing sentence moved to a "Cost" section |
+| 12 | "Interim" everywhere; marker check catches "(draft)" | AI-assisted delivery, FAQ; `scripts/check.mjs` marker `(draft)` (case-insensitive) |
+| 13 | RAM unchanged until W8 | Unchanged |
+
+Rows applied from §3 (with their source wording): 3, 4, 5, 6, 7, 8 (Audit), 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 29, 33, 35, 42, 43, 45, 46, 47, 49, 50, 51, 52, 54, 56, 57, and row 1 (Responsible disclosure lead). Also the design-partner eligibility line now reads "You must be at least 18", as on /solutions/individuals/.
+Not applied, waiting for the glossary (item 7) or a register decision (item 6): rows 2, 8 on pages other than Audit, 14, 28 (section hidden instead), 30, 31, 32 (reworded for item 9 only), 34, 36, 37, 38, 39 (renamed only), 40, 41, 44, 48, 53, 55.

@@ -91,34 +91,42 @@ else {
   for (const l of locs) if (!canonicals.has(l)) report.push(`sitemap.xml lists ${l}, which is not a canonical page`);
 }
 
-// WR-02: placeholders and internal markers visible to a reader. Legal pages awaiting counsel (they carry the banner
-// "DRAFT — COUNSEL REVIEW") may show DRAFT and bracketed counsel items; nothing else may be visible on any page.
+// WR-02: placeholders and internal markers visible to a reader. No page is exempt (DEC-462): the legal pages carry the interim
+// label instead of a draft banner, and a "[Counsel ...]" or "[Owner ...]" item, DRAFT or "COUNSEL REVIEW" is a marker on any page.
 const publish = process.env.SITE_PUBLISH === "1";
 if (publish && process.env.AF_SWITCH_CHECK_ON) report.push("publish build with AF_SWITCH_CHECK_ON set (it is for the switch check only)");
 const MARKERS = [
-  ["placeholder", /placeholder/i, false],
-  ["W8", /\bW8\b/, false],
-  ["CONFIRM", /CONFIRM/, false],
-  ["CLAIM-", /CLAIM-/, false],
-  ["TODO", /TODO/, false],
-  ["DRAFT", /DRAFT/, true],
-  ["[OWNER", /\[OWNER\b/, false],
-  ["[Owner/Counsel item", /\[(Owner|Counsel)\b[^\]]*\]/i, true],   // case-insensitive: "[counsel review: ...]" counts too
+  ["placeholder", /placeholder/i],
+  ["W8", /\bW8\b/],
+  ["CONFIRM", /CONFIRM/],
+  ["CLAIM-", /CLAIM-/],
+  ["TODO", /TODO/],
+  ["DRAFT", /DRAFT/],
+  ["COUNSEL REVIEW", /COUNSEL REVIEW/i],
+  ["[OWNER", /\[OWNER\b/],
+  ["[Owner/Counsel item", /\[(Owner|Counsel)\b[^\]]*\]/i],   // case-insensitive: "[counsel review: ...]" counts too
 ];
+// The recognised state of a legal page (DEC-462): the interim label from components/Blocks.tsx (InterimBanner), exactly.
+// Every legal page must show it in every build.
+const INTERIM_LABEL = "Interim version of 21 November 2026, for the design-partner programme. Pending formal legal review. If this page and your signed design-partner agreement differ, the agreement governs.";
+const LEGAL_PAGES = ["terms", "privacy", "legal/evaluation-licence", "legal/acceptable-use", "legal/design-partner-agreement",
+  "trust/ai-use-policy", "trust/subprocessors", "trust/product-privacy", "trust/accessibility"].map((p) => join(p, "index.html"));
 const markerWarnings = [];
 for (const file of files(dir).filter((f) => f.endsWith(".html"))) {
   const html = readFileSync(file, "utf8");
   const stripped = html.replace(/<script\b[\s\S]*?<\/script>/gi, "").replace(/<style\b[\s\S]*?<\/style>/gi, "").replace(/<!--[\s\S]*?-->/g, "");
-  const legal = /DRAFT — COUNSEL REVIEW/.test(stripped);
   const visible = stripped.replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#x27;/g, "'");
   const attrs = [...stripped.matchAll(/\s(?:aria-label|alt|title|content|value|placeholder)="([^"]*)"/gi)].map((m) => m[1]).join(" ");
   const haystack = `${visible} ${attrs} ${/\splaceholder=/i.test(stripped) ? "placeholder" : ""}`;
-  for (const [name, re, legalOk] of MARKERS) {
-    if (legalOk && legal) continue;
+  for (const [name, re] of MARKERS) {
     const hit = re.exec(haystack);
     if (hit) markerWarnings.push(`${relative(dir, file)}: ${name} ("${haystack.slice(Math.max(0, hit.index - 20), hit.index + 40).replace(/\s+/g, " ").trim()}")`);
   }
+  if (LEGAL_PAGES.includes(relative(dir, file)) && !visible.replace(/\s+/g, " ").includes(INTERIM_LABEL)) {
+    report.push(`${relative(dir, file)}: legal page without the interim label`);
+  }
 }
+for (const p of LEGAL_PAGES) if (!existsSync(join(dir, p))) report.push(`legal page missing: ${p}`);
 const markerPages = new Set(markerWarnings.map((w) => w.split(":")[0]));
 if (publish) for (const w of markerWarnings) report.push(`publish: visible marker ${w}`);
 else {

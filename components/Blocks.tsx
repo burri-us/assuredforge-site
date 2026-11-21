@@ -93,12 +93,13 @@ export function VideoSlot({ title, kind, media = null }: { title: string; kind: 
   );
 }
 
-export function DraftBanner() {
+// Legal pages: the interim label (DEC-462). scripts/check.mjs recognises this exact text.
+export function InterimBanner() {
   return (
     <div role="note" className="mb-8 rounded-md border-2 border-gold bg-surface-alt p-4">
-      <p className="font-bold uppercase tracking-wide text-ink">DRAFT — COUNSEL REVIEW</p>
+      <p className="font-bold text-ink">Interim version of 21 November 2026, for the design-partner programme.</p>
       <p className="mt-1 text-sm text-muted">
-        This text is a draft for review by counsel. It is not in force, is not legal advice and may change.
+        Pending formal legal review. If this page and your signed design-partner agreement differ, the agreement governs.
       </p>
     </div>
   );
@@ -128,9 +129,9 @@ export function LegalPage({
 }) {
   return (
     <Layout title={`${title} | AssuredForge`} description={description}>
-      <DraftBanner />
+      <InterimBanner />
       <Title lead={intro}>{title}</Title>
-      <p className="mt-4 text-sm text-muted">Effective date: to be set when counsel approves. Draft of 2026-11-20.</p>
+      <p className="mt-4 text-sm text-muted">Effective 21 November 2026 (interim version).</p>
       {sections.map((s) => (
         <Section key={s.h} title={s.h}>
           {s.body}

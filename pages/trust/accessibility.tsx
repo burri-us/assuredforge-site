@@ -1,6 +1,7 @@
 import { LegalPage } from "../../components/Blocks";
 
-// DRAFT — COUNSEL REVIEW. Target only; no conformance claim until an audit exists.
+// Interim version of 21 November 2026 (DEC-462): standard interim wording, pending formal legal review; every filled clause is in COUNSEL-LIST.md.
+// Target only; no conformance claim until an audit exists.
 export default function Accessibility() {
   return (
     <LegalPage

@@ -40,7 +40,7 @@ export default function Security() {
       <Section title="Trust Center">
         <p>
           Privacy, the AI use policy, subprocessors and responsible disclosure are in the <Link href="/trust/">Trust Center</Link>. The
-          legal texts there are drafts awaiting counsel review.
+          legal texts there are interim versions, pending formal legal review.
         </p>
       </Section>
     </Layout>

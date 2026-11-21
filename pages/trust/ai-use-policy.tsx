@@ -1,7 +1,8 @@
 import { LegalPage, Bullets } from "../../components/Blocks";
 import { AI } from "../../components/AiWording";
 
-// DRAFT — COUNSEL REVIEW. The rule that AI never approves is CL-04 (current). Where AI is used and the account/budget points
+// Interim version of 21 November 2026 (DEC-462): standard interim wording, pending formal legal review; every filled clause is in COUNSEL-LIST.md.
+// The rule that AI never approves is CL-04 (current). Where AI is used and the account/budget points
 // are CLAIM-UNVERIFIED and sit inside the WS-01 decision: if the owner holds the new AI wording, hold this page too.
 export default function AiUsePolicy() {
   return (
@@ -15,7 +16,7 @@ export default function AiUsePolicy() {
         { h: "Human review duties", body: <p>A person must review AI output before relying on it. Model output may be wrong, incomplete or insecure. You remain responsible for what you release.</p> },
         ...(AI.available ? [
         { h: "Your model account and key", body: <p>You use your own account and key with the model provider you choose. Your use is under that provider&apos;s terms. Charges are billed by the provider to you.</p> },
-        { h: "Training", body: <p>Tierra does not train models on your data. [Counsel and owner to confirm this wording; it covers Tierra only, not the provider you choose, whose terms govern.]</p> },
+        { h: "Your prompts and project content", body: <p>Prompts and project content for a run go to the provider you chose, under your own agreement with that provider; Tierra does not receive them unless you send us a support bundle that includes them.</p> }, // CL-47 (replaces an unregistered training statement)
         { h: "Cost controls", body: <p>You can set a run budget and a monthly limit. An administrator turns model execution on or off as a signed decision.</p> },
         ] : []),
         { h: "Prohibited uses", body: <Bullets items={[...(AI.available ? ["Submitting data you have no right to share with a model provider."] : []), "Using AI output to bypass an approval or a gate.", AI.available ? "Any use prohibited by the acceptable use policy or by the provider's terms." : "Any use prohibited by the acceptable use policy."]} /> },

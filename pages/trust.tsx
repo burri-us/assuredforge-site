@@ -15,12 +15,12 @@ const ITEMS: [string, string, string, boolean][] = [
 export default function Trust() {
   return (
     <Layout title="Trust Center | AssuredForge" description="Security, privacy, AI use policy, subprocessors, responsible disclosure and accessibility in one place.">
-      <Title lead="Our commitments, in one place. Items marked draft await counsel review.">Trust Center</Title>
+      <Title lead="Our commitments, in one place. Items marked interim are pending formal legal review.">Trust Center</Title>
       <Section title="Contents">
         <ul className="divide-y divide-rule border-y border-rule">
-          {ITEMS.map(([name, href, note, draft]) => (
+          {ITEMS.map(([name, href, note, interim]) => (
             <li key={href} className="py-3">
-              <Link href={href} className="font-semibold">{name}</Link>{draft && <span className="ml-2 text-xs font-semibold uppercase tracking-wide text-ink">Draft, counsel review</span>}
+              <Link href={href} className="font-semibold">{name}</Link>{interim && <span className="ml-2 text-xs font-semibold uppercase tracking-wide text-ink">Interim</span>}
               <p className="text-sm">{note}</p>
             </li>
           ))}

@@ -2,7 +2,8 @@ import Link from "next/link";
 import { LegalPage } from "../../components/Blocks";
 import { AI } from "../../components/AiWording";
 
-// DRAFT — COUNSEL REVIEW. Product privacy notice, desktop edition. CLAIM-UNVERIFIED throughout: facts to be confirmed against the
+// Interim version of 21 November 2026 (DEC-462): standard interim wording, pending formal legal review; every filled clause is in COUNSEL-LIST.md.
+// Product privacy notice, desktop edition. CLAIM-UNVERIFIED throughout: facts to be confirmed against the
 // shipped kit after W8 (CL-53 Being validated until W8). Bracketed items need the owner or counsel.
 export default function ProductPrivacy() {
   return (

@@ -134,3 +134,11 @@ Also useful: `docs/INDUSTRIES-WORKS-WITH-ENTRIES.md`, `docs/PLAIN-LANGUAGE-SWEEP
 - Placeholder blocks hidden: `SHOW_PLACEHOLDERS = false` in `components/Measured.tsx`. Screenshot and video slots without media
   render nothing, the Demo page drops its empty video section, and the RAM clause on /solutions/individuals/ is left out. When the
   W8 media and RAM figures exist: fill `RAM_W8` and each slot's `media`; set the switch back to true only for a preview.
+
+## Added by Kit Notices, 2026-11-21 night (DEC-488 (2))
+- **Release window: Wednesday 25 to Friday 27 November**, after Tuesday's dry run provides the W8 media. The interim Trust pages
+  (security, product privacy notice, AI use policy, subprocessors, responsible disclosure) must be live before the cohort starts on
+  Monday 30 November (OI-316 condition). The pilot pack carries the product privacy notice meanwhile (architecture
+  `program/pilot-pack/09-PRODUCT-PRIVACY-NOTICE.md`, same text plus one sentence on backups: add that sentence to
+  `pages/trust/product-privacy.tsx` "Retention and deletion" at the release, with the CL-22D reference).
+

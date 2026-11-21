@@ -59,7 +59,8 @@ Every clause filled or changed, with its page and exact wording:
 - **/legal/design-partner-agreement/, Warranty, liability and law** (new section)
   > The evaluation licence sets out the warranty disclaimer, the limit of liability, and Michigan law and courts. They apply to the program.
 - **/legal/design-partner-agreement/, After the program** (assessor change 2, owner decision 2026-11-21; was: "Pricing after the program is not set.", and before that "[Owner decision: pricing intent is not stated here.]")
-  > Free during the programme. Founding partners get founding pricing, at least 30 days' notice before any fee, and never an automatic charge.
+  > Free during the program. Founding partners get founding pricing, at least 30 days' notice before any fee, and never an automatic charge.
+  - Spelling only: "programme" in DEC-438's wording is written "program" (US spelling, as on the rest of the site); the wording is otherwise unchanged (owner, 2026-11-21). The same sentence on the FAQ and /solutions/individuals/ gets the same spelling.
   - Source: DEC-438 (beside CL-55 in the claims register). The same sentence is in the interim design-partner agreement, Sec. 1.3 (DESIGN-PARTNER-AGREEMENT-INTERIM.md).
 - **/legal/acceptable-use/, Enforcement** (was: "We may suspend access that breaks this policy. [Counsel to set notice and cure terms.]")
   > If use breaks this policy, we may suspend or end the access we provide: support, and new or renewed licences. Unless the breach is serious, we first tell you by email what is wrong and give you a reasonable time to fix it. We may act at once for unlawful use, a security threat or harm to others. In the desktop edition your records stay on your own PC, under your control.

@@ -32,7 +32,7 @@ const QA: { q: string; a: ReactNode }[] = [
   },
   {
     q: "What does it cost?",
-    a: <>Free during the programme. Founding partners get founding pricing, at least 30 days' notice before any fee, and never an automatic charge.{/* DEC-438: owner-approved pricing wording */} {AI.faqCost}{/* AI switch; CL-55 */}</>,
+    a: <>Free during the program. Founding partners get founding pricing, at least 30 days' notice before any fee, and never an automatic charge.{/* DEC-438: owner-approved pricing wording */} {AI.faqCost}{/* AI switch; CL-55 */}</>,
   },
   ...(AI.faqModels ? [{ q: AI.faqModels, a: <>{AI.modelPath}{/* CL-48 (FAQ is a permitted page) */} Model execution is off until an administrator turns it on in Setup.</> }] : []),
   {

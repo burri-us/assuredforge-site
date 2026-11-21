@@ -28,7 +28,7 @@ export default function Individuals() {
       <Section title="Model usage">
         {/* CL-55 */}
         <p className="max-w-[70ch]">Model usage is billed to you by your own provider; Tierra does not resell, bill or mark up model usage.</p>
-        <p className="max-w-[70ch]">Free during the programme. Founding partners get founding pricing, at least 30 days&apos; notice before any fee, and never an automatic charge.</p>
+        <p className="max-w-[70ch]">Free during the program. Founding partners get founding pricing, at least 30 days&apos; notice before any fee, and never an automatic charge.</p>
       </Section>
       <p className="mt-6"><Link href="/deployment/">Editions and deployment</Link> · <Link href="/design-partners/">Design partners</Link> · <Link href="/faq/">FAQ</Link></p>
     </Layout>

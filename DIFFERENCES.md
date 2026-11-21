@@ -23,7 +23,7 @@ Measured at f7ded39 against `tokens.json` v1 and the brand book (README sections
 | 17 | Third-party notices | None (no fonts shipped) | Licence text of each face in a notices page | `/third-party-notices/` |
 | 18 | Mark files | `public/brand/*.svg` carried fixed hex | Websites draw the marks inline (README 4, v2) | Done in SITE-V2: `public/brand/` removed; `public/icon.svg` and the rasters stay (exception E-2) |
 
-## SITE-V2 (design system 1795242441-3bd7)
+## SITE-V2 (design system 1795242812-8f35)
 
 Source: the records copy `assuredforge-architecture/design/tierra-design-system/` (tokens.json, assets/Logos/README.md and drawings), read-only.
 

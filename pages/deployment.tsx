@@ -23,7 +23,7 @@ export default function Deployment() {
       <Section title="System requirements">
         {/* CL-54 (RAM stays a W8 marker, S-24). */}
         <Bullets items={[
-          "Windows 11 Home or Pro, 64-bit.",
+          "Windows 11 version 23H2 or later (Home or Pro, 64-bit).",
           "Virtualization turned on in the firmware (BIOS or UEFI).",
           "WSL2 (Windows Subsystem for Linux 2).",
           "Docker Desktop, in a supported version.",

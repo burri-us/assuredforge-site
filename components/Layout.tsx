@@ -7,7 +7,7 @@ import site from "../site.json";
 
 const NAV = [
   { href: "/platform/", label: "Product", also: ["/product"] },
-  { href: "/manufacturing/", label: "Solutions", also: ["/solutions"] },
+  { href: "/solutions/individuals/", label: "Solutions", also: ["/solutions"] },
   { href: "/deployment/", label: "Editions" },
   { href: "/design-partners/", label: "Design partners" },
   { href: "/demo/", label: "Demo" },
@@ -19,7 +19,7 @@ const NAV = [
 // Mega-footer: Product, Solutions, Resources, Trust, Company, Legal (website review Sec. 2 item 8).
 const FOOTER: { title: string; links: [string, string][] }[] = [
   { title: "Product", links: [["Overview", "/platform/"], ["AI-assisted delivery", "/product/ai-assisted-delivery/"], ["Governance and approvals", "/product/governance/"], ["Traceability", "/product/traceability/"], ["Audit and evidence", "/product/audit/"], ["Integrations", "/product/integrations/"]] },
-  { title: "Solutions", links: [["Manufacturing", "/manufacturing/"], ["Regulated and quality-driven teams", "/solutions/regulated/"], ["Editions and deployment", "/deployment/"]] },
+  { title: "Solutions", links: [["Individuals and small teams", "/solutions/individuals/"], ["Manufacturing (planned)", "/manufacturing/"], ["Regulated and quality-driven teams (planned)", "/solutions/regulated/"], ["Editions and deployment", "/deployment/"]] },
   { title: "Resources", links: [["Resources hub", "/resources/"], ["Demo", "/demo/"], ["FAQ", "/faq/"], ["Design partners", "/design-partners/"]] },
   { title: "Trust", links: [["Trust Center", "/trust/"], ["Security", "/security/"], ["Website privacy", "/privacy/"], ["Product privacy notice", "/trust/product-privacy/"], ["AI use policy", "/trust/ai-use-policy/"], ["Subprocessors and model providers", "/trust/subprocessors/"], ["Responsible disclosure", "/trust/disclosure/"], ["Accessibility", "/trust/accessibility/"]] },
   { title: "Company", links: [["About", "/about/"], ["Contact", "/contact/"]] },

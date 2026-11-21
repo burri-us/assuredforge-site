@@ -20,7 +20,7 @@ const QA: { q: string; a: ReactNode }[] = [
   },
   {
     q: "What do I need to run the desktop edition?",
-    a: <>Windows 11 Home or Pro (64-bit), virtualization, WSL2, Docker Desktop, 8 GB RAM minimum (16 GB recommended) and 30 GB free disk. Windows 10 is not supported because Microsoft no longer supports it; if your PC qualifies, the upgrade to Windows 11 is free.{/* CL-54 (RAM: W8 marker, S-24; DEC-444) */} Details on <Link href="/deployment/">Editions and deployment</Link>.</>,
+    a: <>Windows 11 version 23H2 or later (Home or Pro, 64-bit), virtualization, WSL2, Docker Desktop, 8 GB RAM minimum (16 GB recommended) and 30 GB free disk. Windows 10 is not supported because Microsoft no longer supports it; if your PC qualifies, the upgrade to Windows 11 is free.{/* CL-54 (RAM: W8 marker, S-24; DEC-444) */} Details on <Link href="/deployment/">Editions and deployment</Link>.</>,
   },
   {
     q: "Does it run on a Mac?",

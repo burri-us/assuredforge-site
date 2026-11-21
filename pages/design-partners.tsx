@@ -25,8 +25,8 @@ export default function DesignPartners() {
         {/* CL-23 (no license fee), CL-25 (early access, priority support, roadmap influence, working sessions). */}
         <ul className="list-disc space-y-2 pl-6">
           <li>No software license fee during the program.</li>
-          <li>Early access: the desktop edition now, and AssuredForge for Manufacturing as it is shaped.</li>
-          <li>Direct influence on the roadmap and on the Manufacturing Edition: your priority use cases shape what we build next.</li>
+          <li>Early access: the desktop edition now.</li>
+          <li>Direct influence on the roadmap: your priority use cases shape what we build next.</li>
           <li>Regular working sessions and priority support.</li>
         </ul>
       </Section>
@@ -36,7 +36,7 @@ export default function DesignPartners() {
         <p>The program runs for six months with no software license fee. The individual and small-team track is open now on the desktop edition. The organization track is a waitlist, planned for the hosted edition.</p>
       </Section>
       {/* CL-24 (commitments for the organization track); individual track: CL-52 */}
-      {[POSITION.trackIndividual, POSITION.trackOrganization].map((t) => (
+      {[POSITION.trackIndividual, POSITION.trackOrganization].map((t: typeof POSITION.trackOrganization | typeof POSITION.trackIndividual) => (
         <section key={t.title} className="mt-8 rounded-md border-l-4 border-gold bg-surface-alt p-6">
           <h2 className="text-2xl font-semibold">{t.title}</h2>
           <h3 className="mt-4 text-lg font-semibold text-ink">Who we are looking for</h3>
@@ -47,6 +47,15 @@ export default function DesignPartners() {
           <ul className="mt-2 list-disc space-y-2 pl-6 text-ink-muted">
             {t.commitments.map((e) => <li key={e}>{e}</li>)}
           </ul>
+          {"offers" in t && (
+            <>
+              <h3 className="mt-4 text-lg font-semibold text-ink">Planned for waitlist partners</h3>
+              <ul className="mt-2 list-disc space-y-2 pl-6 text-ink-muted">
+                {t.offers.map((e) => <li key={e}>{e}</li>)}
+              </ul>
+              <p className="mt-4 text-ink-muted">See how AssuredForge works <Link href="/manufacturing/">for manufacturing (planned)</Link>.</p>
+            </>
+          )}
         </section>
       ))}
       <Section title="How it works">
@@ -69,8 +78,7 @@ export default function DesignPartners() {
           </a>
         </p>
         <p className="pt-2">
-          See how AssuredForge works <Link href="/manufacturing/">for manufacturing</Link> and on the{" "}
-          <Link href="/platform/">platform</Link> page.
+          See how AssuredForge works on the <Link href="/platform/">platform</Link> page.
         </p>
       </Section>
     </Layout>

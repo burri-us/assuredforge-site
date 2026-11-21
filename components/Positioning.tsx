@@ -25,10 +25,14 @@ export const POSITION = {
   trackOrganization: {
     title: "Regulated organizations (hosted edition, planned): waitlist",
     eligibility: [
-      "Organizations building internal software under quality or regulatory pressure; manufacturing first.",
+      "Organizations building internal software under quality or regulatory pressure; manufacturing first (hosted edition, planned).",
       "Jira, Azure DevOps or a similar tool for work items.",
       "Windchill or Creo in your engineering landscape is a plus.",
       "A sponsor who can give regular, structured feedback.",
+    ],
+    offers: [
+      "Early access to AssuredForge for Manufacturing as it is shaped (planned).",
+      "Direct influence on the Manufacturing Edition (planned): your priority use cases shape what we build next.",
     ],
     commitments: [
       "Product feedback and participation in working sessions.",

@@ -4,6 +4,7 @@ import { AI } from "../components/AiWording";
 export default function Manufacturing() {
   return (
     <Layout title="AssuredForge for Manufacturing" description="Governed software delivery for manufacturers building internal software under quality-system pressure.">
+      <p className="mb-3"><span className="inline-block rounded border border-rule px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-ink">Hosted edition (planned)</span></p>
       <Title lead="For manufacturers, the planned hosted edition is for regulated organizations. Manufacturers building internal software under quality-system pressure, where you must show what was delivered, who approved it and how it was validated.">
         AssuredForge for Manufacturing
       </Title>

@@ -49,7 +49,21 @@ Author: Burri. Written 2026-11-21, when this window was archived. It is the star
 4. **Waiting on others:**
    - Counsel review of the interim legal text (`COUNSEL-LIST.md`).
    - A proposed register row for the hosted-edition guardrails sentence (Kit Notices).
-   - CL-47 to align with CL-53's feedback clause (register note sent to Kit Notices).
+   - CL-47 to align with CL-53's feedback clause: done in the register (DEC-477 (3)); the site change is item 5 below.
+5. **Owner-approved wording changes (DEC-478 (c)); apply before the release.** Approved by the owner; the counsel package lists them.
+   - Privacy wording, add "or feedback with files you attach" (CL-47 as amended, CL-53):
+     - `pages/trust/product-privacy.tsx` "Your data stays on your machine": "...and prompts or project content only in a support bundle you
+       choose to send." becomes "...and prompts or project content only in what you choose to send us: a support bundle, or feedback with
+       files you attach."
+     - Held wording (AI switch on) in `pages/trust/product-privacy.tsx`, `pages/trust/ai-use-policy.tsx` and `components/AiWording.tsx`:
+       "...unless you send us a support bundle that includes them." becomes "...unless you send us a support bundle, or feedback with
+       files you attach, that includes them." (the CL-47 register text).
+     - Check: `grep -rn "support bundle" pages components` shows no remaining sentence without the feedback clause; `COUNSEL-LIST.md`
+       quotes the old held text, so update that quote too.
+   - `pages/trust/subprocessors.tsx`, held AI wording ("Desktop edition" section, `AI.available` branch): drop the sentence that names a
+     model vendor; keep "If you turn on model execution, the provider of the model key you enter works under your own agreement with it
+     and is not Tierra's subprocessor." (CL-48 naming scope).
+   - Then run the site check and build; record the commit in Kit Notices.
 
 ## 4. Standing rules
 

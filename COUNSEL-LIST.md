@@ -87,6 +87,7 @@ Every clause filled or changed, with its page and exact wording:
 - Privacy: "We answer within one month", identity check, no charge for a reasonable request.
 - Subprocessors: 30 days' notice before a new subprocessor, with an exception for security and legal reasons.
 - /solutions/individuals/, the age line (CL-52): see the next section.
+- Mutual NDA (CL-26): the evaluation licence (Confidentiality) and the design-partner agreement (Confidentiality) say a mutual NDA is available where required. A template now exists as a draft for counsel, not in force and not on the site: `program/reviews/counsel-package-2026-11-21/05-MUTUAL-NDA-TEMPLATE.md` in the architecture repo (counsel questions P1-19 to P1-23). It repeats the agreement's confidentiality wording, has no end date, Michigan law, and governs confidentiality only.
 
 ### Age line on /solutions/individuals/ (owner, 21 November 2026; OI-608)
 /solutions/individuals/ is not a legal page, but its age line was a counsel marker. It now matches the interim design-partner agreement §2 ("You confirm that you are at least 18 years old", DEC-462).

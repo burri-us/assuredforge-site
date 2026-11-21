@@ -124,3 +124,9 @@ Also useful: `docs/INDUSTRIES-WORKS-WITH-ENTRIES.md`, `docs/PLAIN-LANGUAGE-SWEEP
    - Run the local checks.
    - Send the owner the go/no-go table with each item's result and the expected CI minutes.
    - Push only after the owner approves that push.
+
+## Added by Kit Notices, 2026-11-21 evening (DEC-481 (1))
+- `pages/legal/design-partner-agreement.tsx`, "Desktop edition exit": replace the last sentence with CL-22D as amended: "`launcher
+  uninstall --delete-data` removes AssuredForge's records, files and keys from your PC after you type a confirmation. Backups you
+  created are kept; you delete them yourself (Quick Start, "Leaving the program")." Re-run the site checks. Recorded in COUNSEL-LIST.md.
+

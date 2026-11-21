@@ -118,3 +118,16 @@ A wording change with unchanged meaning, made on 2026-11-21 before any partner r
   - **Was:** "… regulated organizations join a waitlist for the planned hosted edition."
   - **Now:** "… organizations join a waitlist for the planned hosted edition."
 - For counsel to confirm with the rest of the interim text.
+
+### Backups at the end of the program: agreement §9.2 and CL-22D (owner, DEC-481 (1), 21 November 2026)
+Changed on 2026-11-21 before any partner signed, so the deletion promise matches what kit c68012b does: `launcher uninstall
+--delete-data` never deletes a backup.
+- **Agreement §9.2, Word and PDF copies** (new PDF SHA-256: see the architecture repo's pilot-pack README):
+  - **Was:** "`launcher uninstall --delete-data` removes every AssuredForge record, file and key on your PC after you type a
+    confirmation."
+  - **Now:** "`launcher uninstall --delete-data` removes AssuredForge's records, files and keys from your PC after you type a
+    confirmation. Backups you created are kept; you delete them yourself (Quick Start, "Leaving the program")."
+- **Site summary page /legal/design-partner-agreement/**, "Desktop edition exit": carries CL-22D, which takes the same sentence;
+  the page follows at the next Site window (not yet changed on this branch).
+- For counsel to confirm with P1-08.
+

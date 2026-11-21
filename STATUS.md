@@ -46,7 +46,12 @@ Updated: Saturday 2026-11-21.
   - Actions: 3 jobs, about 75 s of runtime (CI build 32 s, pages build 34 s, deploy 9 s), 3 minutes as billed per job.
   - Branch oi-619-windchill deleted (remote and local) and its worktree removed.
 - **Still blocks a publish (OI-608):** the W8 media placeholders on 6 pages, and the RAM marker until W8 measures it.
-- **Items 4-5 (report only), held until the W8 dry run has ended, as the owner sequenced them:**
-  - 4. Accessibility and performance check of both sites. Done so far: the automated WCAG 2.2 AA scan of every page (187 runs, light and dark, 1440 and 390 px, a 320 px reflow check); raw results are in `C:\dev\AssuredForge\ds-previews\a11y\out\axe.json`. Still to do: the keyboard-only walk, page weight and load timing (timings taken during the dry run would not be reliable), then the ranked findings list.
-  - 5. Plain-language sweep, outside the legal pages: done, report only, `docs/PLAIN-LANGUAGE-SWEEP.md` (57 findings on 20 pages plus the header and footer; 13 items need an owner or register-owner decision). Nothing changed on the site.
-- **Paused** until the owner says the W8 dry run has ended (stop time Saturday 23:30). Ports 4174 and 4175 are free.
+- **Items 4-5 (report only): done.**
+  - 4. Accessibility and performance: `docs/A11Y-PERF-FINDINGS.md` (10 findings, ranked).
+    - The one confirmed failure (licence text at phone width) is fixed in 0989652; the re-scan is clean on both sites, and Tierra needed no change.
+    - New, not fixed: F-1 (Serious, WCAG 2.4.11). The phone menu left open covers the next focused link on /404/ and /faq/.
+    - Load timing is good on both sites.
+  - 5. Plain-language sweep: `docs/PLAIN-LANGUAGE-SWEEP.md`. Its decisions are applied (DEC-469, DEC-470).
+- **Schedule (owner, replaces the 23:30 stop):** work may continue until Monday 07:00, when the W8 dry run starts. No Docker use, no kit folders, no pushes outside agreed checkpoints. The new site (8e90724 onwards) stays unpushed until the dry run has ended.
+- **Deployment page:** the hosted-edition guardrails sentence is restored unchanged under "Hosted edition (planned)" (assessor; 0989652). The register has no row for it; Kit Notices proposes one.
+- Ports 4174 and 4175 are free.

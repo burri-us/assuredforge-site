@@ -1,14 +1,14 @@
 # Parked questions (assuredforge.com, OI-608 preparation)
 
-For the owner after the W8 dry run. None of these blocks the preparation work; each has a default that the docs already use.
+All eight were answered by the owner on 2026-11-21. Nothing is parked now.
 
-| # | Question | Default used until answered | Where |
+| # | Question | Answer (owner, 2026-11-21) | Applied in |
 |---|---|---|---|
-| P-1 | Does the W8 kit's Portal have a dark theme? | Capture both if it does; otherwise light only, shown in both site themes | docs/W8-MEDIA-LIST.md §8 Q1 |
-| P-2 | Where does the offline export verification show at W8: in the Portal or in a terminal? | Capture whichever the kit shows, with no user name in the prompt | W8 media list Q2 (slot S9) |
-| P-3 | Does the W8 kit offer "Push to main" (demo script step 9)? | The walkthrough skips the push if it does not | W8 media list Q3 (V1) |
-| P-4 | Walkthrough narration: the owner's voice, or captions only? | Captions in either case | W8 media list Q4 |
-| P-5 | The claims register's CL-52 still carries "[counsel review: age line]"; the site now says "You must be at least 18" (interim agreement §2). | The register owner (Kit Notices) updates CL-52 | COUNSEL-LIST.md |
-| P-6 | X8: can the sample be counted in the Insights totals for the overview shot? | Decided when b2 runs | docs/X8-SHOT-LIST-DRAFT.md §6 Q1 |
-| P-7 | X8: whose model key pays for the Help assistant shot? | Decided when b2 runs | X8 draft Q2 |
-| P-8 | X8: 375 px (the plan) or 390 px (the site's own screenshots)? | 375 px, as in the plan | X8 draft Q3 |
+| P-1 | Dark theme in the W8 kit's Portal? | Light only; the dark theme arrives with b2 | docs/W8-MEDIA-LIST.md §1, §2, §6, §8 |
+| P-2 | Offline export verification: Portal or terminal? | Terminal (`export_verify`), neutral prompt, no user name | W8 media list, slot S9 |
+| P-3 | "Push to main" in the W8 kit? | Default: skip it if the kit lacks it | W8 media list, V1 and §8 |
+| P-4 | Walkthrough: voice or captions only? | Captions only | W8 media list, §2 and V1 |
+| P-5 | CL-52 age line in the claims register | Kit Notices updated it ("You must be at least 18", DEC-462 (10); architecture 9440153) | Closed |
+| P-6 | X8: sample in the Insights totals | Decided when b2 runs | docs/X8-SHOT-LIST-DRAFT.md §6 |
+| P-7 | X8: whose model key for the assistant shot | Decided when b2 runs | X8 draft §6 |
+| P-8 | X8 phone width | 390 px for all phone shots | X8 draft §1, §2, §6 |

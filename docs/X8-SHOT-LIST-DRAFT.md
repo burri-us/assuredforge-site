@@ -14,12 +14,12 @@ lanes are still open. This list is ready for when the b2 release candidate runs.
   pre-recorded one, labelled "Sample (recorded)" (DEC-456 Q2).
 - **Marked "sample data":** every caption ends with "Sample data." and the "Sample" label in the image stays readable at
   the phone size.
-- **Sizes:** each shot at two widths, 1366 px (window 1366 × 854, 16:10, to fit the site's slots) and 375 px (window
-  375 × 812), both at 2× scale.
+- **Sizes:** each shot at two widths, 1366 px (window 1366 × 854, 16:10, to fit the site's slots) and 390 px (window
+  390 × 844), both at 2× scale. 390 px is the owner's width for all phone shots (2026-11-21); it replaces the plan's 375 px.
 - **Themes:** light and dark, from the Tierra design system tokens (DEC-454). So each shot is 4 images, and the list is 24.
 - **Nothing private on screen:** no keys, tokens, installation ids, real email addresses or file paths with a user name;
   clean browser profile; no notifications.
-- **File names:** `x8-<shot>-<1366|375>-<light|dark>.png` as masters (outside the repo); the site files follow
+- **File names:** `x8-<shot>-<1366|390>-<light|dark>.png` as masters (outside the repo); the site files follow
   `docs/W8-MEDIA-LIST.md` §2 (WebP, two widths).
 
 ## 2. The shots
@@ -27,7 +27,7 @@ lanes are still open. This list is ready for when the b2 release candidate runs.
 | # | Shot | What is on screen | State to set up first | Plain-language names (DEC-453, DEC-463) |
 |---|---|---|---|---|
 | X8-1 | Insights overview | The Overview dashboard of the sample Portfolio: the tiles (open runs, approvals waiting, spend this month against the limit, releases in progress, traceability gaps) and one chart with its table view link visible | The sample run recorded, one approval waiting, one traceability gap, so no tile is empty. Sample totals: the sample is excluded from Insights totals by default (plan §6), so turn on its inclusion for the shot if the build offers it, or the tiles show zero (open question Q1) | "Waiting for people" with "N for you"; "AI use and cost"; "Planning coverage" |
-| X8-2 | Run console | The recorded sample run: the run pipeline (the 9 phases, steps under details), the time split bar and the cost. At 375 px the pipeline is vertical (below 720 px, DEC-463 Q1) | The "Sample (recorded)" run open; one phase's details expanded | "Sample (recorded)" label in view |
+| X8-2 | Run console | The recorded sample run: the run pipeline (the 9 phases, steps under details), the time split bar and the cost. At 390 px the pipeline is vertical (below 720 px, DEC-463 Q1) | The "Sample (recorded)" run open; one phase's details expanded | "Sample (recorded)" label in view |
 | X8-3 | Traceability | The coverage matrix for the sample Portfolio: requirements by evidence column, one gap cell highlighted with its pattern and label, the gap count per column | The sample's third Requirement left without an independent test, so the gap shows | |
 | X8-4 | Getting started checklist | Home with the checklist: two-step verification and the model key done, "Try the sample project" next | A new Person who has done the first two steps | Steps as named in plan §6 |
 | X8-5 | Help assistant | The assistant panel answering a question about a Help page, with the "AI answer; check the sources" label, the source links and the cost of the answer | The assistant turned on in installation Setup (off by default, DEC-456 Q3, DEC-463 OQ-2 A); a model key set; a question such as "How do I approve a Release?" | |
@@ -75,8 +75,7 @@ The X8 lane writes these page changes; colours stay the design-system tokens (DE
 
 ## 6. Open questions
 
-1. **Q1, sample in Insights totals:** can the sample be included in the totals for the shot, or does X8-1 need a second
+1. **Q1, sample in Insights totals** (decided when b2 runs): can the sample be included in the totals for the shot, or does X8-1 need a second
    sample Portfolio that counts?
-2. **Q2, assistant cost:** X8-5 needs a model key and spends a little; who provides the key for the capture.
-3. **Q3, phone width:** the plan says 375 px; the site's own screenshots use 390 px. Keep 375 for X8 unless the owner
-   prefers one width for both.
+2. **Q2, assistant cost** (decided when b2 runs): X8-5 needs a model key and spends a little; who provides the key for the capture.
+3. **Q3, phone width:** answered by the owner (2026-11-21): 390 px for all phone shots.

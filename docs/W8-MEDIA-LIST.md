@@ -20,9 +20,8 @@ The publish build (`SITE_PUBLISH=1 npm run build`) refuses these 6 pages while t
   no model key (SYNTHETIC-DEMO-TENANT, "AI-assisted work: Not shown").
 - **What the picture shows must match the claim next to it** (the claim id is in each row). If the kit at W8 does not show
   it, do not capture a substitute: note it, and the slot stays a placeholder.
-- **Themes:** capture each screenshot and loop in the Portal's light theme and, if the W8 kit has one, its dark theme. The
-  site shows the dark file to visitors whose system is set to dark. If the kit has no dark theme, capture light only; the
-  site then shows the light file in both themes (open question Q1).
+- **Themes: light only** (owner, 2026-11-21: the Portal's dark theme arrives with b2). The site shows the light file in both
+  site themes. Dark versions are captured later, with the b2 shots.
 - **The site adds its own browser frame** (`BrowserFrame`), so capture the Portal page only: no browser chrome.
 
 ## 2. Formats and sizes (measured on the current build)
@@ -38,9 +37,9 @@ Each slot is 16:10, except the walkthrough, which is 16:9. Measured slot widths 
 
 | Asset | Capture | Files the site needs (under `public/media/`) | Budget per file |
 |---|---|---|---|
-| Screenshot | Browser window 1440 × 900 CSS px at 2× scale (a 2880 × 1800 PNG master; keep the master outside the repo) | `<name>-light.webp` and `<name>-dark.webp` at 2176 × 1360, plus `-1088` versions at 1088 × 680 for the demo grid and phones | 250 KB at 2176, 100 KB at 1088 |
-| Loop | Screen recording of a 1440 × 900 window, 6 to 12 seconds, no sound, no cursor jumps, starts and ends on the same frame | `<name>-light.mp4` (H.264) and `.webm` (VP9) at 1088 × 680, 24 to 30 fps; `<name>-light.webp` poster (a clear frame); a `<name>.vtt` with one cue describing what it shows; the same set for dark | 1.5 MB per video, 80 KB per poster |
-| Walkthrough | Screen recording of a 1920 × 1080 window, about 3 minutes, with narration | `walkthrough.mp4` and `.webm` at 1920 × 1080; `walkthrough.webp` poster; `walkthrough.vtt` captions of the full narration; a plain-text transcript for the page | 30 MB per video, 120 KB per poster |
+| Screenshot | Browser window 1440 × 900 CSS px at 2× scale (a 2880 × 1800 PNG master; keep the master outside the repo) | `<name>-light.webp` at 2176 × 1360, plus `-1088` versions at 1088 × 680 for the demo grid and phones | 250 KB at 2176, 100 KB at 1088 |
+| Loop | Screen recording of a 1440 × 900 window, 6 to 12 seconds, no sound, no cursor jumps, starts and ends on the same frame | `<name>-light.mp4` (H.264) and `.webm` (VP9) at 1088 × 680, 24 to 30 fps; `<name>-light.webp` poster (a clear frame); a `<name>.vtt` with one cue describing what it shows | 1.5 MB per video, 80 KB per poster |
+| Walkthrough | Screen recording of a 1920 × 1080 window, about 3 minutes, no voice (owner: captions only) | `walkthrough.mp4` and `.webm` at 1920 × 1080; `walkthrough.webp` poster; `walkthrough.vtt` captions that say what each step shows; a plain-text transcript for the page | 30 MB per video, 120 KB per poster |
 
 The home page weight check allows 1500 KB and the page is at 548 KB now. The four loop posters add at most 320 KB; the
 videos themselves load only when a visitor presses play (`preload="none"`), so they do not count.
@@ -57,7 +56,7 @@ videos themselves load only when a visitor presses play (`preload="none"`), so t
 | S6 | `/demo/`, Screenshots 2: "A Release with Deliveries and test results" | The Release page, "Where this Release stands", with the recorded Delivery and the integration's test result (Demo Release Manager). Demo script steps 4 and 5 | CL-36 | `demo-release` |
 | S7 | `/demo/`, Screenshots 3: "The signed approval" | The approval result after **Approve and sign**: the signed statement and its audit entry. May be the same capture as S3 at the 1088 size | CL-05 | `demo-approval` |
 | S8 | `/demo/`, Screenshots 4: "The audit chain check" | The audit chain check "Intact" with the list of the actions from the demo as sentences. May share the capture with S2 | CL-34 | `demo-audit` |
-| S9 | `/demo/`, Screenshots 5: "The evidence export" | The Tenant export started or finished, and its offline verification result. If the kit at W8 shows the offline verification only in a terminal, capture that terminal window with the command and the "verified" line (no user name in the prompt) | CL-07 | `demo-export` |
+| S9 | `/demo/`, Screenshots 5: "The evidence export" | The terminal window running the offline verification (`export_verify`) on a Tenant export, ending on its "verified" result (owner: terminal). Neutral prompt with no user name or machine name in it; a clean window with no other commands in the history | CL-07 | `demo-export` |
 
 ## 4. Home loops and the walkthrough
 
@@ -67,7 +66,7 @@ videos themselves load only when a visitor presses play (`preload="none"`), so t
 | L2 | `/`, step 2 "Independent checks run": "A Release with its Deliveries and test results" | **Integrate** started on the Release; the status moves to the isolated suite runner's result (cut the waiting time; the loop must not suggest a duration) | CL-36 | `home-step2` |
 | L3 | `/`, step 3 "You approve": "The approval record with a signature" | **Approve and sign**: the confirmation, then the signed record with the role and the key. Do not show typing a password or a key passphrase | CL-05 | `home-step3` |
 | L4 | `/`, step 4 "You can prove it": "The Release record and the evidence export" | The Release record with the deployment recorded against it, then the export started | CL-07, CL-11 | `home-step4` |
-| V1 | `/demo/`, "3-minute video": "Three-minute walkthrough: a requirement to a signed, recorded release" | Demo script steps 2, 3, 4, 5, 8, 11 and 12 in about 3 minutes, narrated by the owner. Every spoken sentence stays within the claims register (the script's "Questions: answers within the claims register"); no AI, no figures that are not in the register, no future features. Step 9 (push to main) only if the W8 kit offers it | CL-03, CL-05, CL-07, CL-08, CL-11, CL-34, CL-36 | `walkthrough` |
+| V1 | `/demo/`, "3-minute video": "Three-minute walkthrough: a requirement to a signed, recorded release" | Demo script steps 2, 3, 4, 5, 8, 11 and 12 in about 3 minutes, with captions only and no voice (owner). Every caption stays within the claims register (the script's "Questions: answers within the claims register"); no AI, no figures that are not in the register, no future features. Step 9 (push to main) only if the W8 kit offers it | CL-03, CL-05, CL-07, CL-08, CL-11, CL-34, CL-36 | `walkthrough` |
 
 ## 5. Slots that appear only with AI delivery on
 
@@ -81,11 +80,10 @@ owner's WS-01 decision, on a PC that has the model key.
 
 ## 6. After capture: what the site needs (not built yet)
 
-1. **Screenshots:** `ShotSlot` gains an image mode, a `<picture>` with a `(prefers-color-scheme: dark)` source, the light
-   file as fallback, `srcset` for the two widths, and the alt text from section 7. No script.
+1. **Screenshots:** `ShotSlot` gains an image mode, a `<picture>` with the light file (a `(prefers-color-scheme: dark)`
+   source is added with the b2 shots), `srcset` for the two widths, and the alt text from section 7. No script.
 2. **Loops:** each loop slot gets its `media` value (`{ base, poster }`). The video element should keep the slot's 16:10
-   shape for loops (it uses 16:9 for every video today; fix with the image mode). Dark files follow the same
-   `prefers-color-scheme` rule.
+   shape for loops (it uses 16:9 for every video today; fix with the image mode).
 3. **Walkthrough:** the transcript goes on `/demo/` below the video.
 4. The served-file allow-list in `scripts/check.mjs` gains `media/<name>.(webp|mp4|webm|vtt)`; today it refuses any file
    under `media/`, so the first real asset fails the build until then.
@@ -107,9 +105,9 @@ owner's WS-01 decision, on a PC that has the model key.
 | S9 | A Tenant export and the result of verifying it offline. |
 | L1-L4 | The step's own title, as in section 4 (the video's `aria-label` is the slot title). |
 
-## 8. Open questions
+## 8. Owner answers (21 November 2026)
 
-1. **Q1, dark theme:** does the W8 kit's Portal have a dark theme? If not, light only (section 1).
-2. **Q2, export verification (S9):** where the offline verification shows at W8 (Portal or terminal).
-3. **Q3, push to main (V1):** whether the W8 kit offers it (demo script step 9).
-4. **Q4, narration:** the owner's voice, or captions only with no narration. Captions are required either way.
+1. **Dark theme:** light only for W8; the Portal's dark theme arrives with b2.
+2. **Export verification (S9):** captured in the terminal (`export_verify`), neutral prompt, no user name.
+3. **Push to main (V1):** skipped if the W8 kit does not offer it (demo script step 9).
+4. **Walkthrough voice:** captions only, no narration.

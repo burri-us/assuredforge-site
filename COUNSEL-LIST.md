@@ -29,7 +29,9 @@ Counsel review of the list below; then remove banner and set effective date.
 
 ## Interim wording filled (owner decision DEC-462, 21 November 2026), for the formal legal review
 The legal pages now carry standard interim wording instead of counsel markers, for a free, non-commercial evaluation programme with known design partners. Each page shows this label instead of the "DRAFT — COUNSEL REVIEW" banner:
-> Interim version of 21 November 2026, for the design-partner programme. Pending formal legal review. If this page and your signed design-partner agreement differ, the agreement governs.
+> Interim version of 21 November 2026, for the design-partner program. Pending formal legal review. If this page and your signed design-partner agreement differ, the agreement governs.
+
+Spelling only (owner, 21 November 2026): DEC-462 gave the label as "...for the design-partner programme."; the site uses US spelling, "program". The meaning of DEC-462 is unchanged. The site check (scripts/check.mjs) matches the US-spelled label.
 
 On all nine LegalPage pages, the date line "Effective date: to be set when counsel approves. Draft of 2026-11-20." now reads "Effective 21 November 2026 (interim version)." The nine pages are /terms/, /privacy/, /legal/evaluation-licence/, /legal/acceptable-use/, /legal/design-partner-agreement/, /trust/ai-use-policy/, /trust/subprocessors/, /trust/product-privacy/ and /trust/accessibility/.
 

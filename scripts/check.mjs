@@ -108,7 +108,7 @@ const MARKERS = [
 ];
 // The recognised state of a legal page (DEC-462): the interim label from components/Blocks.tsx (InterimBanner), exactly.
 // Every legal page must show it in every build.
-const INTERIM_LABEL = "Interim version of 21 November 2026, for the design-partner programme. Pending formal legal review. If this page and your signed design-partner agreement differ, the agreement governs.";
+const INTERIM_LABEL = "Interim version of 21 November 2026, for the design-partner program. Pending formal legal review. If this page and your signed design-partner agreement differ, the agreement governs.";
 const LEGAL_PAGES = ["terms", "privacy", "legal/evaluation-licence", "legal/acceptable-use", "legal/design-partner-agreement",
   "trust/ai-use-policy", "trust/subprocessors", "trust/product-privacy", "trust/accessibility"].map((p) => join(p, "index.html"));
 const markerWarnings = [];

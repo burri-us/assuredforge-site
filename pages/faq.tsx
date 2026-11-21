@@ -28,7 +28,7 @@ const QA: { q: string; a: ReactNode }[] = [
   },
   {
     q: "Can I use a remote desktop or a cloud virtual machine instead?",
-    a: <>Not in this programme: your records stay on your own PC. A hosted edition is planned as a separate offering.{/* CL-51, CL-53 (DEC-444) */}</>,
+    a: <>Not in this program: your records stay on your own PC. A hosted edition is planned as a separate offering.{/* CL-51, CL-53 (DEC-444) */}</>,
   },
   {
     q: "What does it cost?",

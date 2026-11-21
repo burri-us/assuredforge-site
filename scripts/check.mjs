@@ -127,6 +127,21 @@ for (const file of files(dir).filter((f) => f.endsWith(".html"))) {
   }
 }
 for (const p of LEGAL_PAGES) if (!existsSync(join(dir, p))) report.push(`legal page missing: ${p}`);
+// RAM (CL-54, S-24): once components/Measured.tsx holds the W8 figures, the individuals page, the FAQ and Editions and
+// deployment must state the same minimum and recommended RAM. While the marker shows, the marker check above applies.
+{
+  const text = (p) => readFileSync(join(dir, p, "index.html"), "utf8").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+  const ind = text("solutions/individuals");
+  if (!ind.includes("[RAM: CONFIRM AT W8]")) {
+    const m = ind.match(/with (\d+) GB RAM minimum \((\d+) GB recommended\)/);
+    if (!m) report.push("solutions/individuals: RAM line neither the W8 marker nor the filled wording (components/Measured.tsx)");
+    else {
+      const [, min, rec] = m;
+      if (!text("faq").includes(`${min} GB RAM minimum (${rec} GB recommended)`)) report.push(`faq: RAM differs from the W8 figure on /solutions/individuals/ (${min} GB minimum, ${rec} GB recommended)`);
+      if (!text("deployment").includes(`${min} GB RAM minimum; ${rec} GB recommended`)) report.push(`deployment: RAM differs from the W8 figure on /solutions/individuals/ (${min} GB minimum, ${rec} GB recommended)`);
+    }
+  }
+}
 // Served files (allow-list): the Pages workflow uploads only this folder, and only these kinds of file may be in it.
 // Internal files (COUNSEL-LIST.md, HANDOFF.md, DIFFERENCES.md, notes, scripts, design records) must never be served.
 const SERVED_ALLOW = [

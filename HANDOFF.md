@@ -74,3 +74,19 @@ Screenshots (true 390 px phone and 1440, light and dark; label present, 0 marker
 - Script: ds-previews\site-v2\af-legal.cjs
 
 Ports 4174 and 4175 are stopped and free.
+
+## Round 4: OI-608 preparation (owner, 21 November 2026). Not pushed, not published.
+
+1. **W8 media list:** `docs/W8-MEDIA-LIST.md`. Covers all 15 placeholder slots on the 6 blocked pages (9 screenshots, 4 home loops, the 3-minute walkthrough), plus 2 slots that appear only with AI delivery on. For each slot: page and slot, image or loop, size, what it shows, its claim, file name. Also: demo Tenant `Corner Oven Bakery (demo)` with invented data only, light and dark, the formats and budgets, the alt texts, and the site changes needed after capture. Slot sizes were measured on the current build: 1086 × 679 full width, 530 × 331 in the demo grid, 526 × 329 for the home loops, 356 px wide on a 390 px phone.
+2. **/solutions/individuals/:**
+   - The age line now reads "You must be at least 18, use a Windows 11 Home or Pro PC ...", matching the interim agreement §2 (DEC-462). It is recorded in COUNSEL-LIST.md, with a note that the claims register's CL-52 still carries the marker.
+   - The RAM line reads from `components/Measured.tsx` (`RAM_W8`, null until W8). While it is null, the marker "[RAM: CONFIRM AT W8]" shows and blocks a publish build. Set to `{ minGB, recommendedGB }`, the line reads "with N GB RAM minimum (M GB recommended)".
+   - `scripts/check.mjs` then requires the FAQ and Editions and deployment to state the same figures. Tested three ways: the marker passes; 8/16 passes; 12/16 fails on the FAQ and deployment. The constant is back to null.
+3. **X8 shot list (draft):** `docs/X8-SHOT-LIST-DRAFT.md`, from B2-EXPERIENCE-PLAN §10 with DEC-456, DEC-459 (2) and DEC-463. It has 6 shots (Insights overview, run console, traceability, checklist, Help assistant, feedback) at 1366 and 375 px, light and dark, each marked "Sample data", with alt texts, captions with their claim basis, proposed placements and open questions. None of these can be captured until b2 runs.
+
+Points for the owner:
+- The FAQ and Editions and deployment already state "8 GB RAM minimum; 16 GB recommended" (DEC-444), while /solutions/individuals/ shows the W8 marker. If W8 measures something else, all three change together; the check enforces this.
+- The served-file allow-list refuses anything under `media/` today. Adding the real assets needs one allow-list line (media list §6, step 4).
+
+Builds: `npm run build` passes (32 pages). `SITE_PUBLISH=1` still fails on the W8 placeholders on the 6 pages and on the RAM marker on /solutions/individuals/; the age line no longer blocks.
+Port 4175 was used for the slot measurement and is stopped.

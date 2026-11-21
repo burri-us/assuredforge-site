@@ -86,4 +86,12 @@ Every clause filled or changed, with its page and exact wording:
 - Acceptable use: "a reasonable time to fix it" (no number); Tierra may stop support and decline new or renewed licences. No remote shut-off is claimed.
 - Privacy: "We answer within one month", identity check, no charge for a reasonable request.
 - Subprocessors: 30 days' notice before a new subprocessor, with an exception for security and legal reasons.
-- /solutions/individuals/ is not a legal page and still shows "[counsel review: age line]" (CL-52, claims register text, under counsel review). It is still a publish marker (see HANDOFF.md).
+- /solutions/individuals/, the age line (CL-52): see the next section.
+
+### Age line on /solutions/individuals/ (owner, 21 November 2026; OI-608)
+/solutions/individuals/ is not a legal page, but its age line was a counsel marker. It now matches the interim design-partner agreement §2 ("You confirm that you are at least 18 years old", DEC-462).
+- **Was:** "You are 18 or older [counsel review: age line], use a Windows 11 Home or Pro PC that meets the system requirements, and set up and use the evaluation yourself or with your small team."
+- **Now:**
+  > You must be at least 18, use a Windows 11 Home or Pro PC that meets the system requirements, and set up and use the evaluation yourself or with your small team.
+- For counsel to confirm with the rest of the interim text: the minimum age of 18, the same as the agreement's §2 (S-29, DEC-436).
+- For the register owner: CL-52 still carries "[counsel review: age line]" in the claims register; it needs the same wording.

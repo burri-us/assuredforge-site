@@ -49,7 +49,7 @@ Updated: Saturday 2026-11-21.
 - **Items 4-5 (report only): done.**
   - 4. Accessibility and performance: `docs/A11Y-PERF-FINDINGS.md` (10 findings, ranked).
     - The one confirmed failure (licence text at phone width) is fixed in 0989652; the re-scan is clean on both sites, and Tierra needed no change.
-    - New, not fixed: F-1 (Serious, WCAG 2.4.11). The phone menu left open covers the next focused link on /404/ and /faq/.
+    - F-1 (Serious, WCAG 2.4.11; OI-621): the phone menu left open covered the next focused link on /404/ and /faq/. **Fixed** on this branch: the menu sits in the page flow (CSS only); 124 re-test runs are clean.
     - Load timing is good on both sites.
   - 5. Plain-language sweep: `docs/PLAIN-LANGUAGE-SWEEP.md`. Its decisions are applied (DEC-469, DEC-470).
 - **Schedule (owner, replaces the 23:30 stop):** work may continue until Monday 07:00, when the W8 dry run starts. No Docker use, no kit folders, no pushes outside agreed checkpoints. The new site (8e90724 onwards) stays unpushed until the dry run has ended.

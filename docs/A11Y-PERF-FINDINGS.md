@@ -22,7 +22,7 @@ Neither site has a form.
 
 | # | Severity | Site | Finding | Where | Proposed fix (not applied) |
 |---|---|---|---|---|---|
-| F-1 | Serious (WCAG 2.4.11 Focus Not Obscured, AA) | AF | At phone width the menu (a `<details>` panel laid over the content) stays open when keyboard focus moves past its last item. On /404/ and /faq/ the next focused link sits completely under the open panel. The other pages pass only because their next link happens to be lower down | Phone width, menu open, then Tab past the menu | Lay the panel in the normal page flow, so that it pushes the content down instead of covering it (CSS only, no script). Or close the menu when focus leaves it, which needs a small script |
+| F-1 | Serious (WCAG 2.4.11 Focus Not Obscured, AA), **fixed** (OI-621) | AF | At phone width the menu (a `<details>` panel laid over the content) stays open when keyboard focus moves past its last item. On /404/ and /faq/ the next focused link sits completely under the open panel. The other pages pass only because their next link happens to be lower down | Phone width, menu open, then Tab past the menu | Lay the panel in the normal page flow, so that it pushes the content down instead of covering it (CSS only, no script). Or close the menu when focus leaves it, which needs a small script |
 | F-2 | Serious (WCAG 2.1.1 Keyboard, via axe `scrollable-region-focusable`), **fixed** | AF | The licence text on /third-party-notices/ formed a sideways-scrolling region at 390 px that a keyboard user could not reach | /third-party-notices/ | **Fixed in 0989652:** the text wraps anywhere and there is no scroll region. Re-scan clean on both sites at 1440, 390 and 320 px, light and dark. Tierra already wrapped, so no change there |
 | F-3 | Moderate (performance) | AF | Every page loads about 130 to 175 KB of compressed JavaScript and 20 to 46 requests, for pages with no interactive features. Next.js also fetches linked pages ahead of time: /contact/ and /404/ make 46 requests. The pages are still fast (F-7), but most of the weight is script nobody needs | All pages | Turn off link prefetching, or export the pages without client script. Revisit when the W8 media arrives, because video adds weight |
 | F-4 | Minor (best practice, not a WCAG failure) | AF | The phone menu does not close with Escape (native `<details>` behaviour) | Phone menu | Comes with the F-1 fix if a script is used; otherwise leave as is |
@@ -42,3 +42,8 @@ Neither site has a form.
 
 AF Home stays within the site check's 1.5 MB limit (551 KB uncompressed on disk). Raw results: `C:\dev\AssuredForge\ds-previews\a11y\out\perf.json`
 and `out\axe.json`; scripts `scan.cjs`, `rescan.cjs`, `kbd.cjs`, `kbd2.cjs`, `kbd3.cjs`, `perf.cjs`, `svgc2.cjs` in the same folder.
+
+**F-1 fixed (OI-621, Fix Now under DEC-373), on w11-site-redesign:**
+- The open phone menu now sits in the page flow and pushes the page down; CSS only, no script.
+- Re-test with the menu open, tabbing through the 16 stops after it, on all 31 content pages at 390 and 320 px, light and dark (124 runs): no focused element covered or off screen, no axe violation, no sideways scroll.
+- Side effect: between 640 and 1023 px, the call to action and Menu sit on a second row under the wordmark instead of beside it.

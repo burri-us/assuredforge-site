@@ -112,14 +112,15 @@ export function Layout({
         <div className="relative mx-auto max-w-6xl px-4 py-3 sm:px-8 lg:pb-0 lg:flex lg:flex-wrap lg:items-center lg:justify-between lg:gap-x-8 lg:gap-y-1">
           <div className="flex min-h-11 flex-wrap items-center justify-between gap-x-4 gap-y-2 lg:shrink-0">
             <Wordmark className="text-heading-2" />
-            {/* WR-05: on narrow screens the call to action and the Menu share one row; the menu is a details disclosure (no script)
-                whose list opens as a panel below the header row, across the content width. */}
-            <div className="flex items-center gap-2 lg:hidden">
-              <Link href="/design-partners/" className={`${headerButton} inline-flex`}>
+            {/* WR-05: on narrow screens the call to action and the Menu share one row; the menu is a details disclosure (no script).
+                OI-621 (WCAG 2.4.11): the open list sits in the page flow below that row, across the content width, and pushes the
+                page down instead of covering it. The button floats left so the Menu summary sits beside it; the list clears both. */}
+            <div className="flow-root basis-full lg:hidden">
+              <Link href="/design-partners/" className={`${headerButton} float-left mr-2 inline-flex`}>
                 Become a design partner
               </Link>
               <details>
-                <summary className="flex min-h-11 cursor-pointer items-center rounded-md border border-accent px-4 text-body font-semibold text-ink">
+                <summary className="inline-flex min-h-11 cursor-pointer items-center rounded-md border border-accent px-4 text-body font-semibold text-ink">
                   Menu
                 </summary>
                 <nav aria-label="Main (menu)" className="menu-panel">

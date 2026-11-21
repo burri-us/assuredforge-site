@@ -105,3 +105,15 @@ The website does not use "gate" (glossary note, DEC-469). The assessor changed t
   - **Was:** "Using AI output to bypass an approval or a gate."
   - **Now:** "Using AI output to bypass an approval the governance requires."
 - For counsel to confirm with the rest of the interim text.
+
+### "Regulated organizations" in the design-partner agreement (owner, DEC-475 (a), 21 November 2026)
+A wording change with unchanged meaning, made on 2026-11-21 before any partner received the agreement.
+- **Agreement text, Word and PDF copies** (architecture e6c1513; new PDF SHA-256
+  `769e95e1b20c69d8a865be8c97fa6a49f0c541642262f1412354219b4938b47e`):
+  - **Was:** "A hosted edition for regulated organizations is planned …"
+  - **Now:** "A hosted edition for organizations is planned and is not part of this agreement."
+- **Site summary page /legal/design-partner-agreement/**, "The program". The site does not carry the agreement's own sentence and
+  does not link its PDF; the summary is aligned to CL-23 as revised (DEC-470):
+  - **Was:** "… regulated organizations join a waitlist for the planned hosted edition."
+  - **Now:** "… organizations join a waitlist for the planned hosted edition."
+- For counsel to confirm with the rest of the interim text.

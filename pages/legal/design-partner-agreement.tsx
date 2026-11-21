@@ -10,7 +10,7 @@ export default function DesignPartnerAgreement() {
       description="A summary of what the Founding Design Partner Program agreement covers. The full text is by agreement."
       intro="This is a summary only. The full text is provided to selected organizations and signed before onboarding."
       sections={[
-        { h: "The program", body: <p>A small founding cohort, six months, no software license fee during the program. The track for individuals and small teams runs on the desktop edition; regulated organizations join a waitlist for the planned hosted edition.</p> },
+        { h: "The program", body: <p>A small founding cohort, six months, no software license fee during the program. The track for individuals and small teams runs on the desktop edition; organizations join a waitlist for the planned hosted edition.</p> },
         { h: "What partners give", body: <Bullets items={["Product feedback.", "Working sessions.", "Requirements validation.", "Pilot participation."]} /> },
         { h: "What partners get", body: <Bullets items={["Early access.", "Priority support from one operator, with no round-the-clock commitment.", "Direct roadmap influence.", "Regular working sessions."]} /> },
         { h: "Data and exit", body: <p>The program starts with synthetic or test data; production data needs separate written authorization. Hosted edition (planned): on exit, your data is exported to you, then deleted. For the desktop edition see the next section. The signed agreement sets out the details.</p> },

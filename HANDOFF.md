@@ -19,3 +19,20 @@ npm run build: tokens, check-tokens, next build, seo, check.mjs all pass (32 pag
 ## Screenshots
 C:\dev\AssuredForge\ds-previews\site-v2\assuredforge\{home|product|legal}-{light|dark}-{1440|390}.png (12). scrollWidth at 390: 390 on all six 390 shots (<= 390). Bar computed rgb(15,39,68) in both themes; mark stroke switches ink navy / light.
 Script: ds-previews\site-v2\shoot-af.cjs. Server on 4175 stopped.
+
+## Round 2 (assessor review of the SITE-V2 screenshots)
+Not live; not pushed, not published.
+- ecf3d90 Phone header (item 4): "Become a design partner" and "Menu" share one row under the wordmark on phones. The menu is still a details disclosure with no script. Its list opens as a panel below the header row, across the content width (surface, rule border, radius-lg, shadow-2). Desktop is unchanged. Measured at a true 390 px phone, light and dark: the button and Menu have the same top (y 102); the open panel spans x 16 to 374; scrollWidth is 390 on home, governance, platform, traceability and the evaluation licence.
+- c446642 Plain language (item 3, DEC-453, individuals first). The claim wording stays exactly as in claims register 0.3; only explanations are added, and their wording comes from the glossary definitions (GLOSSARY.md Tenant, Workspace, Portfolio, Escalation):
+  - product/governance (CL-08): "UAT (user acceptance testing)".
+  - product/governance (CL-13): adds "(A Tenant is your organization's account, a Workspace is a separate space inside it (for example for one client), and a Portfolio is a long-lived product line or initiative inside a Workspace.)"
+  - product/governance (CL-10): adds "(An escalation is raised when combining the delivered changes stops on something the platform must not resolve by itself, for example two changes that edit the same lines differently.)"
+  - platform: "user acceptance test (UAT) result"; Tenant, Workspace and Portfolio explained in parentheses with the same wording.
+  - product/traceability (CL-03): "user acceptance test (UAT) results".
+- Checks: `npm run build` passes (tokens, check-tokens, next build, seo, check.mjs: 32 pages; vocabulary 0 warnings; home 548 KB). Markers are unchanged at 15 on 7 pages (SITE_PUBLISH=1 would fail on them, as before).
+- Item 5, waiting for the owner: placeholders (wait for W8 media, or hide the placeholder blocks) and the legal pages (wait for counsel, or publish without them). Nothing is published before those decisions.
+- Screenshots (true 390 px phone emulation and 1440, light and dark), in C:\dev\AssuredForge\ds-previews\site-v2\assuredforge\:
+  - {home|product|platform|traceability|legal}-{light|dark}-{1440|390}.png (product = /product/governance/)
+  - menu-open-{light|dark}-390.png
+  - Script: ds-previews\site-v2\af-round2.cjs
+- Ports 4174 and 4175 are stopped and free.

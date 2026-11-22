@@ -26,14 +26,14 @@ export default function Deployment() {
           "Windows 11 version 23H2 or later (Home or Pro, 64-bit).",
           "Virtualization turned on in the firmware (BIOS or UEFI).",
           "WSL2 (Windows Subsystem for Linux 2).",
-          "Docker Desktop, in a supported version: software from Docker, Inc. that runs the parts of AssuredForge on your Windows PC. You install it yourself; its own licence terms apply.",
+          "Docker Desktop, in a supported version: software from Docker, Inc. that runs the parts of AssuredForge on your Windows PC. You install it yourself; its own license terms apply.",
           "8 GB RAM minimum; 16 GB recommended.",
           "30 GB free disk space.",
         ]} />
         <p>Windows 10 is not supported: Microsoft no longer supports it, and Docker Desktop supports only Windows versions that Microsoft still supports. If your PC qualifies, the upgrade to Windows 11 is free (Settings &gt; Windows Update).{/* CL-54 (DEC-444) */}</p>
         <p>Windows 11 now; a Mac version is planned.{/* CL-56 (DEC-444): planned, no date */}</p>
         <p>
-          Docker Desktop has its own licence terms, which are yours to accept. Its free use covers organizations under 250 employees and USD 10 million in revenue; larger organizations need a paid Docker plan. Check Docker&apos;s current terms before you install.
+          Docker Desktop has its own license terms, which are yours to accept. Its free use covers organizations under 250 employees and USD 10 million in revenue; larger organizations need a paid Docker plan. Check Docker&apos;s current terms before you install.
         </p>
       </Section>
 
@@ -42,8 +42,8 @@ export default function Deployment() {
         <ol className="list-decimal space-y-2 pl-6">
           <li>Check the requirements above and install WSL2 and Docker Desktop.</li>
           <li>Download the kit from the single link we send you, and check its SHA-256 fingerprint against the list in the Quick Start, to confirm that the file you downloaded is exactly the file we published.</li>
-          <li>Start the launcher, the program in the kit that checks your PC, installs, starts, updates and stops AssuredForge. Until the kit is code-signed (signed digitally by its publisher), Windows shows its SmartScreen warning, shown before running a program it does not recognise; the Quick Start explains the steps.</li>
-          <li>Enter your licence and the one-time setup code, then sign in and complete two-step verification.</li>
+          <li>Start the launcher, the program in the kit that checks your PC, installs, starts, updates and stops AssuredForge. Until the kit is code-signed (signed digitally by its publisher), Windows shows its SmartScreen warning, shown before running a program it does not recognize; the Quick Start explains the steps.</li>
+          <li>Enter your license and the one-time setup code, then sign in and complete two-step verification.</li>
           <li>{AI.installStep}</li>
         </ol>
         <ShotSlot title="The launcher and first sign-in" />

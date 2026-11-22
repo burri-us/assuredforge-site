@@ -61,6 +61,8 @@ export default function Home() {
         <FlowDiagram />
       </div>
 
+      {/* Design system exception E-6: this four-item list goes to four columns at 768 px (md), not at breakpoint-stack (720 px);
+          it is a list, not side-by-side panels, and four columns fit only from 768 px. scripts/check-tokens.mjs allows it here only. */}
       <ul className="grid grid-cols-1 gap-x-6 gap-y-4 border-y border-rule py-6 text-sm text-ink min-[420px]:grid-cols-2 md:grid-cols-4">
         {PROOF.map((s) => (
           <li key={s} className="flex items-start gap-2">

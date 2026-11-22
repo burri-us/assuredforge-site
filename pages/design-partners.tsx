@@ -18,7 +18,7 @@ export default function DesignPartners() {
         Founding Design Partner Program
       </Title>
       {/* CL-27 (both audiences named, DEC-439 O-1) */}
-      <p className="mt-4 font-medium text-ink">
+      <p className="mt-4 font-semibold text-ink">
         Applications open now. First cohort begins once participants have been selected.
       </p>
       <Section title="What founding partners get">

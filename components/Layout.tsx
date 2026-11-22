@@ -154,7 +154,7 @@ export function Layout({
                       href={n.href}
                       aria-current={current ? "page" : undefined}
                       className={`flex min-h-11 items-center border-b-2 no-underline ${
-                        current ? "border-gold font-medium text-ink" : "border-transparent text-muted hover:text-ink"
+                        current ? "border-gold font-semibold text-ink" : "border-transparent text-muted hover:text-ink"
                       }`}
                     >
                       {n.label}

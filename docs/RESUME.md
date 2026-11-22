@@ -32,12 +32,14 @@ Author: Burri. Written 2026-11-21, when this window was archived. It is the star
 
 ## 3. Still open
 
-1. **OI-608 (blocks publication):** the W8 media and the RAM figures.
+1. **OI-608 (no longer blocks the release; owner, DEC-532 (3), 2026-11-22):** place the W8 media and RAM figures if they
+   are ready by Wednesday 2026-11-25; otherwise release with the blocks hidden (the branch already hides them, and the
+   publish build passes on 36893aa).
    - Media: 15 slots on 6 pages, captured after the dry run, light only, captions only (`docs/W8-MEDIA-LIST.md`, §6 lists the
      site changes, including the `media/` allow-list line in `scripts/check.mjs`).
    - RAM: set `RAM_W8` in `components/Measured.tsx`. The site check then requires the same figures on the FAQ and on Editions
      and deployment.
-   - Until both are in, `SITE_PUBLISH=1 npm run build` fails on 14 markers on 7 pages.
+   - With `SHOW_PLACEHOLDERS = true` (preview only), `SITE_PUBLISH=1 npm run build` fails on 14 markers on 7 pages.
 2. **The release,** per `docs/RELEASE-PACKAGE.md`: go/no-go G-1 to G-7, then the deploy steps in §3. Above all:
    - G-3: set `site.json` indexing back to **true** before the merge, or the live site leaves search engines.
    - G-4: add `SITE_PUBLISH: "1"` to the pages workflow, so placeholders can't deploy.

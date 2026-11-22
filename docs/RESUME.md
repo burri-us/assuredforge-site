@@ -161,6 +161,9 @@ site's checks (build, site check, AI switch check, accessibility scan, visual ch
 language audit (design system section 3 and US English): fix only obvious wording, bring the rest to the owner.
 Rules: Sonnet lanes; site worktrees only (never af-next, af-hosted or the records tree; records go to Kit Notices); no Docker;
 no push or publishing without owner approval; the release follows RELEASE-PACKAGE G-1 to G-7, Wednesday 25 to Friday 27.
+**Never use `git stash`** (owner, 2026-11-22; LANE-BRIEF rule 5b): all worktrees of a repository share one stash list, so a
+pop can take another lane's work. Work in progress goes into a commit on the lane's own branch. Every lane brief from this
+window says so.
 **Stop before Tuesday 24 November 07:00 (rehearsal); resume only after the owner says the rehearsal has ended.**
 
 Findings at start:

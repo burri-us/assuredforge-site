@@ -148,3 +148,17 @@ Added to the product privacy notice (desktop edition), "Retention and deletion",
   `pages/trust/product-privacy.tsx` takes the same sentence at the new-site release (Wednesday 25 to Friday 27 November).
 - Same point as the agreement §9.2 and CL-22D (DEC-481 (1)). For counsel to confirm with P1-09 (and P1-08).
 
+
+### US spelling and date format on the legal pages (owner, 2026-11-22; DEC-514, counsel item P1-26)
+
+The owner wants US English on both sites. The legal pages keep "licence" and the "21 November 2026" date format until counsel
+decides, because they must match the signed agreement, which says "licence" (CL-22D mirrors agreement §9.2 and is held with them).
+- **Where:** `pages/trust/product-privacy.tsx` ("Licence check" and about 4 more, including the CL-53 sentence on that page);
+  `pages/legal/evaluation-licence.tsx` (title "Evaluation licence (EULA)" and about 10 more; the address `/legal/evaluation-licence/`
+  would need a forwarding page if renamed); `pages/legal/design-partner-agreement.tsx` (3); `pages/legal/acceptable-use.tsx` (2);
+  the footer link "Evaluation licence" (`components/Layout.tsx`, kept equal to the page title); the legal-page labels "Interim
+  version of 21 November 2026, ..." and "Effective 21 November 2026 (interim version)." (`components/Blocks.tsx`, all 9 legal
+  pages; `scripts/check.mjs` matches the label, so it changes in the same edit); CL-22D in the register.
+- **For counsel:** may the website and the agreement move to "license" and "November 21, 2026" together (a new agreement version),
+  or must the website keep the agreement's spelling while that version is in force?
+- Outside the legal pages the sites already use "license" (owner decisions 2026-11-22; CL-53 on four pages after DEC-514).

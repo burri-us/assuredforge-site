@@ -3,6 +3,7 @@
 //   Writes: styles/tokens.generated.css  CSS custom properties (Tailwind theme), @font-face rules
 //           components/tokens.generated.ts  values TypeScript needs (theme colour)
 //           components/notices.generated.json  licence texts of the fonts (third-party notices page)
+//           public/fonts/OFL-*.txt  licence text per family, served with the site
 //           styles/fonts/*.woff2  copied from the pinned @fontsource packages (never a CDN)
 //   Fails if design/tokens.json no longer matches the SHA-256 in design/tokens.sha256 (change the pin on purpose, see README).
 // Never type a colour, size or font by hand elsewhere: scripts/check-tokens.mjs fails the build on that.
@@ -45,6 +46,7 @@ const fixed = t.color.tokens.map((c) => `  --${c.name}-light: ${val(c, "light")}
 const space = t.spacing.tokens.map((s) => `  --${s.name}: ${s.value};`).join("\n");
 const radius = t.radius.tokens.map((s) => `  --${s.name}: ${s.value};`).join("\n");
 const size = t.size.tokens.map((s) => `  --${s.name}: ${s.value};`).join("\n");
+const breakpoints = t.size.tokens.filter((s) => s.name.startsWith("breakpoint-")).map((s) => `  --${s.name}: ${s.value};`).join("\n");
 const shadow = t.shadow.tokens.map((s) => `  --${s.name}: ${s.value};`).join("\n");
 
 // Faces and weights the site uses (latin subset), from the pinned packages; weights follow tokens.json (400, 600, 700).
@@ -54,6 +56,7 @@ const FACES = [
   ["JetBrains Mono", "jetbrains-mono", "jetbrains-mono", [400]],
 ];
 mkdirSync(new URL("styles/fonts/", root), { recursive: true });
+mkdirSync(new URL("public/fonts/", root), { recursive: true });
 const faces = [];
 const notices = [];
 for (const [family, pkg, file, weights] of FACES) {
@@ -63,6 +66,9 @@ for (const [family, pkg, file, weights] of FACES) {
     copyFileSync(new URL(`node_modules/@fontsource/${pkg}/files/${f}`, root), new URL(`styles/fonts/${f}`, root));
     faces.push(`@font-face {\n  font-family: "${family}";\n  font-style: normal;\n  font-display: swap;\n  font-weight: ${w};\n  src: url("./fonts/${f}") format("woff2");\n}`);
   }
+  // The licence text is also served as a plain-text file (public/fonts/OFL-<Family>.txt), next to the fonts it covers.
+  const licence = read(`node_modules/@fontsource/${pkg}/LICENSE`).trim();
+  write(`public/fonts/OFL-${family.replace(/ /g, "")}.txt`, `${family} (${pj.name} ${pj.version})\n\n${licence}\n`);
   notices.push({ family, package: `@fontsource/${pkg}`, version: pj.version, license: "SIL Open Font License 1.1", text: read(`node_modules/@fontsource/${pkg}/LICENSE`).trim() });
 }
 
@@ -75,6 +81,7 @@ ${light}
 ${fam}
 ${text}
 ${radius}
+${breakpoints}
 ${shadow}
 }
 

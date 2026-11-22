@@ -19,7 +19,7 @@ export default function Industries() {
           ))}
         </ul>
       </nav>
-      <div className="mt-6 grid gap-6 md:grid-cols-2">
+      <div className="mt-6 grid gap-6 stack:grid-cols-2">
         {INDUSTRIES.map((i) => (
           <section key={i.id} id={i.id} aria-labelledby={`${i.id}-h`} className="card scroll-mt-6 border-t-[3px] border-t-gold">
             <h2 id={`${i.id}-h`}>{i.name}</h2>

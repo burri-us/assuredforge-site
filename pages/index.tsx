@@ -79,7 +79,7 @@ export default function Home() {
       </Section>
 
       <Section title="How it works">
-        <ol className="mt-4 grid gap-8 md:grid-cols-2">
+        <ol className="mt-4 grid gap-8 stack:grid-cols-2">
           {STEPS.map((s, i) => (
             <li key={s.t}>
               <p className="text-sm font-semibold uppercase tracking-wide text-accent">Step {i + 1}</p>
@@ -91,7 +91,7 @@ export default function Home() {
         </ol>
       </Section>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-12 grid gap-6 stack:grid-cols-2 lg:grid-cols-4">
         {TILES.map(({ title, Icon, text, href, status }) => (
           <div key={title} className="card border-t-[3px] border-t-gold">
             <Icon className="h-8 w-8 text-accent" />

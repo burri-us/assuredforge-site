@@ -120,7 +120,7 @@ export function Layout({
                 Become a design partner
               </Link>
               <details>
-                <summary className="inline-flex min-h-11 cursor-pointer items-center rounded-md border border-accent px-4 text-body font-semibold text-ink">
+                <summary className="inline-flex min-h-11 cursor-pointer items-center rounded-md border border-control-border px-4 text-body font-semibold text-ink">
                   Menu
                 </summary>
                 <nav aria-label="Main (menu)" className="menu-panel">
@@ -186,13 +186,13 @@ export function Layout({
             </div>
           ))}
         </nav>
-        <div className="mx-auto mt-8 grid max-w-6xl gap-6 border-t border-rule px-4 py-8 text-body-sm sm:px-8 text-muted md:grid-cols-2">
+        <div className="mx-auto mt-8 grid max-w-6xl gap-6 border-t border-rule px-4 py-8 text-body-sm sm:px-8 text-muted stack:grid-cols-2">
           <div>
             <Wordmark className="text-heading-3" />
             <p className="mt-1">© 2026 Tierra LLC · Michigan, USA</p>
             <p className="mt-1"><a href="https://tierra-llc.com/">A product of Tierra LLC</a></p>
           </div>
-          <ul className="flex flex-wrap gap-x-5 gap-y-1 md:justify-end">
+          <ul className="flex flex-wrap gap-x-5 gap-y-1 stack:justify-end">
             <li>Contact: <a href="mailto:info@assuredforge.com">info@assuredforge.com</a></li>
             <li>Support: <a href="mailto:support@assuredforge.com">support@assuredforge.com</a></li>
             <li>Security reports: <a href="mailto:security@assuredforge.com">security@assuredforge.com</a></li>

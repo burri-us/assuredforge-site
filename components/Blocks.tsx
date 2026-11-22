@@ -103,7 +103,7 @@ export function VideoSlot({ title, kind, media = null }: { title: string; kind: 
 export function InterimBanner() {
   return (
     <div role="note" className="mb-8 rounded-md border-2 border-gold bg-surface-alt p-4">
-      <p className="font-bold text-ink">Interim version of 21 November 2026, for the design-partner program.</p>
+      <p className="font-semibold text-ink">Interim version of 21 November 2026, for the design-partner program.</p>
       <p className="mt-1 text-sm text-muted">
         Pending formal legal review. If this page and your signed design-partner agreement differ, the agreement governs.
       </p>

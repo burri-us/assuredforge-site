@@ -202,3 +202,7 @@ Progress (latest last):
   check on both sites: every weight applied to text needs a shipped file (here `scripts/check-fonts.mjs` in the build, babd283;
   tierra `tools/fontcheck.py` in check.py, 763dbfd). It found Inter 700 (legal-page label, strong) on both; now 600, no visible change.
 - Logos: live upload by the assessor after both releases; until then the records copy keeps 573dc97's files (owner, OI-689).
+- Backup push (owner, 2026-11-22): `ds-6920` 763dbfd and `w11-site-redesign` 23dc77a pushed as branches only. Before it, 79 commits
+  were re-authored to the noreply address (13 had a personal email); hashes in this file before this line are the old ones:
+  map in `docs/NOREPLY-REWRITE-2026-11-22.md`. No workflow ran (CI runs on main and pull requests only; Pages by hand or from
+  main): 0 Actions minutes. This line's commit is local only.

@@ -190,3 +190,7 @@ Progress (latest last):
   now stack below 720 px (was 768). Report to Kit Notices: `docs/KIT-NOTICES-SITE-BRAND.md`.
 - Open for the owner: Inter weight 500 (`font-medium`, two places) has no face and renders as 400; the home benefit list stays on 768.
 - Next: the release (RELEASE-PACKAGE G-1 to G-8) from Wednesday, after the owner says the rehearsal has ended.
+- Owner, 2026-11-22 (brand pass accepted): Inter 500 -> 600 (e554d95); E-6 recorded for Kit Notices and allowed explicitly by
+  the token check; tierra-llc.com releases in the same window after assuredforge.com's live check (RELEASE-PACKAGE §7, with
+  `tools/live_check.py` in tierra-site-p2, 44f55a4). Evidence copied to `C:\Users\burri\AF-backups\site-brand-2026-11-22\`
+  (laneA and laneB, before and after, axe results; 75 files) for G-8.

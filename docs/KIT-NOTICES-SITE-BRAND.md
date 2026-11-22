@@ -50,6 +50,16 @@ could name the source as "the @fontsource packages, latin subset, woff2", so the
 
 **E-1 and E-2 can be closed at the release** (owner, DEC-510), once both sites are live with this pass.
 
+## 3a. New exception E-6 (owner, 2026-11-22), for the exceptions register
+
+| # | Product | Rule departed from | Reason | Approved | Review by |
+| --- | --- | --- | --- | --- | --- |
+| E-6 | assuredforge.com | Section 7: below `breakpoint-stack` (720 px) wide layouts stack | The home page's four-item benefit list goes from two to four columns at 768 px, not 720 px: it is a list of short items, not side-by-side panels, and four columns only fit from 768 px; at 720 to 767 px it keeps two columns | Owner, 2026-11-22 | Next home page redesign |
+
+On the site: `pages/index.tsx` carries a comment naming E-6, and `scripts/check-tokens.mjs` refuses any `md:` layout switch except
+the one listed in its `LAYOUT_EXCEPTIONS` (E-6, by file and exact class text); it also fails if that text disappears, so the list
+stays current. The same check now refuses font weights without a self-hosted face (the two Inter 500 uses became 600).
+
 ## 4. Logos-group candidates (owner, 2026-11-22: reuse by the next product)
 
 Built from the exact Logos v2 reversed drawings on a `bar` (#0f2744) tile, rx 14, paths unchanged (scaled as one group), token

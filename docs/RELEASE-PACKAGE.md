@@ -142,7 +142,7 @@ The `github-pages` environment deploys from `main` only, so a rollback is a reve
 Owner, 2026-11-22: tierra-llc.com is released in the same window, **only after §3 step 8 (assuredforge.com live check) has
 passed**. Nothing is pushed until the owner approves this push on the day; the approval for §3 does not cover it.
 
-**What changes** (branch `ds-6920` in `C:\dev\AssuredForge\tierra-site-p2`, from `w12-phase2` = live `main` 744b56f; 9 local
+**What changes** (branch `ds-6920` in `C:\dev\AssuredForge\tierra-site-p2`, from `w12-phase2` = live `main` 744b56f; 7 local
 commits, noreply author): design system 6920 tokens (control-border, accent-hover, viz-5, side-by-side layouts stack below 720 px
 instead of 768 px); E-1 (JetBrains Mono 400 added for the notices page; OFL licence text next to the font files); E-2 (favicon,
 32 px favicon, 180 px touch icon and share image from the Logos v2 Tierra drawing); notices page "Licenses" and "license text";

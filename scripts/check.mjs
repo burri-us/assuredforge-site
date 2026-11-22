@@ -174,11 +174,14 @@ for (const p of LEGAL_PAGES) if (!existsSync(join(dir, p))) report.push(`legal p
 const SERVED_ALLOW = [
   /^([a-z0-9-]+\/)*index\.html$/, /^404\.html$/,
   /^_next\/static\/[A-Za-z0-9_.~/-]+\.(js|css|woff2)$/,
+  /^fonts\/OFL-(Inter|SpaceGrotesk|JetBrainsMono)\.txt$/,
   /^(favicon\.ico|icon\.svg|apple-touch-icon\.png|og\.png|robots\.txt|sitemap\.xml|\.well-known\/security\.txt)$/,
 ];
 const servedProblems = (list) => list.filter((f) => !SERVED_ALLOW.some((re) => re.test(f)));
 const servedFiles = files(dir).map((f) => relative(dir, f).split("\\").join("/"));
 for (const f of servedProblems(servedFiles)) report.push(`${f}: would be served but is not a site file (allow-list in scripts/check.mjs)`);
+// The fonts' licence texts are served beside the fonts (OFL, one file per family).
+for (const n of ["Inter", "SpaceGrotesk", "JetBrainsMono"]) if (!servedFiles.includes(`fonts/OFL-${n}.txt`)) report.push(`fonts/OFL-${n}.txt: missing (the font licence text must be served with the site)`);
 // The third-party notices page (fonts under the OFL) must be served and linked from every page's footer.
 if (!servedFiles.includes("third-party-notices/index.html")) report.push("third-party-notices/index.html: missing (the fonts' licence notices)");
 for (const f of servedFiles.filter((f) => f.endsWith("index.html") || f === "404.html")) {

@@ -53,7 +53,7 @@ except read-only checks.
 |---|---|---|
 | G-1 | The owner has said the W8 dry run has ended and approves this release and its push | Owner message |
 | G-2 | OI-608 closed: the W8 media are on the pages (`docs/W8-MEDIA-LIST.md` §6) and the RAM figures are set (`components/Measured.tsx`) | `SITE_PUBLISH=1 npm run build` passes: no marker, placeholder or `[RAM: CONFIRM AT W8]` left |
-| G-3 | Indexing is set back on for publication: `site.json` `"indexing": true`, as live today (2464f94, D1-11). The branch has it off (57131f4) for previews; **merging without this change would remove the live site from search engines** | `site.json`; the built `robots.txt` says `Allow: /` |
+| G-3 | Indexing is set back on for publication, from the right source. Indexing has **two sources**: `site.json` `"indexing": true` and the pages workflow's `index` input (it sets `SITE_INDEX=1`; `scripts/seo.mjs` indexes when either is on). The release uses `site.json` only: `"indexing": true`, as live today (2464f94, D1-11); the branch has it off (57131f4) for previews, and **merging without this change would remove the live site from search engines**. The deploy passes `-f index=false`, so the input adds nothing; a run with `index=true` (for example a preview) would index whatever it builds | `site.json`; the built `robots.txt` says `Allow: /`; the dispatch command in step 7 says `index=false`, and the run's "Build and check" log shows `SITE_INDEX: 0` and `robots.txt: indexing ON` (`gh run view <run-id> --log | grep -E "SITE_INDEX|robots.txt: indexing"`) |
 | G-4 | The deploy refuses placeholders: `.github/workflows/pages.yml` "Build and check" sets `SITE_PUBLISH: "1"`. Neither workflow sets it today, so markers are only warnings in CI | Diff of `pages.yml` in the release pull request |
 | G-5 | AI switch and Works with state decided: either unchanged (AI off), or after a passed rehearsal both `AI_DELIVERY_AVAILABLE` (`components/AiWording.tsx`) and `ANTHROPIC_SUPPORTED_SINCE` (§4) set in their own approved commit | `npm run check:switch` passes |
 | G-6 | Local checks pass on the release head: `npm run build`, `npm run check:switch`, `npm audit --audit-level=high` (0 found on 2026-11-21) | Command output |
@@ -83,7 +83,8 @@ Repository rules, read 2026-11-21:
 5. **Wait for the required check:** `gh pr checks <n> --watch`. "build" must pass; no admin override.
 6. **Merge:** `gh pr merge <n> --merge`. Record the merge commit.
 7. **Deploy once:** `gh workflow run pages.yml --ref main -f target=custom-domain -f index=false` (indexing comes from
-   `site.json`). Then `gh run watch <run-id> --exit-status`.
+   `site.json`; never `index=true`, see G-3). Then `gh run watch <run-id> --exit-status`, and confirm in the log
+   `SITE_INDEX: 0` and `robots.txt: indexing ON` (G-3).
 8. **Verify live** (allow a minute for the CDN):
    - `node scripts/live-check.mjs compare out` against the same build that passed G-2. Every page must match the build
      (build-hash asset paths ignored), both forwarding pages must forward to a page that answers 200, and every old address

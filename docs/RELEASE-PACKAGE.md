@@ -4,6 +4,8 @@ Author: Burri. 2026-11-21. For the owner, who approves the release and its singl
 `w11-site-redesign`. The live site is `main` at 38082b2 (the OI-619 fix). Nothing here has been run against the live site
 except read-only checks.
 
+**Who runs the release (owner, 2026-11-22, DEC-510):** the **Site Brand window** runs this release end to end (gates, push, deploy, live checks); the Site Redesign window that wrote this package is archived.
+
 ## 1. Release notes
 
 **What changes for visitors**
@@ -56,6 +58,7 @@ except read-only checks.
 | G-5 | AI switch and Works with state decided: either unchanged (AI off), or after a passed rehearsal both `AI_DELIVERY_AVAILABLE` (`components/AiWording.tsx`) and `ANTHROPIC_SUPPORTED_SINCE` (§4) set in their own approved commit | `npm run check:switch` passes |
 | G-6 | Local checks pass on the release head: `npm run build`, `npm run check:switch`, `npm audit --audit-level=high` (0 found on 2026-11-21) | Command output |
 | G-7 | CI budget: about 4 billed Actions minutes for the release (pull request "build" about 1 to 2, pages build 1, deploy 1), and the same again if a rollback is needed | Usage page |
+| G-8 | Brand refresh done (OI-689): both sites on design system 6920, E-1 and E-2 fixed, checks re-run (owner, DEC-510) | Both sites build with the 6920 tokens, the self-hosted brand faces and the Logos-set favicon and share image; G-2 and G-6 re-run on the refreshed head |
 
 ## 3. Deploy steps (one push, one deploy)
 

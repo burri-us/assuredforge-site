@@ -142,3 +142,9 @@ Also useful: `docs/INDUSTRIES-WORKS-WITH-ENTRIES.md`, `docs/PLAIN-LANGUAGE-SWEEP
   `program/pilot-pack/09-PRODUCT-PRIVACY-NOTICE.md`, same text plus one sentence on backups: add that sentence to
   `pages/trust/product-privacy.tsx` "Retention and deletion" at the release, with the CL-22D reference).
 
+## Added by Kit Notices, 2026-11-22 (DEC-510, OI-689): brand refresh before the release
+
+- **Release prerequisite** for the new site (alongside G-1 to G-7 in `docs/RELEASE-PACKAGE.md`): refresh this redesign from design system 8f35 (1795242812-8f35) to 6920 (1795271938-6920), and refresh tierra-llc.com to 6920 in the same pass.
+- **E-1** (self-hosted brand typefaces on both sites) and **E-2** (favicon and share image from the Logos set) are fixed in this pass; they are no longer exceptions (`assuredforge-architecture/design/tierra-design-system/README.md`, exceptions table).
+- **E-3** (the dashed "More in development" card on tierra-llc.com) stays recorded unless the Site Brand window fixes it in passing.
+- The Portal needs nothing (b2 is already at 6920; E-4, E-5 stay with the Portal).

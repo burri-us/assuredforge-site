@@ -183,3 +183,10 @@ Progress (latest last):
      https://tierra-llc.com/, no wording change.
   Fonts (owner): confirm each face's licence allows commercial self-hosting and ship the licence text next to the font files.
   Kit Notices also receives the new favicon and share image files as Logos-group candidates, and the E-1 correction.
+- Lanes A and B done; all three lanes closed. Heads: `w11-site-redesign` (this file's commit), `tierra-site-p2` `ds-6920` fe3c144.
+  Both sites on 6920; E-1 and E-2 done (fonts with OFL texts beside them, checks require them; Logos v2 icons and share images);
+  owner wording decisions 1, 4, 5, 6 applied. Checks on both heads: build, site check, check:switch (both values), npm audit 0,
+  axe 0 violations (assuredforge.com 132 runs, tierra-llc.com 25 runs), no 320 px overflow. Layout change: side-by-side layouts
+  now stack below 720 px (was 768). Report to Kit Notices: `docs/KIT-NOTICES-SITE-BRAND.md`.
+- Open for the owner: Inter weight 500 (`font-medium`, two places) has no face and renders as 400; the home benefit list stays on 768.
+- Next: the release (RELEASE-PACKAGE G-1 to G-8) from Wednesday, after the owner says the rehearsal has ended.

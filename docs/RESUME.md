@@ -170,3 +170,16 @@ Findings at start:
 
 Progress (latest last):
 - Lanes A (this site), B (tierra-llc.com) and C (language audit, read-only) started.
+- Lane C (language audit) done. Owner decisions, 2026-11-22:
+  1. Fix now: "recognise" -> "recognize"; "licence" -> "license" on the deployment and third-party notices pages (both sites).
+  2. Register text (CL-22D, CL-53 and the four pages repeating CL-53: home, FAQ, deployment, security): US spelling only
+     after Kit Notices updates the claims register. List sent to Kit Notices.
+  3. Legal pages, the footer "Evaluation licence" link and the legal date format: held for counsel (must match the signed
+     agreement, which says "licence").
+  4. Security lead: "AssuredForge is built for individuals, teams and organizations that must prove how their software was
+     delivered, and we hold ourselves to the same standard."
+  5. tierra-llc.com product card: "For individuals and small teams today; a hosted edition for organizations is planned."
+  6. Footer "A product of Tierra LLC" unchanged; About page: "Tierra LLC" in the CL-28 sentence links to
+     https://tierra-llc.com/, no wording change.
+  Fonts (owner): confirm each face's licence allows commercial self-hosting and ship the licence text next to the font files.
+  Kit Notices also receives the new favicon and share image files as Logos-group candidates, and the E-1 correction.

@@ -34,7 +34,9 @@ Author: Burri. Written 2026-11-21, when this window was archived. It is the star
 
 1. **OI-608 (no longer blocks the release; owner, DEC-532 (3), 2026-11-22):** place the W8 media and RAM figures if they
    are ready by Wednesday 2026-11-25; otherwise release with the blocks hidden (the branch already hides them, and the
-   publish build passes on 36893aa).
+   publish build passes on 36893aa). OI-608 closes at the release either way (owner, 2026-11-22). If the release goes out
+   with the blocks hidden, the **next site update** is: restore the W8 media blocks and the RAM figure (`docs/W8-MEDIA-LIST.md`
+   §6, `RAM_W8`). That is a site update, not a new open-items row.
    - Media: 15 slots on 6 pages, captured after the dry run, light only, captions only (`docs/W8-MEDIA-LIST.md`, §6 lists the
      site changes, including the `media/` allow-list line in `scripts/check.mjs`).
    - RAM: set `RAM_W8` in `components/Measured.tsx`. The site check then requires the same figures on the FAQ and on Editions

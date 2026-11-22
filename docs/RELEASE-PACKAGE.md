@@ -136,3 +136,59 @@ The `github-pages` environment deploys from `main` only, so a rollback is a reve
 5. `node scripts/live-check.mjs save <scratch>/live-rollback`, then
    `node scripts/live-check.mjs diff <scratch>/live-before <scratch>/live-rollback`: no differences expected.
 6. A rollback push and deploy need the owner's approval like the release, unless the owner pre-approves it with the release.
+
+## 7. tierra-llc.com release (same window, after assuredforge.com's live check passes)
+
+Owner, 2026-11-22: tierra-llc.com is released in the same window, **only after §3 step 8 (assuredforge.com live check) has
+passed**. Nothing is pushed until the owner approves this push on the day; the approval for §3 does not cover it.
+
+**What changes** (branch `ds-6920` in `C:\dev\AssuredForge\tierra-site-p2`, from `w12-phase2` = live `main` 744b56f; 9 local
+commits, noreply author): design system 6920 tokens (control-border, accent-hover, viz-5, side-by-side layouts stack below 720 px
+instead of 768 px); E-1 (JetBrains Mono 400 added for the notices page; OFL licence text next to the font files); E-2 (favicon,
+32 px favicon, 180 px touch icon and share image from the Logos v2 Tierra drawing); notices page "Licenses" and "license text";
+home product card "a hosted edition for organizations is planned"; `tools/live_check.py`.
+
+**Repository facts, read 2026-11-22:** `burri-us/tierra-site`; `main` is **not** protected (no required check, no required
+review); GitHub Pages "legacy" build from `main` /, custom domain tierra-llc.com, HTTPS enforced. Every push to `main` starts
+"pages build and deployment" (about 1 billed Actions minute). There is no CI build check, so the build gate is the local check.
+
+### 7.1 Go / no-go
+
+| # | Check | Evidence |
+|---|---|---|
+| T-1 | The owner approves this push on the day, after assuredforge.com's live check passed | Owner message |
+| T-2 | `origin/main` is still 744b56f (`git fetch origin`); otherwise merge it into `ds-6920` and re-run T-3 | `git log -1 origin/main` |
+| T-3 | `python tools/check.py` and `python tools/check.py --publish` pass on the `ds-6920` head (5 pages, 0 problems on 2026-11-22) | Command output |
+| T-4 | Accessibility scan and screenshots on the head: 0 violations at 390 and 1440, light and dark; no overflow at 320 px (25 runs, 0 on 2026-11-22; evidence in `C:\Users\burri\AF-backups\site-brand-2026-11-22\laneB\final`) | Scan summary |
+| T-5 | CI budget: about 1 minute (pages build), the same again for a rollback | Usage page |
+
+### 7.2 Steps
+
+1. **Save the live copy:** `python tools/live_check.py save <scratch>/tierra-before` (23 served files; on 2026-11-22 the five files
+   new in this release answered 404, as expected).
+2. **Push the branch** (approved push): `git push -u origin ds-6920`.
+3. **Pull request:** `gh pr create --repo burri-us/tierra-site --base main --head ds-6920 --title "tierra-llc.com: design system 6920, brand faces and Logos v2 icons"`, with the "What changes" paragraph as the body.
+4. **Build gate:** there is no CI check; re-run T-3 on the exact pushed head (`git rev-parse HEAD` equals the PR head) and record
+   the output in the PR as a comment.
+5. **Merge:** `gh pr merge <n> --repo burri-us/tierra-site --merge` (no squash; keeps the commit record). Record the merge commit.
+6. **Deploy:** automatic on the merge. `gh run list --repo burri-us/tierra-site --workflow "pages build and deployment" -L 1`,
+   then `gh run watch <run-id> --repo burri-us/tierra-site --exit-status`.
+7. **Live check** (allow a minute for the CDN):
+   - `git switch main && git pull` in a clean checkout of the merge commit (or stay on `ds-6920` if `main` equals it), then
+     `python tools/live_check.py compare`: every served file must be live byte for byte; `/no-such-page/` must answer 404.
+   - `python tools/live_check.py save <scratch>/tierra-after`, then `python tools/live_check.py diff <scratch>/tierra-before <scratch>/tierra-after`:
+     the differences are the release (16 files expected: 5 pages, site.css, tokens.css, favicon.svg, favicon-32.png, og.svg,
+     og.png, apple-touch-icon.png, JetBrains Mono woff2 and the three OFL texts).
+   - Browser spot check at 390 and 1440 px, light and dark: Home, About, Contact, the notices page; the tab icon and a link
+     preview of the home page.
+8. **Report:** PR number, merge commit, run id, compare result, Actions minutes.
+
+### 7.3 Rollback
+
+`main` deploys on every push, so a rollback is a revert through a pull request (about 2 to 3 minutes, about 1 Actions minute):
+1. `git switch -c rollback-ds-6920 origin/main`, then `git revert -m 1 <merge commit>`, committed with the noreply author.
+2. `git push -u origin rollback-ds-6920`; `gh pr create --repo burri-us/tierra-site --base main --head rollback-ds-6920 --title "Roll back the 6920 brand refresh"`.
+3. Run `python tools/check.py` on the rollback head; `gh pr merge <n> --repo burri-us/tierra-site --merge`; watch the pages run.
+4. `python tools/live_check.py save <scratch>/tierra-rollback`, then `diff <scratch>/tierra-before <scratch>/tierra-rollback`: no
+   differences expected except the files new in this release, which stay 404.
+5. A rollback push needs the owner's approval like the release, unless the owner pre-approves it with the release.

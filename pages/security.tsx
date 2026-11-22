@@ -34,7 +34,7 @@ export default function Security() {
         {/* CL-53 (Being validated until W8), replacing the earlier unverified statement (assessor, sweep item 4). */}
         <p>
           In the desktop edition your records stay on your own PC, under your control. {AI.securityFlow}{" "}
-          Tierra receives your installation id (a code that identifies your AssuredForge installation; it does not contain your records) when you ask for a licence, and prompts or project content only in what you choose to send us: a support bundle (a short set of details you choose to send us when you ask for help), or feedback with files you attach. This is being validated.
+          Tierra receives your installation id (a code that identifies your AssuredForge installation; it does not contain your records) when you ask for a license, and prompts or project content only in what you choose to send us: a support bundle (a short set of details you choose to send us when you ask for help), or feedback with files you attach. This is being validated.
         </p>
       </Section>
       <Section title="Trust Center">

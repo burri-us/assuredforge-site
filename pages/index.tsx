@@ -118,7 +118,7 @@ export default function Home() {
         <p className="max-w-[70ch]">
           In the desktop edition your records stay on your own PC, under your control.{" "}
           {AI.dataModelSentence}
-          AssuredForge connects only to the services you set up: {AI.available ? "the model provider of the key you entered and, if you add them, " : "if you add them, "}your own git remote (the online copy of your code repository that you choose to connect), connectors (integrations to outside systems such as Jira or Azure DevOps) and sign-in provider. Tierra receives your installation id (a code that identifies your AssuredForge installation; it does not contain your records) when you ask for a licence, and prompts or project content only in what you choose to send us: a support bundle (a short set of details you choose to send us when you ask for help), or feedback with files you attach. This is being validated.
+          AssuredForge connects only to the services you set up: {AI.available ? "the model provider of the key you entered and, if you add them, " : "if you add them, "}your own git remote (the online copy of your code repository that you choose to connect), connectors (integrations to outside systems such as Jira or Azure DevOps) and sign-in provider. Tierra receives your installation id (a code that identifies your AssuredForge installation; it does not contain your records) when you ask for a license, and prompts or project content only in what you choose to send us: a support bundle (a short set of details you choose to send us when you ask for help), or feedback with files you attach. This is being validated.
         </p>
         <p><Link href="/deployment/">Editions and system requirements</Link></p>
       </Section>

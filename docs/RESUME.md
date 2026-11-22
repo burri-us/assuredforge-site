@@ -194,3 +194,5 @@ Progress (latest last):
   the token check; tierra-llc.com releases in the same window after assuredforge.com's live check (RELEASE-PACKAGE §7, with
   `tools/live_check.py` in tierra-site-p2, 44f55a4). Evidence copied to `C:\Users\burri\AF-backups\site-brand-2026-11-22\`
   (laneA and laneB, before and after, axe results; 75 files) for G-8.
+- Kit Notices DEC-513/514: CL-53 in US spelling on the four pages (ae64f80); CL-22D and legal pages held (COUNSEL-LIST 27c2bf2,
+  P1-26); tierra-llc.com release approved in principle (final go on the day); nine Logos candidates and E-6 handed to Kit Notices.

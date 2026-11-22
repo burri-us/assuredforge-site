@@ -197,3 +197,8 @@ Progress (latest last):
 - Kit Notices DEC-513/514: CL-53 in US spelling on the four pages (ae64f80); CL-22D and legal pages held (COUNSEL-LIST 27c2bf2,
   P1-26); tierra-llc.com release approved in principle (final go on the day); nine Logos candidates and E-6 handed to Kit Notices.
 - Kit Notices DEC-515: the nine files are in the records copy of the Logos group (local 573dc97, out with its next record push); E-6 in the exceptions table. Nothing pending with Kit Notices.
+- Website Pack findings (owner, 2026-11-22): (1) G-3 and step 7 name both indexing sources, site.json and the workflow's index
+  input (94400b0); (2) tierra check.py checks the legal line by pattern, not exact address (ds-6920 62d1ed3); (3) font-face
+  check on both sites: every weight applied to text needs a shipped file (here `scripts/check-fonts.mjs` in the build, babd283;
+  tierra `tools/fontcheck.py` in check.py, 763dbfd). It found Inter 700 (legal-page label, strong) on both; now 600, no visible change.
+- Logos: live upload by the assessor after both releases; until then the records copy keeps 573dc97's files (owner, OI-689).

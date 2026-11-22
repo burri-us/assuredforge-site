@@ -196,3 +196,4 @@ Progress (latest last):
   (laneA and laneB, before and after, axe results; 75 files) for G-8.
 - Kit Notices DEC-513/514: CL-53 in US spelling on the four pages (ae64f80); CL-22D and legal pages held (COUNSEL-LIST 27c2bf2,
   P1-26); tierra-llc.com release approved in principle (final go on the day); nine Logos candidates and E-6 handed to Kit Notices.
+- Kit Notices DEC-515: the nine files are in the records copy of the Logos group (local 573dc97, out with its next record push); E-6 in the exceptions table. Nothing pending with Kit Notices.

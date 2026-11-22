@@ -148,3 +148,25 @@ Also useful: `docs/INDUSTRIES-WORKS-WITH-ENTRIES.md`, `docs/PLAIN-LANGUAGE-SWEEP
 - **E-1** (self-hosted brand typefaces on both sites) and **E-2** (favicon and share image from the Logos set) are fixed in this pass; they are no longer exceptions (`assuredforge-architecture/design/tierra-design-system/README.md`, exceptions table).
 - **E-3** (the dashed "More in development" card on tierra-llc.com) stays recorded unless the Site Brand window fixes it in passing.
 - The Portal needs nothing (b2 is already at 6920; E-4, E-5 stay with the Portal).
+
+## Site Brand window (opened 2026-11-22 01:24 EST)
+
+Scope (owner, 2026-11-22): both sites from design system 8f35 to 6920 (control-border, accent-hover, viz-5, breakpoint-stack),
+fix E-1 (self-hosted brand faces with fallback stack) and E-2 (favicon set and share image from the Logos group), re-run each
+site's checks (build, site check, AI switch check, accessibility scan, visual check at phone and desktop width), and a brand
+language audit (design system section 3 and US English): fix only obvious wording, bring the rest to the owner.
+Rules: Sonnet lanes; site worktrees only (never af-next, af-hosted or the records tree; records go to Kit Notices); no Docker;
+no push or publishing without owner approval; the release follows RELEASE-PACKAGE G-1 to G-7, Wednesday 25 to Friday 27.
+**Stop before Tuesday 24 November 07:00 (rehearsal); resume only after the owner says the rehearsal has ended.**
+
+Findings at start:
+- Both sites pinned the same 8f35 tokens.json (SHA-256 2ed1bb14...). 6920 is 57451ddd...
+- The design system (records copy and live artifact 6920) holds **no font files and no favicon or share image**: only tokens,
+  READMEs and the four Logos v2 SVGs. E-1 is met with the pinned @fontsource woff2 files (both sites already self-host);
+  E-2 is built from the exact Logos v2 reversed drawings on a `bar` tile. Kit Notices item: the Logos group should hold the
+  favicon and share image so E-2 can close at the source, and the register's E-1 text ("live sites use the system font
+  stack") is out of date for tierra-llc.com, which has self-hosted the faces since 744b56f.
+- Tierra work is on a new local branch `ds-6920` in `tierra-site-p2` (from w12-phase2 = origin/main 744b56f).
+
+Progress (latest last):
+- Lanes A (this site), B (tierra-llc.com) and C (language audit, read-only) started.

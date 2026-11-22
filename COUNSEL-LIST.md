@@ -141,3 +141,10 @@ The provider terms gaps were re-checked against the partner-owned provider direc
 - **P3-05, optional (gap 3):** whether Tierra's own use of a commercial model service to build the product needs any
   partner-facing disclosure.
 
+### Product privacy notice: backups sentence (owner, DEC-488 (2), 21 November 2026)
+Added to the product privacy notice (desktop edition), "Retention and deletion", after "We hold no copy.":
+- **Now:** "Backups you make stay on your PC too; when you leave the program you delete them yourself (welcome email, step 7)."
+- **Where:** the pilot-pack copy given to partners with the welcome email (architecture `program/pilot-pack/09-PRODUCT-PRIVACY-NOTICE.md`);
+  `pages/trust/product-privacy.tsx` takes the same sentence at the new-site release (Wednesday 25 to Friday 27 November).
+- Same point as the agreement §9.2 and CL-22D (DEC-481 (1)). For counsel to confirm with P1-09 (and P1-08).
+

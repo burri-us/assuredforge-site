@@ -143,8 +143,8 @@ The `github-pages` environment deploys from `main` only, so a rollback is a reve
 Owner, 2026-11-22: tierra-llc.com is released in the same window, **only after §3 step 8 (assuredforge.com live check) has
 passed**. Nothing is pushed until the owner approves this push on the day; the approval for §3 does not cover it.
 
-**What changes** (branch `ds-6920` in `C:\dev\AssuredForge\tierra-site-p2`, from `w12-phase2` = live `main` 744b56f; 7 local
-commits, noreply author): design system 6920 tokens (control-border, accent-hover, viz-5, side-by-side layouts stack below 720 px
+**What changes** (branch `ds-6920` in `C:\dev\AssuredForge\tierra-site-p2`, from `w12-phase2` = live `main` 744b56f; 9
+commits, noreply author; already on GitHub as a backup branch at 763dbfd, 2026-11-22): design system 6920 tokens (control-border, accent-hover, viz-5, side-by-side layouts stack below 720 px
 instead of 768 px); E-1 (JetBrains Mono 400 added for the notices page; OFL licence text next to the font files); E-2 (favicon,
 32 px favicon, 180 px touch icon and share image from the Logos v2 Tierra drawing); notices page "Licenses" and "license text";
 home product card "a hosted edition for organizations is planned"; `tools/live_check.py`.
@@ -160,14 +160,15 @@ review); GitHub Pages "legacy" build from `main` /, custom domain tierra-llc.com
 | T-1 | The owner approves this push on the day, after assuredforge.com's live check passed | Owner message |
 | T-2 | `origin/main` is still 744b56f (`git fetch origin`); otherwise merge it into `ds-6920` and re-run T-3 | `git log -1 origin/main` |
 | T-3 | `python tools/check.py` and `python tools/check.py --publish` pass on the `ds-6920` head (5 pages, 0 problems on 2026-11-22) | Command output |
-| T-4 | Accessibility scan and screenshots on the head: 0 violations at 390 and 1440, light and dark; no overflow at 320 px (25 runs, 0 on 2026-11-22; evidence in `C:\Users\burri\AF-backups\site-brand-2026-11-22\laneB\final`) | Scan summary |
+| T-4 | Accessibility scan and screenshots on the head: 0 violations at 390 and 1440, light and dark; no overflow at 320 px (re-run on 763dbfd, 2026-11-23: 25 runs, 0 violations, no 320 px overflow; evidence in `C:\Users\burri\AF-backups\site-brand-2026-11-22\laneB\final-763dbfd`; re-run if the head changes) | Scan summary |
 | T-5 | CI budget: about 1 minute (pages build), the same again for a rollback | Usage page |
 
 ### 7.2 Steps
 
 1. **Save the live copy:** `python tools/live_check.py save <scratch>/tierra-before` (23 served files; on 2026-11-22 the five files
    new in this release answered 404, as expected).
-2. **Push the branch** (approved push): `git push -u origin ds-6920`.
+2. **Push the branch** (approved push): `git push -u origin ds-6920`. It is already on GitHub at 763dbfd (backup push,
+   2026-11-22); this step is needed only if the head has changed since.
 3. **Pull request:** `gh pr create --repo burri-us/tierra-site --base main --head ds-6920 --title "tierra-llc.com: design system 6920, brand faces and Logos v2 icons"`, with the "What changes" paragraph as the body.
 4. **Build gate:** there is no CI check; re-run T-3 on the exact pushed head (`git rev-parse HEAD` equals the PR head) and record
    the output in the PR as a comment.

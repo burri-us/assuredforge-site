@@ -247,3 +247,6 @@ Progress (latest last):
   assistant). Scope: assuredforge.com, tierra-llc.com, Portal names (af-next: agree each with b3 through its overlap
   check). EU wording waits for counsel (CQ-4). Reference: design/BRAND-DIRECTION.md once saved. First step: a plan of
   pages and names to Kit Notices, only after the owner's go; nothing before the release.
+- DEC-577 plan `docs/DEC-577-PLAN.md` approved by the owner 2026-11-23 (decisions in its section 0: T-1 (b), S-3 fold or
+  interim rename, S-7 to S-12 same round, P-7 two states with CL-62 first, P-8 Help disclosure line). Applied only after
+  the release and the owner's go; Portal items through b3's overlap check.

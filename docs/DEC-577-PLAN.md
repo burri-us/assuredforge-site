@@ -6,7 +6,16 @@
 | Rule | DEC-577 (1); glossary rule 5; claims register 0.3, section "Where the word AI may appear" |
 | Reference | `design/BRAND-DIRECTION.md` on architecture main since c290bbd (blob 290bbc2f, byte-identical to the owner handbook copy) |
 | Read from | assuredforge.com at 5effbab (rendered build, 34 pages, AI switch off); tierra-llc.com at 763dbfd; Portal at origin/af-next f8194aab (`packages/web`, read only) |
-| Status | Proposed. No copy, code or name changes until the release is done and the owner approves this plan. Portal names go through b3's overlap check |
+| Status | Approved by the owner 2026-11-23 for the round after the release, with the decisions in section 0. No copy, code or name changes before the release is done and the owner's go. Portal items go through b3's overlap check |
+
+## 0. Owner decisions (2026-11-23)
+
+- T-1 = (b) "with software they can trust"; Tierra CL-11 amended.
+- S-3: fold into "How AF works". If that page is not ready in the same round, rename in place to "Agent-prepared delivery" as an interim.
+- S-7 to S-12 go in the same round.
+- P-7 has two states: "Drafted automatically · waiting for <name>" before the decision, "Drafted automatically · decided by <name>" after it. CL-62 is drafted before P-7 is built.
+- The Help answer header keeps its AI mention, and the assistant also carries a one-line "automated assistant" disclosure (P-8).
+- Portal items go through b3's overlap check.
 | Not in scope | EU disclosure wording (CQ-4, with P2-04, counsel); the headline "Drafts prepared. People decide. Every decision recorded." (held for P2-04); texts approved for the 25 to 27 November release (DEC-559) |
 
 ## 1. assuredforge.com: what changes
@@ -62,7 +71,8 @@ New, through b3 (DEC-577 label):
 
 | # | Place | Proposed | Claims row |
 |---|---|---|---|
-| P-7 | Each machine-made draft or recommendation: generation proposals under review, drafted delivery documents and release notes, the delivery-acceptance explanation | Short label: "Drafted automatically · decided by <name>"; before a decision: "Drafted automatically · waiting for a decision" | New row CL-62 (label wording), drafted by Kit Notices; EU wording after CQ-4 |
+| P-7 | Each machine-made draft or recommendation: generation proposals under review, drafted delivery documents and release notes, the delivery-acceptance explanation | Short label, two states: "Drafted automatically · waiting for <name>" before the decision, "Drafted automatically · decided by <name>" after it | New row CL-62 (label wording), drafted by Kit Notices before it is built; EU wording after CQ-4 |
+| P-8 | Help assistant | A one-line "automated assistant" disclosure on the assistant, in addition to the answer header "AI answer from Help. Check the sources.", which stays | CL-59 (wording via Kit Notices; EU wording after CQ-4) |
 
 ## 4. Disclosure places that keep "AI" (no change)
 
@@ -92,5 +102,5 @@ New, through b3 (DEC-577 label):
 1. Kit Notices drafts the new claims rows (CL-62, the item 1 and item 2 rows, the CL-WW-00 rewording) and the owner decides T-1.
 2. Site Brand: S-1 to S-12 and T-1 on new branches from the released heads, then the release build, G-2, G-6 (both switch values), the font and accessibility checks, and a before-and-after page diff.
 3. Pages for items 1 and 2 after their rows are in the register.
-4. Portal P-1 to P-7: Site Brand prepares a branch from af-next only after b3's overlap check clears it, and hands it to b3. No push from this window.
+4. Portal P-1 to P-8: Site Brand prepares a branch from af-next only after b3's overlap check clears it, and hands it to b3. No push from this window.
 5. Release: owner approval, as for 25 to 27 November.

@@ -23,6 +23,11 @@
 - DEC-579 (2b) (records a55b4ac, a1f98ef): CL-62 (P-7) and CL-63 (P-8) drafted; CL-WW-00 already reworded in the register
   (S-5); S-3 interim name and S-7 to S-12 recorded. Rows for "How AF works" and "Accounts and security" follow as CL-64
   onward (ids from Kit Notices).
+- Draft rows for roadmap items 1 and 2 (Kit Notices, 2026-11-23; use only these wordings, each only once evidenced):
+  CL-64 work drafted by one agent is reviewed by a second agent on a different model (general, no design step named);
+  CL-65 signals back (Planned, FD-87); CL-66 the lifecycle drawing caption; CL-67 step-up for sensitive administrative
+  actions (widens to gate decisions once OI-593 is verified live); CL-68 the Account security page (two-step verification,
+  recovery codes; approver keys once OI-583 is verified). Item 2 says "Account security", not "My account" (no source yet).
 | Not in scope | EU disclosure wording (CQ-4, with P2-04, counsel); the headline "Drafts prepared. People decide. Every decision recorded." (held for P2-04); texts approved for the 25 to 27 November release (DEC-559) |
 
 ## 1. assuredforge.com: what changes

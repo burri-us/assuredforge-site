@@ -226,3 +226,16 @@ Progress (latest last):
   Notices: four of five texts already covered on this site; one gap, the AI-on `homeBlock` lacks "This is being validated."
   (one line in `components/AiWording.tsx`, only if the owner says yes). Other eight questions wait for the b2 freeze.
 - Usage (DEC-558): Sonnet only until Monday 07:00; no new lanes at 97% weekly use. Stop Tuesday 07:00 with this note current.
+- 2026-11-23 (owner): backup push of `w11-site-redesign` at 5a78dca (K-33 equivalent for this repository: release build
+  plus G-2 and G-6 on the exact commit, the author-email check, and no deploy on push; 0 Actions minutes). Local since then:
+  0f17ca6 (RELEASE-PACKAGE section 7 facts), and this line.
+- Release trial run (a), passed: throwaway branch `trial-release-2026-11-23` in worktree `C:\dev\AssuredForge\site-trial`,
+  head d20fcef. Merge of origin/main 38082b2 (one conflict, `pages/manufacturing.tsx`, the branch's forwarding page kept;
+  main's only change, the Windchill line, is absent from it), `site.json` indexing true, `SITE_PUBLISH: "1"` in pages.yml.
+  G-2 (34 pages, 0 markers), G-3 (robots Allow, 30-page sitemap), check:switch both values, npm audit 0, fonts 0. On
+  Wednesday, repeat step 2 on the real branch (or reuse this result if 5a78dca/0f17ca6 is still the head and main is
+  unchanged); remove the trial worktree and branch after the release.
+- tierra-llc.com go/no-go (b): T-2, T-3 and T-4 pass (T-4 re-run on 763dbfd: 25 runs, 0 violations, evidence
+  `laneB\final-763dbfd`); T-1 and T-5 on release day (owner).
+- Waiting: no release step before the owner says the rehearsal has ended; idle unless Kit Notices or b3 assigns a row
+  (report before starting it).

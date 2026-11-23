@@ -239,3 +239,5 @@ Progress (latest last):
   `laneB\final-763dbfd`); T-1 and T-5 on release day (owner).
 - Waiting: no release step before the owner says the rehearsal has ended; idle unless Kit Notices or b3 assigns a row
   (report before starting it).
+- DEC-575 (4) (Kit Notices, 2026-11-23): stop at the plan (DEC-504); any second pass (re-review or fix round) gets its
+  own plan before it starts. The site release go still comes after the rehearsal.

@@ -16,6 +16,10 @@
 - P-7 has two states: "Drafted automatically · waiting for <name>" before the decision, "Drafted automatically · decided by <name>" after it. CL-62 is drafted before P-7 is built.
 - The Help answer header keeps its AI mention, and the assistant also carries a one-line "automated assistant" disclosure (P-8).
 - Portal items go through b3's overlap check.
+- Recorded as DEC-579 (2): CL-11 amended in `program/reviews/VISION-REVIEW-DECISIONS.md`; CL-62 drafted in the claims
+  register, usable only once P-7 is built and verified live; the P-8 disclosure line sits in the assistant panel itself, not
+  only in the answer header. Portal items are af-next files: b3 integrates them. Before starting after the release, send Kit
+  Notices the lane plan (ceiling and plan) and stop at the plan.
 | Not in scope | EU disclosure wording (CQ-4, with P2-04, counsel); the headline "Drafts prepared. People decide. Every decision recorded." (held for P2-04); texts approved for the 25 to 27 November release (DEC-559) |
 
 ## 1. assuredforge.com: what changes
@@ -72,7 +76,7 @@ New, through b3 (DEC-577 label):
 | # | Place | Proposed | Claims row |
 |---|---|---|---|
 | P-7 | Each machine-made draft or recommendation: generation proposals under review, drafted delivery documents and release notes, the delivery-acceptance explanation | Short label, two states: "Drafted automatically · waiting for <name>" before the decision, "Drafted automatically · decided by <name>" after it | New row CL-62 (label wording), drafted by Kit Notices before it is built; EU wording after CQ-4 |
-| P-8 | Help assistant | A one-line "automated assistant" disclosure on the assistant, in addition to the answer header "AI answer from Help. Check the sources.", which stays | CL-59 (wording via Kit Notices; EU wording after CQ-4) |
+| P-8 | Help assistant | A one-line "automated assistant" disclosure in the assistant panel itself, in addition to the answer header "AI answer from Help. Check the sources.", which stays | CL-59 (wording via Kit Notices; EU wording after CQ-4) |
 
 ## 4. Disclosure places that keep "AI" (no change)
 

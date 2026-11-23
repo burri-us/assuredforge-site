@@ -4,7 +4,7 @@
 |---|---|
 | Date | 2026-11-23 |
 | Rule | DEC-577 (1); glossary rule 5; claims register 0.3, section "Where the word AI may appear" |
-| Reference | `design/BRAND-DIRECTION.md` (in the records tree but not committed yet; the same bytes as the owner handbook copy `brand/BRAND-DIRECTION.md`, SHA-256 57B13D2D...291D5C) |
+| Reference | `design/BRAND-DIRECTION.md` on architecture main since c290bbd (blob 290bbc2f, byte-identical to the owner handbook copy) |
 | Read from | assuredforge.com at 5effbab (rendered build, 34 pages, AI switch off); tierra-llc.com at 763dbfd; Portal at origin/af-next f8194aab (`packages/web`, read only) |
 | Status | Proposed. No copy, code or name changes until the release is done and the owner approves this plan. Portal names go through b3's overlap check |
 | Not in scope | EU disclosure wording (CQ-4, with P2-04, counsel); the headline "Drafts prepared. People decide. Every decision recorded." (held for P2-04); texts approved for the 25 to 27 November release (DEC-559) |

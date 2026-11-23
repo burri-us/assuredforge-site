@@ -241,3 +241,9 @@ Progress (latest last):
   (report before starting it).
 - DEC-575 (4) (Kit Notices, 2026-11-23): stop at the plan (DEC-504); any second pass (re-review or fix round) gets its
   own plan before it starts. The site release go still comes after the rehearsal.
+- DEC-577 (Kit Notices, 2026-11-23), next copy round after the release: no "AI" in headlines, taglines, navigation or
+  Portal page and menu names; "AI" and provider names only where disclosure is needed (model setup, usage and cost
+  pages; privacy, subprocessors, legal; the `Drafted automatically · decided by <name>` label; one line on the Help
+  assistant). Scope: assuredforge.com, tierra-llc.com, Portal names (af-next: agree each with b3 through its overlap
+  check). EU wording waits for counsel (CQ-4). Reference: design/BRAND-DIRECTION.md once saved. First step: a plan of
+  pages and names to Kit Notices, only after the owner's go; nothing before the release.

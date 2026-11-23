@@ -25,7 +25,7 @@ export const AI = ON
       heroLead:
         "AssuredForge runs AI-assisted delivery under your rules: every requirement traced, the approvals the governance requires given by named people, and every action in an audit chain you can prove.",
       homeBlock:
-        "AI-assisted planning and delivery runs under human governance: people set the governance, give the approvals it requires and handle every exception, and AI never approves, accepts risk or authorizes a release.", // CL-40R
+        "AI-assisted planning and delivery runs under human governance: people set the governance, give the approvals it requires and handle every exception, and AI never approves, accepts risk or authorizes a release. This is being validated.", // CL-40R, CL-46 (OI-474 WS-3, DEC-559)
       deliverTile:
         "AI-assisted planning and delivery runs on your own PC with your own model key. Every run has a run budget and a monthly limit, with defaults you change in Setup. Model execution stays off until an administrator turns it on.", // CL-19, CL-49
       deliverStatus: "Being validated", // CL-46 (one label for AI everywhere)

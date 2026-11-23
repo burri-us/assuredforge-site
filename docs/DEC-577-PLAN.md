@@ -20,6 +20,9 @@
   register, usable only once P-7 is built and verified live; the P-8 disclosure line sits in the assistant panel itself, not
   only in the answer header. Portal items are af-next files: b3 integrates them. Before starting after the release, send Kit
   Notices the lane plan (ceiling and plan) and stop at the plan.
+- DEC-579 (2b) (records a55b4ac, a1f98ef): CL-62 (P-7) and CL-63 (P-8) drafted; CL-WW-00 already reworded in the register
+  (S-5); S-3 interim name and S-7 to S-12 recorded. Rows for "How AF works" and "Accounts and security" follow as CL-64
+  onward (ids from Kit Notices).
 | Not in scope | EU disclosure wording (CQ-4, with P2-04, counsel); the headline "Drafts prepared. People decide. Every decision recorded." (held for P2-04); texts approved for the 25 to 27 November release (DEC-559) |
 
 ## 1. assuredforge.com: what changes
@@ -76,7 +79,7 @@ New, through b3 (DEC-577 label):
 | # | Place | Proposed | Claims row |
 |---|---|---|---|
 | P-7 | Each machine-made draft or recommendation: generation proposals under review, drafted delivery documents and release notes, the delivery-acceptance explanation | Short label, two states: "Drafted automatically · waiting for <name>" before the decision, "Drafted automatically · decided by <name>" after it | New row CL-62 (label wording), drafted by Kit Notices before it is built; EU wording after CQ-4 |
-| P-8 | Help assistant | A one-line "automated assistant" disclosure in the assistant panel itself, in addition to the answer header "AI answer from Help. Check the sources.", which stays | CL-59 (wording via Kit Notices; EU wording after CQ-4) |
+| P-8 | Help assistant | A one-line "automated assistant" disclosure in the assistant panel itself, in addition to the answer header "AI answer from Help. Check the sources.", which stays | CL-63 (drafted; usable once built and verified live; EU wording after CQ-4) |
 
 ## 4. Disclosure places that keep "AI" (no change)
 

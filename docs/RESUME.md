@@ -213,3 +213,16 @@ Progress (latest last):
   were re-authored to the noreply address (13 had a personal email); hashes in this file before this line are the old ones:
   map in `docs/NOREPLY-REWRITE-2026-11-22.md`. No workflow ran (CI runs on main and pull requests only; Pages by hand or from
   main): 0 Actions minutes. This line's commit is local only.
+- Second backup push (owner, 2026-11-22): `w11-site-redesign` 37833f6, branch only, 0 Actions minutes. Later local commits
+  (stash rule 7517c54, this line) go up with the next approved push.
+- OI-608 (owner, DEC-532 (3), DEC-534 (2)): closes at the release either way; if released with the blocks hidden, the next
+  site update restores the W8 media blocks and the RAM figure (section 3 item 1).
+- While waiting (owner, 2026-11-22, DEC-544 and tonight's assignment): Portal web-only rows done in code-repository worktrees,
+  handed to b3 Build, never pushed by this window: `af-sb-701` 82e1cdb9 (OI-701 groups 1, 4, 7, 8, 10, 11), `af-sb-702`
+  80417cde (OI-702 #14, #9), `af-sb-701b` 0f5966ea (OI-701 (2), (13)); base for the last two af-b3-cand 708bdcae (G6b green).
+  Worktrees: `lane-sb-701-charts`, `lane-sb-701-copy`, `lane-sb-702`, `lane-sb-701b` (clean up after b3 merges).
+- OI-474: Wave 1 package refresh written to `C:\dev\AssuredForge\lane-sb-474\` for Kit Notices. Q2 and Q3 decided (b3 puts
+  b2's claims fixes on af-next's Help; **this window checks that wording when b3 hands it over**). Q1 check sent to Kit
+  Notices: four of five texts already covered on this site; one gap, the AI-on `homeBlock` lacks "This is being validated."
+  (one line in `components/AiWording.tsx`, only if the owner says yes). Other eight questions wait for the b2 freeze.
+- Usage (DEC-558): Sonnet only until Monday 07:00; no new lanes at 97% weekly use. Stop Tuesday 07:00 with this note current.

@@ -14,6 +14,8 @@ ended". This plan extends `docs/RELEASE-PACKAGE.md` (the steps there stay in for
 Both site copy branches are fast-forwards of the branches the release package already names, so the package's steps run unchanged
 after one local fast-forward (step A2, B2).
 
+**Owner decisions (2026-11-23, night):** (1) the copy round ships in the same deploy as the redesign; (2) F-1 and F-2 fixed tonight, local only; (3) both site rollbacks are pre-approved together with the release approval after the rehearsal.
+
 ## 2. Order
 
 1. **Preconditions (all):** the owner has said the rehearsal has ended; the claims rows reworded under DEC-592 (CL-04, CL-19, CL-40R,
@@ -44,10 +46,10 @@ after one local fast-forward (step A2, B2).
   (16 files from the 6920 release, plus `about/index.html` already counted). About 1 Actions minute.
 
 ### C. Portal (`af-sb-577-names`)
-- C1. Fix F-2 (Help guide) on the branch, with its own plan first (DEC-575).
+- C1. F-2 (Help guide) is fixed on the branch (f6ecc2f6).
 - C2. b3's overlap check against rc-next. Files to compare: `packages/web/lib/messages/en.ts` (70 lines; high-traffic file),
-  `test/fix9.test.mjs`, `test/insights.test.mjs`, `test/proposals.test.mjs`, `test/runsummary.test.mjs`, and `help/how-to.md` once F-2
-  is applied. No migration and no cross-Tenant change, so no DB test slot is needed (DEC-555).
+  `test/fix9.test.mjs`, `test/insights.test.mjs`, `test/proposals.test.mjs`, `test/runsummary.test.mjs`, and `help/how-to.md`, `help/faq.md`, `help/getting-started.md`, `help/implementation.md` (F-2)
+  . No migration and no cross-Tenant change, so no DB test slot is needed (DEC-555).
 - C3. b3 runs the merge checks (DEC-419: tools suite and throwaway image builds; Docker is b3's). This window does no Docker.
 - C4. Final owner approval of the diff; b3 integrates.
 

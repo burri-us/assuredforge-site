@@ -2,6 +2,8 @@
 
 Author: Burri. Written 2026-11-21, when this window was archived. It is the starting point; STATUS.md stays the running record.
 
+
+**Latest (2026-11-24):** waiting for "the rehearsal has ended" (DAY-PLAN row 10). Owner decisions: copy round ships with the redesign in one deploy; both site rollbacks pre-approved with the release approval; F-1 and F-2 fixed. Portal: `af-sb-577-names` f6ecc2f6 (b3 overlap check in batch X02; af-next now 82c4ec9e). Plain-view rewrite plan: `af-sb-plainview-plan` 7b2de000 in `lane-sb-plainview` (DEC-606; b3 builds it, row 13). tierra-llc.com content refresh: `content-refresh-plan` eb945ec in `tierra-content-plan` (DEC-608, rows CL-69 to CL-73; build after both releases; live Set-Cookie check first). Repo Hygiene: all six worktrees kept (DEC-612 (4)).
 **Latest (2026-11-23, night):** the after-rehearsal release plan is `docs/AFTER-REHEARSAL-RELEASE-PLAN.md` on `dec577-copy-round` (local). Release heads: site `dec577-copy-round` head, tierra `dec577-copy-round` 6f8008f, Portal `af-sb-577-names` f6ecc2f6 (b3 overlap check first). Draft pages: `dec577-pages-draft` b68dd68. Nothing pushed; nothing runs before "the rehearsal has ended".
 
 ## 1. Where things are

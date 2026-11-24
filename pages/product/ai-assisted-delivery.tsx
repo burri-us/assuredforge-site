@@ -6,13 +6,13 @@ import { Bullets, ShotSlot, Status } from "../../components/Blocks";
 // DRAFT COPY. WS-01: the lead and the section below follow the switch in components/AiWording.tsx.
 export default function AiDelivery() {
   return (
-    <Layout title="AI-assisted delivery | AssuredForge" description="How AI assistance fits inside AssuredForge's governance: AI prepares and recommends, independent checks test, and only named people approve.">
-      <Title lead={AI.productLead}>AI-assisted delivery</Title>
+    <Layout title="Agent-prepared delivery | AssuredForge" description="How agents fit inside AssuredForge's governance: agents prepare and recommend, independent checks test, and only named people approve.">
+      <Title lead={AI.productLead}>Agent-prepared delivery</Title>
       <p className="mt-4"><Status kind="validated" />{/* CL-46: Being validated */}</p>
 
       <Section title="The rule that does not change">
         {/* CL-04: current, enforced. */}
-        <p>Only people approve. Automation and AI may recommend and prepare; they never approve, accept risk or authorize a release.</p>
+        <p>Only people approve. Automation and agents may recommend and prepare; they never approve, accept risk or authorize a release.</p>
       </Section>
 
       {AI.available ? (
@@ -31,7 +31,7 @@ export default function AiDelivery() {
       ) : (
         <Section title="Being validated">
           {/* CL-19, CL-46 (hold wording, DEC-439 O-4) */}
-          <p>AI-assisted planning and delivery is being validated for the desktop design-partner evaluation.</p>
+          <p>Agent-assisted planning and delivery is being validated for the desktop design-partner evaluation.</p>
         </Section>
       )}
 
@@ -45,7 +45,7 @@ export default function AiDelivery() {
         </Section>
       ) : (
         <Section title="The rules that will apply">
-          <p>The <Link href="/trust/ai-use-policy/">AI use policy</Link> (interim) states the rules for when AI assistance becomes available.</p>
+          <p>The <Link href="/trust/ai-use-policy/">AI use policy</Link> (interim) states the rules for when agent assistance becomes available.</p>
         </Section>
       )}
     </Layout>

@@ -33,7 +33,7 @@ const TILES = [
   { title: "Govern", Icon: GateIcon, href: "/product/governance/", status: "Available today", text: "The approvals the governance requires, signed by named people whose roles are granted for the whole Tenant (your organization's account), a Workspace or a Portfolio, and release governance enforced by the platform, not by convention." }, // CL-04, CL-05, CL-13; no "Gates" on the site (assessor, sweep item 1)
   { title: "Trace", Icon: ThreadIcon, href: "/product/traceability/", status: "Available today", text: "One connected record from requirement to Release, approval, push and recorded deployment, and back." }, // CL-03
   { title: "Prove", Icon: ShieldCheckIcon, href: "/product/audit/", status: "Available today", text: "Every governed action in a tamper-evident audit chain (a record whose entries cannot be updated or deleted by any role) that you can verify and export." }, // CL-06, CL-07
-  { title: "Deliver with AI", Icon: CheckIcon, href: "/product/ai-assisted-delivery/", status: AI.deliverStatus, text: AI.deliverTile }, // CL-19, CL-40R, CL-49 (on) / DEC-439 O-4 (hold)
+  { title: "Build", Icon: CheckIcon, href: "/product/ai-assisted-delivery/", status: AI.deliverStatus, text: AI.deliverTile }, // CL-19, CL-40R, CL-49 (on) / DEC-439 O-4 (hold)
 ];
 
 export default function Home() {
@@ -75,7 +75,7 @@ export default function Home() {
       <Section title="Who approved what, and why?">
         {/* CL-03, CL-05, CL-06. The AI sentence follows the WS-01 switch. */}
         <p className="max-w-[70ch]">
-          {AI.available ? "AI makes that harder. " : ""}AssuredForge makes it provable: every requirement, approval, release and deployment is
+          {AI.available ? "Agent-built work makes that harder. " : ""}AssuredForge makes it provable: every requirement, approval, release and deployment is
           traceable and attributable to a named person, whether you are on your own or in a team.
         </p>
       </Section>
@@ -141,7 +141,7 @@ export default function Home() {
       </section>
 
       <Section title="Questions">
-        <p>Answers on the desktop edition, AI, data and the design partner program are on the <Link href="/faq/">FAQ</Link>.</p>
+        <p>Answers on the desktop edition, agents and models, data and the design partner program are on the <Link href="/faq/">FAQ</Link>.</p>
       </Section>
     </Layout>
   );

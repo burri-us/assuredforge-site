@@ -7,11 +7,11 @@ import { POSITION } from "../components/Positioning";
 // DRAFT COPY. Native details/summary: no script. Each answer names its claim source in a comment.
 const QA: { q: string; a: ReactNode }[] = [
   {
-    q: "Does AI approve releases?",
-    a: <>No. Only named people approve; automation and AI never approve, accept risk or authorize a release.{/* CL-04 */}</>,
+    q: "Do agents approve releases?",
+    a: <>No. Only named people approve; automation and agents never approve, accept risk or authorize a release.{/* CL-04 */}</>,
   },
   {
-    q: "Is AI part of AssuredForge today?",
+    q: "Are agents part of AssuredForge today?",
     a: <>{AI.homeBlock}{/* CL-19, CL-40R, CL-46 (on) / hold wording DEC-439 O-4 */}</>,
   },
   {
@@ -55,7 +55,7 @@ const QA: { q: string; a: ReactNode }[] = [
 
 export default function Faq() {
   return (
-    <Layout title="FAQ | AssuredForge" description="Answers about AI, data, the desktop edition, cost and the design partner program.">
+    <Layout title="FAQ | AssuredForge" description="Answers about agents and models, data, the desktop edition, cost and the design partner program.">
       <Title>Frequently asked questions</Title>
       <div className="mt-8 divide-y divide-rule border-y border-rule">
         {QA.map(({ q, a }) => (

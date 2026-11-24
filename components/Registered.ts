@@ -42,8 +42,8 @@ export type WorksWithItem = { name: string; status: Extract<StatusKind, "support
 export type WorksWithGroup = { id: string; title: string; aiOnly?: boolean; intro: string | null; items: WorksWithItem[] | null; asOf: string | null; limits?: string[] };
 
 export const WORKS_WITH_PAGE: { description: string | null; lead: string | null; badges: string | null } = {
-  description: "Not tied to one technology or one AI provider.", // CL-WW-00
-  lead: "Not tied to one technology or one AI provider.", // CL-WW-00
+  description: "Not tied to one technology or one model provider.", // CL-WW-00
+  lead: "Not tied to one technology or one model provider.", // CL-WW-00
   // Badge definitions (DEC-470 (5)).
   badges: "Supported: a recorded live run on the current kit's code line. Being validated: built and tested, no live run on the current kit. Planned: not built.",
 };
@@ -72,7 +72,7 @@ export const WORKS_WITH: WorksWithGroup[] = [
     limits: ["Runs on Windows 11 with Docker Desktop.", "A Mac version of the desktop edition is planned."], // CL-54, CL-56
   },
   { // CL-WW-02; CL-48: Works with is a technical page, provider names only for sources with live evidence (today Anthropic)
-    id: "model-sources", title: "AI model sources", aiOnly: true,
+    id: "model-sources", title: "Model sources", aiOnly: true,
     intro: "Chosen in Setup, with no default.", // CL-WW-02 wording; "choose the model source" is barred (DEC-430 (6), switch check)
     items: [
       ANTHROPIC_SUPPORTED_SINCE

@@ -28,7 +28,7 @@ export default function Platform() {
         {/* CL-16, CL-17, CL-18 verbatim (assessor, sweep item 8: one connector status from CL-17) */}
         <p>AssuredForge is fully usable without third-party connectors (integrations to outside systems such as Jira or Azure DevOps) and without an assistant. Optional connectors for Jira, Confluence, Bitbucket and Azure DevOps exist. Connecting a partner&apos;s systems is set up together, by agreement, during the program. GitHub and GitLab are planned; PTC Windchill is planned with design partners. A connector write into an external tool needs a signed human decision.</p>
       </Section>
-      <Section title={AI.available ? "AI-assisted delivery" : "AI assistance"}>
+      <Section title="Agents prepare, people decide">
         {/* WS-01 switch: components/AiWording.tsx. CL-19, CL-40R, CL-46 (on) / hold wording DEC-439 O-4. CL-46 state: Being validated. */}
         <p><Status kind="validated" /></p>
         <p>{AI.productLead}</p>

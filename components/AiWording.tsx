@@ -21,28 +21,28 @@ export const AI = ON
   ? {
       // ---- NEW WORDING (needs the owner's decision) ----
       tag: "Design-partner evaluation",
-      heroTitle: "Governed software delivery, with AI that never approves.",
+      heroTitle: "Governed software delivery, where agents prepare and people decide.",
       heroLead:
-        "AssuredForge runs AI-assisted delivery under your rules: every requirement traced, the approvals the governance requires given by named people, and every action in an audit chain you can prove.",
+        "AssuredForge runs agent-assisted delivery under your rules: every requirement traced, the approvals the governance requires given by named people, and every action in an audit chain you can prove.",
       homeBlock:
-        "AI-assisted planning and delivery runs under human governance: people set the governance, give the approvals it requires and handle every exception, and AI never approves, accepts risk or authorizes a release. This is being validated.", // CL-40R, CL-46 (OI-474 WS-3, DEC-559)
+        "Agent-assisted planning and delivery runs under human governance: people set the governance, give the approvals it requires and handle every exception, and agents never approve, accept risk or authorize a release. This is being validated.", // CL-40R, CL-46 (OI-474 WS-3, DEC-559)
       deliverTile:
-        "AI-assisted planning and delivery runs on your own PC with your own model key. Every run has a run budget and a monthly limit, with defaults you change in Setup. Model execution stays off until an administrator turns it on.", // CL-19, CL-49
+        "Agent-assisted planning and delivery runs on your own PC with your own model key. Every run has a run budget and a monthly limit, with defaults you change in Setup. Model execution stays off until an administrator turns it on.", // CL-19, CL-49
       deliverStatus: "Being validated", // CL-46 (one label for AI everywhere)
       productLead:
-        "AI-assisted planning and delivery runs under human governance: people set the governance, give the approvals it requires and handle every exception, and AI never approves, accepts risk or authorizes a release.", // CL-40R
-      proof4: "Use your own AI model key", // CL-47 (Being validated)
+        "Agent-assisted planning and delivery runs under human governance: people set the governance, give the approvals it requires and handle every exception, and agents never approve, accept risk or authorize a release.", // CL-40R
+      proof4: "Use your own model key", // CL-47 (Being validated)
       dataModel: "Your data, your model key",
       dataModelSentence: "You use your own model key. Every run has a run budget and a monthly limit, with defaults you change in Setup. ", // CL-47, CL-49
       // CL-48: technical pages, FAQ and quick start only.
       modelPath: "The evaluation kit works with your own Anthropic API key. Other model sources appear in Setup only once they are supported for your installed version.",
       // WR-04: how it works, in plain words.
       how: [
-        { t: "AI builds", d: "AI-assisted planning and delivery prepares the work for a Feature, under human governance." }, // CL-40R
-        { t: "Independent tests check", d: "Each AI-built delivery is checked by an independent test suite written from the requirements, which stays fixed across reworks." }, // CL-50
+        { t: "Agents build", d: "Agent-assisted planning and delivery prepares the work for a Feature, under human governance." }, // CL-40R
+        { t: "Independent tests check", d: "Each agent-built delivery is checked by an independent test suite written from the requirements, which stays fixed across reworks." }, // CL-50
       ],
-      flow: ["Requirement", "AI builds", "Independent tests", "Your approval", "Release and proof"],
-      flowAlt: "Five steps in order: a requirement is recorded, AI builds the work, independent tests check it, you approve it, and it is released with the proof recorded.",
+      flow: ["Requirement", "Agents build", "Independent tests", "Your approval", "Release and proof"],
+      flowAlt: "Five steps in order: a requirement is recorded, agents build the work, independent tests check it, you approve it, and it is released with the proof recorded.",
       demoShot: "Model key, run budget and monthly limit (Setup)",
       installStep: "Create your Tenant, then enter your own model key in Setup. Model execution stays off until an administrator turns it on.",
       securityFlow:
@@ -51,8 +51,8 @@ export const AI = ON
       faqCost: "Model usage is billed to you by your own provider; Tierra does not resell, bill or mark up model usage.", // CL-55
       ownKeyBilling: "You use your own model key; your provider bills you for its usage.", // CL-52 (DEC-439)
       productPoints: [
-        "AI-assisted planning and delivery runs on your own PC with your own model source and credentials.", // CL-19
-        "Each AI-built delivery is checked by an independent test suite written from the requirements, which stays fixed across reworks.", // CL-50
+        "Agent-assisted planning and delivery runs on your own PC with your own model source and credentials.", // CL-19
+        "Each agent-built delivery is checked by an independent test suite written from the requirements, which stays fixed across reworks.", // CL-50
         "You use your own model key.", // CL-47
         "Every run has a run budget and a monthly limit, with defaults you change in Setup. Model execution stays off until an administrator turns it on in Setup as a signed, recorded decision.", // CL-49, CL-19
         "A named person gives the approvals the governance requires before anything is released.", // CL-40R
@@ -66,11 +66,11 @@ export const AI = ON
       heroLead:
         "AssuredForge governs software delivery under your rules: every requirement traced, every release approved and signed by a named person, every action in a tamper-evident audit chain.",
       homeBlock:
-        "AI-assisted planning and delivery is being validated for the desktop design-partner evaluation. It may recommend and prepare, and it never approves, accepts risk or authorizes a release.", // CL-40R, CL-46 (Being validated)
-      deliverTile: "AI-assisted planning and delivery is being validated for the desktop design-partner evaluation. It may recommend and prepare; people decide.", // CL-46
+        "Agent-assisted planning and delivery is being validated for the desktop design-partner evaluation. It may recommend and prepare, and it never approves, accepts risk or authorizes a release.", // CL-40R, CL-46 (Being validated)
+      deliverTile: "Agent-assisted planning and delivery is being validated for the desktop design-partner evaluation. It may recommend and prepare; people decide.", // CL-46
       deliverStatus: "Being validated",
       productLead:
-        "AI-assisted planning and delivery is being validated for the desktop design-partner evaluation. It may recommend and prepare, and it never approves, accepts risk or authorizes a release.", // CL-40R, CL-46
+        "Agent-assisted planning and delivery is being validated for the desktop design-partner evaluation. It may recommend and prepare, and it never approves, accepts risk or authorizes a release.", // CL-40R, CL-46
       proof4: "Works on its own, without third-party connectors", // CL-16
       dataModel: "Your data",
       dataModelSentence: "",

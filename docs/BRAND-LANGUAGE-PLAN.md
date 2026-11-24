@@ -3,13 +3,18 @@
 Author: Burri (Site Brand window). 2026-11-24. Plan only (DEC-575); no page changed, nothing built or pushed. Branch
 `brand-language-plan` from `dec577-copy-round` 6a88584 (local). Live site changes only after a preview and the owner's review (DEC-637).
 
+**Source (corrected 2026-11-24):** the owner's brand-language direction given in this window on 2026-11-24. DEC-637 (Kit Notices,
+held) records part of it: the positioning, the tagline, the one-liner, the four rules and the one-language rule. The vocabulary,
+personality, visual feel, the Tierra line and themes, and the pillars with their states come from the same owner direction and are not
+yet in a DEC.
+
 Checked against: `design/BRAND-DIRECTION.md` (architecture main, blob 290bbc2), Tierra Design System README §3 "Voice and language",
 DEC-577 (AI wording rule), DEC-592 (copy round, in tomorrow's release), the claims register (architecture main 41cbc9d1, 2026-11-24
 18:28), DEC-608 (tierra-llc.com content refresh) and the released copy on `dec577-copy-round`.
 
 ## 1. Check results: each adopted element
 
-| # | Element (DEC-637) | Result | Record it meets or conflicts with | Recommendation |
+| # | Element (owner direction) | Result | Record it meets or conflicts with | Recommendation |
 |---|---|---|---|---|
 | 1 | Positioning / hero B: "From Goals to Execution" / "Turn business objectives into governed, evidence-backed outcomes." | **Pass with two fixes** | DEC-577: no "AI" in headlines (pass). Design system §3: sentence case for headings. Brand note: "do not widen AF's product scope through marketing words" | Headline "From goals to execution" (sentence case). Lead needs a register row; "evidence-backed" rests on CL-03, CL-06; "business objectives" is wider than software delivery, so the next line names it: "Starting with software delivery." |
 | 2 | AF tagline "Build. Govern. Operate." | **Conflict** | Brand note, words to avoid: "Operate, run agents in production: AF prepares; a person deploys. AF does not run customers' production systems." CL-08 records deployments; it does not operate them | Owner choice: (a) "Build. Govern. Prove." (all three true today: CL-08, CL-04/05, CL-06; recommended); (b) keep "Operate" and amend the brand note, with a register row defining "operate" as operating the delivery process, never the customer's production |
@@ -27,7 +32,7 @@ DEC-577 (AI wording rule), DEC-592 (copy round, in tomorrow's release), the clai
 
 ## 2. Pillars and their true-now status (draft rows for the claims register)
 
-| Pillar (DEC-637) | Owner's status | Register today | Proposed row state | On the site |
+| Pillar (owner direction) | Owner's status | Register today | Proposed row state | On the site |
 |---|---|---|---|---|
 | Workforce Governance and Observability (name per decision 6) | True now | Governance: **Current** (CL-03, CL-04, CL-05, CL-06, CL-08). Seeing agent work (run console, agent action records): **Being validated** (CL-40R, CL-46, until the W8 model-path rehearsal is recorded) | Split: governance Current; observability of agent runs Being validated | Governance as fact; observability marked "being validated" until W8 is recorded. "Observability" means AF's own runs, never production (brand note) |
 | Model Independence | True for supported sources | CL-WW-00 Decided (not tied to one provider); **no source is Supported yet**: Anthropic API and enterprise gateway Being validated (CL-48, CL-WW-02) | Being validated; no "all clouds" claim | "Being validated" until a source is Supported; then fact for that source only |

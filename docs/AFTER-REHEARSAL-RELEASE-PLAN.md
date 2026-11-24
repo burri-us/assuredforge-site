@@ -48,8 +48,8 @@ after one local fast-forward (step A2, B2).
 ### C. Portal (`af-sb-577-names`)
 - C1. F-2 (Help guide) is fixed on the branch (f6ecc2f6).
 - C2. b3's overlap check against rc-next. Files to compare: `packages/web/lib/messages/en.ts` (70 lines; high-traffic file),
-  `test/fix9.test.mjs`, `test/insights.test.mjs`, `test/proposals.test.mjs`, `test/runsummary.test.mjs`, and `help/how-to.md`, `help/faq.md`, `help/getting-started.md`, `help/implementation.md` (F-2)
-  . No migration and no cross-Tenant change, so no DB test slot is needed (DEC-555).
+  `test/fix9.test.mjs`, `test/insights.test.mjs`, `test/proposals.test.mjs`, `test/runsummary.test.mjs`, and `help/how-to.md`, `help/faq.md`, `help/getting-started.md`, `help/implementation.md` (F-2).
+  No migration and no cross-Tenant change, so no DB test slot is needed (DEC-555).
 - C3. b3 runs the merge checks (DEC-419: tools suite and throwaway image builds; Docker is b3's). This window does no Docker.
 - C4. Final owner approval of the diff; b3 integrates.
 

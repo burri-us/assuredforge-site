@@ -75,7 +75,7 @@ export default function Home() {
       <Section title="Who approved what, and why?">
         {/* CL-03, CL-05, CL-06. The AI sentence follows the WS-01 switch. */}
         <p className="max-w-[70ch]">
-          {AI.available ? "Agent-built work makes that harder. " : ""}AssuredForge makes it provable: every requirement, approval, release and deployment is
+          AssuredForge makes it provable: every requirement, approval, release and deployment is
           traceable and attributable to a named person, whether you are on your own or in a team.
         </p>
       </Section>

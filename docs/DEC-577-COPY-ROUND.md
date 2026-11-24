@@ -54,7 +54,17 @@
 
 Tests changed with them: `test/insights.test.mjs` (tab name, two assertions) and `test/runsummary.test.mjs` (section name).
 
-## 4. Unsure: for the owner
+## 4a. Owner decisions (2026-11-23)
+
+1. Keep "AI" where it discloses that AI is used: the AI use policy page and its links, and the Security, subprocessors, privacy and acceptable-use pages. Also keep the Help FAQ "Which AI source do I need?" (model setup). Usage and cost figures may drop "AI" only where the meaning stays clear. The 39 Portal lines are drafted separately for review: `docs/DEC-577-PORTAL-BODY.md`.
+2. CL-04 reads "Automation, including agents, may recommend ..." (product page; FAQ: "automation, including agents, never approves, accepts risk or authorizes a release.").
+3. "Agent-built work makes that harder." is dropped.
+4. Kit Notices rewords CL-04, CL-19, CL-40R, CL-46, CL-50 and the hold wording.
+5. P-7 and P-8 get their own plan later. The Portal branch waits for b3's overlap check after rc-next. The budget remedy now says "(Run, Agent actions)" to match P-4 (3fc7bce9).
+
+Nothing is pushed until the owner approves the final diff.
+
+## 4. Unsure: for the owner (answered in 4a)
 
 1. **Scope.** "Everywhere except the admin AI-model setup screens" is wider than DEC-577, the brand note and DEC-579. Those keep "AI" in privacy, subprocessors and legal texts, on usage and cost pages, and in the Help answer header. I left these unchanged. Which way?
    - assuredforge.com: the AI use policy page (name, headings "Where AI may be used", "What AI never does", "AI never approves." bullets, review duties); its footer link and Trust Center entry; the Security line naming it; the Subprocessors page; both privacy notices; Acceptable use.

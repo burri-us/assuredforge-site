@@ -12,7 +12,7 @@ export default function AiDelivery() {
 
       <Section title="The rule that does not change">
         {/* CL-04: current, enforced. */}
-        <p>Only people approve. Automation and agents may recommend and prepare; they never approve, accept risk or authorize a release.</p>
+        <p>Only people approve. Automation, including agents, may recommend and prepare; they never approve, accept risk or authorize a release.</p>
       </Section>
 
       {AI.available ? (

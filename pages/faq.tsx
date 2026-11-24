@@ -8,7 +8,7 @@ import { POSITION } from "../components/Positioning";
 const QA: { q: string; a: ReactNode }[] = [
   {
     q: "Do agents approve releases?",
-    a: <>No. Only named people approve; automation and agents never approve, accept risk or authorize a release.{/* CL-04 */}</>,
+    a: <>No. Only named people approve; automation, including agents, never approves, accepts risk or authorizes a release.{/* CL-04 */}</>,
   },
   {
     q: "Are agents part of AssuredForge today?",

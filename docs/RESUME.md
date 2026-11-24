@@ -2,6 +2,8 @@
 
 Author: Burri. Written 2026-11-21, when this window was archived. It is the starting point; STATUS.md stays the running record.
 
+**Latest (2026-11-23, night):** the after-rehearsal release plan is `docs/AFTER-REHEARSAL-RELEASE-PLAN.md` on `dec577-copy-round` (local). Release heads: site 5a42fd0 (+F-1), tierra `dec577-copy-round` 6f8008f, Portal `af-sb-577-names` 8698b76f (b3 overlap check first). Draft pages: `dec577-pages-draft` b68dd68. Nothing pushed; nothing runs before "the rehearsal has ended".
+
 ## 1. Where things are
 
 | Item | State |

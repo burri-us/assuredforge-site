@@ -7,9 +7,9 @@ ended". This plan extends `docs/RELEASE-PACKAGE.md` (the steps there stay in for
 
 | Surface | Release head (local) | Built on | Changes added by DEC-577 |
 |---|---|---|---|
-| assuredforge.com | `dec577-copy-round` 5a42fd0 (+ fix F-1 below) | `w11-site-redesign` 020dae4 (2 commits on top) | 7 page and component files: no "AI" in headlines, names and navigation; disclosure pages unchanged (DEC-577, DEC-592) |
+| assuredforge.com | `dec577-copy-round` (5a42fd0 plus the F-1 fix and this plan) | `w11-site-redesign` 020dae4 (2 commits on top) | 7 page and component files: no "AI" in headlines, names and navigation; disclosure pages unchanged (DEC-577, DEC-592) |
 | tierra-llc.com | `dec577-copy-round` 6f8008f | `ds-6920` 763dbfd (1 commit on top) | `about/index.html`: "with software they can trust" (3 places) |
-| Portal | `af-sb-577-names` 8698b76f | origin/af-next ebf68af8 (3 commits on top) | `packages/web/lib/messages/en.ts` (70 lines) and 4 test files |
+| Portal | `af-sb-577-names` f6ecc2f6 (8698b76f plus F-2) | origin/af-next ebf68af8 (3 commits on top) | `packages/web/lib/messages/en.ts` (70 lines) and 4 test files |
 
 Both site copy branches are fast-forwards of the branches the release package already names, so the package's steps run unchanged
 after one local fast-forward (step A2, B2).
@@ -55,11 +55,11 @@ after one local fast-forward (step A2, B2).
 
 | Head | Check | Result | Log |
 |---|---|---|---|
-| site 5a42fd0 | `SITE_PUBLISH=1 npm run build` (G-2) | rc 0; 34 pages, no marker | `scratchpad/relplan/site.log` |
+| site 5a42fd0 | `SITE_PUBLISH=1 npm run build` (G-2) | rc 0; 34 pages, no marker | site log (kept outside the repository) |
 | site 5a42fd0 | `npm run check:switch` (G-6) | rc 0; 34 pages each, off and on | same |
 | site 5a42fd0 | `npm audit --audit-level=high` | rc 0; 0 vulnerabilities | same |
 | site 5a42fd0 | `check-fonts` | rc 0; 0 problems | same |
-| tierra 6f8008f | `tools/check.py` and `--publish` (T-3) | rc 0 both; 5 pages, 0 problems | `scratchpad/relplan/tierra.log` |
+| tierra 6f8008f | `tools/check.py` and `--publish` (T-3) | rc 0 both; 5 pages, 0 problems | tierra log (kept outside the repository) |
 | Portal 8698b76f | `npm run build` (CSP, accessibility, plain language) and `npm test` | passed; 832 pass, 0 fail (earlier tonight) | in the branch commit record |
 
 Not run tonight: the release-day steps (merge of `origin/main`, indexing, `pages.yml`), K-33 from a full clone, tierra T-4 scan.
@@ -78,6 +78,7 @@ Not run tonight: the release-day steps (merge of `origin/main`, indexing, `pages
 |---|---|---|---|
 | F-1 | `pages/platform.tsx:35` links to the renamed page with the old text "AI-assisted delivery"; the footer already says "Agent-prepared delivery" | Fix Now; one line | Link text "Agent-prepared delivery"; G-2 and G-6 again |
 | F-2 | Portal Help guide `packages/web/help/how-to.md` still names the old panels: "Generate with AI" (720, 821, 1079), "Deliver with the AI pipeline" (864, 1079), "AI use and cost" (1222, 1230), "AI actions" (936), "AI action records" (945), "AI model" (928) and the old hold wording (784, 891, 1053). After the rename the Help points to names that no longer exist (DEC-273, docs track migration) | Fix Now; about 12 lines, same branch | Own plan first (DEC-575); keep the Help answer header and model-setup lines |
+Status 2026-11-23 (night, owner approved): F-1 fixed on `dec577-copy-round` (this commit); release build, AI switch check and fonts pass. F-2 fixed on `af-sb-577-names` f6ecc2f6 (Help: how-to, faq, getting-started, implementation; 24 lines); Portal build checks pass and `npm test` 832 pass, 0 fail. Kept: "AI services" (field name), the Health tile "AI model use" (name sent by the server), code comments.
 
 ## 7. ORPH-031 and the site rows in "later" (BACKLOG-DECISIONS.csv, records-consolidation f814565)
 

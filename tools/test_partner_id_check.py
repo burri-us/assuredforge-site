@@ -52,6 +52,64 @@ class PartnerIdCheck(unittest.TestCase):
     def test_case_insensitive(self):
         self.assertEqual(len(pc.line_hits(self.pattern(WORD.upper()), DIFF)), 1)
 
+    def change(self, *body, path="docs/t.md"):
+        return "\n".join([pc.COMMIT + "a" * 40, "diff --git a/%s b/%s" % (path, path), "--- a/" + path, "+++ b/" + path,
+                          "@@ -5 +5 @@"] + list(body))
+
+    def test_rewritten_line_keeping_the_identifier_is_not_a_hit(self):
+        p = self.pattern(WORD)
+        d = self.change("-| R-1 | about Zorblax | Ready |", "+| R-1 | about Zorblax | Deferred (later) |")
+        self.assertEqual(pc.net_new_hits(p, d), [])
+
+    def test_a_second_occurrence_is_a_hit(self):
+        p = self.pattern(WORD)
+        d = self.change("-| R-1 | about Zorblax | Ready |", "+| R-1 | about Zorblax and ZORBLAX | Ready |")
+        self.assertEqual(pc.net_new_hits(p, d), [("docs/t.md", 5)])
+
+    def test_new_line_is_a_hit_and_removal_in_another_file_does_not_offset(self):
+        p = self.pattern(WORD)
+        d = "\n".join([self.change("+new note on zorblax"),
+                       "diff --git a/docs/u.md b/docs/u.md", "--- a/docs/u.md", "+++ b/docs/u.md", "@@ -1 +0,0 @@",
+                       "-old zorblax line"])
+        self.assertEqual(pc.net_new_hits(p, d), [("docs/t.md", 5)])
+
+    def test_removal_in_an_earlier_commit_does_not_offset(self):
+        p = self.pattern(WORD)
+        first = self.change("-old zorblax line")
+        second = self.change("+back again: zorblax").replace(pc.COMMIT + "a" * 40, pc.COMMIT + "b" * 40)
+        self.assertEqual(pc.net_new_hits(p, first + "\n" + second), [("docs/t.md", 5)])
+
+    def test_removed_content_line_starting_with_dashes_is_counted(self):
+        p = self.pattern(WORD)
+        d = self.change("--- zorblax rule", "+-- zorblax rule (kept)")
+        self.assertEqual(pc.net_new_hits(p, d), [])
+
+    def test_range_counts_only_net_new_in_a_temporary_repo(self):
+        repo = os.path.join(self.tmp.name, "repo2")
+        os.mkdir(repo)
+
+        def g(*a):
+            subprocess.run(["git", "-C", repo, "-c", "user.name=t", "-c", "user.email=t@example.com", *a],
+                           check=True, capture_output=True)
+        g("init", "-q")
+        with open(os.path.join(repo, "r.md"), "w", encoding="utf-8") as f:
+            f.write("| R-1 | about " + WORD + " | Ready |\n")
+        g("add", "r.md")
+        g("commit", "-q", "-m", "base")
+        with open(os.path.join(repo, "r.md"), "w", encoding="utf-8") as f:
+            f.write("| R-1 | about " + WORD + " | Deferred |\n")
+        g("commit", "-q", "-am", "state change")
+        lst = listfile(self.tmp.name, WORD + "\n")
+        old_root, pc.ROOT = pc.ROOT, repo
+        try:
+            out = io.StringIO()
+            with contextlib.redirect_stdout(out):
+                code = pc.main(["x", "range", "HEAD~1..HEAD", "--list", lst])
+        finally:
+            pc.ROOT = old_root
+        self.assertEqual(code, 0, out.getvalue())
+        self.assertIn("passed", out.getvalue())
+
     def test_case_insensitive_both_ways(self):
         self.assertEqual(len(pc.line_hits(self.pattern("zORBlax"), DIFF.replace("Zorblax", "ZORBLAX"))), 1)
         self.assertEqual(len(pc.message_hits(self.pattern("ZORBLAX"), [("c" * 40, "about zorblax")])), 1)

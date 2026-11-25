@@ -19,11 +19,11 @@ const OG_ON = claimOr("CL-74", true, false, WORDING) === true && claimOr("CL-76"
 
 export const BRAND = {
   ogImage: OG_ON ? "/og-brand.png" : "/og.png",
-  ogAlt: OG_ON ? "AssuredForge: From goals to execution. Build. Govern. Prove." : "AssuredForge: Build anywhere. Deploy anywhere. Govern everywhere.",
+  ogAlt: OG_ON ? "AssuredForge: From goals to execution. Build. Govern. Deliver." : "AssuredForge: Build anywhere. Deploy anywhere. Govern everywhere.",
   heroTitle: String(claimOr("CL-74", "From goals to execution", AI.heroTitle, WORDING)),
   heroLead: claimOr<string | null>("CL-75", "Turn business objectives into governed, evidence-backed outcomes, starting with software delivery.", null, WORDING),
   oneLiner: String(claimOr("CL-77", "AssuredForge turns business goals into governed, evidence-backed execution, starting with software delivery.", TODAY_DESCRIPTION, WORDING)),
-  tagline: claimOr<string | null>("CL-76", "Build. Govern. Prove.", null, WORDING),
+  tagline: claimOr<string | null>("CL-76", "Build. Govern. Deliver.", null, WORDING),
   heroHeld: heldNote(["CL-74", "CL-75", "CL-77"], WORDING),
   taglineHeld: heldNote(["CL-76"], WORDING),
 };
@@ -44,7 +44,7 @@ export const PILLAR_GROUPS: { step: string; pillars: Pillar[] }[] = [
     { name: "Governance", text: "Named people make every governed decision, and every governed decision is recorded and verifiable.", label: "today", row: "CL-79" },
     { name: "Cost governance", text: AI.available ? "Every run has a run budget and a monthly limit." : null, label: "validated", row: "CL-83" },
   ] },
-  { step: "Prove", pillars: [
+  { step: "Record", pillars: [
     { name: "Observability", text: AI.available ? "See what agents did on every run: the run console and agent action records." : null, label: "validated", row: "CL-81" },
   ] },
 ];

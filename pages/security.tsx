@@ -7,7 +7,7 @@ export default function Security() {
   const { basePath } = useRouter();   // a plain file, not a page, so next/link doesn't apply
   return (
     <Layout title="Security | AssuredForge" description="How AssuredForge approaches security, and how to report a vulnerability.">
-      <Title lead="AssuredForge is built for individuals, teams and organizations that must prove how their software was delivered, and we hold ourselves to the same standard.">
+      <Title lead="AssuredForge is built for individuals, teams and organizations that must show how their software was delivered, and we hold ourselves to the same standard.">
         Security
       </Title>
       <Section title="In the platform">

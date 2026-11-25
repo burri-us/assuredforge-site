@@ -208,8 +208,13 @@ const STYLE_RULES = [
   ["en dash used as punctuation", /\s–\s/],
   ["arrow", /[←-↓⇐-⇔➔⟵-⟶]/],
   ["middle dot separator", /\s·\s/],
+  // DEC-677: outcome words only where they describe what AssuredForge records or shows, never as a promise about the customer's
+  // product or audit result. Whole words only ("approve", "improve" are not matches). OUTCOME_ALLOWED lists the reviewed uses.
+  ["outcome word (DEC-677)", /\b(prove[ns]?|proving|proof\w*|provabl\w*|guarantee\w*|ensur(?:e|es|ed|ing)|compliant|compliance-ready|audit-ready|certified|full traceability)\b/i],
   ["British spelling", /\b(licen[cs]e?s?d?|licence\w*|organis\w*|personalis\w*|behaviour\w*|colour\w*|favour\w*|recognis\w*|analys(?:e|ed|es|ing)|cancell(?:ed|ing)|labell(?:ed|ing)|modell(?:ed|ing)|travell(?:ed|ing)|centre[sd]?|catalogue[sd]?|programme[sd]?|whilst|amongst|defence|judgement|enrolment|fulfil|fulfilment)\b/i],
 ];
+// Reviewed uses of an outcome word: a statement of what does not exist, not a promise (FAQ, claims register must-not row).
+const OUTCOME_ALLOWED = ["Is it certified? No certification"];
 const HELD_LICENCE = new Set(["legal/evaluation-licence/index.html", "legal/acceptable-use/index.html", "legal/design-partner-agreement/index.html"].map((p) => join(...p.split("/"))));
 const styleText = (html) => {
   const body = html.replace(/<script\b[\s\S]*?<\/script>/gi, "").replace(/<style\b[\s\S]*?<\/style>/gi, "").replace(/<!--[\s\S]*?-->/g, "")
@@ -222,6 +227,7 @@ function styleProblems(text, page) {
   for (const [name, re] of STYLE_RULES) {
     for (const m of text.matchAll(new RegExp(re.source, re.flags.includes("g") ? re.flags : re.flags + "g"))) {
       const word = m[0].toLowerCase();
+      if (name === "outcome word (DEC-677)" && OUTCOME_ALLOWED.some((a) => text.slice(Math.max(0, m.index - 80), m.index + 80).includes(a))) continue;
       if (name === "British spelling") {
         if (/^licen[cs]e?s?d?$/.test(word) && !word.includes("licence")) continue;   // license, licensed, licenses: US
         if (word.startsWith("licence") && (HELD_LICENCE.has(page) || /Evaluation licence/.test(text.slice(Math.max(0, m.index - 11), m.index + 7)))) continue;
@@ -235,10 +241,12 @@ for (const file of files(dir).filter((f) => f.endsWith(".html"))) {
   for (const p of styleProblems(styleText(readFileSync(file, "utf8")), relative(dir, file))) report.push(`${relative(dir, file)}: style (DEC-674): ${p}`);
 }
 // Negative test: planted style problems must be caught; plain US text, a range with an en dash, and code must not.
-for (const t of ["Tierra — tools", "a – b", "Next → step", "A · B", "our organisation", "the licence", "behaviour", "colours"]) {
+for (const t of ["Tierra — tools", "a – b", "Next → step", "A · B", "our organisation", "the licence", "behaviour", "colours",
+  "makes it provable", "Build. Govern. Prove.", "audit-ready traceability", "we guarantee", "ensures compliance", "compliant releases", "full traceability"]) {
   if (!styleProblems(t, "x").length) report.push(`style check: planted "${t}" was not caught`);
 }
-for (const t of ["our organization", "the license is licensed", "pages 9–12", "Evaluation licence", styleText("<p>run <code>licence.py</code></p>")]) {
+for (const t of ["our organization", "the license is licensed", "pages 9–12", "Evaluation licence", "only people approve", "improve it",
+  "Is it certified? No certification (such as SOC 2)", styleText("<p>run <code>licence.py</code></p>")]) {
   if (styleProblems(t, "x").length) report.push(`style check: "${t}" was caught`);
 }
 

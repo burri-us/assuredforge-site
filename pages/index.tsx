@@ -15,7 +15,7 @@ import { CheckIcon, GateIcon, ShieldCheckIcon, ThreadIcon } from "../components/
 // Proof strip: facts only, no logos, counts or certifications.
 const PROOF = [
   "Release approvals signed by named people", // CL-05
-  "Tamper-evident audit chain you can verify and export", // CL-06, CL-07 (explained in the Prove tile)
+  "Tamper-evident audit chain you can verify and export", // CL-06, CL-07 (explained in the Evidence tile)
   "Desktop edition runs on your own PC", // CL-53 (Being validated)
   AI.proof4, // WR-01: behind the AI switch. On: CL-47. Off: CL-16 (the off wording is DEC-439 O-4).
 ];
@@ -26,7 +26,7 @@ const STEPS = [
   { ...AI.how[1], shot: "A Release with its Deliveries and test results" }, // CL-36 (isolated integration)
   { t: "You approve", d: "A named person with the required role approves, and the approval is signed and recorded.", shot: "The approval record with a signature" }, // CL-05
   {
-    t: "You can prove it",
+    t: "You can show it",
     d: "The push and the deployment are recorded against the approved Release (a deployable package of one or more Features), and your records can be exported and verified offline.",
     shot: "The Release record and the evidence export",
   }, // CL-07, CL-11
@@ -36,7 +36,7 @@ const STEPS = [
 const TILES = [
   { title: "Govern", Icon: GateIcon, href: "/product/governance/", status: "Available today", text: "The approvals the governance requires, signed by named people whose roles are granted for the whole Tenant (your organization's account), a Workspace or a Portfolio, and release governance enforced by the platform, not by convention." }, // CL-04, CL-05, CL-13; no "Gates" on the site (assessor, sweep item 1)
   { title: "Trace", Icon: ThreadIcon, href: "/product/traceability/", status: "Available today", text: "One connected record from requirement to Release, approval, push and recorded deployment, and back." }, // CL-03
-  { title: "Prove", Icon: ShieldCheckIcon, href: "/product/audit/", status: "Available today", text: "Every governed action in a tamper-evident audit chain (a record whose entries cannot be updated or deleted by any role) that you can verify and export." }, // CL-06, CL-07
+  { title: "Evidence", Icon: ShieldCheckIcon, href: "/product/audit/", status: "Available today", text: "Every governed action in a tamper-evident audit chain (a record whose entries cannot be updated or deleted by any role) that you can verify and export." }, // CL-06, CL-07
   { title: "Build", Icon: CheckIcon, href: "/product/ai-assisted-delivery/", status: AI.deliverStatus, text: AI.deliverTile }, // CL-19, CL-40R, CL-49 (on) / DEC-439 O-4 (hold)
 ];
 
@@ -79,7 +79,7 @@ export default function Home() {
       </ul>
 
       {PILLARS_ON ? (
-      <Section title="Plan, build, decide, prove">
+      <Section title="Plan, build, decide, record">
         {/* Six pillars (DEC-637; plan §7 (5), (6)): governance as fact; the others with their claims-register state. */}
         {PILLARS_HELD ? <p className="text-sm text-muted">{PILLARS_HELD}</p> : null}
         {AI.available ? (
@@ -144,7 +144,7 @@ export default function Home() {
       <Section title="Who approved what, and why?">
         {/* CL-03, CL-05, CL-06. The AI sentence follows the WS-01 switch. */}
         <p className="max-w-[70ch]">
-          AssuredForge makes it provable: every requirement, approval, release and deployment is
+          AssuredForge records it: every requirement, approval, release and deployment is
           traceable and attributable to a named person, whether you are on your own or in a team.
         </p>
       </Section>

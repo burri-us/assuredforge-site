@@ -24,7 +24,7 @@ export const AI = ON
       tag: "Design-partner evaluation",
       heroTitle: "Governed software delivery, where agents prepare and people decide.",
       heroLead:
-        "AssuredForge runs agent-assisted delivery under your rules: every requirement traced, the approvals the governance requires given by named people, and every action in an audit chain you can prove.",
+        "AssuredForge runs agent-assisted delivery under your rules: every requirement traced, the approvals the governance requires given by named people, and every action in an audit chain you can verify.",
       homeBlock:
         "Agent-assisted planning and delivery runs under human governance: people set the governance, give the approvals it requires and handle every exception, and agents never approve, accept risk or authorize a release. This is being validated.", // CL-40R, CL-46 (OI-474 WS-3, DEC-559)
       deliverTile:
@@ -42,8 +42,8 @@ export const AI = ON
         { t: NAMES.buildStep, d: "Agent-assisted planning and delivery prepares the work for a Feature, under human governance." }, // CL-40R
         { t: "Independent tests check", d: "Each agent-built delivery is checked by an independent test suite written from the requirements, which stays fixed across reworks." }, // CL-50
       ],
-      flow: ["Requirement", NAMES.buildStep, "Independent tests", "Your approval", "Release and proof"],
-      flowAlt: "Five steps in order: a requirement is recorded, agents build the work, independent tests check it, you approve it, and it is released with the proof recorded.",
+      flow: ["Requirement", NAMES.buildStep, "Independent tests", "Your approval", "Release and record"],
+      flowAlt: "Five steps in order: a requirement is recorded, agents build the work, independent tests check it, you approve it, and it is released with the evidence recorded.",
       demoShot: "Model key, run budget and monthly limit (Setup)",
       installStep: "Create your Tenant, then enter your own model key in Setup. Model execution stays off until an administrator turns it on.",
       securityFlow:
@@ -80,8 +80,8 @@ export const AI = ON
         { t: "Work is delivered", d: "Work is delivered against a Feature (an individual functional unit that is built, tested and delivered), with each Delivery (the commits that implement it) recorded." }, // CL-03; explanations: glossary (Feature), site text (platform)
         { t: "Independent checks run", d: "Tests run on the combined changes in an isolated suite runner (a disposable place used only for that test run), apart from whoever wrote the change." }, // CL-36; explanations: glossary (Suite Runner), site text (governance)
       ],
-      flow: ["Requirement", "Work delivered", "Independent checks", "Your approval", "Release and proof"],
-      flowAlt: "Five steps in order: a requirement is recorded, the work is delivered, independent checks run on the combined changes, you approve it, and it is released with the proof recorded.",
+      flow: ["Requirement", "Work delivered", "Independent checks", "Your approval", "Release and record"],
+      flowAlt: "Five steps in order: a requirement is recorded, the work is delivered, independent checks run on the combined changes, you approve it, and it is released with the evidence recorded.",
       demoShot: null as string | null,
       installStep: "Create your Tenant (your organization's account) and sign in.",
       securityFlow: "",

@@ -18,8 +18,8 @@ export type IndustryEntry = {
 
 // shared: the line for organizations, shown after the lead and under each industry (draft CL-IND-00).
 export const INDUSTRIES_PAGE: { description: string | null; lead: string | null; shared: string | null } = {
-  description: "Software delivery governance and audit-ready traceability for individuals and small teams on the desktop edition, and for organizations on the hosted edition (planned).", // CL-02
-  lead: "Software delivery governance and audit-ready traceability for individuals and small teams on the desktop edition, and for organizations on the hosted edition (planned).", // CL-02
+  description: "Software delivery governance and traceability you can export and verify, for individuals and small teams on the desktop edition, and for organizations on the hosted edition (planned).", // CL-02
+  lead: "Software delivery governance and traceability you can export and verify, for individuals and small teams on the desktop edition, and for organizations on the hosted edition (planned).", // CL-02
   shared: "Organizations: the hosted edition is planned. Join the waitlist. Today's evaluation is the desktop edition, for individuals and small teams.", // CL-IND-00
 };
 

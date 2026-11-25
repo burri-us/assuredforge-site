@@ -161,3 +161,18 @@ still refuses through the Draft markers.
 **Seen in the screenshots, for the review:** (a) Home also has the older four tiles "Govern / Trace / Prove / Build" further down, so
 it now shows two pillar sets; one of them could go, or the tiles could become the step headings. (b) With the switch off, the one
 Governance card sits alone in a four-column row at 1440 px, leaving the rest of the row empty.
+
+## 10. Layout changes before the 08:30 review (owner, 2026-11-24)
+
+1. **One set of pillars.** The older Home tiles "Govern / Trace / Prove / Build" are removed. Their sentences are not needed on Home by
+   the claims register: CL-03's home wording (DEC-235) stays in "Who approved what, and why?", CL-06 and CL-07 stay in the proof strip,
+   CL-04 in "People decide", the hold wording (CL-40R, CL-46) in "People decide"; CL-05 and CL-13 stay on Governance and approvals. Their
+   "Read more" links move into the pillar section as one line: Governance and approvals · Traceability · Audit and evidence · Governed
+   execution. `AI.deliverTile` is no longer shown on Home.
+2. **No lone card.** With the AI switch off, the Governance card and the two state lines (Being validated; Planned) sit side by side
+   from desktop width and stack on phones. With the switch on, the six cards by step stay.
+
+**Checks:** preview build passed (34 pages); AI switch check passed both ways; fonts 0 problems; accessibility (axe, WCAG 2.2 AA) on
+Home, Platform and Governed execution at 1440 and 390 px, light and dark, plus 320 px overflow: 15 runs, 0 problems with the switch off
+and 15 runs, 0 problems with it on. Screenshots refreshed for both switch values (not committed). The release build still refuses
+through the Draft markers.

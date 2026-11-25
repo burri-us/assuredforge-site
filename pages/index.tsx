@@ -5,7 +5,7 @@ import { FlowDiagram } from "../components/FlowDiagram";
 import { POSITION } from "../components/Positioning";
 import { BRAND, PILLAR_GROUPS } from "../components/Brand";
 import { primary, secondary, Status, VideoSlot } from "../components/Blocks";
-import { CheckIcon, GateIcon, ShieldCheckIcon, ThreadIcon } from "../components/Icons";
+import { CheckIcon } from "../components/Icons";
 
 // DRAFT COPY (W11, DEC-433). Every claim carries the claims-register (0.3) entry it rests on, or CLAIM-UNVERIFIED.
 // AI wording comes from components/AiWording.tsx (WS-01 switch; held by default).
@@ -28,13 +28,6 @@ const STEPS = [
     d: "The push and the deployment are recorded against the approved Release (a deployable package of one or more Features), and your records can be exported and verified offline.",
     shot: "The Release record and the evidence export",
   }, // CL-07, CL-11
-];
-
-const TILES = [
-  { title: "Govern", Icon: GateIcon, href: "/product/governance/", status: "Available today", text: "The approvals the governance requires, signed by named people whose roles are granted for the whole Tenant (your organization's account), a Workspace or a Portfolio, and release governance enforced by the platform, not by convention." }, // CL-04, CL-05, CL-13; no "Gates" on the site (assessor, sweep item 1)
-  { title: "Trace", Icon: ThreadIcon, href: "/product/traceability/", status: "Available today", text: "One connected record from requirement to Release, approval, push and recorded deployment, and back." }, // CL-03
-  { title: "Prove", Icon: ShieldCheckIcon, href: "/product/audit/", status: "Available today", text: "Every governed action in a tamper-evident audit chain (a record whose entries cannot be updated or deleted by any role) that you can verify and export." }, // CL-06, CL-07
-  { title: "Build", Icon: CheckIcon, href: "/product/ai-assisted-delivery/", status: AI.deliverStatus, text: AI.deliverTile }, // CL-19, CL-40R, CL-49 (on) / DEC-439 O-4 (hold)
 ];
 
 export default function Home() {
@@ -102,29 +95,38 @@ export default function Home() {
           <>
             {/* AI switch off: only "Available today" pillars as full cards (owner, pre-review tweak 1); the others in one compact line
                 with their state labels, so no card appears without a sentence (WR-01 hides CL-81, CL-83, CL-84 while the switch is off). */}
-            <ul className="grid gap-8 stack:grid-cols-2 lg:grid-cols-4">
-              {PILLAR_GROUPS.flatMap((g) => g.pillars.filter((p) => p.state === "today").map((p) => (
-                <li key={p.name}>
-                  <p className="text-label uppercase tracking-wide text-muted">{g.step}</p>
-                  <p className="mt-1 font-semibold text-ink">{p.name}</p>
-                  <p className="mt-1"><Status kind={p.state} /></p>
-                  <p className="mt-2 text-body-sm">{p.text}</p>
-                </li>
-              )))}
-            </ul>
-            <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-body-sm">
-              {(["validated", "planned"] as const).map((s) => {
-                const names = PILLAR_GROUPS.flatMap((g) => g.pillars).filter((p) => p.state === s).map((p) => p.name);
-                return names.length ? (
-                  <li key={s} className="flex flex-wrap items-center gap-2">
-                    <Status kind={s} />
-                    <span>{names.join(", ")}</span>
+            {/* Layout (owner, pre-review change 2): the Governance card and the state lines side by side from desktop width (lg),
+                stacked on phones, so the row never shows a lone card. */}
+            <div className="grid items-start gap-8 lg:grid-cols-2">
+              <ul>
+                {PILLAR_GROUPS.flatMap((g) => g.pillars.filter((p) => p.state === "today").map((p) => (
+                  <li key={p.name} className="card border-t-[3px] border-t-gold">
+                    <p className="text-label uppercase tracking-wide text-muted">{g.step}</p>
+                    <p className="mt-1 font-semibold text-ink">{p.name}</p>
+                    <p className="mt-1"><Status kind={p.state} /></p>
+                    <p className="mt-2 text-body-sm">{p.text}</p>
                   </li>
-                ) : null;
-              })}
-            </ul>
+                )))}
+              </ul>
+              <ul className="space-y-4 text-body-sm">
+                {(["validated", "planned"] as const).map((s) => {
+                  const names = PILLAR_GROUPS.flatMap((g) => g.pillars).filter((p) => p.state === s).map((p) => p.name);
+                  return names.length ? (
+                    <li key={s}>
+                      <Status kind={s} />
+                      <p className="mt-2">{names.join(", ")}</p>
+                    </li>
+                  ) : null;
+                })}
+              </ul>
+            </div>
           </>
         )}
+        {/* The "Read more" links of the former Govern / Trace / Prove / Build tiles (owner, pre-review change 1: one set of pillars). */}
+        <p className="mt-8 text-body-sm">
+          Read more: <Link href="/product/governance/">Governance and approvals</Link> · <Link href="/product/traceability/">Traceability</Link> ·{" "}
+          <Link href="/product/audit/">Audit and evidence</Link> · <Link href="/product/ai-assisted-delivery/">Governed execution</Link>
+        </p>
       </Section>
 
       <Section title="Who approved what, and why?">
@@ -147,18 +149,6 @@ export default function Home() {
           ))}
         </ol>
       </Section>
-
-      <div className="mt-12 grid gap-6 stack:grid-cols-2 lg:grid-cols-4">
-        {TILES.map(({ title, Icon, text, href, status }) => (
-          <div key={title} className="card border-t-[3px] border-t-gold">
-            <Icon className="h-8 w-8 text-accent" />
-            <h2 className="mt-4 text-heading-3 text-ink">{title}</h2>
-            <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-ink">{status}</p>
-            <p className="mt-2 text-muted">{text}</p>
-            <p className="mt-3"><Link href={href}>Read more<span className="sr-only"> about {title}</span></Link></p>
-          </div>
-        ))}
-      </div>
 
       <Section title="People decide">
         {/* CL-04, CL-16 */}

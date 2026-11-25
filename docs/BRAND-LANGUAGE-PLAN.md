@@ -128,7 +128,7 @@ preview round. Rows CL-74 to CL-85, all Draft until this preview round passes th
 | Home, new section "Plan, build, decide, prove" | Plan: Goal alignment (Being validated). Build: Skills and expertise (Planned), Model independence (Being validated). Decide: Governance (Available today), Cost governance (Being validated). Prove: Observability (Being validated) | CL-79 to CL-84 |
 | Every page footer | "Build. Govern. Prove." under the wordmark | CL-76 |
 | Footer, Platform link and section title, product page title | "Agent-prepared delivery" → "Governed execution"; "Agents prepare, people decide" → "Governed execution, human approval" | CL-85 |
-| How it works step title (AI switch on) | "Agents build" → "Capabilities build" | CL-85 |
+| How it works step title (AI switch on) | "Agents build" → "Governed build" (pre-review tweak 2) | CL-85 |
 | Unchanged | Claim sentences with "agents", FAQ, hold wording, disclosure pages; tierra-llc.com (CL-78 goes with the content refresh, DEC-608) | |
 
 WR-01: the Observability, Cost governance and Model independence sentences (CL-81, CL-83, CL-84) state AI facts, so they show only with
@@ -144,3 +144,20 @@ screenshots (light and dark, 1440 and 390 px) were taken for the review and are 
 **For the owner at the preview review:** the pillar-to-step mapping (Goal alignment to Plan; Skills and Model independence to Build;
 Governance to Decide, with its "recorded and verifiable" half also proving; Cost governance to Decide; Observability to Prove); the
 three switch-dependent pillars showing no sentence while the AI switch is off; then the rows move from Draft and the markers come out.
+
+## 9. Pre-review tweaks (owner, 2026-11-24)
+
+1. "Plan, build, decide, prove": with the AI switch off, only "Available today" pillars are full cards (today: Governance, CL-79). The
+   other five are one compact line beneath, by state label: "Being validated: Goal alignment, Model independence, Cost governance,
+   Observability" and "Planned: Skills and expertise". No card appears without a sentence. With the switch on, the six cards show by
+   step as before.
+2. The step title "Capabilities build" is now "Governed build" (switch on only; short enough for the flow drawing; vocabulary from CL-85).
+
+**Checks after the tweaks:** preview build passed (34 pages); AI switch check passed both ways; fonts 0 problems; accessibility (axe,
+WCAG 2.2 AA) on Home, Platform and Governed execution at 1440 and 390 px, light and dark, plus 320 px overflow: 15 runs, 0 problems
+with the switch off and 15 runs, 0 problems with it on. Screenshots refreshed for both switch values (not committed). The release build
+still refuses through the Draft markers.
+
+**Seen in the screenshots, for the review:** (a) Home also has the older four tiles "Govern / Trace / Prove / Build" further down, so
+it now shows two pillar sets; one of them could go, or the tiles could become the step headings. (b) With the switch off, the one
+Governance card sits alone in a four-column row at 1440 px, leaving the rest of the row empty.

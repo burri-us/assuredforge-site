@@ -78,6 +78,7 @@ export default function Home() {
       <Section title="Plan, build, decide, prove">
         {/* Six pillars (DEC-637; plan §7 (5), (6)): governance as fact; the others with their claims-register state. */}
         <p className="text-sm text-muted">{BRAND.pillarsPending}</p>
+        {AI.available ? (
         <div className="grid gap-8 stack:grid-cols-2 lg:grid-cols-4">
           {PILLAR_GROUPS.map((g) => (
             <div key={g.step}>
@@ -97,6 +98,33 @@ export default function Home() {
             </div>
           ))}
         </div>
+        ) : (
+          <>
+            {/* AI switch off: only "Available today" pillars as full cards (owner, pre-review tweak 1); the others in one compact line
+                with their state labels, so no card appears without a sentence (WR-01 hides CL-81, CL-83, CL-84 while the switch is off). */}
+            <ul className="grid gap-8 stack:grid-cols-2 lg:grid-cols-4">
+              {PILLAR_GROUPS.flatMap((g) => g.pillars.filter((p) => p.state === "today").map((p) => (
+                <li key={p.name}>
+                  <p className="text-label uppercase tracking-wide text-muted">{g.step}</p>
+                  <p className="mt-1 font-semibold text-ink">{p.name}</p>
+                  <p className="mt-1"><Status kind={p.state} /></p>
+                  <p className="mt-2 text-body-sm">{p.text}</p>
+                </li>
+              )))}
+            </ul>
+            <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-body-sm">
+              {(["validated", "planned"] as const).map((s) => {
+                const names = PILLAR_GROUPS.flatMap((g) => g.pillars).filter((p) => p.state === s).map((p) => p.name);
+                return names.length ? (
+                  <li key={s} className="flex flex-wrap items-center gap-2">
+                    <Status kind={s} />
+                    <span>{names.join(", ")}</span>
+                  </li>
+                ) : null;
+              })}
+            </ul>
+          </>
+        )}
       </Section>
 
       <Section title="Who approved what, and why?">

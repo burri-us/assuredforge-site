@@ -1,0 +1,56 @@
+# Reviewed vendor or model names, one entry per exact file and term (OI-717 S-2 to S-4; first list approved by the owner,
+# DEC-695 (1)). Format: <entry id> | <exact path> | <exact term> | <basis> | <decision reference> | <reviewed on> | <re-review by>
+# Bases: E-REG E-CFG E-VAL E-MET E-SUP E-LEG E-CLM (DEC-695 (2)). Kit Notices may add a per-file entry within an approved class
+# and reports it in the Kit-decided digest (S-8). Re-reviewed at each site release; a passed re-review date fails the check.
+
+# Site checks that name a vendor to require or forbid it
+VN-S03 | scripts/check-switch.mjs | Anthropic | E-CFG | CL-48: the switch check requires the verified model path | 2026-11-25 | 2026-12-04
+VN-S04 | scripts/check-switch.mjs | ChatGPT | E-CFG | claims must-not row: the switch check forbids it | 2026-11-25 | 2026-12-04
+VN-S05 | scripts/check-switch.mjs | OpenAI | E-CFG | claims must-not row: the switch check forbids it | 2026-11-25 | 2026-12-04
+VN-S06a | scripts/check.mjs | claude | E-CFG | site vocabulary check (AD-010 principle 4) | 2026-11-25 | 2026-12-04
+VN-S06b | scripts/check.mjs | anthropic | E-CFG | site vocabulary check (AD-010 principle 4) | 2026-11-25 | 2026-12-04
+VN-S06c | scripts/check.mjs | openai | E-CFG | site vocabulary check (AD-010 principle 4) | 2026-11-25 | 2026-12-04
+VN-S06d | scripts/check.mjs | chatgpt | E-CFG | site vocabulary check (AD-010 principle 4) | 2026-11-25 | 2026-12-04
+VN-S06e | scripts/check.mjs | gemini | E-CFG | site vocabulary check (AD-010 principle 4) | 2026-11-25 | 2026-12-04
+VN-S06f | scripts/check.mjs | copilot | E-CFG | site vocabulary check (AD-010 principle 4) | 2026-11-25 | 2026-12-04
+VN-S06g | scripts/check.mjs | llama | E-CFG | site vocabulary check (AD-010 principle 4) | 2026-11-25 | 2026-12-04
+VN-S06h | scripts/check.mjs | mistral | E-CFG | site vocabulary check (AD-010 principle 4) | 2026-11-25 | 2026-12-04
+VN-S06i | scripts/check.mjs | sonnet | E-CFG | site vocabulary check (AD-010 principle 4) | 2026-11-25 | 2026-12-04
+VN-S06j | scripts/check.mjs | opus | E-CFG | site vocabulary check (AD-010 principle 4) | 2026-11-25 | 2026-12-04
+VN-S06k | scripts/check.mjs | bedrock | E-CFG | site vocabulary check (AD-010 principle 4) | 2026-11-25 | 2026-12-04
+
+# The check's own files (DEC-693 (4))
+VN-S10-01 | tools/vendor_name_check.py | anthropic | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S10-02 | tools/vendor_name_check.py | bedrock | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S10-03 | tools/vendor_name_check.py | chatgpt | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S10-04 | tools/vendor_name_check.py | claude | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S10-05 | tools/vendor_name_check.py | codex | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S10-06 | tools/vendor_name_check.py | copilot | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S10-07 | tools/vendor_name_check.py | gemini | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S10-08 | tools/vendor_name_check.py | llama | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S10-09 | tools/vendor_name_check.py | mistral | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S10-10 | tools/vendor_name_check.py | openai | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S10-11 | tools/vendor_name_check.py | opus | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S10-12 | tools/vendor_name_check.py | sonnet | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+
+# The check's own files (DEC-693 (4))
+VN-S11-01 | tools/test_vendor_name_check.py | anthropic | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S11-02 | tools/test_vendor_name_check.py | claude | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S11-03 | tools/test_vendor_name_check.py | gpt-4.1 | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S11-04 | tools/test_vendor_name_check.py | openai | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S11-05 | tools/test_vendor_name_check.py | opus | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+
+# The check's own files (DEC-693 (4))
+VN-S12-01 | tools/vendor_name_exceptions.txt | anthropic | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S12-02 | tools/vendor_name_exceptions.txt | bedrock | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S12-03 | tools/vendor_name_exceptions.txt | chatgpt | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S12-04 | tools/vendor_name_exceptions.txt | claude | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S12-05 | tools/vendor_name_exceptions.txt | codex | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S12-06 | tools/vendor_name_exceptions.txt | copilot | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S12-07 | tools/vendor_name_exceptions.txt | gemini | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S12-08 | tools/vendor_name_exceptions.txt | gpt-4.1 | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S12-09 | tools/vendor_name_exceptions.txt | llama | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S12-10 | tools/vendor_name_exceptions.txt | mistral | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S12-11 | tools/vendor_name_exceptions.txt | openai | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S12-12 | tools/vendor_name_exceptions.txt | opus | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04
+VN-S12-13 | tools/vendor_name_exceptions.txt | sonnet | E-CFG | DEC-693 (4): the vendor-name check, its self-test and this list | 2026-11-25 | 2026-12-04

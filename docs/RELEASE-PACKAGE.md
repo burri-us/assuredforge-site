@@ -10,7 +10,7 @@ except read-only checks.
 
 **What changes for visitors**
 - **New pages:**
-  - Product: AI-assisted delivery, Governance and approvals, Traceability, Audit and evidence, Integrations.
+  - Product: Agent-prepared delivery (address /product/ai-assisted-delivery/), Governance and approvals, Traceability, Audit and evidence, Integrations.
   - Individuals and small teams; Industries (8 industries, CL-IND-00..08); Works with (toolchains and connectors with Supported
     / Being validated / Planned badges, CL-WW-00..03).
   - Demo, Resources, FAQ, Contact.
@@ -27,6 +27,7 @@ except read-only checks.
   - General-purpose positioning: no industry editions and no compliance claims.
   - Plain-language explanations at first use (glossary section H, DEC-469).
   - Claims from claims register 0.4 (DEC-470).
+- No "AI" in headlines, page names or navigation (DEC-577, copy round DEC-592): agents prepare, people decide. Disclosure pages    (AI use policy, privacy, subprocessors, acceptable use) keep naming AI. Claims as reworded under DEC-592 (CL-04, CL-19, CL-40R,    CL-46, CL-50, the hold wording).
 - **AI:** while the AI switch is off (today), AI is described as being validated, and the model-source group on Works with is
   hidden (WR-01). See §4 for the change after Monday's rehearsal.
 - **Menu and header:**

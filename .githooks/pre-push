@@ -1,0 +1,18 @@
+#!/bin/sh
+# Refuses a push containing any commit whose author or committer email is not the GitHub noreply address
+# (tools/author_email_check.py; owner, 2026-11-22) or that adds a partner identifier (tools/partner_id_check.py).
+# Both checks run; the hook fails if either fails. A missing partner-identifier list fails the push (owner, 2026-11-24);
+# its path comes only from the environment variable AF_PARTNER_ID_LIST, set outside the repository.
+# Enabled with the commit-msg hook: git config core.hooksPath .githooks
+root=$(git rev-parse --show-toplevel)
+refs=$(cat)
+for py in python python3; do
+  if "$py" -c "import sys; sys.exit(0 if sys.version_info >= (3, 8) else 1)" 2>/dev/null; then
+    status=0
+    printf '%s\n' "$refs" | "$py" "$root/tools/author_email_check.py" hook || status=1
+    printf '%s\n' "$refs" | "$py" "$root/tools/partner_id_check.py" hook || status=1
+    exit $status
+  fi
+done
+echo "pre-push hook: no Python 3 found; run tools/author_email_check.py and tools/partner_id_check.py range <range> by hand" >&2
+exit 1

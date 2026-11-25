@@ -200,8 +200,9 @@ for (const planted of ["COUNSEL-LIST.md", "HANDOFF.md", "LANE-HANDOFF.md", "DIFF
 // DEC-674 (owner): public text is US English, plain and human-written. In visible text, the title, the meta description and alt
 // text: no em dash, no spaced en dash used as punctuation, no arrows or middle dots as separators, and no British spellings.
 // Text inside <code> and <pre> (a command or file name quoted exactly) is exempt. HELD_LICENCE: "licence" on the three legal texts
-// that must match the signed design-partner agreement, and the footer link to one of them, held for counsel (owner, 2026-11-22)
-// until the owner decides how DEC-674 applies to them.
+// that must match the signed design-partner agreement, and the footer link to one of them (owner, DEC-675: kept until counsel
+// revises the signed agreement to US spelling; remove these exemptions, and change the page address and its redirect, in the same
+// change that adopts the revised agreement).
 const STYLE_RULES = [
   ["em dash", /—/],
   ["en dash used as punctuation", /\s–\s/],

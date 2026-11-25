@@ -33,8 +33,10 @@ export function parseRegister(md) {
   return rows;
 }
 
-// Rows the site's source uses: <Claim row="CL-xx" ...> and claimText("CL-xx", ...).
-export const ROW_USE = /(?:\brow=|\bclaimText\()\s*["'](CL-[A-Z0-9-]+)["']/g;
+// Rows the site's source uses: every row id written as an exact quoted string ("CL-xx"), as in <Claim row="CL-xx">,
+// claimText("CL-xx", ...), claimOr("CL-xx", ...), heldNote(["CL-xx", ...]) and { row: "CL-xx" }. Comments and marker texts name
+// rows without quotes or inside longer strings, so they do not count.
+export const ROW_USE = /["'](CL-[A-Z0-9-]+)["']/g;
 
 // Self-tests, run by scripts/check-claims.mjs: each case is [cell, expected state or null].
 export const MAP_CASES = [

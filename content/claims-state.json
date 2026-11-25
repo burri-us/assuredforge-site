@@ -1,4 +1,28 @@
 {
   "register": "abc12c873f0114d15f5c19f446a9a06095085f3e",
-  "rows": {}
+  "rows": {
+    "CL-60": "Decided",
+    "CL-74": "Draft",
+    "CL-75": "Draft",
+    "CL-76": "Draft",
+    "CL-77": "Draft",
+    "CL-79": "Draft",
+    "CL-80": "Draft",
+    "CL-81": "Draft",
+    "CL-82": "Draft",
+    "CL-83": "Draft",
+    "CL-84": "Draft",
+    "CL-85": "Draft",
+    "CL-IND-01": "Decided",
+    "CL-IND-02": "Decided",
+    "CL-IND-03": "Decided",
+    "CL-IND-04": "Decided",
+    "CL-IND-05": "Decided",
+    "CL-IND-06": "Decided",
+    "CL-IND-07": "Decided",
+    "CL-IND-08": "Decided",
+    "CL-WW-01": "Decided",
+    "CL-WW-02": "Decided",
+    "CL-WW-03": "Decided"
+  }
 }

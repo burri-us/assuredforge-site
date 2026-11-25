@@ -32,8 +32,8 @@ for (const [cell, want] of MAP_CASES) {
 const sample = '| CL-01 | "A" | Approved wording | src |\n| CL-79 | B | Current (x); **Draft (y)** | src |\n| CL-IND-00 | C | Decided | src |';
 const parsed = parseRegister(sample);
 if (parsed["CL-79"] !== "Current (x); **Draft (y)**" || parsed["CL-IND-00"] !== "Decided" || Object.keys(parsed).length !== 3) problems.push("register parse self-test failed");
-const useSample = '<Claim row="CL-82" when={["Current"]}> claimText("CL-WW-02", "x") row={x}';
-if ([...useSample.matchAll(ROW_USE)].map((m) => m[1]).join(",") !== "CL-82,CL-WW-02") problems.push("row-use self-test failed");
+const useSample = '<Claim row="CL-82" when={["Current"]}> claimText("CL-WW-02", "x") heldNote(["CL-74", "CL-75"]) pending("CL-76 (Draft)") // CL-77';
+if ([...useSample.matchAll(ROW_USE)].map((m) => m[1]).join(",") !== "CL-82,CL-WW-02,CL-74,CL-75") problems.push("row-use self-test failed");
 
 if (problems.length) {
   console.error(`Claims check failed:\n  ${problems.join("\n  ")}`);

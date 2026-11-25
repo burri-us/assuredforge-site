@@ -29,6 +29,22 @@ export function Claim({ row, when = ["Current"], children }: { row: string; when
   );
 }
 
+// A value that replaces today's live one once its row allows it: the new value when allowed or in a review preview (the preview
+// shows the page as it would be; heldNote() carries the marker), today's value otherwise. A row missing from the snapshot gives a
+// CLAIM- marker, so a publish build fails until the snapshot is refreshed.
+export function claimOr<T>(row: string, value: T, fallback: T, when: ClaimState[] = ["Current"]): T | string {
+  const state = ROWS[row];
+  if (!state) return pending(`${row} not in content/claims-state.json`);
+  return when.includes(state) || CLAIMS_PREVIEW ? value : fallback;
+}
+
+// The marker line for a review preview: the rows on this part of the page that are still held, or null.
+export function heldNote(rows: string[], when: ClaimState[] = ["Current"]): string | null {
+  if (!CLAIMS_PREVIEW) return null;
+  const held = [...new Set(rows)].filter((r) => !ROWS[r] || !when.includes(ROWS[r]));
+  return held.length ? `[Held: ${held.map((r) => `${r}, ${ROWS[r] ?? "not in snapshot"}`).join("; ")}]` : null;
+}
+
 // The same rule for a string (metadata, alt text): the text, a preview marker, or null.
 export function claimText(row: string, text: string, when: ClaimState[] = ["Current"]): string | null {
   const state = ROWS[row];

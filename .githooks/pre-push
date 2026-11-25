@@ -1,9 +1,11 @@
 #!/bin/sh
 # Refuses a push containing any commit whose author or committer email is not the GitHub noreply address
-# (tools/author_email_check.py; owner, 2026-11-22) or that adds a partner identifier (tools/partner_id_check.py).
-# Both checks run; the hook fails if either fails. A missing partner-identifier list fails the push (owner, 2026-11-24);
-# its path comes only from the environment variable AF_PARTNER_ID_LIST, set outside the repository.
-# Enabled with the commit-msg hook: git config core.hooksPath .githooks
+# (tools/author_email_check.py; owner, 2026-11-22), that adds a partner identifier (tools/partner_id_check.py), or that adds a
+# vendor or model name outside a reviewed exception (tools/vendor_name_check.py; OI-717 S-1 to S-8, DEC-693 (4), DEC-695).
+# All three checks run; the hook fails if any fails. A missing partner-identifier list fails the push (owner, 2026-11-24);
+# its path comes only from the environment variable AF_PARTNER_ID_LIST, set outside the repository. A missing or malformed
+# vendor-name exception list (tools/vendor_name_exceptions.txt) also fails the push.
+# Enabled with: git config core.hooksPath .githooks
 root=$(git rev-parse --show-toplevel)
 refs=$(cat)
 for py in python python3; do
@@ -11,8 +13,9 @@ for py in python python3; do
     status=0
     printf '%s\n' "$refs" | "$py" "$root/tools/author_email_check.py" hook || status=1
     printf '%s\n' "$refs" | "$py" "$root/tools/partner_id_check.py" hook || status=1
+    printf '%s\n' "$refs" | "$py" "$root/tools/vendor_name_check.py" hook || status=1
     exit $status
   fi
 done
-echo "pre-push hook: no Python 3 found; run tools/author_email_check.py and tools/partner_id_check.py range <range> by hand" >&2
+echo "pre-push hook: no Python 3 found; run tools/author_email_check.py, tools/partner_id_check.py and tools/vendor_name_check.py range <range> by hand" >&2
 exit 1

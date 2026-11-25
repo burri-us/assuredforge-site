@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Layout, Section, Title } from "../components/Layout";
 import { Status } from "../components/Blocks";
 import { AI } from "../components/AiWording";
+import { NAMES } from "../components/BrandNames";
 
 // Current State only (DEC-262): what the released platform does today. Anything not released is marked "planned".
 export default function Platform() {
@@ -28,11 +29,11 @@ export default function Platform() {
         {/* CL-16, CL-17, CL-18 verbatim (assessor, sweep item 8: one connector status from CL-17) */}
         <p>AssuredForge is fully usable without third-party connectors (integrations to outside systems such as Jira or Azure DevOps) and without an assistant. Optional connectors for Jira, Confluence, Bitbucket and Azure DevOps exist. Connecting a partner&apos;s systems is set up together, by agreement, during the program. GitHub and GitLab are planned; PTC Windchill is planned with design partners. A connector write into an external tool needs a signed human decision.</p>
       </Section>
-      <Section title="Agents prepare, people decide">
+      <Section title={NAMES.platformSection}>
         {/* WS-01 switch: components/AiWording.tsx. CL-19, CL-40R, CL-46 (on) / hold wording DEC-439 O-4. CL-46 state: Being validated. */}
         <p><Status kind="validated" /></p>
         <p>{AI.productLead}</p>
-        <p>Deeper pages: <Link href="/product/governance/">Governance and approvals</Link>, <Link href="/product/traceability/">Traceability</Link>, <Link href="/product/audit/">Audit and evidence</Link>, <Link href="/product/integrations/">Integrations</Link>, <Link href="/works-with/">Works with</Link>, <Link href="/product/ai-assisted-delivery/">Agent-prepared delivery</Link>.</p>
+        <p>Deeper pages: <Link href="/product/governance/">Governance and approvals</Link>, <Link href="/product/traceability/">Traceability</Link>, <Link href="/product/audit/">Audit and evidence</Link>, <Link href="/product/integrations/">Integrations</Link>, <Link href="/works-with/">Works with</Link>, <Link href="/product/ai-assisted-delivery/">{NAMES.deliveryPage}</Link>.</p>
       </Section>
     </Layout>
   );

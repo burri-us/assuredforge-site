@@ -30,7 +30,7 @@ export default function Industries() {
           </section>
         ))}
       </div>
-      <p className="mt-10"><Link href="/works-with/">Works with</Link> · <Link href="/design-partners/">Design partners</Link></p>
+      <p className="mt-10">See also: <Link href="/works-with/">Works with</Link> and <Link href="/design-partners/">Design partners</Link>.</p>
     </Layout>
   );
 }

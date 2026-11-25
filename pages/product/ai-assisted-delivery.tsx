@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { Layout, Section, Title } from "../../components/Layout";
 import { AI } from "../../components/AiWording";
+import { NAMES } from "../../components/BrandNames";
 import { Bullets, ShotSlot, Status } from "../../components/Blocks";
 
 // DRAFT COPY. WS-01: the lead and the section below follow the switch in components/AiWording.tsx.
 export default function AiDelivery() {
   return (
-    <Layout title="Agent-prepared delivery | AssuredForge" description="How agents fit inside AssuredForge's governance: agents prepare and recommend, independent checks test, and only named people approve.">
-      <Title lead={AI.productLead}>Agent-prepared delivery</Title>
+    <Layout title={`${NAMES.deliveryPage} | AssuredForge`} description="How agents fit inside AssuredForge's governance: agents prepare and recommend, independent checks test, and only named people approve.">
+      <Title lead={AI.productLead}>{NAMES.deliveryPage}</Title>
       <p className="mt-4"><Status kind="validated" />{/* CL-46: Being validated */}</p>
 
       <Section title="The rule that does not change">

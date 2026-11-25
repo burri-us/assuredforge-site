@@ -17,7 +17,7 @@ export default function Privacy() {
         { h: "Cookies", body: <p>This website sets no cookies and uses no local storage, tracking pixels or third-party scripts. No consent banner is shown because nothing requires consent. If that changes, this notice will change first.</p> },
         { h: "Your rights and complaints", body: <p>Depending on where you live, you may have rights to access, correct, delete or object to our use of personal data we hold about you. Write to <a href="mailto:info@assuredforge.com">info@assuredforge.com</a>. We answer within one month, may first need to confirm who you are, and do not charge for a reasonable request. You may also complain to your local data protection authority.</p> },
         { h: "Changes", body: <p>We post changes on this page with a new effective date and, for a material change, tell design partners by email. We update this notice before adding any form or analytics.</p> },
-        { h: "Related", body: <p><Link href="/trust/product-privacy/">Product privacy notice</Link> · <Link href="/trust/subprocessors/">Subprocessors and model providers</Link></p> },
+        { h: "Related", body: <p><Link href="/trust/product-privacy/">Product privacy notice</Link>, <Link href="/trust/subprocessors/">Subprocessors and model providers</Link></p> },
       ]}
     />
   );

@@ -4,7 +4,7 @@ import { Bullets, ShotSlot, Status } from "../../components/Blocks";
 export default function Audit() {
   return (
     <Layout title="Audit and evidence | AssuredForge" description="A tamper-evident audit chain you can verify, and an export of your organization's records that is verified offline.">
-      <Title lead="Prove how your software was delivered, to an auditor, without reconstructing it.">Audit and evidence</Title>
+      <Title lead="Show how your software was delivered, to an auditor, without reconstructing it.">Audit and evidence</Title>
       <p className="mt-4"><Status kind="today" /></p>
       <Section title="What you can show">
         <Bullets items={[

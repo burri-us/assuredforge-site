@@ -144,7 +144,7 @@ export function LegalPage({
         </Section>
       ))}
       <p className="mt-10 text-sm text-muted">
-        Questions: <a href="mailto:info@assuredforge.com">info@assuredforge.com</a> · <Link href="/trust/">Trust Center</Link>
+        Questions: <a href="mailto:info@assuredforge.com">info@assuredforge.com</a>, or see the <Link href="/trust/">Trust Center</Link>.
       </p>
     </Layout>
   );

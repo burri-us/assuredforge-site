@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import type { ReactNode } from "react";
 import { LogoMark } from "./Logo";
 import site from "../site.json";
+import { BRAND } from "./Brand";
+import { NAMES } from "./BrandNames";
 
 const NAV = [
   { href: "/platform/", label: "Product", also: ["/product"] },
@@ -19,7 +21,7 @@ const NAV = [
 
 // Mega-footer: Product, Solutions, Resources, Trust, Company, Legal (website review Sec. 2 item 8).
 const FOOTER: { title: string; links: [string, string][] }[] = [
-  { title: "Product", links: [["Overview", "/platform/"], ["Agent-prepared delivery", "/product/ai-assisted-delivery/"], ["Governance and approvals", "/product/governance/"], ["Traceability", "/product/traceability/"], ["Audit and evidence", "/product/audit/"], ["Integrations", "/product/integrations/"], ["Works with", "/works-with/"]] },
+  { title: "Product", links: [["Overview", "/platform/"], [NAMES.deliveryPage, "/product/ai-assisted-delivery/"], ["Governance and approvals", "/product/governance/"], ["Traceability", "/product/traceability/"], ["Audit and evidence", "/product/audit/"], ["Integrations", "/product/integrations/"], ["Works with", "/works-with/"]] },
   { title: "Solutions", links: [["Individuals and small teams", "/solutions/individuals/"], ["Industries", "/industries/"], ["Editions and deployment", "/deployment/"]] },
   { title: "Resources", links: [["Resources hub", "/resources/"], ["Demo", "/demo/"], ["FAQ", "/faq/"], ["Design partners", "/design-partners/"]] },
   { title: "Trust", links: [["Trust Center", "/trust/"], ["Security", "/security/"], ["Website privacy", "/privacy/"], ["Product privacy notice", "/trust/product-privacy/"], ["AI use policy", "/trust/ai-use-policy/"], ["Subprocessors and model providers", "/trust/subprocessors/"], ["Responsible disclosure", "/trust/disclosure/"], ["Accessibility", "/trust/accessibility/"]] },
@@ -98,10 +100,10 @@ export function Layout({
         <meta property="og:site_name" content="AssuredForge" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={`${SITE}/og.png`} />
+        <meta property="og:image" content={`${SITE}${BRAND.ogImage}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="AssuredForge: Build anywhere. Deploy anywhere. Govern everywhere." />
+        <meta property="og:image:alt" content={BRAND.ogAlt} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:bg-surface focus:p-2">
@@ -189,7 +191,9 @@ export function Layout({
         <div className="mx-auto mt-8 grid max-w-6xl gap-6 border-t border-rule px-4 py-8 text-body-sm sm:px-8 text-muted stack:grid-cols-2">
           <div>
             <Wordmark className="text-heading-3" />
-            <p className="mt-1">© 2026 Tierra LLC · Michigan, USA</p>
+            {BRAND.tagline ? <p className="mt-1 font-semibold text-ink">{BRAND.tagline}</p> : null}
+            {BRAND.taglineHeld ? <p className="mt-1 text-sm">{BRAND.taglineHeld}</p> : null}
+            <p className="mt-1">© 2026 Tierra LLC, Michigan, USA</p>
             <p className="mt-1"><a href="https://tierra-llc.com/">A product of Tierra LLC</a></p>
           </div>
           <ul className="flex flex-wrap gap-x-5 gap-y-1 stack:justify-end">

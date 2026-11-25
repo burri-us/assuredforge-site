@@ -2,8 +2,36 @@
 
 Author: Burri. Written 2026-11-21, when this window was archived. It is the starting point; STATUS.md stays the running record.
 
+**Latest (2026-11-25, midday):** SB2 preview ready for the owner's one review: `docs/SB2-PREVIEW-REVIEW.md` on `sb2-claims-gate`
+(worktree `site-sb2`) and tierra-site `sb2-tierra` (worktree `tierra-sb2`); screenshots in `C:\Users\burri\AF-backups\site-brand-2026-11-25\sb2-preview\`.
+Claims gate on both sites (snapshot at architecture 3ea0b1b7; `npm run claims:sync` / `python tools/claims.py sync`); DEC-674 style
+check on both sites (four licence exemptions per DEC-675). SB1 complete as a preview on `sb1-account-preview` (worktree `site-sb1`);
+its internal sign-in test waits (browser sign-in only, outside closed windows, Kit's limits). Nothing pushed. A read-only blobless
+architecture clone for syncing is kept in a temporary working folder; re-clone if it is gone.
 
-**Latest (2026-11-24):** waiting for "the rehearsal has ended" (DAY-PLAN row 10). Owner decisions: copy round ships with the redesign in one deploy; both site rollbacks pre-approved with the release approval; F-1 and F-2 fixed. Portal: `af-sb-577-names` f6ecc2f6 (b3 overlap check in batch X02; af-next now 82c4ec9e). Plain-view rewrite plan: `af-sb-plainview-plan` 7b2de000 in `lane-sb-plainview` (DEC-606; b3 builds it, row 13). tierra-llc.com content refresh: `content-refresh-plan` eb945ec in `tierra-content-plan` (DEC-608, rows CL-69 to CL-73; build after both releases; live Set-Cookie check first). Repo Hygiene: all six worktrees kept (DEC-612 (4)).
+**Earlier (2026-11-25, morning):**
+- **Both site releases are live** (owner approval, DEC-654 rule 10, DEC-658 merge commits on the empty-diff condition):
+  - assuredforge.com: PR #9, merge 929ea361 (tree equal to 4b5df64), deploy run 45624726859 (custom-domain, index=false,
+    SITE_INDEX 0, robots indexing on). Live compare 33 pages with no problems; live axe 20 runs, 0 problems.
+  - tierra-llc.com: PR #1, merge 18dae301 (tree equal to 6f8008f), pages run 45625365123. Live compare 23 files with no problems;
+    16 expected files changed; live axe 25 runs, 0 problems.
+  - About 4 Actions minutes in all.
+- **Assessor follow-up:** the share image `public/og.png` and `og:image:alt` (`components/Layout.tsx`) still carry CL-01 "Build
+  anywhere…"; this is an SB2 item. tierra-llc.com has no front matter in the page body (a fetch-tool artifact).
+- **Plans:**
+  - OI-772 editions answer sent to Records Consolidation.
+  - SB2 plan (DEC-662) `docs/SB2-CONTENT-PLAN.md` on `sb2-content-plan` (worktree `site-sb2-plan`), waiting for the owner's four
+    decisions.
+  - SB1 plan notes DEC-664 (b075015).
+- **Partner check (DEC-648):** copied from architecture 33fed0d5 into `prepush-checks` (site 6aa1699, tierra b8e2375), 24 tests
+  pass each; local, merged in the next release (DEC-644); no push without approval (rule 10).
+- **Next:**
+  - SB1 build (account-links preview), with the three Draft rows requested from Kit Notices first.
+  - SB2 build after SB1 and the owner's decisions.
+  - The DEC-655 items (licence options, download page) at commercialization, through SB2.
+- **Stale copies:** never read records from `C:\dev\AI-Factory\NextGen-Design` or `C:\dev\AI-Factory\assuredforge`.
+
+**Earlier (2026-11-24):** waiting for "the rehearsal has ended" (DAY-PLAN row 10). Owner decisions: copy round ships with the redesign in one deploy; both site rollbacks pre-approved with the release approval; F-1 and F-2 fixed. Portal: `af-sb-577-names` f6ecc2f6 (b3 overlap check in batch X02; af-next now 82c4ec9e). Plain-view rewrite plan: `af-sb-plainview-plan` 7b2de000 in `lane-sb-plainview` (DEC-606; b3 builds it, row 13). tierra-llc.com content refresh: `content-refresh-plan` eb945ec in `tierra-content-plan` (DEC-608, rows CL-69 to CL-73; build after both releases; live Set-Cookie check first). Repo Hygiene: all six worktrees kept (DEC-612 (4)).
 **Latest (2026-11-23, night):** the after-rehearsal release plan is `docs/AFTER-REHEARSAL-RELEASE-PLAN.md` on `dec577-copy-round` (local). Release heads: site `dec577-copy-round` head, tierra `dec577-copy-round` 6f8008f, Portal `af-sb-577-names` f6ecc2f6 (b3 overlap check first). Draft pages: `dec577-pages-draft` b68dd68. Nothing pushed; nothing runs before "the rehearsal has ended".
 
 ## 1. Where things are

@@ -4,6 +4,7 @@ import { Bullets, Status } from "../../components/Blocks";
 import { AI } from "../../components/AiWording";
 import { POSITION } from "../../components/Positioning";
 import { ramClause } from "../../components/Measured";
+import { LearnerLine, LearnerRoutes, ROUTES_SHOWN } from "../../components/Learning";
 
 // Wording is quoted from the claims register: CL-51, CL-52, CL-54, CL-55.
 // CL-52 age line: "You must be at least 18", matching the interim design-partner agreement §2 (DEC-462); recorded in
@@ -33,10 +34,17 @@ export default function Individuals() {
           <p className="max-w-[70ch]">Model usage is billed to you by your own provider; Tierra does not resell, bill or mark up model usage.</p>
         </Section>
       )}
+      {ROUTES_SHOWN ? (
+        <Section title="Learning with AssuredForge">
+          {/* CL-89 to CL-92 (components/Learning.tsx), each held until its row allows it */}
+          <LearnerLine />
+          <LearnerRoutes />
+        </Section>
+      ) : null}
       <Section title="Cost">
         <p className="max-w-[70ch]">Free during the program. Founding partners get founding pricing, at least 30 days&apos; notice before any fee, and never an automatic charge.</p>
       </Section>
-      <p className="mt-6"><Link href="/deployment/">Editions and deployment</Link> · <Link href="/design-partners/">Design partners</Link> · <Link href="/faq/">FAQ</Link></p>
+      <p className="mt-6"><Link href="/deployment/">Editions and deployment</Link>, <Link href="/design-partners/">Design partners</Link>, <Link href="/faq/">FAQ</Link></p>
     </Layout>
   );
 }

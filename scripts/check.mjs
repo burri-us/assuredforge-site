@@ -116,6 +116,7 @@ const MARKERS = [
   ["COUNSEL REVIEW", /COUNSEL REVIEW/i],
   ["[OWNER", /\[OWNER\b/],
   ["[Owner/Counsel item", /\[(Owner|Counsel)\b[^\]]*\]/i],   // case-insensitive: "[counsel review: ...]" counts too
+  ["[Held:", /\[Held:/],   // SB2 (components/Claim.tsx): a held block shown in a review preview (AF_CLAIMS_PREVIEW=1)
 ];
 // The recognised state of a legal page (DEC-462): the interim label from components/Blocks.tsx (InterimBanner), exactly.
 // Every legal page must show it in every build.
@@ -175,7 +176,7 @@ const SERVED_ALLOW = [
   /^([a-z0-9-]+\/)*index\.html$/, /^404\.html$/,
   /^_next\/static\/[A-Za-z0-9_.~/-]+\.(js|css|woff2)$/,
   /^fonts\/OFL-(Inter|SpaceGrotesk|JetBrainsMono)\.txt$/,
-  /^(favicon\.ico|icon\.svg|apple-touch-icon\.png|og\.png|robots\.txt|sitemap\.xml|\.well-known\/security\.txt)$/,
+  /^(favicon\.ico|icon\.svg|apple-touch-icon\.png|og\.png|og-brand\.png|robots\.txt|sitemap\.xml|\.well-known\/security\.txt)$/,
 ];
 const servedProblems = (list) => list.filter((f) => !SERVED_ALLOW.some((re) => re.test(f)));
 const servedFiles = files(dir).map((f) => relative(dir, f).split("\\").join("/"));
@@ -187,9 +188,66 @@ if (!servedFiles.includes("third-party-notices/index.html")) report.push("third-
 for (const f of servedFiles.filter((f) => f.endsWith("index.html") || f === "404.html")) {
   if (!/<footer\b[\s\S]*href="[^"]*\/third-party-notices\/"[\s\S]*<\/footer>/.test(readFileSync(join(dir, f), "utf8"))) report.push(`${f}: footer link to the third-party notices missing`);
 }
+// SB2 held asset (scripts/held-assets.mjs): served only when a page uses it, so held wording never sits at an address.
+if (servedFiles.includes("og-brand.png") && !servedFiles.filter((f) => f.endsWith(".html")).some((f) => readFileSync(join(dir, f), "utf8").includes("/og-brand.png"))) {
+  report.push("og-brand.png: served but no page uses it (its wording is held; run the build, which runs scripts/held-assets.mjs)");
+}
 // Negative test: planted internal files must be caught.
 for (const planted of ["COUNSEL-LIST.md", "HANDOFF.md", "LANE-HANDOFF.md", "DIFFERENCES.md", "legal/DIFFERENCES.html", "scripts/check.mjs", "notes.txt"]) {
   if (servedProblems([planted]).length !== 1) report.push(`served-file check: planted ${planted} was not caught`);
+}
+
+// DEC-674 (owner): public text is US English, plain and human-written. In visible text, the title, the meta description and alt
+// text: no em dash, no spaced en dash used as punctuation, no arrows or middle dots as separators, and no British spellings.
+// Text inside <code> and <pre> (a command or file name quoted exactly) is exempt. HELD_LICENCE: "licence" on the three legal texts
+// that must match the signed design-partner agreement, and the footer link to one of them (owner, DEC-675: kept until counsel
+// revises the signed agreement to US spelling; remove these exemptions, and change the page address and its redirect, in the same
+// change that adopts the revised agreement).
+const STYLE_RULES = [
+  ["em dash", /—/],
+  ["en dash used as punctuation", /\s–\s/],
+  ["arrow", /[←-↓⇐-⇔➔⟵-⟶]/],
+  ["middle dot separator", /\s·\s/],
+  // DEC-677: outcome words only where they describe what AssuredForge records or shows, never as a promise about the customer's
+  // product or audit result. Whole words only ("approve", "improve" are not matches). OUTCOME_ALLOWED lists the reviewed uses.
+  ["outcome word (DEC-677)", /\b(prove[ns]?|proving|proof\w*|provabl\w*|guarantee\w*|ensur(?:e|es|ed|ing)|compliant|compliance-ready|audit-ready|certified|full traceability)\b/i],
+  ["British spelling", /\b(licen[cs]e?s?d?|licence\w*|organis\w*|personalis\w*|behaviour\w*|colour\w*|favour\w*|recognis\w*|analys(?:e|ed|es|ing)|cancell(?:ed|ing)|labell(?:ed|ing)|modell(?:ed|ing)|travell(?:ed|ing)|centre[sd]?|catalogue[sd]?|programme[sd]?|whilst|amongst|defence|judgement|enrolment|fulfil|fulfilment)\b/i],
+];
+// Reviewed uses of an outcome word: a statement of what does not exist, not a promise (FAQ, claims register must-not row).
+const OUTCOME_ALLOWED = ["Is it certified? No certification"];
+const HELD_LICENCE = new Set(["legal/evaluation-licence/index.html", "legal/acceptable-use/index.html", "legal/design-partner-agreement/index.html"].map((p) => join(...p.split("/"))));
+const styleText = (html) => {
+  const body = html.replace(/<script\b[\s\S]*?<\/script>/gi, "").replace(/<style\b[\s\S]*?<\/style>/gi, "").replace(/<!--[\s\S]*?-->/g, "")
+    .replace(/<(code|pre)\b[\s\S]*?<\/\1>/gi, " ");
+  const attrs = [...body.matchAll(/<meta\b[^>]*name="description"[^>]*content="([^"]*)"|\salt="([^"]*)"|<title>([^<]*)<\/title>/gi)].map((m) => m[1] ?? m[2] ?? m[3]);
+  return `${body.replace(/<[^>]+>/g, " ")} ${attrs.join(" ")}`.replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#x27;|&apos;/g, "'").replace(/\s+/g, " ");
+};
+function styleProblems(text, page) {
+  const out = [];
+  for (const [name, re] of STYLE_RULES) {
+    for (const m of text.matchAll(new RegExp(re.source, re.flags.includes("g") ? re.flags : re.flags + "g"))) {
+      const word = m[0].toLowerCase();
+      if (name === "outcome word (DEC-677)" && OUTCOME_ALLOWED.some((a) => text.slice(Math.max(0, m.index - 80), m.index + 80).includes(a))) continue;
+      if (name === "British spelling") {
+        if (/^licen[cs]e?s?d?$/.test(word) && !word.includes("licence")) continue;   // license, licensed, licenses: US
+        if (word.startsWith("licence") && (HELD_LICENCE.has(page) || /Evaluation licence/.test(text.slice(Math.max(0, m.index - 11), m.index + 7)))) continue;
+      }
+      out.push(`${name} "${text.slice(Math.max(0, m.index - 25), m.index + 25).trim()}"`);
+    }
+  }
+  return out;
+}
+for (const file of files(dir).filter((f) => f.endsWith(".html"))) {
+  for (const p of styleProblems(styleText(readFileSync(file, "utf8")), relative(dir, file))) report.push(`${relative(dir, file)}: style (DEC-674): ${p}`);
+}
+// Negative test: planted style problems must be caught; plain US text, a range with an en dash, and code must not.
+for (const t of ["Tierra — tools", "a – b", "Next → step", "A · B", "our organisation", "the licence", "behaviour", "colours",
+  "makes it provable", "Build. Govern. Prove.", "audit-ready traceability", "we guarantee", "ensures compliance", "compliant releases", "full traceability"]) {
+  if (!styleProblems(t, "x").length) report.push(`style check: planted "${t}" was not caught`);
+}
+for (const t of ["our organization", "the license is licensed", "pages 9–12", "Evaluation licence", "only people approve", "improve it",
+  "Is it certified? No certification (such as SOC 2)", styleText("<p>run <code>licence.py</code></p>")]) {
+  if (styleProblems(t, "x").length) report.push(`style check: "${t}" was caught`);
 }
 
 const markerPages = new Set(markerWarnings.map((w) => w.split(":")[0]));

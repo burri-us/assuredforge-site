@@ -11,4 +11,6 @@ export default {
   reactStrictMode: true,
   images: { unoptimized: true },
   poweredByHeader: false,
+  // SB2 (components/Claim.tsx): the held-content review preview, fixed at build time for the server and browser bundles alike.
+  env: { AF_CLAIMS_PREVIEW: process.env.AF_CLAIMS_PREVIEW ?? "" },
 };

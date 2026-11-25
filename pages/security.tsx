@@ -7,7 +7,7 @@ export default function Security() {
   const { basePath } = useRouter();   // a plain file, not a page, so next/link doesn't apply
   return (
     <Layout title="Security | AssuredForge" description="How AssuredForge approaches security, and how to report a vulnerability.">
-      <Title lead="AssuredForge is built for individuals, teams and organizations that must prove how their software was delivered, and we hold ourselves to the same standard.">
+      <Title lead="AssuredForge is built for individuals, teams and organizations that must show how their software was delivered, and we hold ourselves to the same standard.">
         Security
       </Title>
       <Section title="In the platform">
@@ -33,7 +33,7 @@ export default function Security() {
       <Section title="Data flow of the desktop edition">
         {/* CL-53 (Being validated until W8), replacing the earlier unverified statement (assessor, sweep item 4). */}
         <p>
-          In the desktop edition your records stay on your own PC, under your control. {AI.securityFlow}{" "}
+          In the desktop edition your records are stored on your own PC, under your control. {AI.securityFlow}{" "}
           Tierra receives your installation id (a code that identifies your AssuredForge installation; it does not contain your records) when you ask for a license, and prompts or project content only in what you choose to send us: a support bundle (a short set of details you choose to send us when you ask for help), or feedback with files you attach. This is being validated.
         </p>
       </Section>

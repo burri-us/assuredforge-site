@@ -116,6 +116,7 @@ const MARKERS = [
   ["COUNSEL REVIEW", /COUNSEL REVIEW/i],
   ["[OWNER", /\[OWNER\b/],
   ["[Owner/Counsel item", /\[(Owner|Counsel)\b[^\]]*\]/i],   // case-insensitive: "[counsel review: ...]" counts too
+  ["[Held:", /\[Held:/],   // SB2 (components/Claim.tsx): a held block shown in a review preview (AF_CLAIMS_PREVIEW=1)
 ];
 // The recognised state of a legal page (DEC-462): the interim label from components/Blocks.tsx (InterimBanner), exactly.
 // Every legal page must show it in every build.

@@ -6,10 +6,12 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/tokens.mjs && next dev",
-    "build": "node scripts/tokens.mjs && node scripts/check-tokens.mjs && next build --webpack && node scripts/seo.mjs out && node scripts/check.mjs out && node scripts/check-fonts.mjs out",
+    "build": "node scripts/tokens.mjs && node scripts/check-tokens.mjs && node scripts/check-claims.mjs && next build --webpack && node scripts/seo.mjs out && node scripts/check.mjs out && node scripts/check-fonts.mjs out",
     "check": "node scripts/check.mjs out",
     "check:fonts": "node scripts/check-fonts.mjs out",
-    "check:switch": "node scripts/check-switch.mjs"
+    "check:switch": "node scripts/check-switch.mjs",
+    "check:claims": "node scripts/check-claims.mjs",
+    "claims:sync": "node scripts/claims-sync.mjs"
   },
   "devDependencies": {
     "@fontsource/inter": "5.3.0",

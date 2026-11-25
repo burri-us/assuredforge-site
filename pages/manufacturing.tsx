@@ -1,25 +1,16 @@
-import { Layout, Section, Title } from "../components/Layout";
+import Link from "next/link";
+import { Layout, Title } from "../components/Layout";
 
+// Owner decision 2026-11-21: the Manufacturing page is removed; /manufacturing/ forwards to its section on /industries/.
+// GitHub Pages cannot send a redirect, so this page forwards with a meta refresh (allowed by the CSP; no script), is noindex,
+// has no canonical URL and is left out of sitemap.xml (scripts/seo.mjs, scripts/check.mjs).
 export default function Manufacturing() {
   return (
-    <Layout title="AssuredForge for Manufacturing" description="Governed software delivery for manufacturers building internal software under quality-system pressure.">
-      <Title lead="For manufacturers building internal software under quality-system pressure, where you must show what was delivered, who approved it and how it was validated.">
-        AssuredForge for Manufacturing
-      </Title>
-      <Section title="What it gives you today">
-        <ul className="list-disc space-y-2 pl-6">
-          <li>Requirements to deployment traced in one record: what was asked for, which code delivered it, how it was accepted and where it was deployed.</li>
-          <li>Approvals by named, accountable people with signed decisions, and an audit chain you can verify and export.</li>
-        </ul>
-      </Section>
-      <Section title="Planned with design partners">
-        <ul className="list-disc space-y-2 pl-6">
-          <li>AI assistance under the same governance: it may recommend and prepare, and people decide.</li>
-        </ul>
-      </Section>
-      <Section title="One platform, Editions by industry">
-        <p>AssuredForge is one platform, with Editions for industries planned. Manufacturing comes first and is being shaped with design partners. Other industries follow once the manufacturing Edition is proven.</p>
-      </Section>
+    <Layout title="Moved to Industries | AssuredForge" description="This page has moved to Industries." forward="/industries/#manufacturing">
+      <Title lead={<>This page has moved to <Link href="/industries/#manufacturing">Industries</Link>.</>}>Moved to Industries</Title>
     </Layout>
   );
 }
+
+// No client script: the page has no interactive features (page weight, A11Y-PERF-FINDINGS F-3).
+export const config = { unstable_runtimeJS: false };

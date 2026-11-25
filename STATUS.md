@@ -1,0 +1,68 @@
+# Status: assuredforge.com (branch w11-site-redesign)
+
+Updated: Saturday 2026-11-21.
+
+- **Done (items 1-3, OI-608 preparation):**
+  - the W8 media list (`docs/W8-MEDIA-LIST.md`), updated with the owner's answers: light only, S9 in the terminal, captions only;
+  - /solutions/individuals/: the age line and the RAM line ready to fill (`components/Measured.tsx`);
+  - the X8 shot list draft (`docs/X8-SHOT-LIST-DRAFT.md`), phone shots at 390 px.
+  - All parked questions are answered (PARKED.md). Not pushed, not published.
+- **Plain-language decisions applied** (assessor; owner for edition names): the sweep's §6 decisions 1-13 and the findings table's wording, in 21 files. Build, site check and AI switch check pass. Record: `docs/PLAIN-LANGUAGE-SWEEP.md` §7. Glossary drafts for Kit Notices: `docs/GLOSSARY-PROPOSALS.md`. The marker check now also catches "(draft)".
+  - For the assessor: "gate" remains in two interim legal pages (acceptable use, AI use policy); not changed.
+  - For the owner: the deployment page keeps "Customer-hosted ... Planned" as a deployment option.
+  - Kit Notices (architecture, local commits; pushes stopped while the owner is away):
+    - Done: the Founding Design Partner Program glossary entry (fdb0a23) and the Edition entry with the owner's two names (DEC-467, 3b32362).
+    - Parked for the owner: CL-30 and CL-35. The Regulated-page sentence stays unchanged until the owner decides.
+    - Parked for the assessor: the 20 draft definitions. The site sentences stay unchanged until they are accepted.
+    - Noted for the assessor: "gate" on the two legal pages.
+- **Industries and Works with (owner decision 2026-11-21): structure built, text waiting for Kit Notices.**
+  - /industries/ (8 industries, same card structure), /works-with/ (3 groups with Supported / Being validated / Planned badges; the model-source group shows only with the AI switch on, WR-01), and /manufacturing/ forwarding to /industries/#manufacturing (noindex, not in the sitemap).
+  - Menu: "Industries" added. With nine items the desktop header is now two rows (wordmark and call to action, then the menu). Links from Platform and the FAQ to Works with.
+  - Every text slot shows a `[CLAIM- entry pending: …]` marker until Kit Notices approves the entries; a publish build refuses them. The site check fails on compliance terms on both pages.
+  - What is needed, the candidates in the register and 4 questions: `docs/INDUSTRIES-WORKS-WITH-ENTRIES.md`. Seven of the eight industries have no register basis.
+  - Checks: build and site check pass (34 pages; 31 in the sitemap); the AI switch check passes for both values; the WCAG scan finds no new violation on either site (light and dark, 1440, 1024 and 390 px).
+- **DEC-469 applied** (owner and assessor, via Kit Notices):
+  - Glossary section H is now on the site: plain explanations at first use for audit chain, governed action, Portal, main line, git remote, installation id, delivery lifecycle, Docker Desktop, SHA-256, launcher and SmartScreen, single-tenant and air-gapped, proxies, segregated approvers, pilot, external penetration test, security.txt, and dependency and container image scanning.
+  - "Gate" is replaced on the two interim legal pages (noted in COUNSEL-LIST.md).
+  - "Customer-hosted … Planned" is removed from the deployment page.
+  - CL-30 is now verbatim and CL-35 as revised.
+  - Still waiting for a register decision: sweep rows 2, 14, 28 and 55. The current and proposed text for each is in `docs/SWEEP-ROWS-FOR-REGISTER.md`, for Kit Notices' next owner package.
+- **Industries and Works with: claim drafts** (architecture bff6eb9) wait for the owner. The markers stay; the page structure now matches the drafts (`docs/INDUSTRIES-WORKS-WITH-ENTRIES.md` §4). Kit Notices answered (615b7bc): three badges only, with notes for the rest. The model-source group stays hidden until the owner answers the AI-switch question. The industry-naming lines change only with Sec. 3 of the drafts.
+- **DEC-470 applied (owner, assessor-checked):**
+  - Industries: CL-IND-00..08 verbatim, with CL-02 as the lead and no badge per industry.
+  - Works with: CL-WW-00..03 with the three badges and their definitions. The model sources (CL-WW-02) are hidden until the AI switch is on.
+  - "Manufacturing" removed: CL-02, CL-23, CL-25 and CL-51 as revised.
+  - Sweep rows: row 2 tagline in sentence case; row 14 CL-15 as revised; row 55 CL-28 plus the plain line; row 28 unchanged (CL-55 alone).
+  - No CLAIM- markers left. The build, site check and AI switch check pass.
+- **P-15 (DEC-472 (2), option A):**
+  - The Regulated and quality-driven teams page is folded into Industries: /solutions/regulated/ forwards to /industries/ (noindex, out of the sitemap). Its links in the footer and on Home are removed.
+  - CL-30 moved to Platform ("Governance first").
+  - The hosted-edition line naming IT checklists, proxies, single sign-on and segregated approvers was only on that page; it is no longer on the site.
+  - Build, site check (30 pages in the sitemap) and AI switch check pass.
+- **OI-619 (High): done and live** (owner approval for this one change):
+  - PR #8 merged as 38082b2 after its "build" check passed, with no admin override.
+  - One pages deploy with the custom-domain target (run 44919413386) succeeded.
+  - The live comparison with the saved copy shows only the Windchill list item gone; every other page, robots.txt, the sitemap and security.txt are unchanged.
+  - Actions: 3 jobs, about 75 s of runtime (CI build 32 s, pages build 34 s, deploy 9 s), 3 minutes as billed per job.
+  - Branch oi-619-windchill deleted (remote and local) and its worktree removed.
+- **Still blocks a publish (OI-608):** the W8 media placeholders on 6 pages, and the RAM marker until W8 measures it.
+- **Items 4-5 (report only): done.**
+  - 4. Accessibility and performance: `docs/A11Y-PERF-FINDINGS.md` (10 findings, ranked).
+    - The one confirmed failure (licence text at phone width) is fixed in 0989652; the re-scan is clean on both sites, and Tierra needed no change.
+    - F-1 (Serious, WCAG 2.4.11; OI-621): the phone menu left open covered the next focused link on /404/ and /faq/. **Fixed** on this branch (dd6fcb0): the menu sits in the page flow (CSS only); 124 re-test runs are clean. The live site (main 38082b2) has no collapsible phone menu, so it does not have this problem; a live keyboard walk at 390 and 320 px, light and dark, is clean (40 runs).
+    - Load timing is good on both sites.
+  - 5. Plain-language sweep: `docs/PLAIN-LANGUAGE-SWEEP.md`. Its decisions are applied (DEC-469, DEC-470).
+- **Schedule (owner, replaces the 23:30 stop):** work may continue until Monday 07:00, when the W8 dry run starts. No Docker use, no kit folders, no pushes outside agreed checkpoints. The new site (8e90724 onwards) stays unpushed until the dry run has ended.
+- **Deployment page:** the hosted-edition guardrails sentence is restored unchanged under "Hosted edition (planned)" (assessor; 0989652). The register has no row for it; Kit Notices proposes one.
+- **For the new site's release notes** (Kit Notices, 733f600): between 640 and 1023 px the header shows the call to action and Menu on a second row under the wordmark (from the OI-621 fix, accepted). OI-621 is "Awaiting Release".
+- **Owner items 1-4 (until Monday 07:00; no Docker, no kit folders, no push, no CI):**
+  - 1. Page weight: done (4fc68da). No client script on any page; pages 231-329 KB to 96-119 KB, 18-46 requests to 7-8. All checks pass.
+  - 2. Release package: `docs/RELEASE-PACKAGE.md`, with release notes, the go/no-go list, the deploy steps, the addresses to verify and rollback. New `scripts/live-check.mjs` (save, compare, diff; read-only). Found while writing it:
+    - G-3: the branch has indexing off, while live has it on. The release must set it back on, or the live site leaves search engines.
+    - G-4: no workflow sets `SITE_PUBLISH`, so the deploy must add it to refuse placeholders.
+    - The merge with main has one conflict, `pages/manufacturing.tsx`.
+  - 3. Works with "Supported": prepared behind `ANTHROPIC_SUPPORTED_SINCE` (4b65e8a, null, no visible change); trialled with AI on, not applied.
+  - 4. Partner materials drift: checked read-only against the site's banned-phrase list and reported to Kit Notices, who owns the files. DEC-470 positioning is clean. 4 mismatches: M-1 CL-48 old sentence in the Technical deck; M-2 CL-53 without "feedback with files you attach" (Technical deck, Demo script); M-3 connectors "exist" against Works with "Being validated"; M-4 "approval-gate graphic" in the Executive deck. Kit Notices fixed all four (0903644); the re-check finds no remaining mismatch. Register note sent: CL-47 lacks CL-53's "feedback with files you attach" clause.
+- Design-partner agreement summary aligned to "organizations" (DEC-475 (a); 7bad68e; COUNSEL-LIST.md).
+- **Window archived (2026-11-21):** the next window resumes from `docs/RESUME.md` after the W8 dry run.
+- Ports 4174 and 4175 are free.

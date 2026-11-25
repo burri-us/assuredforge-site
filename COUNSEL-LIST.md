@@ -1,0 +1,164 @@
+# Lane LEG handoff (site-legal-review, from w11-site-redesign b3bdb8d). Not pushed, not deployed.
+Not served: root file, not under public/ or pages/.
+
+## Done (factual fixes only)
+- product-privacy: added CL-53 "connects only to services you set up" sentence (same wording as Editions/FAQ).
+- ai-use-policy: AI-on intro now says AI is being validated (AI claims are Being validated, not proven).
+- design-partner-agreement: cohort wording now matches CL-23/O-3 (individuals and small teams on desktop; organizations on a waitlist, hosted planned); exit "exported then deleted" labelled hosted (planned), desktop per CL-22D.
+- evaluation-licence: termination clause no longer says data is exported then deleted (desktop records stay on the PC, CL-22D/CL-53).
+- manufacturing, solutions/regulated: added "waitlist, not a current offer" line; manufacturing heading "What it gives you today" -> "What the platform does today".
+- privacy, terms, subprocessors, acceptable-use: no factual mismatch found (GitHub Pages, IONOS, no cookies/scripts verified in code).
+- Build: npm ci + npm run build pass (31 pages, site check passed).
+
+## Marker convention
+All eight legal pages use LegalPage, which shows the banner "DRAFT — COUNSEL REVIEW" (components/Blocks.tsx). scripts/check.mjs exempts DRAFT and [Counsel...] items only on pages with that exact banner text; so the legal pages do NOT block publish. Not renamed ("Draft for counsel review" would break the check regex). SITE_PUBLISH=1 would still fail on 15 markers on 7 non-legal pages (placeholders/W8 on home and product pages, "[RAM: CONFIRM AT W8]" and "[counsel review: age line]" on solutions/individuals): outside this lane.
+
+## Next step
+Counsel review of the list below; then remove banner and set effective date.
+
+## For counsel (page: exact text)
+- privacy: "[Counsel to confirm the rights text for the jurisdictions we serve.]"; email retention "24 months"; "tell design partners by email" for changes; no children/age statement (CL-52 age line is under counsel review).
+- privacy/product-privacy: CL-53 says desktop connects to services the user sets up; privacy notice and subprocessors not yet aligned (DEC-447 S-98, counsel pack). Support-bundle 90-day deletion vs "deletes" not in notice.
+- terms: "[Counsel to set the exact limit and the carve-outs the law requires.]"; "[Counsel to confirm venue and any consumer-law exceptions.]"; "continued use after that date means you accept it".
+- subprocessors: "[Counsel to set the notice period.]"; AI.modelPath names Anthropic on this trust page (CL-48 limits naming to technical pages, quick start, FAQ; comment says kept as-is) - owner/counsel to confirm if AI switch goes on; whether user-chosen providers/git remotes/connectors are subprocessors.
+- ai-use-policy: "Tierra does not train models on your data. [Counsel and owner to confirm...]" (no register claim); "You can set a run budget and a monthly limit..." (CL-49, Being validated).
+- acceptable-use: "[Counsel to set notice and cure terms.]"; "We may suspend access that breaks this policy."
+- evaluation-licence: confidentiality, feedback rights, "as is" warranty, "[Counsel to set the limit and carve-outs.]", Michigan law/venue, and my new termination text.
+- design-partner-agreement: "[Owner decision: pricing intent is not stated here.]" (DEC-438 pricing wording exists: free during programme, founding pricing, 30 days' notice); "production data needs separate written authorization"; desktop-exit CL-22D text needs counsel (T-508).
+- All eight: "Effective date: to be set when counsel approves. Draft of 2026-11-20." (LegalPage).
+
+## Interim wording filled (owner decision DEC-462, 21 November 2026), for the formal legal review
+The legal pages now carry standard interim wording instead of counsel markers, for a free, non-commercial evaluation programme with known design partners. Each page shows this label instead of the "DRAFT — COUNSEL REVIEW" banner:
+> Interim version of 21 November 2026, for the design-partner program. Pending formal legal review. If this page and your signed design-partner agreement differ, the agreement governs.
+
+Spelling only (owner, 21 November 2026): DEC-462 gave the label as "...for the design-partner programme."; the site uses US spelling, "program". The meaning of DEC-462 is unchanged. The site check (scripts/check.mjs) matches the US-spelled label.
+
+On all nine LegalPage pages, the date line "Effective date: to be set when counsel approves. Draft of 2026-11-20." now reads "Effective 21 November 2026 (interim version)." The nine pages are /terms/, /privacy/, /legal/evaluation-licence/, /legal/acceptable-use/, /legal/design-partner-agreement/, /trust/ai-use-policy/, /trust/subprocessors/, /trust/product-privacy/ and /trust/accessibility/.
+
+Every clause filled or changed, with its page and exact wording:
+
+- **/legal/evaluation-licence/, Scope** (assessor change, 21 November 2026; was: "... by the named licensee only, on the licensee's own machines.")
+  > A non-exclusive, non-transferable licence to install and use the kit for evaluation, by the named licensee only, on the licensee's own PC, one installation per licence (a replacement PC is covered through backup and restore).
+- **/legal/evaluation-licence/, Confidentiality** (was: "A mutual non-disclosure agreement is available where required. [Counsel to align this clause.]")
+  > Each party keeps confidential the non-public information it receives from the other in the evaluation, uses it only for the evaluation, and shares it only with people who need it for that purpose and are bound to keep it confidential. This does not apply to information that is public, that the recipient already had or develops independently, or that it receives lawfully from someone else, or to disclosure the law requires. A separate mutual non-disclosure agreement is available where required; if one is signed, it governs confidentiality.
+- **/legal/evaluation-licence/, Feedback** (was: "Feedback you give may be used by Tierra LLC to improve the product without obligation. [Counsel to set the rights wording.]")
+  > Giving feedback is your choice. If you give Tierra LLC feedback, suggestions or ideas about AssuredForge, you grant Tierra LLC a free, worldwide, perpetual and irrevocable licence to use them to improve and develop the product, without obligation or payment to you. This gives Tierra LLC no right to your records or to your confidential information.
+- **/legal/evaluation-licence/, Warranty disclaimer** (was: "The kit is provided "as is" for evaluation, without warranties. [Counsel to finalize.]")
+  > The kit is provided "as is" and "as available" for evaluation, without warranties of any kind, express or implied, including any warranty of merchantability, fitness for a particular purpose, title or non-infringement, to the extent the law allows. Tierra LLC does not promise that the kit will be free of errors or work without interruption.
+- **/legal/evaluation-licence/, Limit of liability** (was: "[Counsel to set the limit and carve-outs.]")
+  > To the extent the law allows, Tierra LLC is not liable for indirect, incidental, special, consequential or punitive damages, or for loss of profits, revenue, data or goodwill, arising from the evaluation or the kit. Tierra LLC's total liability for all claims arising from the evaluation or the kit is limited to the greater of the amounts you paid Tierra LLC for the kit (none during the program) and USD 100. Nothing in this licence limits liability that the law does not allow to be limited.
+- **/legal/evaluation-licence/, Termination and data deletion** (was: "Either party may end the evaluation. On exit, ... [Counsel to align with the design partner agreement.]")
+  > Either party may end the evaluation at any time by written notice; email is enough. The licence also ends when its term ends. On exit, the desktop edition leaves your records on your own PC; the export and deletion steps are in the design partner agreement summary. The confidentiality, feedback, warranty, liability and governing-law clauses continue after the evaluation ends.
+- **/legal/evaluation-licence/, Governing law and courts** (heading was "Governing law"; text was "The laws of the State of Michigan, USA. [Counsel to confirm venue.]")
+  > This licence is governed by the laws of the State of Michigan, USA, without regard to its conflict-of-law rules. Disputes are decided by the state or federal courts located in Michigan, and each party accepts their jurisdiction. Where the law of the place you live gives you, as a consumer, protections or a right to sue in your local courts that cannot be waived, this clause does not remove them.
+- **/legal/evaluation-licence/, description and intro**: "Draft evaluation licence ..." became "Evaluation licence for the AssuredForge desktop kit given to design partners."; "This draft covers the evaluation licence for the desktop kit." became "This licence covers the desktop kit given to design partners for evaluation."
+- **/legal/design-partner-agreement/, Data and exit** (was: "... For the desktop edition see the next section. [Counsel to finalize the contract wording.]")
+  > The program starts with synthetic or test data; production data needs separate written authorization. Hosted edition (planned): on exit, your data is exported to you, then deleted. For the desktop edition see the next section. The signed agreement sets out the details.
+- **/legal/design-partner-agreement/, Confidentiality** (was: "A mutual NDA is available where required.")
+  > Each party keeps the other's non-public information confidential, as set out in the evaluation licence. A mutual NDA is available where required.
+- **/legal/design-partner-agreement/, Ending participation** (new section)
+  > Either party may end participation at any time by written notice; email is enough. On exit, the steps above for your edition apply.
+- **/legal/design-partner-agreement/, Warranty, liability and law** (new section)
+  > The evaluation licence sets out the warranty disclaimer, the limit of liability, and Michigan law and courts. They apply to the program.
+- **/legal/design-partner-agreement/, After the program** (assessor change 2, owner decision 2026-11-21; was: "Pricing after the program is not set.", and before that "[Owner decision: pricing intent is not stated here.]")
+  > Free during the program. Founding partners get founding pricing, at least 30 days' notice before any fee, and never an automatic charge.
+  - Spelling only: "programme" in DEC-438's wording is written "program" (US spelling, as on the rest of the site); the wording is otherwise unchanged (owner, 2026-11-21). The same sentence on the FAQ and /solutions/individuals/ gets the same spelling.
+  - Source: DEC-438 (beside CL-55 in the claims register). The same sentence is in the interim design-partner agreement, Sec. 1.3 (DESIGN-PARTNER-AGREEMENT-INTERIM.md).
+- **/legal/acceptable-use/, Enforcement** (was: "We may suspend access that breaks this policy. [Counsel to set notice and cure terms.]")
+  > If use breaks this policy, we may suspend or end the access we provide: support, and new or renewed licences. Unless the breach is serious, we first tell you by email what is wrong and give you a reasonable time to fix it. We may act at once for unlawful use, a security threat or harm to others. In the desktop edition your records stay on your own PC, under your control.
+- **/terms/, Limit of liability** (was: "To the extent the law allows, Tierra LLC is not liable for loss arising from use of, or inability to use, this website. [Counsel to set the exact limit and the carve-outs the law requires.]")
+  > To the extent the law allows, Tierra LLC is not liable for indirect, incidental, special, consequential or punitive damages, or for loss of profits, data or goodwill, arising from use of, or inability to use, this website. Tierra LLC's total liability for any claim relating to this website is limited to the greater of the amounts you paid us to use it (none: the website is free) and USD 100. Nothing in these terms limits liability that the law does not allow to be limited.
+- **/terms/, Governing law and courts** (heading was "Governing law"; text was "These terms are governed by the laws of the State of Michigan, USA. [Counsel to confirm venue and any consumer-law exceptions.]")
+  > These terms are governed by the laws of the State of Michigan, USA, without regard to its conflict-of-law rules. Disputes are decided by the state or federal courts located in Michigan, and each party accepts their jurisdiction. Where the law of the place you live gives you, as a consumer, protections or a right to sue in your local courts that cannot be waived, this clause does not remove them.
+- **/privacy/, Your rights and complaints** (was: "... You may also complain to your local data protection authority. [Counsel to confirm the rights text for the jurisdictions we serve.]")
+  > Depending on where you live, you may have rights to access, correct, delete or object to our use of personal data we hold about you. Write to info@assuredforge.com. We answer within one month, may first need to confirm who you are, and do not charge for a reasonable request. You may also complain to your local data protection authority.
+- **/trust/subprocessors/, Changes** (was: "We update this page when the list changes and tell design partners of a change before it takes effect. [Counsel to set the notice period.]")
+  > We update this page when the list changes and tell design partners by email at least 30 days before a new subprocessor starts, unless a change is needed sooner for security or legal reasons; then we tell them as soon as we can.
+- **/trust/ai-use-policy/, Training became "Your prompts and project content"** (was: "Tierra does not train models on your data. [Counsel and owner to confirm this wording; ...]"). The training sentence has no claims-register entry, so it is replaced by the CL-47 wording. The section shows only when the AI switch is on (components/AiWording.tsx).
+  > Prompts and project content for a run go to the provider you chose, under your own agreement with that provider; Tierra does not receive them unless you send us a support bundle that includes them.
+- **/trust/ (Trust Center) and /security/**: "Items marked draft await counsel review." became "Items marked interim are pending formal legal review."; the "Draft, counsel review" badge became "Interim"; "The legal texts there are drafts awaiting counsel review." became "The legal texts there are interim versions, pending formal legal review."
+
+### Points chosen for the interim text that counsel should confirm
+- Liability cap: the greater of the amounts paid (none) and USD 100 (owner instruction). Excluded damage types: indirect, consequential, lost profits and data. A consumer carve-out ("liability the law does not allow to be limited"; non-waivable local protections and courts).
+- Courts: state or federal courts located in Michigan, with a consumer carve-out for the individuals track.
+- Confidentiality has no survival period stated: it continues after the evaluation ends (termination clause) with no end date. Counsel to set a period, or keep it without one.
+- Feedback licence: free, worldwide, perpetual and irrevocable, limited to improving and developing the product.
+- Acceptable use: "a reasonable time to fix it" (no number); Tierra may stop support and decline new or renewed licences. No remote shut-off is claimed.
+- Privacy: "We answer within one month", identity check, no charge for a reasonable request.
+- Subprocessors: 30 days' notice before a new subprocessor, with an exception for security and legal reasons.
+- /solutions/individuals/, the age line (CL-52): see the next section.
+- Mutual NDA (CL-26): the evaluation licence (Confidentiality) and the design-partner agreement (Confidentiality) say a mutual NDA is available where required. A template now exists as a draft for counsel, not in force and not on the site: `program/reviews/counsel-package-2026-11-21/05-MUTUAL-NDA-TEMPLATE.md` in the architecture repo (counsel questions P1-19 to P1-23). It repeats the agreement's confidentiality wording, has no end date, Michigan law, and governs confidentiality only.
+
+### Age line on /solutions/individuals/ (owner, 21 November 2026; OI-608)
+/solutions/individuals/ is not a legal page, but its age line was a counsel marker. It now matches the interim design-partner agreement §2 ("You confirm that you are at least 18 years old", DEC-462).
+- **Was:** "You are 18 or older [counsel review: age line], use a Windows 11 Home or Pro PC that meets the system requirements, and set up and use the evaluation yourself or with your small team."
+- **Now:**
+  > You must be at least 18, use a Windows 11 Home or Pro PC that meets the system requirements, and set up and use the evaluation yourself or with your small team.
+- For counsel to confirm with the rest of the interim text: the minimum age of 18, the same as the agreement's §2 (S-29, DEC-436).
+- For the register owner: CL-52 still carries "[counsel review: age line]" in the claims register; it needs the same wording.
+
+### "Gate" wording on two interim legal pages (assessor, DEC-469, 21 November 2026)
+The website does not use "gate" (glossary note, DEC-469). The assessor changed the wording; the meaning is unchanged.
+- /legal/acceptable-use/, "You may not":
+  - **Was:** "Use AI features to bypass an approval or gate (see the AI use policy)."
+  - **Now:** "Use AI features to bypass an approval the governance requires (see the AI use policy)."
+- /trust/ai-use-policy/, "Prohibited uses":
+  - **Was:** "Using AI output to bypass an approval or a gate."
+  - **Now:** "Using AI output to bypass an approval the governance requires."
+- For counsel to confirm with the rest of the interim text.
+
+### "Regulated organizations" in the design-partner agreement (owner, DEC-475 (a), 21 November 2026)
+A wording change with unchanged meaning, made on 2026-11-21 before any partner received the agreement.
+- **Agreement text, Word and PDF copies** (architecture e6c1513; new PDF SHA-256
+  `769e95e1b20c69d8a865be8c97fa6a49f0c541642262f1412354219b4938b47e`):
+  - **Was:** "A hosted edition for regulated organizations is planned …"
+  - **Now:** "A hosted edition for organizations is planned and is not part of this agreement."
+- **Site summary page /legal/design-partner-agreement/**, "The program". The site does not carry the agreement's own sentence and
+  does not link its PDF; the summary is aligned to CL-23 as revised (DEC-470):
+  - **Was:** "… regulated organizations join a waitlist for the planned hosted edition."
+  - **Now:** "… organizations join a waitlist for the planned hosted edition."
+- For counsel to confirm with the rest of the interim text.
+
+### Backups at the end of the program: agreement §9.2 and CL-22D (owner, DEC-481 (1), 21 November 2026)
+Changed on 2026-11-21 before any partner signed, so the deletion promise matches what kit c68012b does: `launcher uninstall
+--delete-data` never deletes a backup.
+- **Agreement §9.2, Word and PDF copies** (new PDF SHA-256: see the architecture repo's pilot-pack README):
+  - **Was:** "`launcher uninstall --delete-data` removes every AssuredForge record, file and key on your PC after you type a
+    confirmation."
+  - **Now:** "`launcher uninstall --delete-data` removes AssuredForge's records, files and keys from your PC after you type a
+    confirmation. Backups you created are kept; you delete them yourself (following the exit steps Tierra sends you)."
+- **Site summary page /legal/design-partner-agreement/**, "Desktop edition exit": carries CL-22D, which takes the same sentence;
+  changed on this branch on 2026-11-21 (same sentence).
+- For counsel to confirm with P1-08.
+
+### AI provider terms: questions carried from OI-389 (owner, DEC-483 (10), 21 November 2026)
+The provider terms gaps were re-checked against the partner-owned provider direction (architecture
+`program/reviews/OI-389-PROVIDER-TERMS-RECHECK-2026-11-21.md`). No new question; please make sure these existing ones cover:
+- **P1-11 (gap 2):** whether a model provider chosen and paid for by the partner is a subprocessor of Tierra when the software
+  sends the partner's content to it, and whether the site sentence "not Tierra's subprocessor" is safe.
+- **P1-12 (gap 8; owner kept it for counsel, DEC-485):** whether the partner's responsibility for its own provider's terms, region and retention (agreement
+  Sec. 1.4 and 5.4) is enough, or whether longer clauses are needed.
+- **P3-05, optional (gap 3):** whether Tierra's own use of a commercial model service to build the product needs any
+  partner-facing disclosure.
+
+### Product privacy notice: backups sentence (owner, DEC-488 (2), 21 November 2026)
+Added to the product privacy notice (desktop edition), "Retention and deletion", after "We hold no copy.":
+- **Now:** "Backups you make stay on your PC too; when you leave the program you delete them yourself (welcome email, step 7)."
+- **Where:** the pilot-pack copy given to partners with the welcome email (architecture `program/pilot-pack/09-PRODUCT-PRIVACY-NOTICE.md`);
+  `pages/trust/product-privacy.tsx` takes the same sentence at the new-site release (Wednesday 25 to Friday 27 November).
+- Same point as the agreement §9.2 and CL-22D (DEC-481 (1)). For counsel to confirm with P1-09 (and P1-08).
+
+
+### US spelling and date format on the legal pages (owner, 2026-11-22; DEC-514, counsel item P1-26)
+
+The owner wants US English on both sites. The legal pages keep "licence" and the "21 November 2026" date format until counsel
+decides, because they must match the signed agreement, which says "licence" (CL-22D mirrors agreement §9.2 and is held with them).
+- **Where:** `pages/trust/product-privacy.tsx` ("Licence check" and about 4 more, including the CL-53 sentence on that page);
+  `pages/legal/evaluation-licence.tsx` (title "Evaluation licence (EULA)" and about 10 more; the address `/legal/evaluation-licence/`
+  would need a forwarding page if renamed); `pages/legal/design-partner-agreement.tsx` (3); `pages/legal/acceptable-use.tsx` (2);
+  the footer link "Evaluation licence" (`components/Layout.tsx`, kept equal to the page title); the legal-page labels "Interim
+  version of 21 November 2026, ..." and "Effective 21 November 2026 (interim version)." (`components/Blocks.tsx`, all 9 legal
+  pages; `scripts/check.mjs` matches the label, so it changes in the same edit); CL-22D in the register.
+- **For counsel:** may the website and the agreement move to "license" and "November 21, 2026" together (a new agreement version),
+  or must the website keep the agreement's spelling while that version is in force?
+- Outside the legal pages the sites already use "license" (owner decisions 2026-11-22; CL-53 on four pages after DEC-514).

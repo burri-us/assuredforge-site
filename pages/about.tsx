@@ -7,9 +7,10 @@ export default function About() {
       <Section title="Who we are">
         {/* DEC-271 D-10 company identity, verbatim. */}
         <p>
-          AssuredForge is developed and operated by Tierra LLC, a Michigan-based software company focused on software
+          AssuredForge is developed and operated by <a href="https://tierra-llc.com/">Tierra LLC</a>, a Michigan-based software company focused on software
           delivery governance, traceability and audit-ready release management.
         </p>
+        <p>In plain words: software that records who approved each change, how it was checked and where it was deployed.</p>{/* CL-28 plain line (DEC-470 (9)) */}
       </Section>
       <Section title="Contact">
         <ul className="space-y-1">
@@ -22,3 +23,6 @@ export default function About() {
     </Layout>
   );
 }
+
+// No client script: the page has no interactive features (page weight, A11Y-PERF-FINDINGS F-3).
+export const config = { unstable_runtimeJS: false };

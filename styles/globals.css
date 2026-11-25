@@ -1,39 +1,46 @@
 @import "tailwindcss";
+@import "./tokens.generated.css";
 
-/* Brand palette (DEC-271 D-12): Forge Navy #0F2744, Steel Blue #355E8D, Forge Gold #B77A2F.
-   WCAG 2.2 AA: text tokens reach 4.5:1 on both surfaces. Gold is for rules, borders and icon details only:
-   it is 3.6:1 on white, enough for non-text graphics but never for small text. */
-@theme {
-  --color-surface: #ffffff;
-  --color-surface-alt: #f4f6f8;
-  --color-ink: #0f2744;
-  --color-ink-muted: #44525f;
-  --color-accent: #355e8d;
-  --color-accent-ink: #ffffff;
-  --color-gold: #b77a2f;
-  --color-rule: #d5dbe1;
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-surface: #0b1a2e;
-    --color-surface-alt: #132339;
-    --color-ink: #e8edf2;
-    --color-ink-muted: #b4becd;
-    --color-accent: #8fb3dd;
-    --color-accent-ink: #0f2744;
-    --color-gold: #b77a2f;
-    --color-rule: #2a3a50;
-  }
-}
+/* Every colour, size, radius and font below comes from the generated tokens (scripts/tokens.mjs, from design/tokens.json).
+   Never type one by hand here: scripts/check-tokens.mjs fails the build on it. Gold is for graphics only, never text. */
 
 /* Base layer, so Tailwind utilities (for example a button's text colour) override these defaults. */
 @layer base {
   html { background: var(--color-surface); color: var(--color-ink); }
-  body { font-size: 1.0625rem; line-height: 1.7; }
+  body { font-size: var(--text-body-lg); line-height: var(--text-body-lg--line-height); }
+  h1 { font-family: var(--font-display); font-size: var(--text-display-lg); line-height: var(--text-display-lg--line-height); font-weight: 700; letter-spacing: var(--text-display-lg--letter-spacing); }
+  h2 { font-family: var(--font-display); font-size: var(--text-heading-2); line-height: var(--text-heading-2--line-height); font-weight: 600; }
+  h3 { font-family: var(--font-display); font-size: var(--text-heading-3); line-height: var(--text-heading-3--line-height); font-weight: 600; }
+  code { font-family: var(--font-mono); font-size: var(--text-code); }
+  /* The body face ships 400 and 600; the default bolder (from 400) would ask for 700, which has no file. */
+  b, strong { font-weight: 600; }
   /* Text links are underlined (WCAG 1.4.1: link colour alone is too close to body text); navigation links,
      buttons and the wordmark opt out with no-underline. */
   a { color: var(--color-accent); text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
-  a:focus-visible, button:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+  a:hover, a:active { color: var(--color-accent-hover); }
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
 }
+
+/* Components from the design system: Button, Card, Tierra bar. */
+@layer components {
+  .btn { display: inline-flex; min-height: var(--target-min); min-width: var(--target-min); align-items: center; justify-content: center; padding: 0 var(--space-5); border-radius: var(--radius-md); font-size: var(--text-body); line-height: var(--text-body--line-height); font-weight: 600; text-decoration-line: none; transition: background-color 150ms, color 150ms; }
+  .btn-primary { background: var(--color-accent); color: var(--color-accent-ink); border: 1px solid var(--color-accent); }
+  .btn-primary:hover, .btn-primary:active { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
+  .btn-secondary { background: var(--color-surface); color: var(--color-accent); border: 1px solid var(--color-control-border); }
+  .btn-secondary:hover { background: var(--color-accent-soft); }
+  .card { background: var(--color-surface); border: 1px solid var(--color-rule); border-radius: var(--radius-lg); box-shadow: var(--shadow-1); padding: var(--space-4); }
+  @media (min-width: 40rem) { .card { padding: var(--space-5); } }
+  /* Phone menu panel (header): a menu, so it lifts with shadow-2 (README section 8). */
+  /* In the page flow (OI-621, WCAG 2.4.11): the open menu pushes the page down instead of covering it, so a focused link is never hidden. */
+  .menu-panel { clear: both; margin-top: var(--space-2); background: var(--color-surface); border: 1px solid var(--color-rule); border-radius: var(--radius-lg); box-shadow: var(--shadow-2); padding: var(--space-2) var(--space-4); }
+  /* Tierra bar: the same navy and ink in both themes (README section 5). Gold on the bar is a graphic only. */
+  .tierra-bar { background: var(--color-bar); color: var(--color-bar-ink); }
+  .tierra-bar-link { display: inline-flex; height: var(--target-min); align-items: center; color: var(--color-bar-ink); text-decoration-line: none; }
+  .tierra-bar-link:focus-visible { outline: 3px solid var(--color-bar-ink); outline-offset: 2px; }
+  .tierra-wordmark { display: block; height: 36px; width: 150px; }
+  .tw-ink { stroke: var(--color-bar-ink); }
+  .tw-gold { stroke: var(--gold-dark); }
+  .tw-text { fill: var(--color-bar-ink); font-family: var(--font-display); }
+}
+
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } }

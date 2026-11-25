@@ -54,7 +54,7 @@ Content follows AD-010 (AssuredForge architecture directives): capability-first 
 
 ## Brand
 
-Direction A "Thread Check" mark (DEC-271 D-12): `public/brand/` (mark, reversed mark), `public/icon.svg`, `public/favicon.ico`,
+Direction A "Thread Check" mark (DEC-271 D-12): `public/icon.svg`, `public/favicon.ico`,
 `public/apple-touch-icon.png` and `public/og.png` (link previews). Palette: Forge Navy `#0F2744`, Steel Blue `#355E8D`,
 Forge Gold `#B77A2F`; gold only for rules, borders, icon details and the mark, never for small text. Contacts (D-6):
 info@ (main), support@, security@, billing@ (About page only).

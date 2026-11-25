@@ -16,6 +16,8 @@ const pages = [dir, ...dirs(dir)]
   .filter((d) => existsSync(join(d, "index.html")))
   .map((d) => `/${relative(dir, d).split(sep).join("/")}/`.replace(/^\/\/$/, "/"))
   .filter((p) => !/^\/(404|500|_next)\b/.test(p))
+  // A moved page forwards with a meta refresh (components/Layout.tsx "forward") and is not listed.
+  .filter((p) => !/<meta\b[^>]*http-equiv="refresh"/i.test(readFileSync(join(dir, p, "index.html"), "utf8")))
   .sort();
 
 const urls = pages.map((p) => `  <url><loc>${site.origin}${p}</loc></url>`).join("\n");

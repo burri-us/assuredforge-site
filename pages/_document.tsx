@@ -1,5 +1,6 @@
 import { Head, Html, Main, NextScript } from "next/document";
 import site from "../site.json";
+import { themeColor } from "../components/tokens.generated";
 
 // Same-origin only: no third-party scripts, styles, fonts, images or frames; no forms. GitHub Pages can't send response
 // headers, so the policy is a meta element (frame-ancestors can't be set this way).
@@ -30,7 +31,7 @@ export default function Document() {
       <Head>
         <meta httpEquiv="Content-Security-Policy" content={CSP} />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
-        <meta name="theme-color" content="#0F2744" />
+        <meta name="theme-color" content={themeColor} />
         <link rel="icon" href={`${BASE}/favicon.ico`} sizes="32x32" />
         <link rel="icon" href={`${BASE}/icon.svg`} type="image/svg+xml" />
         <link rel="apple-touch-icon" href={`${BASE}/apple-touch-icon.png`} />

@@ -34,6 +34,7 @@ jobs:
         env:
           BASE_PATH: ${{ inputs.target == 'preview' && format('/{0}', github.event.repository.name) || '' }}
           SITE_INDEX: ${{ inputs.index && '1' || '0' }}
+          SITE_PUBLISH: "1"
         run: npm run build
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:

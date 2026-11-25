@@ -110,3 +110,37 @@ Effort: assuredforge.com about 4 hours; tierra-llc.com about 1 hour on top of th
 5. The sixth pillar, and whether the pillars replace or map onto Plan / Build / Decide / Prove.
 6. Pillars on the site: the governance part as fact, the rest with state badges (recommended), or held until more are true.
 7. Tomorrow's release: ship the approved copy unchanged and apply this as the next preview round (recommended), or hold the release.
+
+## 8. Owner decisions (DEC-637, amended; records ffd6906f, held) and the preview copy
+
+**Decided:** (1) tagline "Build. Govern. Prove."; (2) "capability governance" and "capability coordination" instead of "workforce"
+(until FD-93); (3) the short one-liner on the sites now, the full form when Skills is more than Planned; (4) "capabilities" in headlines
+and names only, claim sentences keep "agents" (DEC-592 stands); (5) six pillars mapped onto Plan / Build / Decide / Prove, not replacing
+them; (6) Governance as fact, the others with their state labels; (7) the release ships the DEC-592 copy unchanged; this is the next
+preview round. Rows CL-74 to CL-85, all Draft until this preview round passes the owner's review.
+
+**Preview copy on this branch** (wording verbatim from CL-74 to CL-85; one source, `components/Brand.tsx`):
+
+| Place | Change | Row |
+|---|---|---|
+| Home hero | Headline "From goals to execution"; lead "Turn business objectives into governed, evidence-backed outcomes, starting with software delivery."; the existing switch lead stays under it | CL-74, CL-75 |
+| Home meta description | One-liner | CL-77 |
+| Home, new section "Plan, build, decide, prove" | Plan: Goal alignment (Being validated). Build: Skills and expertise (Planned), Model independence (Being validated). Decide: Governance (Available today), Cost governance (Being validated). Prove: Observability (Being validated) | CL-79 to CL-84 |
+| Every page footer | "Build. Govern. Prove." under the wordmark | CL-76 |
+| Footer, Platform link and section title, product page title | "Agent-prepared delivery" → "Governed execution"; "Agents prepare, people decide" → "Governed execution, human approval" | CL-85 |
+| How it works step title (AI switch on) | "Agents build" → "Capabilities build" | CL-85 |
+| Unchanged | Claim sentences with "agents", FAQ, hold wording, disclosure pages; tierra-llc.com (CL-78 goes with the content refresh, DEC-608) | |
+
+WR-01: the Observability, Cost governance and Model independence sentences (CL-81, CL-83, CL-84) state AI facts, so they show only with
+the AI switch on; with it off (today) those three pillars show their name and state only. The AI switch check found this on the first
+build and passes now.
+
+**Checks on the preview build (2026-11-24):** preview build passed (34 pages; token, plain-language and site checks); AI switch check
+passed for both values; fonts 0 problems; accessibility (axe, WCAG 2.2 AA) on Home, Platform and the Governed execution page, light and
+dark at 1440 and 390 px, plus 320 px overflow: 15 runs, 0 problems. The release build (`SITE_PUBLISH=1`) **refuses** every page, as
+intended: each carries the pending marker for CL-76 in the footer, and Home also for CL-74, CL-75, CL-77 and CL-79 to CL-85. Home
+screenshots (light and dark, 1440 and 390 px) were taken for the review and are sent on request; they are not committed.
+
+**For the owner at the preview review:** the pillar-to-step mapping (Goal alignment to Plan; Skills and Model independence to Build;
+Governance to Decide, with its "recorded and verifiable" half also proving; Cost governance to Decide; Observability to Prove); the
+three switch-dependent pillars showing no sentence while the AI switch is off; then the rows move from Draft and the markers come out.

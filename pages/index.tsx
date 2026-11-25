@@ -3,7 +3,8 @@ import { Layout, Section } from "../components/Layout";
 import { AI } from "../components/AiWording";
 import { FlowDiagram } from "../components/FlowDiagram";
 import { POSITION } from "../components/Positioning";
-import { primary, secondary, VideoSlot } from "../components/Blocks";
+import { BRAND, PILLAR_GROUPS } from "../components/Brand";
+import { primary, secondary, Status, VideoSlot } from "../components/Blocks";
 import { CheckIcon, GateIcon, ShieldCheckIcon, ThreadIcon } from "../components/Icons";
 
 // DRAFT COPY (W11, DEC-433). Every claim carries the claims-register (0.3) entry it rests on, or CLAIM-UNVERIFIED.
@@ -40,7 +41,7 @@ export default function Home() {
   return (
     <Layout
       title="AssuredForge: Software delivery governance platform"
-      description="Governed software delivery with traceability, release approvals signed by named people and a tamper-evident audit chain. For individuals and small teams today; a hosted edition for organizations is planned."
+      description={BRAND.oneLiner}
     >
       <div className="grid items-center gap-10 pb-12 sm:pt-8 lg:grid-cols-2">
         <div>
@@ -48,8 +49,10 @@ export default function Home() {
             {AI.tag}
             <span aria-hidden="true" className="mt-2 block h-[3px] w-10 bg-gold" />
           </p>
-          <h1 className="mt-5 sm:text-display-xl">{AI.heroTitle}</h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink">{AI.heroLead}</p>
+          <h1 className="mt-5 sm:text-display-xl">{BRAND.heroTitle}</h1>
+          <p className="mt-6 max-w-2xl text-xl leading-relaxed text-ink">{BRAND.heroLead}</p>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink">{AI.heroLead}</p>
+          <p className="mt-2 text-sm text-muted">{BRAND.heroPending}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link href="/design-partners/" className={primary}>Become a design partner</Link>
             <Link href="/demo/" className={secondary}>Watch the demo</Link>
@@ -71,6 +74,30 @@ export default function Home() {
           </li>
         ))}
       </ul>
+
+      <Section title="Plan, build, decide, prove">
+        {/* Six pillars (DEC-637; plan §7 (5), (6)): governance as fact; the others with their claims-register state. */}
+        <p className="text-sm text-muted">{BRAND.pillarsPending}</p>
+        <div className="grid gap-8 stack:grid-cols-2 lg:grid-cols-4">
+          {PILLAR_GROUPS.map((g) => (
+            <div key={g.step}>
+              <h3 className="text-heading-3">
+                {g.step}
+                <span aria-hidden="true" className="mt-2 block h-[3px] w-8 bg-gold" />
+              </h3>
+              <ul className="mt-4 space-y-6">
+                {g.pillars.map((p) => (
+                  <li key={p.name}>
+                    <p className="font-semibold text-ink">{p.name}</p>
+                    <p className="mt-1"><Status kind={p.state} /></p>
+                    {p.text ? <p className="mt-2 text-body-sm">{p.text}</p> : null}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       <Section title="Who approved what, and why?">
         {/* CL-03, CL-05, CL-06. The AI sentence follows the WS-01 switch. */}

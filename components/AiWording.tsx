@@ -38,10 +38,10 @@ export const AI = ON
       modelPath: "The evaluation kit works with your own Anthropic API key. Other model sources appear in Setup only once they are supported for your installed version.",
       // WR-04: how it works, in plain words.
       how: [
-        { t: "Agents build", d: "Agent-assisted planning and delivery prepares the work for a Feature, under human governance." }, // CL-40R
+        { t: "Capabilities build", d: "Agent-assisted planning and delivery prepares the work for a Feature, under human governance." }, // CL-40R
         { t: "Independent tests check", d: "Each agent-built delivery is checked by an independent test suite written from the requirements, which stays fixed across reworks." }, // CL-50
       ],
-      flow: ["Requirement", "Agents build", "Independent tests", "Your approval", "Release and proof"],
+      flow: ["Requirement", "Capabilities build", "Independent tests", "Your approval", "Release and proof"],
       flowAlt: "Five steps in order: a requirement is recorded, agents build the work, independent tests check it, you approve it, and it is released with the proof recorded.",
       demoShot: "Model key, run budget and monthly limit (Setup)",
       installStep: "Create your Tenant, then enter your own model key in Setup. Model execution stays off until an administrator turns it on.",

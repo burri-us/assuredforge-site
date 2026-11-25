@@ -5,6 +5,7 @@ import { FlowDiagram } from "../components/FlowDiagram";
 import { POSITION } from "../components/Positioning";
 import { BRAND, PILLAR_GROUPS, PILLARS_HELD, PILLARS_ON, pillarKind, pillarShown } from "../components/Brand";
 import { NAMES } from "../components/BrandNames";
+import { LearnerLine } from "../components/Learning";
 import { primary, secondary, Status, VideoSlot } from "../components/Blocks";
 import { CheckIcon, GateIcon, ShieldCheckIcon, ThreadIcon } from "../components/Icons";
 
@@ -196,6 +197,7 @@ export default function Home() {
       <Section title="Who it is for">
         {/* CL-51 (DEC-439 P-1, option B); CL-02 with both audiences named (O-1). Wording in components/Positioning.tsx. */}
         <p className="max-w-[70ch]">{POSITION.desktop} {POSITION.desktopWho}</p>
+        <LearnerLine />
         <p className="max-w-[70ch]">{POSITION.hosted}</p>
         <p>More: <Link href="/solutions/individuals/">Individuals and small teams</Link>, <Link href="/deployment/">Editions and deployment</Link> and <Link href="/industries/">Industries</Link>.</p>
       </Section>

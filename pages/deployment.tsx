@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Layout, Section, Title } from "../components/Layout";
+import { Licenses, LICENSES_SHOWN } from "../components/Learning";
 import { AI } from "../components/AiWording";
 import { POSITION } from "../components/Positioning";
 import { Bullets, ShotSlot, Status } from "../components/Blocks";
@@ -48,6 +49,13 @@ export default function Deployment() {
         </ol>
         <ShotSlot title="The launcher and first sign-in" />
       </Section>
+
+      {LICENSES_SHOWN ? (
+        <Section title="Licenses">
+          {/* CL-93 to CL-95 (components/Learning.tsx); minimum PC requirements stay CL-54 (System requirements above) */}
+          <Licenses />
+        </Section>
+      ) : null}
 
       <Section title="Where else AssuredForge runs">
         <ul className="list-disc space-y-2 pl-6">

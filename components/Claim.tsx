@@ -7,6 +7,7 @@
 import type { ReactNode } from "react";
 import snapshot from "../content/claims-state.json";
 import { pending } from "./Registered";
+import type { StatusKind } from "./Blocks";
 
 export type ClaimState = "Current" | "Decided" | "Approved wording" | "Being validated" | "Planned" | "Draft" | "Withdrawn";
 export const CLAIMS_PREVIEW = process.env.AF_CLAIMS_PREVIEW === "1";
@@ -36,6 +37,19 @@ export function claimOr<T>(row: string, value: T, fallback: T, when: ClaimState[
   const state = ROWS[row];
   if (!state) return pending(`${row} not in content/claims-state.json`);
   return when.includes(state) || CLAIMS_PREVIEW ? value : fallback;
+}
+
+// Whether a row's content shows: its state allows it, or a review preview. For list items and paragraphs that carry their own
+// heldNote() marker inside them (a <div> or bare text inside <ul> is invalid markup).
+export function claimShown(row: string, when: ClaimState[] = ["Current"]): boolean {
+  const state = ROWS[row];
+  return (state !== undefined && when.includes(state)) || CLAIMS_PREVIEW;
+}
+
+// The status label for a row shown as a state line (owner decision 1, DEC-671): from its state, or the intended label while Draft.
+export function claimKind(row: string, intended: StatusKind): StatusKind {
+  const state = ROWS[row];
+  return state === "Current" ? "today" : state === "Being validated" ? "validated" : state === "Planned" ? "planned" : intended;
 }
 
 // The marker line for a review preview: the rows on this part of the page that are still held, or null.

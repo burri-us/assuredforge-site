@@ -60,7 +60,7 @@ export default function Home() {
             <Link href="/demo/" className={secondary}>Watch the demo</Link>
           </div>
           <p className="mt-3 text-sm text-muted">
-            <a href="mailto:info@assuredforge.com">info@assuredforge.com</a> · We reply personally
+            <a href="mailto:info@assuredforge.com">info@assuredforge.com</a>. We reply personally.
           </p>
         </div>
         <FlowDiagram />
@@ -134,8 +134,8 @@ export default function Home() {
         )}
         {/* The "Read more" links of the former Govern / Trace / Prove / Build tiles (owner, pre-review change 1: one set of pillars). */}
         <p className="mt-8 text-body-sm">
-          Read more: <Link href="/product/governance/">Governance and approvals</Link> · <Link href="/product/traceability/">Traceability</Link> ·{" "}
-          <Link href="/product/audit/">Audit and evidence</Link> · <Link href="/product/ai-assisted-delivery/">{NAMES.deliveryPage}</Link>
+          Read more: <Link href="/product/governance/">Governance and approvals</Link>, <Link href="/product/traceability/">Traceability</Link>,{" "}
+          <Link href="/product/audit/">Audit and evidence</Link> and <Link href="/product/ai-assisted-delivery/">{NAMES.deliveryPage}</Link>.
         </p>
       </Section>
       ) : null}
@@ -197,7 +197,7 @@ export default function Home() {
         {/* CL-51 (DEC-439 P-1, option B); CL-02 with both audiences named (O-1). Wording in components/Positioning.tsx. */}
         <p className="max-w-[70ch]">{POSITION.desktop} {POSITION.desktopWho}</p>
         <p className="max-w-[70ch]">{POSITION.hosted}</p>
-        <p><Link href="/solutions/individuals/">Individuals and small teams</Link> · <Link href="/deployment/">Editions and deployment</Link> · <Link href="/industries/">Industries</Link></p>
+        <p>More: <Link href="/solutions/individuals/">Individuals and small teams</Link>, <Link href="/deployment/">Editions and deployment</Link> and <Link href="/industries/">Industries</Link>.</p>
       </Section>
 
       <section className="mt-12 card border-l-4 border-l-gold sm:p-8">

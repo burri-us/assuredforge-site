@@ -193,6 +193,50 @@ for (const planted of ["COUNSEL-LIST.md", "HANDOFF.md", "LANE-HANDOFF.md", "DIFF
   if (servedProblems([planted]).length !== 1) report.push(`served-file check: planted ${planted} was not caught`);
 }
 
+// DEC-674 (owner): public text is US English, plain and human-written. In visible text, the title, the meta description and alt
+// text: no em dash, no spaced en dash used as punctuation, no arrows or middle dots as separators, and no British spellings.
+// Text inside <code> and <pre> (a command or file name quoted exactly) is exempt. HELD_LICENCE: "licence" on the three legal texts
+// that must match the signed design-partner agreement, and the footer link to one of them, held for counsel (owner, 2026-11-22)
+// until the owner decides how DEC-674 applies to them.
+const STYLE_RULES = [
+  ["em dash", /—/],
+  ["en dash used as punctuation", /\s–\s/],
+  ["arrow", /[←-↓⇐-⇔➔⟵-⟶]/],
+  ["middle dot separator", /\s·\s/],
+  ["British spelling", /\b(licen[cs]e?s?d?|licence\w*|organis\w*|personalis\w*|behaviour\w*|colour\w*|favour\w*|recognis\w*|analys(?:e|ed|es|ing)|cancell(?:ed|ing)|labell(?:ed|ing)|modell(?:ed|ing)|travell(?:ed|ing)|centre[sd]?|catalogue[sd]?|programme[sd]?|whilst|amongst|defence|judgement|enrolment|fulfil|fulfilment)\b/i],
+];
+const HELD_LICENCE = new Set(["legal/evaluation-licence/index.html", "legal/acceptable-use/index.html", "legal/design-partner-agreement/index.html"].map((p) => join(...p.split("/"))));
+const styleText = (html) => {
+  const body = html.replace(/<script\b[\s\S]*?<\/script>/gi, "").replace(/<style\b[\s\S]*?<\/style>/gi, "").replace(/<!--[\s\S]*?-->/g, "")
+    .replace(/<(code|pre)\b[\s\S]*?<\/\1>/gi, " ");
+  const attrs = [...body.matchAll(/<meta\b[^>]*name="description"[^>]*content="([^"]*)"|\salt="([^"]*)"|<title>([^<]*)<\/title>/gi)].map((m) => m[1] ?? m[2] ?? m[3]);
+  return `${body.replace(/<[^>]+>/g, " ")} ${attrs.join(" ")}`.replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#x27;|&apos;/g, "'").replace(/\s+/g, " ");
+};
+function styleProblems(text, page) {
+  const out = [];
+  for (const [name, re] of STYLE_RULES) {
+    for (const m of text.matchAll(new RegExp(re.source, re.flags.includes("g") ? re.flags : re.flags + "g"))) {
+      const word = m[0].toLowerCase();
+      if (name === "British spelling") {
+        if (/^licen[cs]e?s?d?$/.test(word) && !word.includes("licence")) continue;   // license, licensed, licenses: US
+        if (word.startsWith("licence") && (HELD_LICENCE.has(page) || /Evaluation licence/.test(text.slice(Math.max(0, m.index - 11), m.index + 7)))) continue;
+      }
+      out.push(`${name} "${text.slice(Math.max(0, m.index - 25), m.index + 25).trim()}"`);
+    }
+  }
+  return out;
+}
+for (const file of files(dir).filter((f) => f.endsWith(".html"))) {
+  for (const p of styleProblems(styleText(readFileSync(file, "utf8")), relative(dir, file))) report.push(`${relative(dir, file)}: style (DEC-674): ${p}`);
+}
+// Negative test: planted style problems must be caught; plain US text, a range with an en dash, and code must not.
+for (const t of ["Tierra — tools", "a – b", "Next → step", "A · B", "our organisation", "the licence", "behaviour", "colours"]) {
+  if (!styleProblems(t, "x").length) report.push(`style check: planted "${t}" was not caught`);
+}
+for (const t of ["our organization", "the license is licensed", "pages 9–12", "Evaluation licence", styleText("<p>run <code>licence.py</code></p>")]) {
+  if (styleProblems(t, "x").length) report.push(`style check: "${t}" was caught`);
+}
+
 const markerPages = new Set(markerWarnings.map((w) => w.split(":")[0]));
 if (publish) for (const w of markerWarnings) report.push(`publish: visible marker ${w}`);
 else {

@@ -193,7 +193,7 @@ export function Layout({
             <Wordmark className="text-heading-3" />
             {BRAND.tagline ? <p className="mt-1 font-semibold text-ink">{BRAND.tagline}</p> : null}
             {BRAND.taglineHeld ? <p className="mt-1 text-sm">{BRAND.taglineHeld}</p> : null}
-            <p className="mt-1">© 2026 Tierra LLC · Michigan, USA</p>
+            <p className="mt-1">© 2026 Tierra LLC, Michigan, USA</p>
             <p className="mt-1"><a href="https://tierra-llc.com/">A product of Tierra LLC</a></p>
           </div>
           <ul className="flex flex-wrap gap-x-5 gap-y-1 stack:justify-end">

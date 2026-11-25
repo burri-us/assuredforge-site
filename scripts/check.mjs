@@ -176,7 +176,7 @@ const SERVED_ALLOW = [
   /^([a-z0-9-]+\/)*index\.html$/, /^404\.html$/,
   /^_next\/static\/[A-Za-z0-9_.~/-]+\.(js|css|woff2)$/,
   /^fonts\/OFL-(Inter|SpaceGrotesk|JetBrainsMono)\.txt$/,
-  /^(favicon\.ico|icon\.svg|apple-touch-icon\.png|og\.png|robots\.txt|sitemap\.xml|\.well-known\/security\.txt)$/,
+  /^(favicon\.ico|icon\.svg|apple-touch-icon\.png|og\.png|og-brand\.png|robots\.txt|sitemap\.xml|\.well-known\/security\.txt)$/,
 ];
 const servedProblems = (list) => list.filter((f) => !SERVED_ALLOW.some((re) => re.test(f)));
 const servedFiles = files(dir).map((f) => relative(dir, f).split("\\").join("/"));
@@ -187,6 +187,10 @@ for (const n of ["Inter", "SpaceGrotesk", "JetBrainsMono"]) if (!servedFiles.inc
 if (!servedFiles.includes("third-party-notices/index.html")) report.push("third-party-notices/index.html: missing (the fonts' licence notices)");
 for (const f of servedFiles.filter((f) => f.endsWith("index.html") || f === "404.html")) {
   if (!/<footer\b[\s\S]*href="[^"]*\/third-party-notices\/"[\s\S]*<\/footer>/.test(readFileSync(join(dir, f), "utf8"))) report.push(`${f}: footer link to the third-party notices missing`);
+}
+// SB2 held asset (scripts/held-assets.mjs): served only when a page uses it, so held wording never sits at an address.
+if (servedFiles.includes("og-brand.png") && !servedFiles.filter((f) => f.endsWith(".html")).some((f) => readFileSync(join(dir, f), "utf8").includes("/og-brand.png"))) {
+  report.push("og-brand.png: served but no page uses it (its wording is held; run the build, which runs scripts/held-assets.mjs)");
 }
 // Negative test: planted internal files must be caught.
 for (const planted of ["COUNSEL-LIST.md", "HANDOFF.md", "LANE-HANDOFF.md", "DIFFERENCES.md", "legal/DIFFERENCES.html", "scripts/check.mjs", "notes.txt"]) {

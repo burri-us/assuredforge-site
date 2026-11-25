@@ -6,3 +6,6 @@ next-env.d.ts
 .env*
 
 .build-*/
+
+# SB2: held-asset copies (scripts/held-assets.mjs)
+public/og-brand.png

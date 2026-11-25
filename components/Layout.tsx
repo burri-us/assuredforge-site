@@ -100,10 +100,10 @@ export function Layout({
         <meta property="og:site_name" content="AssuredForge" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={`${SITE}/og.png`} />
+        <meta property="og:image" content={`${SITE}${BRAND.ogImage}`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="AssuredForge: Build anywhere. Deploy anywhere. Govern everywhere." />
+        <meta property="og:image:alt" content={BRAND.ogAlt} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:bg-surface focus:p-2">

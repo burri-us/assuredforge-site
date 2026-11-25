@@ -13,7 +13,13 @@ import type { StatusKind } from "./Blocks";
 const TODAY_DESCRIPTION =
   "Governed software delivery with traceability, release approvals signed by named people and a tamper-evident audit chain. For individuals and small teams today; a hosted edition for organizations is planned.";
 
+// Share image and its alt text (assessor finding 2026-11-25: today's carry CL-01 "Build anywhere ..."). The new image rests on
+// CL-74 and CL-76 and is copied into public/ under the same condition (scripts/held-assets.mjs).
+const OG_ON = claimOr("CL-74", true, false, WORDING) === true && claimOr("CL-76", true, false, WORDING) === true;
+
 export const BRAND = {
+  ogImage: OG_ON ? "/og-brand.png" : "/og.png",
+  ogAlt: OG_ON ? "AssuredForge: From goals to execution. Build. Govern. Prove." : "AssuredForge: Build anywhere. Deploy anywhere. Govern everywhere.",
   heroTitle: String(claimOr("CL-74", "From goals to execution", AI.heroTitle, WORDING)),
   heroLead: claimOr<string | null>("CL-75", "Turn business objectives into governed, evidence-backed outcomes, starting with software delivery.", null, WORDING),
   oneLiner: String(claimOr("CL-77", "AssuredForge turns business goals into governed, evidence-backed execution, starting with software delivery.", TODAY_DESCRIPTION, WORDING)),

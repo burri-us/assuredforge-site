@@ -2,7 +2,14 @@
 
 Author: Burri. Written 2026-11-21, when this window was archived. It is the starting point; STATUS.md stays the running record.
 
-**Latest (2026-11-25, morning):**
+**Latest (2026-11-25, midday):** SB2 preview ready for the owner's one review: `docs/SB2-PREVIEW-REVIEW.md` on `sb2-claims-gate`
+(worktree `site-sb2`) and tierra-site `sb2-tierra` (worktree `tierra-sb2`); screenshots in `C:\Users\burri\AF-backups\site-brand-2026-11-25\sb2-preview\`.
+Claims gate on both sites (snapshot at architecture 3ea0b1b7; `npm run claims:sync` / `python tools/claims.py sync`); DEC-674 style
+check on both sites (four licence exemptions per DEC-675). SB1 complete as a preview on `sb1-account-preview` (worktree `site-sb1`);
+its internal sign-in test waits (browser sign-in only, outside closed windows, Kit's limits). Nothing pushed. A read-only blobless
+architecture clone for syncing is kept in a temporary working folder; re-clone if it is gone.
+
+**Earlier (2026-11-25, morning):**
 - **Both site releases are live** (owner approval, DEC-654 rule 10, DEC-658 merge commits on the empty-diff condition):
   - assuredforge.com: PR #9, merge 929ea361 (tree equal to 4b5df64), deploy run 45624726859 (custom-domain, index=false,
     SITE_INDEX 0, robots indexing on). Live compare 33 pages with no problems; live axe 20 runs, 0 problems.

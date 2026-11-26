@@ -24,7 +24,7 @@ export default function Demo() {
         </Section>
       )}
       <Section title={SHOW_PLACEHOLDERS ? "Screenshots" : "What the walkthrough shows"}>
-        <p className="mb-4">The Digital Thread is one connected record from requirement to Release, approval, push and recorded deployment, and back.</p>
+        <p className="mb-4">The Digital Thread is one connected record from requirement to Release, approval and push, and back.</p>
         <div className="grid gap-6 stack:grid-cols-2">
           {SHOTS.map((s) => <ShotSlot key={s} title={s} />)}
         </div>

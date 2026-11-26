@@ -10,7 +10,7 @@ export default function About() {
           AssuredForge is developed and operated by <a href="https://tierra-llc.com/">Tierra LLC</a>, a Michigan-based software company focused on software
           delivery governance, traceability and release records you can export.
         </p>
-        <p>In plain words: software that records who approved each change, how it was checked and where it was deployed.</p>{/* CL-28 plain line (DEC-470 (9)) */}
+        <p>In plain words: software that records who approved each change, how it was checked and which Release carried it.</p>{/* CL-28 plain line (DEC-470 (9)) */}
       </Section>
       <Section title="Contact">
         <ul className="space-y-1">

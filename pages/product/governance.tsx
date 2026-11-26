@@ -8,7 +8,8 @@ export default function Governance() {
       <p className="mt-4"><Status kind="today" /></p>
       <Section title="Recorded stages">
         {/* CL-08 */}
-        <p>A Release (a deployable package of one or more Features) moves through Feature, Release, Delivery (the commits that implement it), Integration (combining the delivered changes), UAT (user acceptance testing), Approval, Push and Deployment in the Portal. A step its rules do not allow is refused, with the reason.</p>
+        <p>A Release (a deployable package of one or more Features) moves through Feature, Release, Delivery (the commits that implement it), Integration (combining the delivered changes), UAT (user acceptance testing), Approval and Push in the Portal. A step its rules do not allow is refused, with the reason.</p>
+        <p>Deployment recording against the approved Release is coming next, starting with the hosted edition. The desktop edition doesn&apos;t record deployments today.</p>
       </Section>
       <Section title="Signed approvals">
         <Bullets items={[

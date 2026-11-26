@@ -7,17 +7,18 @@ import { NAMES } from "../components/BrandNames";
 // Current State only (DEC-262): what the released platform does today. Anything not released is marked "planned".
 export default function Platform() {
   return (
-    <Layout title="Platform | AssuredForge" description="How AssuredForge governs software delivery today: signed approvals, a connected record from requirement to deployment, and a verifiable audit chain.">
+    <Layout title="Platform | AssuredForge" description="How AssuredForge governs software delivery today: signed approvals, a connected record from requirement to Release, and a verifiable audit chain.">
       <Title>How AssuredForge governs delivery</Title>
       <Section title="Governance first">
-        <p>Every Release (a deployable package of one or more Features) moves through recorded stages: Deliveries (the commits that implement them) recorded, the delivered changes combined and tests run, user acceptance test (UAT) result recorded, approved with a signed decision, pushed to the main line (your main code line, the branch your team treats as the current version) and deployment recorded. A step that its rules do not allow is refused, with the reason.</p>
+        <p>Every Release (a deployable package of one or more Features) moves through recorded stages: Deliveries (the commits that implement them) recorded, the delivered changes combined and tests run, user acceptance test (UAT) result recorded, approved with a signed decision, pushed to the main line (your main code line, the branch your team treats as the current version). A step that its rules do not allow is refused, with the reason.</p>
+        <p>Deployment recording against the approved Release is coming next, starting with the hosted edition. The desktop edition doesn&apos;t record deployments today.</p>
         <p>Each release passes the readiness suite (one shared test suite) on the desktop edition and on the installation that runs our own internal pilot, before it reaches that pilot.</p>{/* CL-30 verbatim (revised, DEC-469); moved from the Regulated page, DEC-472 (2) */}
       </Section>
       <Section title="Human accountability">
         <p>Only people approve: automation never does. Only a named person holding the required role, within its scope, can approve, and each approval records the person, the role assignment that authorized it and the reason. Roles are granted for the whole Tenant (your organization's account), a Workspace (a separate space inside it, for example for one client) or a Portfolio (a long-lived product line or initiative).</p>
       </Section>
       <Section title="Traceability and the Digital Thread">
-        <p>The Digital Thread is one connected record from requirement to Release, approval, push and recorded deployment, and back: Visions (business initiatives: the what and why), Requirements (statements of business need that must be satisfied and verified), Features, Releases, their Deliveries, UAT results, approvals, pushes and deployments in one connected record.</p>
+        <p>The Digital Thread is one connected record from requirement to Release, approval and push, and back: Visions (business initiatives: the what and why), Requirements (statements of business need that must be satisfied and verified), Features, Releases, their Deliveries, UAT results, approvals and pushes in one connected record.</p>
       </Section>
       <Section title="Audit and evidence">
         <p>Every governed action (an action the platform records because its rules govern it, such as an approval, a sign-off or a decision) is written to a tamper-evident audit chain (a record of every governed action, whose entries cannot be updated or deleted by any role) that you can verify. A Tenant&apos;s records can be exported as a signed export that can be verified offline.</p>

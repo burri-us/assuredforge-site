@@ -27,7 +27,7 @@ const STEPS = [
   { t: "You approve", d: "A named person with the required role approves, and the approval is signed and recorded.", shot: "The approval record with a signature" }, // CL-05
   {
     t: "You can show it",
-    d: "The push and the deployment are recorded against the approved Release (a deployable package of one or more Features), and your records can be exported and verified offline.",
+    d: "The push is recorded against the approved Release (a deployable package of one or more Features), and your records can be exported and verified offline. Deployment recording against the approved Release is coming next, starting with the hosted edition. The desktop edition doesn't record deployments today.",
     shot: "The Release record and the evidence export",
   }, // CL-07, CL-11
 ];
@@ -35,7 +35,7 @@ const STEPS = [
 // Today's tiles: shown until the pillar section (components/Brand.tsx PILLARS_ON) replaces them.
 const TILES = [
   { title: "Govern", Icon: GateIcon, href: "/product/governance/", status: "Available today", text: "The approvals the governance requires, signed by named people whose roles are granted for the whole Tenant (your organization's account), a Workspace or a Portfolio, and release governance enforced by the platform, not by convention." }, // CL-04, CL-05, CL-13; no "Gates" on the site (assessor, sweep item 1)
-  { title: "Trace", Icon: ThreadIcon, href: "/product/traceability/", status: "Available today", text: "One connected record from requirement to Release, approval, push and recorded deployment, and back." }, // CL-03
+  { title: "Trace", Icon: ThreadIcon, href: "/product/traceability/", status: "Available today", text: "One connected record from requirement to Release, approval and push, and back." }, // CL-03
   { title: "Evidence", Icon: ShieldCheckIcon, href: "/product/audit/", status: "Available today", text: "Every governed action in a tamper-evident audit chain (a record whose entries cannot be updated or deleted by any role) that you can verify and export." }, // CL-06, CL-07
   { title: "Build", Icon: CheckIcon, href: "/product/ai-assisted-delivery/", status: AI.deliverStatus, text: AI.deliverTile }, // CL-19, CL-40R, CL-49 (on) / DEC-439 O-4 (hold)
 ];
@@ -144,7 +144,7 @@ export default function Home() {
       <Section title="Who approved what, and why?">
         {/* CL-03, CL-05, CL-06. The AI sentence follows the WS-01 switch. */}
         <p className="max-w-[70ch]">
-          AssuredForge records it: every requirement, approval, release and deployment is
+          AssuredForge records it: every requirement, approval and release is
           traceable and attributable to a named person, whether you are on your own or in a team.
         </p>
       </Section>

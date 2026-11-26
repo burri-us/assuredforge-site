@@ -9,7 +9,7 @@ import { Bullets, ShotSlot, Status } from "../components/Blocks";
 export default function Deployment() {
   return (
     <Layout title="Editions and deployment | AssuredForge" description="The desktop edition is available to design partners for evaluation; system requirements and the install path in outline. The hosted edition is planned.">
-      <Title lead="AssuredForge governs the delivery lifecycle (the steps from a requirement to its deployment: delivery, checks, approval, push and recorded deployment), not the place your software runs. Your deployment step reports each deployment back, and the Release's record shows where and when the approved change was deployed.">
+      <Title lead="AssuredForge governs the delivery lifecycle (the steps from a requirement to a release: delivery, checks, approval and push), not the place your software runs. Deployment recording against the approved Release is coming next, starting with the hosted edition. The desktop edition doesn't record deployments today.">
         Editions and deployment
       </Title>
 
